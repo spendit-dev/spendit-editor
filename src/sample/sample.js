@@ -1,6 +1,6 @@
 import { initEditor, initEditorSizingButton } from '../index.js';
 const initialize= async () => {
-    const {editor, setReadonly} = await initEditor({
+    const {editor} = await initEditor({
         targetId: 'sample-editor',
         lang: 'en',
         initialData: '<p>test</p>',
@@ -18,19 +18,21 @@ const initialize= async () => {
     });
 
     return {
-        setReadonly
+        editor
     }
 }
 
 (async () => {
-    const {setReadonly} = await initialize();
+    const {editor} = await initialize();
     const readonlyButton = document.getElementById('readonly-button');
     const editButton = document.getElementById('edit-button');
     readonlyButton.addEventListener('click', () => {
-        setReadonly(true);
+        editor.enableReadOnlyMode('test');
+        editor.ui.view.toolbar.element.style.display = 'none';
     });
     editButton.addEventListener('click', () => {
-        setReadonly(false);
+        editor.disableReadOnlyMode('test');
+        editor.ui.view.toolbar.element.style.display = 'block';
     });
 })();
 
