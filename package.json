@@ -1,6 +1,6 @@
 {
   "name": "@spendit-dev/editor",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "homepage": "https://github.com/spendit-dev/spendit-editor#readme",
   "repository": {
     "type": "git",
@@ -39,8 +39,8 @@
   },
   "scripts": {
     "dev": "vite preview --port 3003 --open",
-    "build": "tsc && vite build --config vite.config.index.js && cp -r src/assets/. dist",
-    "build-sample": "tsc && vite build --config vite.config.sample.js && cp -r src/assets/. dist"
+    "build": "tsc && vite build --config vite.config.sample.js && cp -r src/assets/. dist",
+    "build:package": "tsc && vite build --config vite.config.index.js && cp -r src/assets/. dist"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-alignment": "^41.2.1",

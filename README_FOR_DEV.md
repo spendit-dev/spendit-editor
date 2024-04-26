@@ -22,16 +22,16 @@
 ---
 
 #### 4. Scripts
-- ```yarn run build-sample``` : src/sample.js를 dist 폴더로 빌드합니다. 그리고 나서
+- ```yarn run build``` : src/sample.js를 dist 폴더로 빌드합니다. 그리고 나서
 - ```yarn run dev```를 하면, dist 폴더의 index.html을 localhost:3003으로 띄웁니다. index.html은 src/sample.js를 로드하고 있습니다.
 유지보수할 때 화면을 띄우면서 하기 위해 만들었습니다. (핫리로드는 하지 못했습니다.)
-- ```yarn run build```를 하면, src/editor.ts를 dist 폴더로 빌드합니다.
+- ```yarn run build:package```를 하면, src/editor.ts를 dist 폴더로 빌드합니다.
 이때, es2018로 빌드하며, 이는 사용하는 곳에서 별도의 바벨이나 트랜스파일러를 사용하지 않아도 되도록 하기 위함입니다.
 
 ---
 
 ### 5. 배포하기
-- 배포하기 전에 ```yarn run build```를 해주세요.
+- 배포하기 전에 ```yarn run build:package```를 해주세요.
 - package.json의 version을 올린 후, commit합니다.
 - 터미널에 ```npm login```를 하면 name을 입력하고 합니다.
 - 'spendit' 입력 후 password를 입력합니다.
