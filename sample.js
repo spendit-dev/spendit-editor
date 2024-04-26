@@ -60108,30 +60108,30 @@ Read more: ${Iw}#error-${n}`;
       });
     }, l.appendChild(c), l.appendChild(u), r.appendChild(l);
   }, RM = async () => {
-    const { editor: n, setReadonly: e } = await IM({
+    const { editor: n } = await IM({
       targetId: "sample-editor",
       lang: "en",
       initialData: "<p>test</p>",
-      onContentChange: (t) => {
-        console.log("change", t);
+      onContentChange: (e) => {
+        console.log("change", e);
       },
-      onBlur: (t) => {
-        console.log("blur", t);
+      onBlur: (e) => {
+        console.log("blur", e);
       }
     });
     return PM({
       editor: n,
       sizingButtonPosition: "inner"
     }), {
-      setReadonly: e
+      editor: n
     };
   };
   (async () => {
-    const { setReadonly: n } = await RM(), e = document.getElementById("readonly-button"), t = document.getElementById("edit-button");
+    const { editor: n } = await RM(), e = document.getElementById("readonly-button"), t = document.getElementById("edit-button");
     e.addEventListener("click", () => {
-      n(!0);
+      n.enableReadOnlyMode("test"), n.ui.view.toolbar.element.style.display = "none";
     }), t.addEventListener("click", () => {
-      n(!1);
+      n.disableReadOnlyMode("test"), n.ui.view.toolbar.element.style.display = "block";
     });
   })();
 });
