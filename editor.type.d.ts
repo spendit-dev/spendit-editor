@@ -1,4 +1,4 @@
-import {ClassicEditor} from "@ckeditor/ckeditor5-editor-classic";
+import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 
 export interface EditorConfig {
     targetId: string;
@@ -7,7 +7,6 @@ export interface EditorConfig {
     onContentChange?: (content: string) => void;
     onBlur?: (content: string) => void;
 }
-
 export interface EditorSizingButtonConfig {
     editor: ClassicEditor;
     minHeight?: number;
@@ -15,7 +14,6 @@ export interface EditorSizingButtonConfig {
     gapHeight?: number;
     sizingButtonPosition?: 'inner' | 'outer';
 }
-
 export interface InitEditorResponse {
     editor: ClassicEditor;
 }

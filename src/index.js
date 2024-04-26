@@ -1,1 +1,0 @@
-export { initEditor, initEditorSizingButton } from './editor';
