@@ -22,6 +22,11 @@
     border-top-color: transparent !important;
 }
 
+.ck-list {
+    max-height: 240px;
+    overflow-y: auto;
+}
+
 /* 로고 숨김처리 */
 .ck-powered-by-balloon {
     display: none !important;
@@ -32,13 +37,11 @@
 .Spendit-Editor-Sizing-Buttons {
     display: flex;
     flex-direction: column;
-    gap: 6px;
     position: absolute;
     bottom: 25%;
-    right: -28px;
+    right: -36px;
     border: 1px solid #3C8EFF;
-    border-radius: 3px;
-    padding: 8px 3px;
+    border-radius: 6px;
     background: white;
     z-index: 1000;
 }
@@ -48,12 +51,12 @@
 }
 
 .Spendit-Editor-Sizing-Button {
-    height: 16px;
-    width: 16px;
+    height: 28px;
+    width: 30px;
     background-repeat: no-repeat;
     background-color: transparent;
     background-position: center;
-    background-size: contain;
+    background-size: 16px 16px;
     border: none;
     padding: 0;
     cursor: pointer;
@@ -67,10 +70,12 @@
 
 .Spendit-Sizing-Top {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAD9SURBVHgB7ZcxDoIwFIb/EhIXZdPIrpOTJ9DVA7C5eAA4hgdwNy5unMCz6AFM2IyLk/LSGJS0lb5iWPolBEIT/i/vQfoQzxIwuT/kud8DmwBMLgWQ7IHNETgXYCM4FaDwNP+uwC4BpkNYY12BejhB11nOq4SVgCrcVaKxwGf4oCx5tqjW0qVsA0eikUA9nPo9GVXr1Hu6x5H4KaAMV7xsXImgjXAXiaCtcK6EVmB7sg83Sai+HKPAagbEkX24SkJALxDqHpDM5eECSRzWUkK3X4T4M+PIvM7ejNrCC3gBL+AFvIAX8AKdC7AHEpp23uNWHIGNcPk9v97M41YTXiUffGyZkTQ5AAAAAElFTkSuQmCC');
+    background-position-y: 8px;
 }
 
 .Spendit-Sizing-Bottom {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADxSURBVHgB7dchDsJAEAXQKQYDOBIOAGfhBMVzAHoAuAUeh1uH4RZIDPWQ1DUYFOzPpqEhNHR+G0DMT0hV9z92CZmN7j5C5noLn9FA6HSEzCUXiTci821AfB1wzp87cMqEDg1oKwYwgAEMYAADGOB/ARg0MPX8BFAet5pMO6l/d+bXcQfRAXrd8MQuJI5DoHzhwui2P4oesI7Dk0EU5Xi379dYTkUHQCZDDvFajjXGQwLAILTlHwEaBFNeC1CFSLPm5UikuZrhmyeu+iakLUdU/4TlnWijXA2oQrDlSMTejnEcq104Dra8EQApfgvvjqRuHhvdiGT5Op8TAAAAAElFTkSuQmCC');
+    background-position-y: 5px;
 }
 
 .Spendit-Sizing-Top.Spendit-Sizing-Top-Disabled {

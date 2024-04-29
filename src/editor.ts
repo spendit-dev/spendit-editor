@@ -172,13 +172,15 @@ export const initEditor = async ({
         },
         fontSize: {
             options: [
-                9,
-                11,
-                13,
-                15,
-                17,
-                19,
-                21
+                8, 9, 10, 11, 12, 14, 'default', 18, 20, 22, 24, 26, 28, 36, 48, 72
+            ]
+        },
+        heading: {
+            options: [
+                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
             ]
         }
     });
@@ -207,6 +209,7 @@ export const initEditorSizingButton = ({
                                            sizingButtonPosition = 'outer'
                                        }: EditorSizingButtonConfig) => {
     const borderHeight = 2; // editor의 border 두께(px)
+    const gapScrollHeight = 30; // editor의 높이 조절 시 스크롤 이동 높이 마이너스 간격(px)
 
     // sizing button을 추가할 컨테이너
     const ckEditor = document.querySelector('.ck-editor') as HTMLElement;
@@ -245,6 +248,7 @@ export const initEditorSizingButton = ({
             } else {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
+                window.scroll(0, window.scrollY - (gapHeight - gapScrollHeight));
             }
         });
     }
@@ -260,6 +264,7 @@ export const initEditorSizingButton = ({
             } else {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
+                window.scroll(0, window.scrollY + (gapHeight - gapScrollHeight));
             }
         });
     }
