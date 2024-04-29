@@ -60093,7 +60093,7 @@ Read more: ${Iw}#error-${n}`;
     }), u.onclick = () => m(-i), d.onclick = () => m(i);
     function h(p) {
       const w = document.createElement("div");
-      w.classList.add("Spendit-Editor-Sizing-Buttons"), w.classList.add(p === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "");
+      w.classList.add("Spendit-Editor-Sizing-Buttons"), w.classList.add(p === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
       const v = f(["Spendit-Sizing-Top", "Spendit-Sizing-Top-Disabled"]), C = f(["Spendit-Sizing-Bottom"]);
       return w.appendChild(v), w.appendChild(C), a.appendChild(w), w;
     }
