@@ -46,3 +46,4 @@
 - default.css는 dist/assests/index-[hash].css와 dist/assets/index-[hash].css파일은 ck-editor에서 제공하는 ```@ckeditor/ckeditor5-theme-lark```를 이용해 빌드된 결과물입니다. 이를 default.css로 옮겨 일부 코드를 수정하였습니다.
 그 이유는 빌드 결과물에서 calc가 사용되어야할 곳에 calc를 누락한 코드들이 있었고, 이를 그대로 사용했을 때 CRA를 사용하는 프로젝트에서 build에 실패하기 때문입니다. 가급적 이 파일을 건드릴 일이 없기를 바랍니다!
 - lang 폴더의 파일들은 ck-editor custom으로 만들기에서 다운로드한 결과물에 있는 translations 폴더의 파일들입니다.
+- 추가적인 내용은 [컨플](https://spendit.atlassian.net/wiki/x/xQCKvg)에 있습니다.

@@ -1,12 +1,12 @@
 # Editor
 A simple rich text editor using CKEditor.   
 
-<br/><br/><br/>
+<br/><br/>
 
 ## Demo
 [Demo](https://spendit-dev.github.io/spendit-editor/)
 
-<br/><br/><br/>
+<br/><br/>
 
 ## Specification Summary
 
@@ -83,6 +83,8 @@ you can make the editor read-only mode by using the following code.
 ```javascript
 editor.destroy();
 ```
+
+<br/>
 
 ### 6. Get Content From Editor
 ```javascript
