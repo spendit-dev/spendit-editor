@@ -31,9 +31,10 @@
 ---
 
 ### 5. 배포하기
-- 배포하기 전에 ```yarn run build:package```를 해주세요.
-- package.json의 version을 올린 후, commit합니다.
-- 터미널에 ```npm login```를 하면 name을 입력하고 합니다.
+- 배포하기 전에 ```yarn run build:package```를 해주세요. (dist/* 파일을 npm에 배포하기 위함)
+- package.json의 version을 올린 후, commit합니다. 
+- version을 올리지 않으면 배포가 되지 않습니다.
+- 터미널에 ```npm login```를 하면 name을 입력하라고 합니다.
 - 'spendit' 입력 후 password를 입력합니다.
 - 최초 시도하는 경우 email을 요구합니다. 권한을 부여받은 email을 입력합니다.
 - email에 도착한 opt코드를 입력합니다.

@@ -1,10 +1,12 @@
 # Editor
 A simple rich text editor using CKEditor.   
 
-
+<br/><br/><br/>
 
 ## Demo
 [Demo](https://spendit-dev.github.io/spendit-editor/)
+
+<br/><br/><br/>
 
 ## Specification Summary
 
@@ -15,8 +17,8 @@ A simple rich text editor using CKEditor.
 #### - Editor Auto Height: [X]
 #### - Editor Manual Height: [O]
 
-
-
+<br/><br/><br/>
+  
 ## How to use
 
 ### 1. Install
@@ -24,13 +26,16 @@ A simple rich text editor using CKEditor.
 npm install @spendit-dev/editor or
 yarn add @spendit-dev/editor
 ```
+<br/>
 
 ### 2. Import
 ```javascript
-import '@spendit-dev/editor/dist/default.css';
-import '@spendit-dev/editor/dist/editor.css';
+import '@spendit-dev/editor/default.css';
+import '@spendit-dev/editor/editor.css';
 import { initEditor, initEditorSizingButton } from '@spendit-dev/editor';
 ```
+<br/>
+
 
 ### 3. Initialize
 ```javascript
@@ -38,10 +43,10 @@ const {editor} = await initEditor({
     targetId: 'sample-editor',
     lang: 'en',
     initialData: '<p>test</p>',
-    onContentChange: (content) => {
+    onContentChange: (content: string) => {
         console.log('change', content);
     },
-    onBlur: (content) => {
+    onBlur: (content:string) => {
         console.log('blur', content);
     }
 });
@@ -51,7 +56,12 @@ initEditorSizingButton({
     editor,
     sizingButtonPosition: 'inner',
 });
+
+// html
+<div id="sample-editor"></div>
 ```
+<br/>
+
 
 ### 4. Set Read Only Mode
 you can make the editor read-only mode by using the following code.
@@ -66,6 +76,8 @@ you can make the editor read-only mode by using the following code.
     }
 };
 ```
+<br/>
+
 
 ### 5. Destroy Editor
 ```javascript
@@ -76,22 +88,30 @@ editor.destroy();
 ```javascript
 const content = editor.getData();
 ```
+<br/>
+
 
 ### 7. Set Content To Editor
 ```javascript
 
 editor.setData('<p>test</p>');
 ```
+<br/>
+
 
 ### 8. Else
 editor instance is CKEditor instance.
 you can find more API in the [CKEditor documentation](https://ckeditor.com/docs/).
+<br/><br/>
 
 ---
 
+<br/><br/><br/>
 
 
 ## API for spendit-editor
+
+<br/>
 
 ### Func: initEditor()
 | Property Name | Description                                  | Type   | Required |
@@ -102,6 +122,7 @@ you can find more API in the [CKEditor documentation](https://ckeditor.com/docs/
 | onContentChange | Callback function when content is changed | (content: string) => void | false |
 | onBlur | Callback function when editor is blurred | (content: string) => void | false |
 
+<br/><br/>
 
 ### Returns of initEditor()
 | Property Name | Description | Type | Required |
@@ -109,7 +130,7 @@ you can find more API in the [CKEditor documentation](https://ckeditor.com/docs/
 | editor | CKEditor instance | CKEditor | true |
 | setReadonly | Function to set read only mode | (readonly: boolean) => void | true |
 
-
+<br/><br/>
 
 ### Func: initEditorSizingButton()
 | Property Name | Description                   | Type   | Required |
@@ -120,7 +141,7 @@ you can find more API in the [CKEditor documentation](https://ckeditor.com/docs/
 | gapHeight| Height to adjust at once      | number | false |
 | sizingButtonPosition | Position of the sizing button | 'inner' \| 'outer' | false |
 
-
+<br/><br/>
 
 
 ### Typescript Error
@@ -139,4 +160,4 @@ and you also need to add the following code to your tsconfig.json file.
 ```
 
 ---
-This Editor isn't very open to customization. If you want to customize it, I'd recommend forking the code and modifying it.
+This Editor isn't very open to customization. If you want to customize it, I'd recommend forking this repository and modifying it.
