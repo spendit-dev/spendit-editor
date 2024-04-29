@@ -38,10 +38,114 @@ import {
     SpecialCharactersMathematical,
     SpecialCharactersText
 } from '@ckeditor/ckeditor5-special-characters';
+import {EditorConfig, EditorSizingButtonConfig, InitEditorResponse} from "./editor.type.ts";
+import {EditorConfig as EditorConfigForCK} from 'ckeditor5/src/core.js';
 import './lang/ko';
 import './lang/en';
-import {EditorConfig, EditorSizingButtonConfig, InitEditorResponse} from "./editor.type.ts";
 
+const defaultToolbarItems = [
+    'undo',
+    'redo',
+    '|',
+    'heading',
+    'fontSize',
+    'fontFamily',
+    'bold',
+    'italic',
+    'underline',
+    'strikethrough',
+    'code',
+    'fontColor',
+    'fontBackgroundColor',
+    'superscript',
+    'subscript',
+    '|',
+    'alignment',
+    'bulletedList',
+    'numberedList',
+    'outdent',
+    'indent',
+    '|',
+    'horizontalLine',
+    'blockQuote',
+    'link',
+    '|',
+    'insertImage',
+    'insertTable',
+    'specialCharacters'
+];
+
+const defaultEditorOptions: EditorConfigForCK = {
+    language: 'en',
+    placeholder: 'Please enter content',
+    fontSize: {
+        options: [
+            8, 9, 10, 11, 12, 14, 'default', 18, 20, 22, 24, 26, 28, 36, 48, 72
+        ]
+    },
+    heading: {
+        options: [
+            {model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph'},
+            {model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1'},
+            {model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2'},
+            {model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3'},
+        ]
+    },
+    toolbar: {
+        items: defaultToolbarItems,
+        shouldNotGroupWhenFull: false
+    },
+    plugins: [
+        Essentials,
+        Paragraph,
+        Alignment,
+        Font,
+        Bold,
+        Code,
+        Italic,
+        Strikethrough,
+        Subscript,
+        Superscript,
+        Underline,
+        Heading,
+        FontBackgroundColor,
+        FontFamily,
+        SpecialCharacters,
+        SpecialCharactersArrows,
+        SpecialCharactersCurrency,
+        SpecialCharactersEssentials,
+        SpecialCharactersLatin,
+        SpecialCharactersMathematical,
+        SpecialCharactersText,
+        List,
+        IndentBlock,
+        Indent,
+        HorizontalLine,
+        BlockQuote,
+        Link,
+        MediaEmbed,
+        PasteFromOffice,
+        Table,
+        TableToolbar,
+        TableColumnResize,
+        TableCaption,
+        TableCellProperties,
+        TableProperties,
+        TextTransformation,
+        CloudServices,
+        Autoformat,
+        AutoImage,
+        ImageInsert,
+        Image,
+        ImageCaption,
+        ImageResize,
+        ImageStyle,
+        ImageToolbar,
+        LinkImage,
+        ImageUpload,
+        Base64UploadAdapter
+    ],
+}
 
 export const initEditor = async ({
                                      targetId,
@@ -57,148 +161,36 @@ export const initEditor = async ({
         return null;
     }
 
-    const editor = await ClassicEditor.create(element, {
+    const editorOptions: EditorConfigForCK = {
+        ...defaultEditorOptions,
         initialData,
-        plugins: [
-            Essentials,
-            Paragraph,
-            Alignment,
-            Font,
-            Bold,
-            Code,
-            Italic,
-            Strikethrough,
-            Subscript,
-            Superscript,
-            Underline,
-            Heading,
-            FontBackgroundColor,
-            FontFamily,
-            SpecialCharacters,
-            SpecialCharactersArrows,
-            SpecialCharactersCurrency,
-            SpecialCharactersEssentials,
-            SpecialCharactersLatin,
-            SpecialCharactersMathematical,
-            SpecialCharactersText,
-            List,
-            IndentBlock,
-            Indent,
-            HorizontalLine,
-            BlockQuote,
-            Link,
-            MediaEmbed,
-            PasteFromOffice,
-            Table,
-            TableToolbar,
-            TableColumnResize,
-            TableCaption,
-            TableCellProperties,
-            TableProperties,
-            TextTransformation,
-            CloudServices,
-            Autoformat,
-            AutoImage,
-            ImageInsert,
-            Image,
-            ImageCaption,
-            ImageResize,
-            ImageStyle,
-            ImageToolbar,
-            LinkImage,
-            ImageUpload,
-            Base64UploadAdapter
-        ],
-        toolbar: {
-            items: [
-                'undo',
-                'redo',
-                '|',
-                'heading',
-                'fontSize',
-                'fontFamily',
-                'bold',
-                'italic',
-                'underline',
-                'strikethrough',
-                'code',
-                'fontColor',
-                'fontBackgroundColor',
-                'superscript',
-                'subscript',
-                '|',
-                'alignment',
-                'bulletedList',
-                'numberedList',
-                'outdent',
-                'indent',
-                '|',
-                'horizontalLine',
-                'blockQuote',
-                'link',
-                '|',
-                'insertImage',
-                'insertTable',
-                'specialCharacters'
-            ],
-            shouldNotGroupWhenFull: false
-        },
         language: lang === 'ko' ? 'ko' : 'en',
         placeholder: lang === 'ko' ? '내용을 입력해주세요' : 'Please enter content',
-        image: {
-            toolbar: [
-                'imageStyle:inline',
-                'imageStyle:block',
-                'imageStyle:side',
-                '|',
-                'toggleImageCaption',
-                'imageTextAlternative',
-                '|',
-                'linkImage'
-            ],
-            insert: {
-                type: 'auto'
-            }
-        },
-        table: {
-            contentToolbar: [
-                'tableColumn',
-                'tableRow',
-                'mergeTableCells',
-                'tableProperties',
-                'tableCellProperties',
-                'toggleTableCaption',
-            ]
-        },
-        fontSize: {
-            options: [
-                8, 9, 10, 11, 12, 14, 'default', 18, 20, 22, 24, 26, 28, 36, 48, 72
-            ]
-        },
-        heading: {
-            options: [
-                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-                { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
-            ]
-        }
-    });
+    };
 
-    if (onContentChange) {
-        editor.model.document.on('change:data', () => {
-            onContentChange(editor.getData());
-        });
-    }
-    if (onBlur) {
-        editor.ui.focusTracker.on('change:isFocused', (_event, _name, isFocused) => {
-            if (!isFocused) {
-                onBlur(editor.getData());
+    const editor = await ClassicEditor
+        .create(element, editorOptions)
+        .then(editor => {
+            if (onContentChange) {
+                editor.model.document.on('change:data', () => {
+                    onContentChange(editor.getData());
+                });
             }
+            if (onBlur) {
+                editor.ui.focusTracker.on('change:isFocused', (_event, _name, isFocused) => {
+                    if (!isFocused) {
+                        onBlur(editor.getData());
+                    }
+                });
+            }
+            return editor;
+        })
+        .catch(error => {
+            console.error('[CKEditor 에러] 에디터를 초기화하는 중 오류가 발생했습니다.', error);
+            return null;
         });
-    }
 
-    return {editor}
+    return {editor};
 }
 
 export const initEditorSizingButton = ({

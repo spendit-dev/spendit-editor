@@ -17,5 +17,5 @@ export interface EditorSizingButtonConfig {
 }
 
 export interface InitEditorResponse {
-    editor: ClassicEditor;
+    editor: ClassicEditor | null;
 }
