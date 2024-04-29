@@ -217,18 +217,9 @@ export const initEditorSizingButton = ({
     const ckContent = document.querySelector('.ck-content') as HTMLElement;
 
     // 화살표를 담고 있는 버튼 두 개 만들기
-    const sizingButton = document.createElement('div');
-    const arrowTopButton = document.createElement('button');
-    const arrowBottomButton = document.createElement('button');
-    sizingButton.classList.add('Spendit-Editor-Sizing-Buttons');
-    arrowTopButton.classList.add('Spendit-Editor-Sizing-Button');
-    arrowTopButton.classList.add('Spendit-Sizing-Top');
-    arrowTopButton.classList.add('Spendit-Sizing-Top-Disabled');
-    arrowBottomButton.classList.add('Spendit-Editor-Sizing-Button');
-    arrowBottomButton.classList.add('Spendit-Sizing-Bottom');
-    if (sizingButtonPosition === 'inner') {
-        sizingButton.classList.add('Spendit-Editor-Sizing-Buttons-Inner');
-    }
+    const sizingButton = createSizingButton(sizingButtonPosition);
+    const arrowTopButton = sizingButton.querySelector('.Spendit-Sizing-Top') as HTMLButtonElement;
+    const arrowBottomButton = sizingButton.querySelector('.Spendit-Sizing-Bottom') as HTMLButtonElement;
 
     editor.editing.view.change(writer => {
         writer.setStyle('height', `${minHeight}px`, editor.editing.view.document.getRoot()!);
@@ -236,40 +227,50 @@ export const initEditorSizingButton = ({
         writer.setStyle('max-height', `${maxHeight}px`, editor.editing.view.document.getRoot()!);
     });
 
-    arrowTopButton.onclick = () => {
-        const newHeight = (ckContent.offsetHeight - borderHeight) - gapHeight;
+    arrowTopButton.onclick = () => resizeEditor(-gapHeight);
+    arrowBottomButton.onclick = () => resizeEditor(gapHeight);
+
+    function createSizingButton(position: string) {
+        const sizingButton = document.createElement('div');
+        sizingButton.classList.add('Spendit-Editor-Sizing-Buttons');
+        sizingButton.classList.add(position === 'inner' ? 'Spendit-Editor-Sizing-Buttons-Inner' : '');
+
+        const arrowTopButton = createButton(['Spendit-Sizing-Top', 'Spendit-Sizing-Top-Disabled']);
+        const arrowBottomButton = createButton(['Spendit-Sizing-Bottom']);
+
+        sizingButton.appendChild(arrowTopButton);
+        sizingButton.appendChild(arrowBottomButton);
+        ckEditor.appendChild(sizingButton);
+
+        return sizingButton;
+    }
+
+    function createButton(className: string[]) {
+        const button = document.createElement('button');
+        button.classList.add('Spendit-Editor-Sizing-Button');
+        className.forEach(name => button.classList.add(name));
+        return button;
+    }
+
+    function resizeEditor(change: number) {
+        const newHeight = (ckContent.offsetHeight - borderHeight) + change;
         editor.editing.view.change(writer => {
+            const isMaxHeight = newHeight >= maxHeight;
             const isMinHeight = newHeight <= minHeight;
-            writer.setStyle('height', isMinHeight ? `${minHeight}px` : `${newHeight}px`, editor.editing.view.document.getRoot()!);
+            const height = isMaxHeight ? maxHeight : isMinHeight ? minHeight : newHeight;
+            writer.setStyle('height', `${height}px`, editor.editing.view.document.getRoot()!);
 
             if (isMinHeight) {
                 arrowTopButton.classList.add('Spendit-Sizing-Top-Disabled');
-                arrowBottomButton.classList.remove('Spendit-Sizing-Top-Disabled');
-            } else {
-                arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
-                window.scroll(0, window.scrollY - (gapHeight - gapScrollHeight));
-            }
-        });
-    }
-    arrowBottomButton.onclick = () => {
-        const newHeight = (ckContent.offsetHeight - borderHeight) + gapHeight;
-        editor.editing.view.change(writer => {
-            const isMaxHeight = newHeight >= maxHeight;
-            writer.setStyle('height', isMaxHeight ? `${maxHeight}px` : `${newHeight}px`, editor.editing.view.document.getRoot()!);
-
-            if (isMaxHeight) {
+            } else if (isMaxHeight) {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.add('Spendit-Sizing-Bottom-Disabled');
             } else {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
-                window.scroll(0, window.scrollY + (gapHeight - gapScrollHeight));
+                window.scroll(0, window.scrollY + (change - gapScrollHeight));
             }
         });
     }
-
-    sizingButton.appendChild(arrowTopButton);
-    sizingButton.appendChild(arrowBottomButton);
-    ckEditor.appendChild(sizingButton);
 }
