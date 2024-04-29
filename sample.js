@@ -212,9 +212,9 @@ var MM = pw((Ue, He) => {
     function h(p) {
       const _ = (d[p - 1] !== void 0 ? d[p - 1] : -1) + 1, v = d[p + 1] !== void 0 ? d[p + 1] : -1, C = _ > v ? -1 : 1;
       u[p + C] && (u[p] = u[p + C].slice(0)), u[p] || (u[p] = []), u[p].push(_ > v ? o : r);
-      let R = Math.max(_, v), B = R - p;
-      for (; B < a && R < l && t(n[B], e[R]); )
-        B++, R++, u[p].push("equal");
+      let R = Math.max(_, v), O = R - p;
+      for (; O < a && R < l && t(n[O], e[R]); )
+        O++, R++, u[p].push("equal");
       return R;
     }
     let f = 0, m;
@@ -1481,8 +1481,8 @@ Read more: ${Iw}#error-${n}`;
       _ || (_ = h == "constructor");
     }
     if (p && !_) {
-      var B = n.constructor, H = e.constructor;
-      B != H && "constructor" in n && "constructor" in e && !(typeof B == "function" && B instanceof B && typeof H == "function" && H instanceof H) && (p = !1);
+      var O = n.constructor, H = e.constructor;
+      O != H && "constructor" in n && "constructor" in e && !(typeof O == "function" && O instanceof O && typeof H == "function" && H instanceof H) && (p = !1);
     }
     return o.delete(n), o.delete(e), p;
   }
@@ -1645,7 +1645,7 @@ Read more: ${Iw}#error-${n}`;
     function R() {
       a !== void 0 && clearTimeout(a), c = 0, i = l = s = a = void 0;
     }
-    function B() {
+    function O() {
       return a === void 0 ? r : C(wr());
     }
     function H() {
@@ -1658,7 +1658,7 @@ Read more: ${Iw}#error-${n}`;
       }
       return a === void 0 && (a = setTimeout(v, e)), r;
     }
-    return H.cancel = R, H.flush = B, H;
+    return H.cancel = R, H.flush = O, H;
   }
   function ea(n, e, t) {
     (t !== void 0 && !ds(n[e], t) || t === void 0 && !(e in n)) && Fo(n, e, t);
@@ -2397,7 +2397,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const $f = ["top", "right", "bottom", "left", "width", "height"];
-  class O {
+  class B {
     /**
      * Creates an instance of rect.
      *
@@ -2436,8 +2436,8 @@ Read more: ${Iw}#error-${n}`;
         enumerable: !1
       }), sa(e) || t)
         if (t) {
-          const i = O.getDomRangeRects(e);
-          As(this, O.getBoundingRect(i));
+          const i = B.getDomRangeRects(e);
+          As(this, B.getBoundingRect(i));
         } else
           As(this, e.getBoundingClientRect());
       else if (_o(e)) {
@@ -2459,7 +2459,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns A cloned rect.
      */
     clone() {
-      return new O(this);
+      return new B(this);
     }
     /**
      * Moves the rect so that its upper–left corner lands in desired `[ x, y ]` location.
@@ -2496,7 +2496,7 @@ Read more: ${Iw}#error-${n}`;
       if (t.width = t.right - t.left, t.height = t.bottom - t.top, t.width < 0 || t.height < 0)
         return null;
       {
-        const i = new O(t);
+        const i = new B(t);
         return i._source = this._source, i;
       }
     }
@@ -2546,7 +2546,7 @@ Read more: ${Iw}#error-${n}`;
           i = s, s = s.parentNode;
           continue;
         }
-        const l = new O(s), c = t.getIntersection(l);
+        const l = new B(s), c = t.getIntersection(l);
         if (c)
           c.getArea() < t.getArea() && (t = c);
         else
@@ -2619,11 +2619,11 @@ Read more: ${Iw}#error-${n}`;
       const t = [], i = Array.from(e.getClientRects());
       if (i.length)
         for (const s of i)
-          t.push(new O(s));
+          t.push(new B(s));
       else {
         let s = e.startContainer;
         ce(s) && (s = s.parentNode);
-        const o = new O(s.getBoundingClientRect());
+        const o = new B(s.getBoundingClientRect());
         o.right = o.left, o.width = 0, t.push(o);
       }
       return t;
@@ -2646,7 +2646,7 @@ Read more: ${Iw}#error-${n}`;
       let i = 0;
       for (const s of e)
         i++, t.left = Math.min(t.left, s.left), t.top = Math.min(t.top, s.top), t.right = Math.max(t.right, s.right), t.bottom = Math.max(t.bottom, s.bottom);
-      return i == 0 ? null : (t.width = t.right - t.left, t.height = t.bottom - t.top, new O(t));
+      return i == 0 ? null : (t.width = t.right - t.left, t.height = t.bottom - t.top, new B(t));
     }
   }
   function As(n, e) {
@@ -2666,7 +2666,7 @@ Read more: ${Iw}#error-${n}`;
     return n instanceof HTMLElement ? n.ownerDocument.defaultView.getComputedStyle(n).overflow : "visible";
   }
   function Uy(n, e) {
-    const t = new O(e), i = Hf(e);
+    const t = new B(e), i = Hf(e);
     let s = 0, o = 0;
     s -= t.left, o -= t.top, s += e.scrollLeft, o += e.scrollTop, s -= i.left, o -= i.top, n.moveBy(s, o);
   }
@@ -2800,7 +2800,7 @@ Read more: ${Iw}#error-${n}`;
    */
   function qo({ element: n, target: e, positions: t, limiter: i, fitInViewport: s, viewportOffsetConfig: o }) {
     di(e) && (e = e()), di(i) && (i = i());
-    const r = Wf(n), a = Wy(o), l = new O(n), c = Mc(e, a);
+    const r = Wf(n), a = Wy(o), l = new B(n), c = Mc(e, a);
     let u;
     if (!c || !a.getIntersection(c))
       return null;
@@ -2822,12 +2822,12 @@ Read more: ${Iw}#error-${n}`;
     return u;
   }
   function Mc(n, e) {
-    const t = new O(n).getVisible();
+    const t = new B(n).getVisible();
     return t ? t.getIntersection(e) : null;
   }
   function Wy(n) {
     n = Object.assign({ top: 0, bottom: 0, left: 0, right: 0 }, n);
-    const e = new O(E.window);
+    const e = new B(E.window);
     return e.top += n.top, e.height -= n.top, e.bottom -= n.bottom, e.height -= n.bottom, e;
   }
   function $y(n, e) {
@@ -2942,7 +2942,7 @@ Read more: ${Iw}#error-${n}`;
     }
   }
   function Gy({ window: n, rect: e, alignToTop: t, forceScroll: i, viewportOffset: s }) {
-    const o = e.clone().moveBy(0, s.bottom), r = e.clone().moveBy(0, -s.top), a = new O(n).excludeScrollbarsAndBorders(), l = [r, o], c = t && i, u = l.every((p) => a.contains(p));
+    const o = e.clone().moveBy(0, s.bottom), r = e.clone().moveBy(0, -s.top), a = new B(n).excludeScrollbarsAndBorders(), l = [r, o], c = t && i, u = l.every((p) => a.contains(p));
     let { scrollX: d, scrollY: h } = n;
     const f = d, m = h;
     c ? h -= a.top - e.top + s.top : u || (Kf(r, a) ? h -= a.top - e.top + s.top : jf(o, a) && (t ? h += e.top - a.top - s.top : h += e.bottom - a.bottom + s.bottom)), u || (Zf(e, a) ? d -= a.left - e.left + s.left : Jf(e, a) && (d += e.right - a.right + s.right)), (d != f || h !== m) && n.scrollTo(d, h);
@@ -2952,7 +2952,7 @@ Read more: ${Iw}#error-${n}`;
     let l, c, u;
     const d = o || r.document.body;
     for (; n != d; )
-      c = e(), l = new O(n).excludeScrollbarsAndBorders(), u = l.contains(c), a ? n.scrollTop -= l.top - c.top + s : u || (Kf(c, l) ? n.scrollTop -= l.top - c.top + s : jf(c, l) && (t ? n.scrollTop += c.top - l.top - s : n.scrollTop += c.bottom - l.bottom + s)), u || (Zf(c, l) ? n.scrollLeft -= l.left - c.left + s : Jf(c, l) && (n.scrollLeft += c.right - l.right + s)), n = n.parentNode;
+      c = e(), l = new B(n).excludeScrollbarsAndBorders(), u = l.contains(c), a ? n.scrollTop -= l.top - c.top + s : u || (Kf(c, l) ? n.scrollTop -= l.top - c.top + s : jf(c, l) && (t ? n.scrollTop += c.top - l.top - s : n.scrollTop += c.bottom - l.bottom + s)), u || (Zf(c, l) ? n.scrollLeft -= l.left - c.left + s : Jf(c, l) && (n.scrollLeft += c.right - l.right + s)), n = n.parentNode;
   }
   function jf(n, e) {
     return n.bottom > e.bottom;
@@ -2977,13 +2977,13 @@ Read more: ${Iw}#error-${n}`;
       return n.parentNode;
   }
   function Nc(n, e) {
-    const t = sl(n), i = new O(n);
+    const t = sl(n), i = new B(n);
     if (t === e)
       return i;
     {
       let s = t;
       for (; s != e; ) {
-        const o = s.frameElement, r = new O(o).excludeScrollbarsAndBorders();
+        const o = s.frameElement, r = new B(o).excludeScrollbarsAndBorders();
         i.moveBy(r.left, r.top), s = s.parent;
       }
     }
@@ -4193,7 +4193,7 @@ Read more: ${Iw}#error-${n}`;
       const r = e.filter((x) => !d(x, t)), a = [...m(r)];
       H(a, i);
       const l = R(a);
-      return B(l, "init").then(() => B(l, "afterInit")).then(() => l);
+      return O(l, "init").then(() => O(l, "afterInit")).then(() => l);
       function c(x) {
         return typeof x == "function";
       }
@@ -4237,7 +4237,7 @@ Read more: ${Iw}#error-${n}`;
           return I = I || new L(o), s._add(L, I), I;
         });
       }
-      function B(x, L) {
+      function O(x, L) {
         return x.reduce((I, ee) => !ee[L] || s._contextPlugins.has(ee) ? I : I.then(ee[L].bind(ee)), Promise.resolve());
       }
       function H(x, L) {
@@ -30784,7 +30784,7 @@ Read more: ${Iw}#error-${n}`;
     get _areItemsOverflowing() {
       if (!this.ungroupedItems.length)
         return !1;
-      const e = this.viewElement, t = this.viewLocale.uiLanguageDirection, i = new O(e.lastChild), s = new O(e);
+      const e = this.viewElement, t = this.viewLocale.uiLanguageDirection, i = new B(e.lastChild), s = new B(e);
       if (!this.cachedPadding) {
         const o = E.window.getComputedStyle(e), r = t === "ltr" ? "paddingRight" : "paddingLeft";
         this.cachedPadding = Number.parseInt(o[r]);
@@ -32605,7 +32605,7 @@ Read more: ${Iw}#error-${n}`;
      * Calculates the visible DOM root part.
      */
     _getVisibleDomRootRect(e) {
-      let t = new O(this._getCurrentDomRoot()).getVisible();
+      let t = new B(this._getCurrentDomRoot()).getVisible();
       if (t) {
         if (t = e.getIntersection(t), !t)
           return null;
@@ -32617,7 +32617,7 @@ Read more: ${Iw}#error-${n}`;
      * Calculates the dialog element rect.
      */
     _getDialogRect() {
-      return new O(this.element.firstElementChild);
+      return new B(this.element.firstElementChild);
     }
     /**
      * Calculates the viewport rect.
@@ -32657,7 +32657,7 @@ Read more: ${Iw}#error-${n}`;
   tn.defaultOffset = 15;
   function dx(n) {
     n = Object.assign({ top: 0, bottom: 0, left: 0, right: 0 }, n);
-    const e = new O(E.window);
+    const e = new B(E.window);
     return e.top += n.top, e.height -= n.top, e.bottom -= n.bottom, e.height -= n.bottom, e.left += n.left, e.right -= n.right, e.width -= n.left + n.right, e;
   }
   /**
@@ -33607,7 +33607,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function _g(n, e, t) {
     return (i, s) => {
-      const o = new O(n);
+      const o = new B(n);
       if (o.width < bx || o.height < wx)
         return null;
       let r;
@@ -34627,7 +34627,7 @@ Read more: ${Iw}#error-${n}`;
      */
     updatePosition() {
       if (this.numberOfPanels) {
-        const { top: e, left: t } = this._balloonPanelView, { width: i, height: s } = new O(this._balloonPanelView.element);
+        const { top: e, left: t } = this._balloonPanelView, { width: i, height: s } = new B(this._balloonPanelView.element);
         Object.assign(this, { top: e, left: t, width: i, height: s });
       }
     }
@@ -34707,10 +34707,10 @@ Read more: ${Iw}#error-${n}`;
         this._unstick();
         return;
       }
-      const e = new O(this.limiterElement);
+      const e = new B(this.limiterElement);
       let t = e.getVisible();
       if (t) {
-        const i = new O(E.window);
+        const i = new B(E.window);
         i.top += this.viewportTopOffset, i.height -= this.viewportTopOffset, t = t.getIntersection(i);
       }
       if (t && e.top < t.top) {
@@ -34755,7 +34755,7 @@ Read more: ${Iw}#error-${n}`;
      * @private
      */
     get _contentPanelRect() {
-      return new O(this.contentPanelElement);
+      return new B(this.contentPanelElement);
     }
   }
   /**
@@ -35058,7 +35058,7 @@ Read more: ${Iw}#error-${n}`;
     _updateResultsViewWidthAndPosition() {
       if (!this.resultsView.isVisible)
         return;
-      this.resultsView._width = new O(this.queryView.fieldView.element).width;
+      this.resultsView._width = new B(this.queryView.fieldView.element).width;
       const e = rs._getOptimalPosition({
         element: this.resultsView.element,
         target: this.queryView.element,
@@ -36203,7 +36203,7 @@ Read more: ${Iw}#error-${n}`;
     _handleScrollToTheSelectionWithStickyPanel(e, t, i) {
       const s = this.view.stickyPanel;
       if (s.isSticky) {
-        const o = new O(s.element).height;
+        const o = new B(s.element).height;
         t.viewportOffset.top += o;
       } else {
         const o = () => {
@@ -36230,7 +36230,7 @@ Read more: ${Iw}#error-${n}`;
         i.on("moveTo", (s, o) => {
           if (!e.isSticky || i.wasMoved)
             return;
-          const r = new O(e.contentPanelElement);
+          const r = new B(e.contentPanelElement);
           o[1] < r.bottom + tn.defaultOffset && (o[1] = r.bottom + tn.defaultOffset);
         }, { priority: "high" });
       }, { priority: "low" });
@@ -38564,8 +38564,8 @@ Read more: ${Iw}#error-${n}`;
               m += v.length;
               continue;
             }
-            const R = f.start.getShiftedBy(m), B = t.createRange(R, R.getShiftedBy(v.length)), H = TS(R);
-            t.insertContent(p.createText(C, H), B), m += C.length;
+            const R = f.start.getShiftedBy(m), O = t.createRange(R, R.getShiftedBy(v.length)), H = TS(R);
+            t.insertContent(p.createText(C, H), O), m += C.length;
           }
           t.enqueueChange(() => {
             i.requestUndoOnBackspace();
@@ -39542,7 +39542,7 @@ Read more: ${Iw}#error-${n}`;
       const c = i.createSelection(e.start);
       i.modifySelection(c), !c.focus.isAtEnd && !e.start.isEqual(c.focus) && (e = i.createRange(c.focus, e.end));
     }
-    const o = n.mapper.toViewRange(e), r = s.viewRangeToDom(o), a = O.getDomRangeRects(r);
+    const o = n.mapper.toViewRange(e), r = s.viewRangeToDom(o), a = B.getDomRangeRects(r);
     let l;
     for (const c of a) {
       if (l === void 0) {
@@ -40027,7 +40027,7 @@ Read more: ${Iw}#error-${n}`;
      * @param domResizeHandle The handle used to calculate the reference point.
      */
     begin(e, t, i) {
-      const s = new O(t);
+      const s = new B(t);
       this.activeHandlePosition = hI(e), this._referenceCoordinates = uI(t, fI(this.activeHandlePosition)), this._originalWidth = s.width, this._originalHeight = s.height, this._aspectRatio = s.width / s.height;
       const o = i.style.width;
       o && o.match(/^\d+(\.\d*)?%$/) ? this._originalWidthPercents = parseFloat(o) : this._originalWidthPercents = cI(i, s);
@@ -40049,7 +40049,7 @@ Read more: ${Iw}#error-${n}`;
     return e.width / i * 100;
   }
   function uI(n, e) {
-    const t = new O(n), i = e.split("-"), s = {
+    const t = new B(n), i = e.split("-"), s = {
       x: i[1] == "right" ? t.right : t.left,
       y: i[0] == "bottom" ? t.bottom : t.top
     };
@@ -40202,7 +40202,7 @@ Read more: ${Iw}#error-${n}`;
         const u = this._options.unit || "%", d = (u === "%" ? t.widthPercents : t.width) + u;
         c.setStyle("width", d, this._options.viewElement);
       });
-      const s = this._getHandleHost(), o = new O(s), r = Math.round(o.width), a = Math.round(o.height), l = new O(s);
+      const s = this._getHandleHost(), o = new B(s), r = Math.round(o.width), a = Math.round(o.height), l = new B(s);
       t.width = Math.round(l.width), t.height = Math.round(l.height), this.redraw(o), this.state.update({
         ...t,
         handleHostWidth: r,
@@ -40251,7 +40251,7 @@ Read more: ${Iw}#error-${n}`;
       ];
       let a;
       if (i.isSameNode(s)) {
-        const l = e || new O(s);
+        const l = e || new B(s);
         a = [
           l.width + "px",
           l.height + "px",
@@ -40629,9 +40629,9 @@ Read more: ${Iw}#error-${n}`;
       const t = this.editor.editing, i = e.start.nodeBefore, s = e.start.nodeAfter, o = e.start.parent, r = i ? t.mapper.toViewElement(i) : null, a = r ? t.view.domConverter.mapViewToDom(r) : null, l = s ? t.mapper.toViewElement(s) : null, c = l ? t.view.domConverter.mapViewToDom(l) : null, u = t.mapper.toViewElement(o);
       if (!u)
         return;
-      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = E.window, p = a ? new O(a) : null, _ = c ? new O(c) : null, v = new O(d).excludeScrollbarsAndBorders(), C = p ? p.bottom : v.top, R = _ ? _.top : v.bottom, B = E.window.getComputedStyle(d), H = C <= R ? (C + R) / 2 : R;
+      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = E.window, p = a ? new B(a) : null, _ = c ? new B(c) : null, v = new B(d).excludeScrollbarsAndBorders(), C = p ? p.bottom : v.top, R = _ ? _.top : v.bottom, O = E.window.getComputedStyle(d), H = C <= R ? (C + R) / 2 : R;
       if (h.top < H && H < h.bottom) {
-        const x = v.left + parseFloat(B.paddingLeft), L = v.right - parseFloat(B.paddingRight), I = Math.max(x + f, h.left), ee = Math.min(L + f, h.right);
+        const x = v.left + parseFloat(O.paddingLeft), L = v.right - parseFloat(O.paddingRight), I = Math.max(x + f, h.left), ee = Math.min(L + f, h.right);
         this._dropTargetLineView.set({
           isVisible: !0,
           left: I,
@@ -40658,7 +40658,7 @@ Read more: ${Iw}#error-${n}`;
           resizeObserver: o
         });
       }
-      return new O(i).excludeScrollbarsAndBorders();
+      return new B(i).excludeScrollbarsAndBorders();
     }
   }
   function yd(n, e, t, i, s, o, r) {
@@ -40708,7 +40708,7 @@ Read more: ${Iw}#error-${n}`;
     return s.createRange(s.createPositionAt(e, Hg(n, e, t, i)));
   }
   function Hg(n, e, t, i) {
-    const s = n.editing.mapper, o = n.editing.view.domConverter, r = s.toViewElement(e), a = o.mapViewToDom(r), l = new O(a);
+    const s = n.editing.mapper, o = n.editing.view.domConverter, r = s.toViewElement(e), a = o.mapViewToDom(r), l = new B(a);
     return n.model.schema.isInline(e) ? t < (l.left + l.right) / 2 ? "before" : "after" : i < (l.top + l.bottom) / 2 ? "before" : "after";
   }
   function Cd(n, e) {
@@ -40984,7 +40984,7 @@ Read more: ${Iw}#error-${n}`;
       this._previewContainer ? this._previewContainer.firstElementChild && this._previewContainer.removeChild(this._previewContainer.firstElementChild) : (this._previewContainer = tt(E.document, "div", {
         style: "position: fixed; left: -999999px;"
       }), E.document.body.appendChild(this._previewContainer));
-      const l = new O(r);
+      const l = new B(r);
       if (r.contains(t))
         return;
       const c = parseFloat(a.paddingLeft), u = tt(E.document, "div");
@@ -53481,7 +53481,7 @@ Read more: ${Iw}#error-${n}`;
         }
         const h = r ? Math.max(s, a) : s, f = new q(e, { endRow: h }), m = new Array(c).fill(1);
         for (const { row: p, column: _, cellHeight: v, cellWidth: C, cell: R } of f) {
-          const B = p + v - 1, H = p < s && s <= B, x = p <= a && a <= B;
+          const O = p + v - 1, H = p < s && s <= O, x = p <= a && a <= O;
           H ? (u.setAttribute("rowspan", v + o, R), m[_] = -C) : r && x && (m[_] = C);
         }
         for (let p = 0; p < o; p++) {
@@ -53767,8 +53767,8 @@ Read more: ${Iw}#error-${n}`;
           const { column: f } = u.find(({ cell: p }) => p === e), m = {};
           d > 1 && (m.rowspan = d), l > 1 && (m.colspan = l);
           for (const p of u) {
-            const { column: _, row: v } = p, C = v >= r + h, R = _ === f, B = (v + r + h) % d === 0;
-            C && R && B && Wi(1, c, p.getPositionBefore(), m);
+            const { column: _, row: v } = p, C = v >= r + h, R = _ === f, O = (v + r + h) % d === 0;
+            C && R && O && Wi(1, c, p.getPositionBefore(), m);
           }
         }
         if (a < t) {
@@ -55098,7 +55098,7 @@ Read more: ${Iw}#error-${n}`;
       for (const _ of c) {
         const { row: v, column: C } = _;
         C === s.firstColumn && (d = _.getPositionBefore());
-        const R = v - s.firstRow, B = C - s.firstColumn, H = l[R % a][B % r], x = H ? o.cloneElement(H) : null, L = this._replaceTableSlotCell(_, x, d, o);
+        const R = v - s.firstRow, O = C - s.firstColumn, H = l[R % a][O % r], x = H ? o.cloneElement(H) : null, L = this._replaceTableSlotCell(_, x, d, o);
         L && ($p(L, v, C, s.lastRow, s.lastColumn, o), u.push(L), d = o.createPositionAfter(L));
       }
       const h = parseInt(i.getAttribute("headingRows") || "0"), f = parseInt(i.getAttribute("headingColumns") || "0"), m = s.firstRow < h && h <= s.lastRow, p = s.firstColumn < f && f <= s.lastColumn;
@@ -56337,9 +56337,9 @@ Read more: ${Iw}#error-${n}`;
   function gV(n, e) {
     const t = e.editing.mapper, i = e.editing.view.domConverter, s = Array.from(n).map((o) => {
       const r = cw(o.start), a = t.toViewElement(r);
-      return new O(i.mapViewToDom(a));
+      return new B(i.mapViewToDom(a));
     });
-    return O.getBoundingRect(s);
+    return B.getBoundingRect(s);
   }
   const pV = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.105 18-.17 1H2.5A1.5 1.5 0 0 1 1 17.5v-15A1.5 1.5 0 0 1 2.5 1h15A1.5 1.5 0 0 1 19 2.5v9.975l-.85-.124-.15-.302V8h-5v4h.021l-.172.351-1.916.28-.151.027c-.287.063-.54.182-.755.341L8 13v5h3.105zM2 12h5V8H2v4zm10-4H8v4h4V8zM2 2v5h5V2H2zm0 16h5v-5H2v5zM13 7h5V2h-5v5zM8 2v5h4V2H8z" opacity=".6"/><path d="m15.5 11.5 1.323 2.68 2.957.43-2.14 2.085.505 2.946L15.5 18.25l-2.645 1.39.505-2.945-2.14-2.086 2.957-.43L15.5 11.5zM13 6a1 1 0 0 1 1 1v3.172a2.047 2.047 0 0 0-.293.443l-.858 1.736-1.916.28-.151.027A1.976 1.976 0 0 0 9.315 14H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6zm-1 2H8v4h4V8z"/></svg>';
   /**
@@ -58442,8 +58442,8 @@ Read more: ${Iw}#error-${n}`;
       function c(h, f, m) {
         const p = Array(f.getColumns(h)), _ = new q(h);
         for (const v of _) {
-          const C = m.editing.mapper.toViewElement(v.cell), R = m.editing.view.domConverter.mapViewToDom(C), B = T4(R);
-          (!p[v.column] || B < p[v.column]) && (p[v.column] = Ie(B));
+          const C = m.editing.mapper.toViewElement(v.cell), R = m.editing.view.domConverter.mapViewToDom(C), O = T4(R);
+          (!p[v.column] || O < p[v.column]) && (p[v.column] = Ie(O));
         }
         return p;
       }
@@ -58480,11 +58480,11 @@ Read more: ${Iw}#error-${n}`;
       v !== 0 && this.editor.editing.view.change((C) => {
         const R = Ie((h + v) * 100 / d);
         if (C.setStyle("width", `${R}%`, l), s) {
-          const B = Ie((d + v) * 100 / u);
-          C.setStyle("width", `${B}%`, a);
+          const O = Ie((d + v) * 100 / u);
+          C.setStyle("width", `${O}%`, a);
         } else {
-          const B = Ie((f - v) * 100 / d);
-          C.setStyle("width", `${B}%`, c);
+          const O = Ie((f - v) * 100 / d);
+          C.setStyle("width", `${O}%`, c);
         }
       });
     }
@@ -58521,7 +58521,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns The data needed for the resizing process.
      */
     _getResizingData(e, t) {
-      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = v4(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), p = m.findAncestor("figure"), _ = [...m.getChildren()].find((I) => I.is("element", "colgroup")), v = _.getChild(c), C = d ? void 0 : _.getChild(c + 1), R = Ma(i.editing.view.domConverter.mapViewToDom(p.parent)), B = Ma(i.editing.view.domConverter.mapViewToDom(p)), H = jp(l, i), x = t[c], L = d ? void 0 : t[c + 1];
+      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = v4(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), p = m.findAncestor("figure"), _ = [...m.getChildren()].find((I) => I.is("element", "colgroup")), v = _.getChild(c), C = d ? void 0 : _.getChild(c + 1), R = Ma(i.editing.view.domConverter.mapViewToDom(p.parent)), O = Ma(i.editing.view.domConverter.mapViewToDom(p)), H = jp(l, i), x = t[c], L = d ? void 0 : t[c + 1];
       return {
         columnPosition: s,
         flags: {
@@ -58539,7 +58539,7 @@ Read more: ${Iw}#error-${n}`;
         },
         widths: {
           viewFigureParentWidth: R,
-          viewFigureWidth: B,
+          viewFigureWidth: O,
           tableWidth: H,
           leftColumnWidth: x,
           rightColumnWidth: L
@@ -58938,8 +58938,8 @@ Read more: ${Iw}#error-${n}`;
         const _ = p.createPositionAt(d, 0), v = p.createPositionAt(d, m[0].length), C = new Pe(_, v);
         if (s({ match: m }) !== !1) {
           p.remove(C);
-          const B = n.model.document.selection.getFirstRange(), H = p.createRangeIn(d);
-          d.isEmpty && !H.isEqual(B) && !H.containsRange(B, !0) && p.remove(d);
+          const O = n.model.document.selection.getFirstRange(), H = p.createRangeIn(d);
+          d.isEmpty && !H.isEqual(O) && !H.containsRange(O, !0) && p.remove(d);
         }
         C.detach(), n.model.enqueueChange(() => {
           n.plugins.get("Delete").requestUndoOnBackspace();
@@ -60091,26 +60091,26 @@ Read more: ${Iw}#error-${n}`;
     const l = document.querySelector(".ck-editor"), c = document.querySelector(".ck-content"), u = f(s), d = u.querySelector(".Spendit-Sizing-Top"), h = u.querySelector(".Spendit-Sizing-Bottom");
     n.editing.view.change((v) => {
       v.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), v.setStyle("min-height", `${e}px`, n.editing.view.document.getRoot()), v.setStyle("max-height", `${t}px`, n.editing.view.document.getRoot());
-    }), d.onclick = () => p(-i), h.onclick = () => p(i);
+    }), d.onclick = () => p(-i, -30), h.onclick = () => p(i, -30);
     function f(v) {
       const C = document.createElement("div");
       C.classList.add("Spendit-Editor-Sizing-Buttons"), C.classList.add(v === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
-      const R = m(["Spendit-Sizing-Top", "Spendit-Sizing-Top-Disabled"]), B = m(["Spendit-Sizing-Bottom"]);
-      return C.appendChild(R), C.appendChild(B), l.appendChild(C), C;
+      const R = m(["Spendit-Sizing-Top", "Spendit-Sizing-Top-Disabled"]), O = m(["Spendit-Sizing-Bottom"]);
+      return C.appendChild(R), C.appendChild(O), l.appendChild(C), C;
     }
     function m(v) {
       const C = document.createElement("button");
       return C.classList.add("Spendit-Editor-Sizing-Button"), v.forEach((R) => C.classList.add(R)), C;
     }
-    function p(v) {
-      const C = c.offsetHeight - 2 + v;
-      n.editing.view.change((R) => {
-        const B = C >= t, H = C <= e, x = B ? t : H ? e : C;
-        R.setStyle("height", `${x}px`, n.editing.view.document.getRoot()), H ? (d.classList.add("Spendit-Sizing-Top-Disabled"), h.classList.remove("Spendit-Sizing-Bottom-Disabled")) : B ? (d.classList.remove("Spendit-Sizing-Top-Disabled"), h.classList.add("Spendit-Sizing-Bottom-Disabled")) : (d.classList.remove("Spendit-Sizing-Top-Disabled"), h.classList.remove("Spendit-Sizing-Bottom-Disabled"), _(v));
+    function p(v, C) {
+      const R = c.offsetHeight - 2 + v;
+      n.editing.view.change((O) => {
+        const H = R >= t, x = R <= e, L = H ? t : x ? e : R;
+        O.setStyle("height", `${L}px`, n.editing.view.document.getRoot()), x ? (d.classList.add("Spendit-Sizing-Top-Disabled"), h.classList.remove("Spendit-Sizing-Bottom-Disabled")) : H ? (d.classList.remove("Spendit-Sizing-Top-Disabled"), h.classList.add("Spendit-Sizing-Bottom-Disabled")) : (d.classList.remove("Spendit-Sizing-Top-Disabled"), h.classList.remove("Spendit-Sizing-Bottom-Disabled"), _(v + C));
       });
     }
     function _(v) {
-      o instanceof HTMLElement ? o.scroll(0, o.scrollTop + (v - 30)) : window.scroll(0, window.scrollY + (v - 30));
+      o instanceof HTMLElement ? o.scroll(0, o.scrollTop + v) : window.scroll(0, window.scrollY + v);
     }
   }, VM = async () => {
     const { editor: n } = await RM({
