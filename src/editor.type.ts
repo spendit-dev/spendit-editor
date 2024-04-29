@@ -14,6 +14,7 @@ export interface EditorSizingButtonConfig {
     maxHeight?: number;
     gapHeight?: number;
     sizingButtonPosition?: 'inner' | 'outer';
+    scrollElement?: HTMLElement | Window;
 }
 
 export interface InitEditorResponse {

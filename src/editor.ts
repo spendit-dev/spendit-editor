@@ -198,7 +198,8 @@ export const initEditorSizingButton = ({
                                            minHeight = 200,
                                            maxHeight = 700,
                                            gapHeight = 100,
-                                           sizingButtonPosition = 'outer'
+                                           sizingButtonPosition = 'outer',
+    scrollElement = window
                                        }: EditorSizingButtonConfig) => {
     const borderHeight = 2; // editor의 border 두께(px)
     const gapScrollHeight = 30; // editor의 높이 조절 시 스크롤 이동 높이 마이너스 간격(px)
@@ -261,8 +262,16 @@ export const initEditorSizingButton = ({
             } else {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
-                window.scroll(0, window.scrollY + (change - gapScrollHeight));
+                scroll(change);
             }
         });
+    }
+
+    function scroll(change: number) {
+        if (scrollElement instanceof HTMLElement) {
+            scrollElement.scroll(0, scrollElement.scrollTop + (change - gapScrollHeight));
+        } else {
+            window.scroll(0, window.scrollY + (change - gapScrollHeight));
+        }
     }
 }
