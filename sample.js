@@ -1,5 +1,5 @@
 var pw = (n, e) => () => (e || n((e = { exports: {} }).exports, e), e.exports);
-var LM = pw((Ue, He) => {
+var MM = pw((Ue, He) => {
   function ww(n, e) {
     for (var t = 0; t < e.length; t++) {
       const i = e[t];
@@ -71,7 +71,7 @@ var LM = pw((Ue, He) => {
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function $a({ keystrokeHandler: n, focusTracker: e, gridItems: t, numberOfColumns: i, uiLanguageDirection: s }) {
+  function Wa({ keystrokeHandler: n, focusTracker: e, gridItems: t, numberOfColumns: i, uiLanguageDirection: s }) {
     const o = typeof i == "number" ? () => i : i;
     n.set("arrowright", r((c, u) => s === "rtl" ? l(c, u.length) : a(c, u.length))), n.set("arrowleft", r((c, u) => s === "rtl" ? a(c, u.length) : l(c, u.length))), n.set("arrowup", r((c, u) => {
       let d = c - o();
@@ -104,8 +104,8 @@ var LM = pw((Ue, He) => {
       return "";
     }
   }
-  const Jt = bw(), V = {
-    isMac: $h(Jt),
+  const Jt = bw(), M = {
+    isMac: Wh(Jt),
     isWindows: _w(Jt),
     isGecko: vw(Jt),
     isSafari: yw(Jt),
@@ -116,7 +116,7 @@ var LM = pw((Ue, He) => {
       isRegExpUnicodePropertySupported: Ew()
     }
   };
-  function $h(n) {
+  function Wh(n) {
     return n.indexOf("macintosh") > -1;
   }
   function _w(n) {
@@ -129,7 +129,7 @@ var LM = pw((Ue, He) => {
     return n.indexOf(" applewebkit/") > -1 && n.indexOf("chrome") === -1;
   }
   function Cw(n) {
-    return !!n.match(/iphone|ipad/i) || $h(n) && navigator.maxTouchPoints > 0;
+    return !!n.match(/iphone|ipad/i) || Wh(n) && navigator.maxTouchPoints > 0;
   }
   function kw(n) {
     return n.indexOf("android") > -1;
@@ -149,7 +149,7 @@ var LM = pw((Ue, He) => {
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function Wh(n, e, t, i) {
+  function $h(n, e, t, i) {
     t = t || function(l, c) {
       return l === c;
     };
@@ -196,8 +196,8 @@ var LM = pw((Ue, He) => {
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   function Ln(n, e, t) {
-    t = t || function(p, _) {
-      return p === _;
+    t = t || function(p, w) {
+      return p === w;
     };
     const i = n.length, s = e.length;
     if (i > 200 || s > 200 || i + s > 300)
@@ -210,12 +210,12 @@ var LM = pw((Ue, He) => {
       o = "insert", r = "delete";
     const a = n.length, l = e.length, c = l - a, u = {}, d = {};
     function h(p) {
-      const _ = (d[p - 1] !== void 0 ? d[p - 1] : -1) + 1, v = d[p + 1] !== void 0 ? d[p + 1] : -1, C = _ > v ? -1 : 1;
-      u[p + C] && (u[p] = u[p + C].slice(0)), u[p] || (u[p] = []), u[p].push(_ > v ? o : r);
-      let M = Math.max(_, v), N = M - p;
-      for (; N < a && M < l && t(n[N], e[M]); )
-        N++, M++, u[p].push("equal");
-      return M;
+      const w = (d[p - 1] !== void 0 ? d[p - 1] : -1) + 1, v = d[p + 1] !== void 0 ? d[p + 1] : -1, C = w > v ? -1 : 1;
+      u[p + C] && (u[p] = u[p + C].slice(0)), u[p] || (u[p] = []), u[p].push(w > v ? o : r);
+      let L = Math.max(w, v), O = L - p;
+      for (; O < a && L < l && t(n[O], e[L]); )
+        O++, L++, u[p].push("equal");
+      return L;
     }
     let f = 0, m;
     do {
@@ -227,7 +227,7 @@ var LM = pw((Ue, He) => {
     } while (d[c] !== l);
     return u[c].slice(1);
   }
-  Ln.fastDiff = Wh;
+  Ln.fastDiff = $h;
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
@@ -564,13 +564,13 @@ Read more: ${Iw}#error-${n}`;
     var s = zw.call(n);
     return i && (e ? n[gn] = t : delete n[gn]), s;
   }
-  var Hw = Object.prototype, $w = Hw.toString;
-  function Ww(n) {
-    return $w.call(n);
+  var Hw = Object.prototype, Ww = Hw.toString;
+  function $w(n) {
+    return Ww.call(n);
   }
   var qw = "[object Null]", Gw = "[object Undefined]", Yl = pt ? pt.toStringTag : void 0;
   function qt(n) {
-    return n == null ? n === void 0 ? Gw : qw : Yl && Yl in Object(n) ? Uw(n) : Ww(n);
+    return n == null ? n === void 0 ? Gw : qw : Yl && Yl in Object(n) ? Uw(n) : $w(n);
   }
   function Je(n) {
     return n != null && typeof n == "object";
@@ -584,11 +584,11 @@ Read more: ${Iw}#error-${n}`;
       s[t] = e(n[t], t, n);
     return s;
   }
-  var $e = Array.isArray, Zw = 1 / 0, Ql = pt ? pt.prototype : void 0, ec = Ql ? Ql.toString : void 0;
+  var We = Array.isArray, Zw = 1 / 0, Ql = pt ? pt.prototype : void 0, ec = Ql ? Ql.toString : void 0;
   function Qh(n) {
     if (typeof n == "string")
       return n;
-    if ($e(n))
+    if (We(n))
       return Kw(n, Qh) + "";
     if (Oo(n))
       return ec ? ec.call(n) : "";
@@ -760,7 +760,7 @@ Read more: ${Iw}#error-${n}`;
     return n === e || n !== n && e !== e;
   }
   var Vb = Object.prototype, Mb = Vb.hasOwnProperty;
-  function Wa(n, e, t) {
+  function $a(n, e, t) {
     var i = n[e];
     (!(Mb.call(n, e) && ds(i, t)) || t === void 0 && !(e in n)) && Fo(n, e, t);
   }
@@ -769,7 +769,7 @@ Read more: ${Iw}#error-${n}`;
     t || (t = {});
     for (var o = -1, r = e.length; ++o < r; ) {
       var a = e[o], l = i ? i(t[a], n[a], a, t, n) : void 0;
-      l === void 0 && (l = n[a]), s ? Fo(t, a, l) : Wa(t, a, l);
+      l === void 0 && (l = n[a]), s ? Fo(t, a, l) : $a(t, a, l);
     }
     return t;
   }
@@ -824,15 +824,15 @@ Read more: ${Iw}#error-${n}`;
   function rc(n) {
     return Je(n) && qt(n) == Ub;
   }
-  var nf = Object.prototype, Hb = nf.hasOwnProperty, $b = nf.propertyIsEnumerable, fo = rc(/* @__PURE__ */ function() {
+  var nf = Object.prototype, Hb = nf.hasOwnProperty, Wb = nf.propertyIsEnumerable, fo = rc(/* @__PURE__ */ function() {
     return arguments;
   }()) ? rc : function(n) {
-    return Je(n) && Hb.call(n, "callee") && !$b.call(n, "callee");
+    return Je(n) && Hb.call(n, "callee") && !Wb.call(n, "callee");
   };
-  function Wb() {
+  function $b() {
     return !1;
   }
-  var sf = typeof Ue == "object" && Ue && !Ue.nodeType && Ue, ac = sf && typeof He == "object" && He && !He.nodeType && He, qb = ac && ac.exports === sf, lc = qb ? ct.Buffer : void 0, Gb = lc ? lc.isBuffer : void 0, Wn = Gb || Wb, jb = "[object Arguments]", Kb = "[object Array]", Zb = "[object Boolean]", Jb = "[object Date]", Xb = "[object Error]", Yb = "[object Function]", Qb = "[object Map]", e0 = "[object Number]", t0 = "[object Object]", i0 = "[object RegExp]", n0 = "[object Set]", s0 = "[object String]", o0 = "[object WeakMap]", r0 = "[object ArrayBuffer]", a0 = "[object DataView]", l0 = "[object Float32Array]", c0 = "[object Float64Array]", u0 = "[object Int8Array]", d0 = "[object Int16Array]", h0 = "[object Int32Array]", f0 = "[object Uint8Array]", m0 = "[object Uint8ClampedArray]", g0 = "[object Uint16Array]", p0 = "[object Uint32Array]", te = {};
+  var sf = typeof Ue == "object" && Ue && !Ue.nodeType && Ue, ac = sf && typeof He == "object" && He && !He.nodeType && He, qb = ac && ac.exports === sf, lc = qb ? ct.Buffer : void 0, Gb = lc ? lc.isBuffer : void 0, $n = Gb || $b, jb = "[object Arguments]", Kb = "[object Array]", Zb = "[object Boolean]", Jb = "[object Date]", Xb = "[object Error]", Yb = "[object Function]", Qb = "[object Map]", e0 = "[object Number]", t0 = "[object Object]", i0 = "[object RegExp]", n0 = "[object Set]", s0 = "[object String]", o0 = "[object WeakMap]", r0 = "[object ArrayBuffer]", a0 = "[object DataView]", l0 = "[object Float32Array]", c0 = "[object Float64Array]", u0 = "[object Int8Array]", d0 = "[object Int16Array]", h0 = "[object Int32Array]", f0 = "[object Uint8Array]", m0 = "[object Uint8ClampedArray]", g0 = "[object Uint16Array]", p0 = "[object Uint32Array]", te = {};
   te[l0] = te[c0] = te[u0] = te[d0] = te[h0] = te[f0] = te[m0] = te[g0] = te[p0] = !0;
   te[jb] = te[Kb] = te[r0] = te[Zb] = te[a0] = te[Jb] = te[Xb] = te[Yb] = te[Qb] = te[e0] = te[t0] = te[i0] = te[n0] = te[s0] = te[o0] = !1;
   function w0(n) {
@@ -851,7 +851,7 @@ Read more: ${Iw}#error-${n}`;
     }
   }(), cc = ji && ji.isTypedArray, Ka = cc ? ja(cc) : w0, _0 = Object.prototype, v0 = _0.hasOwnProperty;
   function rf(n, e) {
-    var t = $e(n), i = !t && fo(n), s = !t && !i && Wn(n), o = !t && !i && !s && Ka(n), r = t || i || s || o, a = r ? zb(n.length, String) : [], l = a.length;
+    var t = We(n), i = !t && fo(n), s = !t && !i && $n(n), o = !t && !i && !s && Ka(n), r = t || i || s || o, a = r ? zb(n.length, String) : [], l = a.length;
     for (var c in n)
       (e || v0.call(n, c)) && !(r && // Safari 9 has enumerable `arguments.length` in strict mode.
       (c == "length" || // Node.js 0.10 has enumerable non-index properties on buffers.
@@ -900,7 +900,7 @@ Read more: ${Iw}#error-${n}`;
     an(e, ln(e), n);
   }), I0 = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/, P0 = /^\w*$/;
   function Za(n, e) {
-    if ($e(n))
+    if (We(n))
       return !1;
     var t = typeof n;
     return t == "number" || t == "symbol" || t == "boolean" || n == null || Oo(n) ? !0 : P0.test(n) || !I0.test(n) || e != null && n in Object(e);
@@ -953,13 +953,13 @@ Read more: ${Iw}#error-${n}`;
         return t;
     return -1;
   }
-  var $0 = Array.prototype, W0 = $0.splice;
+  var W0 = Array.prototype, $0 = W0.splice;
   function q0(n) {
     var e = this.__data__, t = zo(e, n);
     if (t < 0)
       return !1;
     var i = e.length - 1;
-    return t == i ? e.pop() : W0.call(e, t, 1), --this.size, !0;
+    return t == i ? e.pop() : $0.call(e, t, 1), --this.size, !0;
   }
   function G0(n) {
     var e = this.__data__, t = zo(e, n);
@@ -1057,7 +1057,7 @@ Read more: ${Iw}#error-${n}`;
     return n == null ? "" : Qh(n);
   }
   function Ho(n, e) {
-    return $e(n) ? n : Za(n, e) ? [n] : r1(Xa(n));
+    return We(n) ? n : Za(n, e) ? [n] : r1(Xa(n));
   }
   var a1 = 1 / 0;
   function cn(n) {
@@ -1137,12 +1137,12 @@ Read more: ${Iw}#error-${n}`;
   function H1(n) {
     return this.__data__.has(n);
   }
-  var $1 = 200;
-  function W1(n, e) {
+  var W1 = 200;
+  function $1(n, e) {
     var t = this.__data__;
     if (t instanceof Lt) {
       var i = t.__data__;
-      if (!Gn || i.length < $1 - 1)
+      if (!Gn || i.length < W1 - 1)
         return i.push([n, e]), this.size = ++t.size, this;
       t = this.__data__ = new Vt(i);
     }
@@ -1156,7 +1156,7 @@ Read more: ${Iw}#error-${n}`;
   ot.prototype.delete = z1;
   ot.prototype.get = U1;
   ot.prototype.has = H1;
-  ot.prototype.set = W1;
+  ot.prototype.set = $1;
   function q1(n, e) {
     return n && an(e, hs(e), n);
   }
@@ -1198,7 +1198,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function kf(n, e, t) {
     var i = e(n);
-    return $e(n) ? i : cf(i, t(n));
+    return We(n) ? i : cf(i, t(n));
   }
   function Jr(n) {
     return kf(n, hs, el);
@@ -1297,8 +1297,8 @@ Read more: ${Iw}#error-${n}`;
   function F_(n) {
     return Je(n) && Kn(n) == N_;
   }
-  var Cc = ji && ji.isSet, D_ = Cc ? ja(Cc) : F_, z_ = 1, U_ = 2, H_ = 4, Af = "[object Arguments]", $_ = "[object Array]", W_ = "[object Boolean]", q_ = "[object Date]", G_ = "[object Error]", xf = "[object Function]", j_ = "[object GeneratorFunction]", K_ = "[object Map]", Z_ = "[object Number]", Sf = "[object Object]", J_ = "[object RegExp]", X_ = "[object Set]", Y_ = "[object String]", Q_ = "[object Symbol]", ev = "[object WeakMap]", tv = "[object ArrayBuffer]", iv = "[object DataView]", nv = "[object Float32Array]", sv = "[object Float64Array]", ov = "[object Int8Array]", rv = "[object Int16Array]", av = "[object Int32Array]", lv = "[object Uint8Array]", cv = "[object Uint8ClampedArray]", uv = "[object Uint16Array]", dv = "[object Uint32Array]", X = {};
-  X[Af] = X[$_] = X[tv] = X[iv] = X[W_] = X[q_] = X[nv] = X[sv] = X[ov] = X[rv] = X[av] = X[K_] = X[Z_] = X[Sf] = X[J_] = X[X_] = X[Y_] = X[Q_] = X[lv] = X[cv] = X[uv] = X[dv] = !0;
+  var Cc = ji && ji.isSet, D_ = Cc ? ja(Cc) : F_, z_ = 1, U_ = 2, H_ = 4, Af = "[object Arguments]", W_ = "[object Array]", $_ = "[object Boolean]", q_ = "[object Date]", G_ = "[object Error]", xf = "[object Function]", j_ = "[object GeneratorFunction]", K_ = "[object Map]", Z_ = "[object Number]", Sf = "[object Object]", J_ = "[object RegExp]", X_ = "[object Set]", Y_ = "[object String]", Q_ = "[object Symbol]", ev = "[object WeakMap]", tv = "[object ArrayBuffer]", iv = "[object DataView]", nv = "[object Float32Array]", sv = "[object Float64Array]", ov = "[object Int8Array]", rv = "[object Int16Array]", av = "[object Int32Array]", lv = "[object Uint8Array]", cv = "[object Uint8ClampedArray]", uv = "[object Uint16Array]", dv = "[object Uint32Array]", X = {};
+  X[Af] = X[W_] = X[tv] = X[iv] = X[$_] = X[q_] = X[nv] = X[sv] = X[ov] = X[rv] = X[av] = X[K_] = X[Z_] = X[Sf] = X[J_] = X[X_] = X[Y_] = X[Q_] = X[lv] = X[cv] = X[uv] = X[dv] = !0;
   X[G_] = X[xf] = X[ev] = !1;
   function qi(n, e, t, i, s, o) {
     var r, a = e & z_, l = e & U_, c = e & H_;
@@ -1306,13 +1306,13 @@ Read more: ${Iw}#error-${n}`;
       return r;
     if (!J(n))
       return n;
-    var u = $e(n);
+    var u = We(n);
     if (u) {
       if (r = c_(n), !a)
         return ef(n, r);
     } else {
       var d = Kn(n), h = d == xf || d == j_;
-      if (Wn(n))
+      if ($n(n))
         return vf(n, a);
       if (d == Sf || d == Af || h && !s) {
         if (r = l || h ? {} : Ef(n), !a)
@@ -1327,14 +1327,14 @@ Read more: ${Iw}#error-${n}`;
     var f = o.get(n);
     if (f)
       return f;
-    o.set(n, r), D_(n) ? n.forEach(function(_) {
-      r.add(qi(_, e, t, _, n, o));
-    }) : O_(n) && n.forEach(function(_, v) {
-      r.set(v, qi(_, e, t, v, n, o));
+    o.set(n, r), D_(n) ? n.forEach(function(w) {
+      r.add(qi(w, e, t, w, n, o));
+    }) : O_(n) && n.forEach(function(w, v) {
+      r.set(v, qi(w, e, t, v, n, o));
     });
     var m = c ? l ? e_ : Jr : l ? ln : hs, p = u ? void 0 : m(n);
-    return Pb(p || n, function(_, v) {
-      p && (v = _, _ = n[v]), Wa(r, v, qi(_, e, t, v, n, o));
+    return Pb(p || n, function(w, v) {
+      p && (v = w, w = n[v]), $a(r, v, qi(w, e, t, v, n, o));
     }), r;
   }
   var hv = 4;
@@ -1384,9 +1384,9 @@ Read more: ${Iw}#error-${n}`;
     for (o.set(n, e), o.set(e, n); ++d < a; ) {
       var m = n[d], p = e[d];
       if (i)
-        var _ = r ? i(p, m, d, e, n, o) : i(m, p, d, n, e, o);
-      if (_ !== void 0) {
-        if (_)
+        var w = r ? i(p, m, d, e, n, o) : i(m, p, d, n, e, o);
+      if (w !== void 0) {
+        if (w)
           continue;
         h = !1;
         break;
@@ -1455,7 +1455,7 @@ Read more: ${Iw}#error-${n}`;
     return !1;
   }
   var zv = 1, Uv = Object.prototype, Hv = Uv.hasOwnProperty;
-  function $v(n, e, t, i, s, o) {
+  function Wv(n, e, t, i, s, o) {
     var r = t & zv, a = Jr(n), l = a.length, c = Jr(e), u = c.length;
     if (l != u && !r)
       return !1;
@@ -1469,43 +1469,43 @@ Read more: ${Iw}#error-${n}`;
       return f == e && m == n;
     var p = !0;
     o.set(n, e), o.set(e, n);
-    for (var _ = r; ++d < l; ) {
+    for (var w = r; ++d < l; ) {
       h = a[d];
       var v = n[h], C = e[h];
       if (i)
-        var M = r ? i(C, v, h, e, n, o) : i(v, C, h, n, e, o);
-      if (!(M === void 0 ? v === C || s(v, C, t, i, o) : M)) {
+        var L = r ? i(C, v, h, e, n, o) : i(v, C, h, n, e, o);
+      if (!(L === void 0 ? v === C || s(v, C, t, i, o) : L)) {
         p = !1;
         break;
       }
-      _ || (_ = h == "constructor");
+      w || (w = h == "constructor");
     }
-    if (p && !_) {
-      var N = n.constructor, q = e.constructor;
-      N != q && "constructor" in n && "constructor" in e && !(typeof N == "function" && N instanceof N && typeof q == "function" && q instanceof q) && (p = !1);
+    if (p && !w) {
+      var O = n.constructor, q = e.constructor;
+      O != q && "constructor" in n && "constructor" in e && !(typeof O == "function" && O instanceof O && typeof q == "function" && q instanceof q) && (p = !1);
     }
     return o.delete(n), o.delete(e), p;
   }
-  var Wv = 1, Tc = "[object Arguments]", Ec = "[object Array]", Es = "[object Object]", qv = Object.prototype, Ac = qv.hasOwnProperty;
+  var $v = 1, Tc = "[object Arguments]", Ec = "[object Array]", Es = "[object Object]", qv = Object.prototype, Ac = qv.hasOwnProperty;
   function Gv(n, e, t, i, s, o) {
-    var r = $e(n), a = $e(e), l = r ? Ec : Kn(n), c = a ? Ec : Kn(e);
+    var r = We(n), a = We(e), l = r ? Ec : Kn(n), c = a ? Ec : Kn(e);
     l = l == Tc ? Es : l, c = c == Tc ? Es : c;
     var u = l == Es, d = c == Es, h = l == c;
-    if (h && Wn(n)) {
-      if (!Wn(e))
+    if (h && $n(n)) {
+      if (!$n(e))
         return !1;
       r = !0, u = !1;
     }
     if (h && !u)
       return o || (o = new ot()), r || Ka(n) ? Pf(n, e, t, i, s, o) : Dv(n, e, l, t, i, s, o);
-    if (!(t & Wv)) {
+    if (!(t & $v)) {
       var f = u && Ac.call(n, "__wrapped__"), m = d && Ac.call(e, "__wrapped__");
       if (f || m) {
-        var p = f ? n.value() : n, _ = m ? e.value() : e;
-        return o || (o = new ot()), s(p, _, t, i, o);
+        var p = f ? n.value() : n, w = m ? e.value() : e;
+        return o || (o = new ot()), s(p, w, t, i, o);
       }
     }
-    return h ? (o || (o = new ot()), $v(n, e, t, i, s, o)) : !1;
+    return h ? (o || (o = new ot()), Wv(n, e, t, i, s, o)) : !1;
   }
   function fs(n, e, t, i, s) {
     return n === e ? !0 : n == null || e == null || !Je(n) && !Je(e) ? n !== n && e !== e : Gv(n, e, t, i, fs, s);
@@ -1568,7 +1568,7 @@ Read more: ${Iw}#error-${n}`;
         break;
       n = n[r];
     }
-    return o || ++i != s ? o : (s = n == null ? 0 : n.length, !!s && qa(s) && No(r, s) && ($e(n) || fo(n)));
+    return o || ++i != s ? o : (s = n == null ? 0 : n.length, !!s && qa(s) && No(r, s) && (We(n) || fo(n)));
   }
   function ey(n, e) {
     return n != null && Qv(n, e, Yv);
@@ -1594,7 +1594,7 @@ Read more: ${Iw}#error-${n}`;
     return Za(n) ? sy(cn(n)) : oy(n);
   }
   function ay(n) {
-    return typeof n == "function" ? n : n == null ? Dt : typeof n == "object" ? $e(n) ? ny(n[0], n[1]) : Xv(n) : ry(n);
+    return typeof n == "function" ? n : n == null ? Dt : typeof n == "object" ? We(n) ? ny(n[0], n[1]) : Xv(n) : ry(n);
   }
   function ly(n) {
     return function(e, t, i) {
@@ -1629,27 +1629,27 @@ Read more: ${Iw}#error-${n}`;
       var R = x - l, I = x - c, ee = e - R;
       return d ? hy(ee, o - I) : ee;
     }
-    function _(x) {
+    function w(x) {
       var R = x - l, I = x - c;
       return l === void 0 || R >= e || R < 0 || d && I >= o;
     }
     function v() {
       var x = wr();
-      if (_(x))
+      if (w(x))
         return C(x);
       a = setTimeout(v, p(x));
     }
     function C(x) {
       return a = void 0, h && i ? f(x) : (i = s = void 0, r);
     }
-    function M() {
+    function L() {
       a !== void 0 && clearTimeout(a), c = 0, i = l = s = a = void 0;
     }
-    function N() {
+    function O() {
       return a === void 0 ? r : C(wr());
     }
     function q() {
-      var x = wr(), R = _(x);
+      var x = wr(), R = w(x);
       if (i = arguments, s = this, l = x, R) {
         if (a === void 0)
           return m(l);
@@ -1658,7 +1658,7 @@ Read more: ${Iw}#error-${n}`;
       }
       return a === void 0 && (a = setTimeout(v, e)), r;
     }
-    return q.cancel = M, q.flush = N, q;
+    return q.cancel = L, q.flush = O, q;
   }
   function ea(n, e, t) {
     (t !== void 0 && !ds(n[e], t) || t === void 0 && !(e in n)) && Fo(n, e, t);
@@ -1681,8 +1681,8 @@ Read more: ${Iw}#error-${n}`;
     }
     var u = o ? o(a, l, t + "", n, e, r) : void 0, d = u === void 0;
     if (d) {
-      var h = $e(l), f = !h && Wn(l), m = !h && !f && Ka(l);
-      u = l, h || f || m ? $e(a) ? u = a : fy(a) ? u = ef(a) : f ? (d = !1, u = vf(l, !0)) : m ? (d = !1, u = Tf(l, !0)) : u = [] : Ne(l) || fo(l) ? (u = a, fo(a) ? u = my(a) : (!J(a) || di(a)) && (u = Ef(l))) : d = !1;
+      var h = We(l), f = !h && $n(l), m = !h && !f && Ka(l);
+      u = l, h || f || m ? We(a) ? u = a : fy(a) ? u = ef(a) : f ? (d = !1, u = vf(l, !0)) : m ? (d = !1, u = Tf(l, !0)) : u = [] : Ne(l) || fo(l) ? (u = a, fo(a) ? u = my(a) : (!J(a) || di(a)) && (u = Ef(l))) : d = !1;
     }
     d && (r.set(l, u), s(u, l, i, o, r), r.delete(l)), ea(n, t, u);
   }
@@ -1706,7 +1706,7 @@ Read more: ${Iw}#error-${n}`;
   }
   var by = "[object String]";
   function xc(n) {
-    return typeof n == "string" || !$e(n) && Je(n) && qt(n) == by;
+    return typeof n == "string" || !We(n) && Je(n) && qt(n) == by;
   }
   function _y(n, e) {
     return e.length < 2 ? n : Ya(n, df(e, 0, -1));
@@ -1746,7 +1746,7 @@ Read more: ${Iw}#error-${n}`;
         var u = a[l];
         c = i ? i(u, l, a) : void 0, c === void 0 && (c = J(u) ? u : No(e[s + 1]) ? [] : {});
       }
-      Wa(a, l, c), a = a[l];
+      $a(a, l, c), a = a[l];
     }
     return n;
   }
@@ -1771,7 +1771,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const wo = Symbol("observableProperties"), $o = Symbol("boundObservables"), bo = Symbol("boundProperties"), Ii = Symbol("decoratedMethods"), Sc = Symbol("decoratedOriginal"), Nf = H(G());
+  const wo = Symbol("observableProperties"), Wo = Symbol("boundObservables"), bo = Symbol("boundProperties"), Ii = Symbol("decoratedMethods"), Sc = Symbol("decoratedOriginal"), Nf = H(G());
   function H(n) {
     if (!n)
       return Nf;
@@ -1827,7 +1827,7 @@ Read more: ${Iw}#error-${n}`;
       unbind(...i) {
         if (!this[wo])
           return;
-        const s = this[bo], o = this[$o];
+        const s = this[bo], o = this[Wo];
         if (i.length) {
           if (!Ic(i))
             throw new g("observable-unbind-wrong-properties", this);
@@ -1891,7 +1891,7 @@ Read more: ${Iw}#error-${n}`;
   function br(n) {
     n[wo] || (Object.defineProperty(n, wo, {
       value: /* @__PURE__ */ new Map()
-    }), Object.defineProperty(n, $o, {
+    }), Object.defineProperty(n, Wo, {
       value: /* @__PURE__ */ new Map()
     }), Object.defineProperty(n, bo, {
       value: /* @__PURE__ */ new Map()
@@ -1942,7 +1942,7 @@ Read more: ${Iw}#error-${n}`;
     }), e;
   }
   function Ry(n, e, t, i) {
-    const s = n[$o], o = s.get(t), r = o || {};
+    const s = n[Wo], o = s.get(t), r = o || {};
     r[i] || (r[i] = /* @__PURE__ */ new Set()), r[i].add(e), o || s.set(t, r);
   }
   function Ly(n) {
@@ -1960,7 +1960,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function Vy(n, e) {
     e.forEach((t) => {
-      const i = n[$o];
+      const i = n[Wo];
       let s;
       i.get(t.observable) || n.listenTo(t.observable, "change", (o, r) => {
         s = i.get(t.observable)[r], s && s.forEach((a) => {
@@ -2022,7 +2022,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function We(n) {
+  function $e(n) {
     return !!(n && n[Symbol.iterator]);
   }
   /**
@@ -2033,7 +2033,7 @@ Read more: ${Iw}#error-${n}`;
     const s = t && t.xmlns, o = s ? n.createElementNS(s, e) : n.createElement(e);
     for (const r in t)
       o.setAttribute(r, t[r]);
-    (xc(i) || !We(i)) && (i = [i]);
+    (xc(i) || !$e(i)) && (i = [i]);
     for (let r of i)
       xc(r) && (r = n.createTextNode(r)), o.appendChild(r);
     return o;
@@ -2382,21 +2382,21 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function Wo(n) {
+  function $o(n) {
     return Object.prototype.toString.apply(n) == "[object Range]";
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function $f(n) {
+  function Wf(n) {
     return !n || !n.parentNode || n.offsetParent === E.document.body ? null : n.offsetParent;
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const Wf = ["top", "right", "bottom", "left", "width", "height"];
+  const $f = ["top", "right", "bottom", "left", "width", "height"];
   class B {
     /**
      * Creates an instance of rect.
@@ -2428,7 +2428,7 @@ Read more: ${Iw}#error-${n}`;
      * @param source A source object to create the rect.
      */
     constructor(e) {
-      const t = Wo(e);
+      const t = $o(e);
       if (Object.defineProperty(this, "_source", {
         // If the source is a Rect instance, copy it's #_source.
         value: e._source || e,
@@ -2564,7 +2564,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns `true` when Rects are equal. `false` otherwise.
      */
     isEqual(e) {
-      for (const t of Wf)
+      for (const t of $f)
         if (this[t] !== e[t])
           return !1;
       return !0;
@@ -2585,7 +2585,7 @@ Read more: ${Iw}#error-${n}`;
     toAbsoluteRect() {
       const { scrollX: e, scrollY: t } = E.window, i = this.clone().moveBy(e, t);
       if (sa(i._source)) {
-        const s = $f(i._source);
+        const s = Wf(i._source);
         s && Uy(i, s);
       }
       return i;
@@ -2650,7 +2650,7 @@ Read more: ${Iw}#error-${n}`;
     }
   }
   function As(n, e) {
-    for (const t of Wf)
+    for (const t of $f)
       n[t] = e[t];
   }
   function Rc(n) {
@@ -2800,7 +2800,7 @@ Read more: ${Iw}#error-${n}`;
    */
   function qo({ element: n, target: e, positions: t, limiter: i, fitInViewport: s, viewportOffsetConfig: o }) {
     di(e) && (e = e()), di(i) && (i = i());
-    const r = $f(n), a = $y(o), l = new B(n), c = Mc(e, a);
+    const r = Wf(n), a = Wy(o), l = new B(n), c = Mc(e, a);
     let u;
     if (!c || !a.getIntersection(c))
       return null;
@@ -2817,7 +2817,7 @@ Read more: ${Iw}#error-${n}`;
         const h = Mc(i, a);
         h && (d.limiterRect = h);
       }
-      u = Wy(t, d);
+      u = $y(t, d);
     }
     return u;
   }
@@ -2825,12 +2825,12 @@ Read more: ${Iw}#error-${n}`;
     const t = new B(n).getVisible();
     return t ? t.getIntersection(e) : null;
   }
-  function $y(n) {
+  function Wy(n) {
     n = Object.assign({ top: 0, bottom: 0, left: 0, right: 0 }, n);
     const e = new B(E.window);
     return e.top += n.top, e.height -= n.top, e.bottom -= n.bottom, e.height -= n.bottom, e;
   }
-  function Wy(n, e) {
+  function $y(n, e) {
     const { elementRect: t } = e, i = t.getArea(), s = n.map((a) => new Gf(a, e)).filter((a) => !!a.name);
     let o = 0, r = null;
     for (const a of s) {
@@ -2967,10 +2967,10 @@ Read more: ${Iw}#error-${n}`;
     return n.right > e.right;
   }
   function sl(n) {
-    return Wo(n) ? n.startContainer.ownerDocument.defaultView : n.ownerDocument.defaultView;
+    return $o(n) ? n.startContainer.ownerDocument.defaultView : n.ownerDocument.defaultView;
   }
   function Oc(n) {
-    if (Wo(n)) {
+    if ($o(n)) {
       let e = n.commonAncestorContainer;
       return ce(e) && (e = e.parentNode), e;
     } else
@@ -3036,7 +3036,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function vo(n) {
     let e = ms(n);
-    return Object.entries(V.isMac || V.isiOS ? Zy : Jy).reduce((s, [o, r]) => (e & F[o] && (e &= ~F[o], s += r), s), "") + (e ? Xy[e] : "");
+    return Object.entries(M.isMac || M.isiOS ? Zy : Jy).reduce((s, [o, r]) => (e & F[o] && (e &= ~F[o], s += r), s), "") + (e ? Xy[e] : "");
   }
   function Yy(n) {
     return n == F.arrowright || n == F.arrowleft || n == F.arrowup || n == F.arrowdown;
@@ -3058,7 +3058,7 @@ Read more: ${Iw}#error-${n}`;
     if (n.endsWith("!"))
       return Zi(n.slice(0, -1));
     const e = Zi(n);
-    return (V.isMac || V.isiOS) && e == F.ctrl ? F.cmd : e;
+    return (M.isMac || M.isiOS) && e == F.ctrl ? F.cmd : e;
   }
   function eC(n, e) {
     const t = ol(n, e);
@@ -3219,7 +3219,7 @@ Read more: ${Iw}#error-${n}`;
   class Ce extends G() {
     constructor(e = {}, t = {}) {
       super();
-      const i = We(e);
+      const i = $e(e);
       if (i || (t = e), this._items = [], this._itemMap = /* @__PURE__ */ new Map(), this._idProperty = t.idProperty || "id", this._bindToExternalToInternalMap = /* @__PURE__ */ new WeakMap(), this._bindToInternalToExternalMap = /* @__PURE__ */ new WeakMap(), this._skippedIndexesFromExternal = [], i)
         for (const s of e)
           this._items.push(s), this._itemMap.set(this._getItemIdBeforeAdding(s), s);
@@ -3727,7 +3727,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   function wt(n) {
-    return We(n) ? new Map(n) : uC(n);
+    return $e(n) ? new Map(n) : uC(n);
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
@@ -3838,7 +3838,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class w extends H() {
+  class b extends H() {
     /**
      * @inheritDoc
      */
@@ -3918,7 +3918,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class L extends H() {
+  class V extends H() {
     /**
      * Creates a new `Command` instance.
      *
@@ -4051,7 +4051,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Hc extends L {
+  class Hc extends V {
     constructor() {
       super(...arguments), this._childCommandsDefinitions = [];
     }
@@ -4192,8 +4192,8 @@ Read more: ${Iw}#error-${n}`;
       f(e), p(e);
       const r = e.filter((x) => !d(x, t)), a = [...m(r)];
       q(a, i);
-      const l = M(a);
-      return N(l, "init").then(() => N(l, "afterInit")).then(() => l);
+      const l = L(a);
+      return O(l, "init").then(() => O(l, "afterInit")).then(() => l);
       function c(x) {
         return typeof x == "function";
       }
@@ -4216,10 +4216,10 @@ Read more: ${Iw}#error-${n}`;
       }
       function p(x, R = null) {
         x.map((I) => c(I) ? I : s._availablePlugins.get(I) || I).forEach((I) => {
-          _(I, R), v(I, R), C(I, R);
+          w(I, R), v(I, R), C(I, R);
         });
       }
-      function _(x, R) {
+      function w(x, R) {
         if (!c(x))
           throw R ? new g("plugincollection-soft-required", o, { missingPlugin: x, requiredBy: h(R) }) : new g("plugincollection-plugin-not-found", o, { plugin: x });
       }
@@ -4231,13 +4231,13 @@ Read more: ${Iw}#error-${n}`;
         if (R && d(x, t))
           throw new g("plugincollection-required", o, { plugin: h(x), requiredBy: h(R) });
       }
-      function M(x) {
+      function L(x) {
         return x.map((R) => {
           let I = s._contextPlugins.get(R);
           return I = I || new R(o), s._add(R, I), I;
         });
       }
-      function N(x, R) {
+      function O(x, R) {
         return x.reduce((I, ee) => !ee[R] || s._contextPlugins.has(ee) ? I : I.then(ee[R].bind(ee)), Promise.resolve());
       }
       function q(x, R) {
@@ -4470,7 +4470,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const io = /* @__PURE__ */ new WeakMap();
-  let $c = !1;
+  let Wc = !1;
   function cl({ view: n, element: e, text: t, isDirectHost: i = !0, keepOnFocus: s = !1 }) {
     const o = n.document;
     io.has(o) || (io.set(o, /* @__PURE__ */ new Map()), o.registerPostFixer((a) => _r(o, a)), o.on("change:isComposing", () => {
@@ -4503,16 +4503,16 @@ Read more: ${Iw}#error-${n}`;
     const t = io.get(n), i = [];
     let s = !1;
     for (const [o, r] of t)
-      r.isDirectHost && (i.push(o), Wc(e, o, r) && (s = !0));
+      r.isDirectHost && (i.push(o), $c(e, o, r) && (s = !0));
     for (const [o, r] of t) {
       if (r.isDirectHost)
         continue;
       const a = CC(o);
-      a && (i.includes(a) || (r.hostElement = a, Wc(e, o, r) && (s = !0)));
+      a && (i.includes(a) || (r.hostElement = a, $c(e, o, r) && (s = !0)));
     }
     return s;
   }
-  function Wc(n, e, t) {
+  function $c(n, e, t) {
     const { text: i, isDirectHost: s, hostElement: o } = t;
     let r = !1;
     return o.getAttribute("data-placeholder") !== i && (n.setAttribute("data-placeholder", i, o), r = !0), (s || e.childCount == 1) && yC(o, t.keepOnFocus) ? _C(n, o) && (r = !0) : vC(n, o) && (r = !0), r;
@@ -4526,7 +4526,7 @@ Read more: ${Iw}#error-${n}`;
     return null;
   }
   function kC() {
-    $c || D("enableplaceholder-deprecated-text-option"), $c = !0;
+    Wc || D("enableplaceholder-deprecated-text-option"), Wc = !0;
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
@@ -6152,7 +6152,7 @@ Read more: ${Iw}#error-${n}`;
     n.clear(), t.forEach((i) => n.add(i));
   }
   function MC(n, e) {
-    return typeof e == "string" ? [new ie(n, e)] : (We(e) || (e = [e]), Array.from(e).map((t) => typeof t == "string" ? new ie(n, t) : t instanceof ft ? new ie(n, t.data) : t));
+    return typeof e == "string" ? [new ie(n, e)] : ($e(e) || (e = [e]), Array.from(e).map((t) => typeof t == "string" ? new ie(n, t) : t instanceof ft ? new ie(n, t.data) : t));
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
@@ -6680,7 +6680,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  let O = class Nt extends bi {
+  let N = class Nt extends bi {
     /**
      * Creates a range spanning from `start` position to `end` position.
      *
@@ -6999,7 +6999,7 @@ Read more: ${Iw}#error-${n}`;
       return this._createFromPositionAndShift(k._createBefore(e), t);
     }
   };
-  O.prototype.is = function(n) {
+  N.prototype.is = function(n) {
     return n === "range" || n === "view:range";
   };
   function Ss(n) {
@@ -7327,17 +7327,17 @@ Read more: ${Iw}#error-${n}`;
         this._setRanges([]), this._setFakeOptions(s);
       else if (t instanceof im || t instanceof dl)
         this._setRanges(t.getRanges(), t.isBackward), this._setFakeOptions({ fake: t.isFake, label: t.fakeSelectionLabel });
-      else if (t instanceof O)
+      else if (t instanceof N)
         this._setRanges([t], s && s.backward), this._setFakeOptions(s);
       else if (t instanceof k)
-        this._setRanges([new O(t)]), this._setFakeOptions(s);
+        this._setRanges([new N(t)]), this._setFakeOptions(s);
       else if (t instanceof _i) {
         const o = !!s && !!s.backward;
         let r;
         if (i === void 0)
           throw new g("view-selection-setto-required-second-parameter", this);
-        i == "in" ? r = O._createIn(t) : i == "on" ? r = O._createOn(t) : r = new O(k._createAt(t, i)), this._setRanges([r], o), this._setFakeOptions(s);
-      } else if (We(t))
+        i == "in" ? r = N._createIn(t) : i == "on" ? r = N._createOn(t) : r = new N(k._createAt(t, i)), this._setRanges([r], o), this._setFakeOptions(s);
+      } else if ($e(t))
         this._setRanges(t, s && s.backward), this._setFakeOptions(s);
       else
         throw new g("view-selection-setto-not-selectable", this);
@@ -7359,7 +7359,7 @@ Read more: ${Iw}#error-${n}`;
       if (i.compareWith(this.focus) == "same")
         return;
       const s = this.anchor;
-      this._ranges.pop(), i.compareWith(s) == "before" ? this._addRange(new O(i, s), !0) : this._addRange(new O(s, i)), this.fire("change");
+      this._ranges.pop(), i.compareWith(s) == "before" ? this._addRange(new N(i, s), !0) : this._addRange(new N(s, i)), this.fire("change");
     }
     /**
      * Replaces all ranges that were added to the selection with given array of ranges. Last range of the array
@@ -7400,7 +7400,7 @@ Read more: ${Iw}#error-${n}`;
      * with ranges already stored in Selection instance.
      */
     _addRange(e, t = !1) {
-      if (!(e instanceof O))
+      if (!(e instanceof N))
         throw new g("view-selection-add-range-not-range", this);
       this._pushRange(e), this._lastRangeBackward = !!t;
     }
@@ -7414,7 +7414,7 @@ Read more: ${Iw}#error-${n}`;
       for (const t of this._ranges)
         if (e.isIntersecting(t))
           throw new g("view-selection-range-intersects", this, { addedRange: e, intersectingRange: t });
-      this._ranges.push(new O(e.start, e.end));
+      this._ranges.push(new N(e.start, e.end));
     }
   };
   St.prototype.is = function(n) {
@@ -8270,7 +8270,7 @@ Read more: ${Iw}#error-${n}`;
     _insertChild(e, t) {
       this._fireChange("children", this);
       let i = 0;
-      const s = $C(this.document, t);
+      const s = WC(this.document, t);
       for (const o of s)
         o.parent !== null && o._remove(), o.parent = this, this._children.splice(e, 0, o), e++, i++;
       return i;
@@ -8322,8 +8322,8 @@ Read more: ${Iw}#error-${n}`;
   ri.prototype.is = function(n) {
     return n === "documentFragment" || n === "view:documentFragment";
   };
-  function $C(n, e) {
-    return typeof e == "string" ? [new ie(n, e)] : (We(e) || (e = [e]), Array.from(e).map((t) => typeof t == "string" ? new ie(n, t) : t instanceof ft ? new ie(n, t.data) : t));
+  function WC(n, e) {
+    return typeof e == "string" ? [new ie(n, e)] : ($e(e) || (e = [e]), Array.from(e).map((t) => typeof t == "string" ? new ie(n, t) : t instanceof ft ? new ie(n, t.data) : t));
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
@@ -8668,7 +8668,7 @@ Read more: ${Iw}#error-${n}`;
       if (!e.isAtEnd) {
         const i = t._clone(!1);
         this.insert(k._createAfter(t), i);
-        const s = new O(e, k._createAt(t, "end")), o = new k(i, 0);
+        const s = new N(e, k._createAt(t, "end")), o = new k(i, 0);
         this.move(s, o);
       }
       return k._createAfter(t);
@@ -8747,7 +8747,7 @@ Read more: ${Iw}#error-${n}`;
       if (!t || !i || !t.is("containerElement") || !i.is("containerElement"))
         throw new g("view-writer-merge-containers-invalid-position", this.document);
       const s = t.getChild(t.childCount - 1), o = s instanceof ie ? k._createAt(s, "end") : k._createAt(t, "end");
-      return this.move(O._createIn(i), k._createAt(t, "end")), this.remove(O._createOn(i)), o;
+      return this.move(N._createIn(i), k._createAt(t, "end")), this.remove(N._createOn(i)), o;
     }
     /**
      * Inserts a node or nodes at specified position. Takes care about breaking attributes before insertion
@@ -8766,7 +8766,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Range around inserted nodes.
      */
     insert(e, t) {
-      t = We(t) ? [...t] : [t], rm(t, this.document);
+      t = $e(t) ? [...t] : [t], rm(t, this.document);
       const i = t.reduce((r, a) => {
         const l = r[r.length - 1], c = !a.is("uiElement");
         return !l || l.breakAttributes != c ? r.push({
@@ -8779,7 +8779,7 @@ Read more: ${Iw}#error-${n}`;
         const l = this._insertNodes(o, r, a);
         s || (s = l.start), o = l.end;
       }
-      return s ? new O(s, o) : new O(e);
+      return s ? new N(s, o) : new N(e);
     }
     /**
      * Removes provided range from the container.
@@ -8794,7 +8794,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Document fragment containing removed nodes.
      */
     remove(e) {
-      const t = e instanceof O ? e : O._createOn(e);
+      const t = e instanceof N ? e : N._createOn(e);
       if (wn(t, this.document), t.isCollapsed)
         return new ri(this.document);
       const { start: i, end: s } = this._breakAttributesRange(t, !0), o = i.parent, r = s.offset - i.offset, a = o._removeChildren(i.offset, r);
@@ -8823,10 +8823,10 @@ Read more: ${Iw}#error-${n}`;
         const o = s.item;
         let r;
         if (o.is("element") && t.isSimilar(o))
-          r = O._createOn(o);
+          r = N._createOn(o);
         else if (!s.nextPosition.isAfter(e.start) && o.is("$textProxy")) {
           const a = o.getAncestors().find((l) => l.is("element") && t.isSimilar(l));
-          a && (r = O._createIn(a));
+          a && (r = N._createIn(a));
         }
         r && (r.end.isAfter(e.end) && (r.end = e.end), r.start.isBefore(e.start) && (r.start = e.start), this.remove(r));
       }
@@ -8879,9 +8879,9 @@ Read more: ${Iw}#error-${n}`;
         throw new g("view-writer-wrap-invalid-attribute", this.document);
       if (wn(e, this.document), e.isCollapsed) {
         let i = e.start;
-        i.parent.is("element") && !WC(i.parent) && (i = i.getLastMatchingPosition((o) => o.item.is("uiElement"))), i = this._wrapPosition(i, t);
+        i.parent.is("element") && !$C(i.parent) && (i = i.getLastMatchingPosition((o) => o.item.is("uiElement"))), i = this._wrapPosition(i, t);
         const s = this.document.selection;
-        return s.isCollapsed && s.getFirstPosition().isEqual(e.start) && this.setSelection(i), new O(i);
+        return s.isCollapsed && s.getFirstPosition().isEqual(e.start) && this.setSelection(i), new N(i);
       } else
         return this._wrapRange(e, t);
     }
@@ -8900,7 +8900,7 @@ Read more: ${Iw}#error-${n}`;
       const { start: i, end: s } = this._breakAttributesRange(e, !0), o = i.parent, r = this._unwrapChildren(o, i.offset, s.offset, t), a = this.mergeAttributes(r.start);
       a.isEqual(r.start) || r.end.offset--;
       const l = this.mergeAttributes(r.end);
-      return new O(a, l);
+      return new N(a, l);
     }
     /**
      * Renames element by creating a copy of renamed element but with changed name and then moving contents of the
@@ -8917,7 +8917,7 @@ Read more: ${Iw}#error-${n}`;
      */
     rename(e, t) {
       const i = new Zn(this.document, e, t.getAttributes());
-      return this.insert(k._createAfter(t), i), this.move(O._createIn(t), k._createAt(i, 0)), this.remove(O._createOn(t)), i;
+      return this.insert(k._createAfter(t), i), this.move(N._createIn(t), k._createAt(i, 0)), this.remove(N._createOn(t)), i;
     }
     /**
      * Cleans up memory by removing obsolete cloned elements group from the writer.
@@ -8979,13 +8979,13 @@ Read more: ${Iw}#error-${n}`;
      * @param end End position. If not set, range will be collapsed at `start` position.
      */
     createRange(e, t) {
-      return new O(e, t);
+      return new N(e, t);
     }
     /**
      * Creates a range that starts before given {@link module:engine/view/item~Item view item} and ends after it.
      */
     createRangeOn(e) {
-      return O._createOn(e);
+      return N._createOn(e);
     }
     /**
      * Creates a range inside an {@link module:engine/view/element~Element element} which starts before the first child of
@@ -8994,7 +8994,7 @@ Read more: ${Iw}#error-${n}`;
      * @param element Element which is a parent for the range.
      */
     createRangeIn(e) {
-      return O._createIn(e);
+      return N._createIn(e);
     }
     createSelection(...e) {
       return new St(...e);
@@ -9071,7 +9071,7 @@ Read more: ${Iw}#error-${n}`;
       const a = o.getShiftedBy(r), l = this.mergeAttributes(o);
       l.isEqual(o) || a.offset--;
       const c = this.mergeAttributes(a);
-      return new O(l, c);
+      return new N(l, c);
     }
     /**
      * Wraps children with provided `wrapElement`. Only children contained in `parent` element between
@@ -9097,7 +9097,7 @@ Read more: ${Iw}#error-${n}`;
           continue;
         this.mergeAttributes(l).isEqual(l) || (a++, i--);
       }
-      return O._createFromParentsAndOffsets(e, t, e, i);
+      return N._createFromParentsAndOffsets(e, t, e, i);
     }
     /**
      * Unwraps children from provided `unwrapElement`. Only children contained in `parent` element between
@@ -9129,7 +9129,7 @@ Read more: ${Iw}#error-${n}`;
           continue;
         this.mergeAttributes(l).isEqual(l) || (a++, i--);
       }
-      return O._createFromParentsAndOffsets(e, t, e, i);
+      return N._createFromParentsAndOffsets(e, t, e, i);
     }
     /**
      * Helper function for `view.writer.wrap`. Wraps range with provided attribute element.
@@ -9144,7 +9144,7 @@ Read more: ${Iw}#error-${n}`;
       const { start: i, end: s } = this._breakAttributesRange(e, !0), o = i.parent, r = this._wrapChildren(o, i.offset, s.offset, t), a = this.mergeAttributes(r.start);
       a.isEqual(r.start) || r.end.offset--;
       const l = this.mergeAttributes(r.end);
-      return new O(a, l);
+      return new N(a, l);
     }
     /**
      * Helper function for {@link #wrap}. Wraps position with provided attribute element.
@@ -9161,7 +9161,7 @@ Read more: ${Iw}#error-${n}`;
       e.parent.is("$text") && (e = Tr(e));
       const i = this.createAttributeElement("_wrapPosition-fake-element");
       i._priority = Number.POSITIVE_INFINITY, i.isSimilar = () => !1, e.parent._insertChild(e.offset, i);
-      const s = new O(e, e.getShiftedBy(1));
+      const s = new N(e, e.getShiftedBy(1));
       this.wrap(s, t);
       const o = new k(i.parent, i.index);
       i._remove();
@@ -9230,10 +9230,10 @@ Read more: ${Iw}#error-${n}`;
       const i = e.start, s = e.end;
       if (wn(e, this.document), e.isCollapsed) {
         const l = this._breakAttributes(e.start, t);
-        return new O(l, l);
+        return new N(l, l);
       }
       const o = this._breakAttributes(s, t), r = o.parent.childCount, a = this._breakAttributes(i, t);
-      return o.offset += o.parent.childCount - r, new O(a, o);
+      return o.offset += o.parent.childCount - r, new N(a, o);
     }
     /**
      * Helper function used by other `DowncastWriter` methods. Breaks attribute elements at given position.
@@ -9322,7 +9322,7 @@ Read more: ${Iw}#error-${n}`;
       i && i.delete(e);
     }
   }
-  function WC(n) {
+  function $C(n) {
     return Array.from(n.getChildren()).some((e) => !e.is("uiElement"));
   }
   function ca(n) {
@@ -9420,7 +9420,7 @@ Read more: ${Iw}#error-${n}`;
      * @param selection View selection.
      */
     constructor(e, t) {
-      super(), this.domDocuments = /* @__PURE__ */ new Set(), this.markedAttributes = /* @__PURE__ */ new Set(), this.markedChildren = /* @__PURE__ */ new Set(), this.markedTexts = /* @__PURE__ */ new Set(), this._inlineFiller = null, this._fakeSelectionContainer = null, this.domConverter = e, this.selection = t, this.set("isFocused", !1), this.set("isSelecting", !1), V.isBlink && !V.isAndroid && this.on("change:isSelecting", () => {
+      super(), this.domDocuments = /* @__PURE__ */ new Set(), this.markedAttributes = /* @__PURE__ */ new Set(), this.markedChildren = /* @__PURE__ */ new Set(), this.markedTexts = /* @__PURE__ */ new Set(), this._inlineFiller = null, this._fakeSelectionContainer = null, this.domConverter = e, this.selection = t, this.set("isFocused", !1), this.set("isSelecting", !1), M.isBlink && !M.isAndroid && this.on("change:isSelecting", () => {
         this.isSelecting || this.render();
       }), this.set("isComposing", !1), this.on("change:isComposing", () => {
         this.isComposing || this.render();
@@ -9464,10 +9464,10 @@ Read more: ${Iw}#error-${n}`;
      * removed as long as the selection is in the text node which needed it at first.
      */
     render() {
-      if (this.isComposing && !V.isAndroid)
+      if (this.isComposing && !M.isAndroid)
         return;
       let e = null;
-      const t = V.isBlink && !V.isAndroid ? !this.isSelecting : !0;
+      const t = M.isBlink && !M.isAndroid ? !this.isSelecting : !0;
       for (const i of this.markedChildren)
         this._updateChildrenMappings(i);
       t ? (this._inlineFiller && !this._isSelectionInInlineFiller() && this._removeInlineFiller(), this._inlineFiller ? e = this._getInlineFillerPosition() : this._needsInlineFillerAtSelection() && (e = this.selection.getFirstPosition(), this.markedChildren.add(e.parent))) : this._inlineFiller && this._inlineFiller.parentNode && (e = this.domConverter.domPositionToView(this._inlineFiller), e && e.parent.is("$text") && (e = k._createBefore(e.parent)));
@@ -9566,7 +9566,7 @@ Read more: ${Iw}#error-${n}`;
       if (!this.domConverter.mapViewToDom(t.root) || !t.is("element") || !JC(t) || i === t.getFillerOffset())
         return !1;
       const s = e.nodeBefore, o = e.nodeAfter;
-      return !(s instanceof ie || o instanceof ie || V.isAndroid && (s || o));
+      return !(s instanceof ie || o instanceof ie || M.isAndroid && (s || o));
     }
     /**
      * Checks if text needs to be updated and possibly updates it.
@@ -9608,7 +9608,7 @@ Read more: ${Iw}#error-${n}`;
       const i = this.domConverter.mapViewToDom(e);
       if (!i)
         return;
-      if (V.isAndroid) {
+      if (M.isAndroid) {
         let d = null;
         for (const h of Array.from(i.childNodes)) {
           if (d && ce(d) && ce(h)) {
@@ -9688,14 +9688,14 @@ Read more: ${Iw}#error-${n}`;
      * Checks if the selection needs to be updated and possibly updates it.
      */
     _updateSelection() {
-      if (V.isBlink && !V.isAndroid && this.isSelecting && !this.markedChildren.size)
+      if (M.isBlink && !M.isAndroid && this.isSelecting && !this.markedChildren.size)
         return;
       if (this.selection.rangeCount === 0) {
         this._removeDomSelection(), this._removeFakeSelection();
         return;
       }
       const e = this.domConverter.mapViewToDom(this.selection.editableElement);
-      !this.isFocused || !e || (this.selection.isFake ? this._updateFakeSelection(e) : this._fakeSelectionContainer && this._fakeSelectionContainer.isConnected ? (this._removeFakeSelection(), this._updateDomSelection(e)) : this.isComposing && V.isAndroid || this._updateDomSelection(e));
+      !this.isFocused || !e || (this.selection.isFake ? this._updateFakeSelection(e) : this._fakeSelectionContainer && this._fakeSelectionContainer.isConnected ? (this._removeFakeSelection(), this._updateDomSelection(e)) : this.isComposing && M.isAndroid || this._updateDomSelection(e));
     }
     /**
      * Updates the fake selection.
@@ -9722,7 +9722,7 @@ Read more: ${Iw}#error-${n}`;
       if (!this._domSelectionNeedsUpdate(t))
         return;
       const i = this.domConverter.viewPositionToDom(this.selection.anchor), s = this.domConverter.viewPositionToDom(this.selection.focus);
-      t.setBaseAndExtent(i.parent, i.offset, s.parent, s.offset), V.isGecko && ek(s, t);
+      t.setBaseAndExtent(i.parent, i.offset, s.parent, s.offset), M.isGecko && ek(s, t);
     }
     /**
      * Checks whether a given DOM selection needs to be updated.
@@ -9822,7 +9822,7 @@ Read more: ${Iw}#error-${n}`;
     const t = n.data;
     if (t == e)
       return;
-    const i = Wh(t, e);
+    const i = $h(t, e);
     for (const s of i)
       s.type === "insert" ? n.insertData(s.index, s.values.join("")) : n.deleteData(s.index, s.howMany);
   }
@@ -10198,7 +10198,7 @@ Read more: ${Iw}#error-${n}`;
      */
     domRangeToView(e) {
       const t = this.domPositionToView(e.startContainer, e.startOffset), i = this.domPositionToView(e.endContainer, e.endOffset);
-      return t && i ? new O(t, i) : null;
+      return t && i ? new N(t, i) : null;
     }
     /**
      * Converts DOM parent and offset to view {@link module:engine/view/position~Position}.
@@ -10738,7 +10738,7 @@ Read more: ${Iw}#error-${n}`;
     n === "script" && D("domconverter-unsafe-script-element-detected"), n === "style" && D("domconverter-unsafe-style-element-detected");
   }
   function lk(n) {
-    if (!V.isGecko || !n.rangeCount)
+    if (!M.isGecko || !n.rangeCount)
       return !1;
     const e = n.getRangeAt(0).startContainer;
     try {
@@ -11122,7 +11122,7 @@ Read more: ${Iw}#error-${n}`;
         this.document.isSelecting && (this._handleSelectionChange(null, t), this.document.isSelecting = !1, this._documentIsSelectingInactivityTimeoutDebounced.cancel());
       };
       this.listenTo(e, "selectstart", i, { priority: "highest" }), this.listenTo(e, "keydown", s, { priority: "highest", useCapture: !0 }), this.listenTo(e, "keyup", s, { priority: "highest", useCapture: !0 }), !this._documents.has(t) && (this.listenTo(t, "mouseup", s, { priority: "highest", useCapture: !0 }), this.listenTo(t, "selectionchange", (o, r) => {
-        this.document.isComposing && !V.isAndroid || (this._handleSelectionChange(r, t), this._documentIsSelectingInactivityTimeoutDebounced());
+        this.document.isComposing && !M.isAndroid || (this._handleSelectionChange(r, t), this._documentIsSelectingInactivityTimeoutDebounced());
       }), this._documents.add(t));
     }
     /**
@@ -11313,11 +11313,11 @@ Read more: ${Iw}#error-${n}`;
           if (u)
             return i.createRange(u);
         }).filter((l) => !!l);
-      else if (V.isAndroid) {
+      else if (M.isAndroid) {
         const l = e.target.ownerDocument.defaultView.getSelection();
         a = Array.from(i.domConverter.domSelectionToView(l).getRanges());
       }
-      if (V.isAndroid && e.inputType == "insertCompositionText" && r && r.endsWith(`
+      if (M.isAndroid && e.inputType == "insertCompositionText" && r && r.endsWith(`
 `)) {
         this.fire(e.type, e, {
           inputType: "insertParagraph",
@@ -11424,7 +11424,7 @@ Read more: ${Iw}#error-${n}`;
         this._hasChangedSinceTheLastRendering = !0;
       }), this.listenTo(this.document, "change:isFocused", () => {
         this._hasChangedSinceTheLastRendering = !0;
-      }), V.isiOS && this.listenTo(this.document, "blur", (t, i) => {
+      }), M.isiOS && this.listenTo(this.document, "blur", (t, i) => {
         this.domConverter.mapDomToView(i.domEvent.relatedTarget) || this.domConverter._clearDomSelection();
       });
     }
@@ -11686,13 +11686,13 @@ Read more: ${Iw}#error-${n}`;
      * @param end End position. If not set, range will be collapsed at `start` position.
      */
     createRange(e, t) {
-      return new O(e, t);
+      return new N(e, t);
     }
     /**
      * Creates a range that starts before given {@link module:engine/view/item~Item view item} and ends after it.
      */
     createRangeOn(e) {
-      return O._createOn(e);
+      return N._createOn(e);
     }
     /**
      * Creates a range inside an {@link module:engine/view/element~Element element} which starts before the first child of
@@ -11701,7 +11701,7 @@ Read more: ${Iw}#error-${n}`;
      * @param element Element which is a parent for the range.
      */
     createRangeIn(e) {
-      return O._createIn(e);
+      return N._createIn(e);
     }
     createSelection(...e) {
       return new St(...e);
@@ -12341,7 +12341,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $ extends vi {
+  class W extends vi {
     /**
      * Creates a model element.
      *
@@ -12483,7 +12483,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _clone(e = !1) {
       const t = e ? Array.from(this._children).map((i) => i._clone(!0)) : void 0;
-      return new $(this.name, this.getAttributes(), t);
+      return new W(this.name, this.getAttributes(), t);
     }
     /**
      * {@link module:engine/model/element~Element#_insertChild Inserts} one or more nodes at the end of this element.
@@ -12538,17 +12538,17 @@ Read more: ${Iw}#error-${n}`;
       if (e.children) {
         t = [];
         for (const i of e.children)
-          i.name ? t.push($.fromJSON(i)) : t.push(j.fromJSON(i));
+          i.name ? t.push(W.fromJSON(i)) : t.push(j.fromJSON(i));
       }
-      return new $(e.name, e.attributes, t);
+      return new W(e.name, e.attributes, t);
     }
   }
-  $.prototype.is = function(n, e) {
+  W.prototype.is = function(n, e) {
     return e ? e === this.name && (n === "element" || n === "model:element") : n === "element" || n === "model:element" || // From super.is(). This is highly utilised method and cannot call super. See ckeditor/ckeditor5#6529.
     n === "node" || n === "model:node";
   };
   function bk(n) {
-    return typeof n == "string" ? [new j(n)] : (We(n) || (n = [n]), Array.from(n).map((e) => typeof e == "string" ? new j(e) : e instanceof st ? new j(e.data, e.getAttributes()) : e));
+    return typeof n == "string" ? [new j(n)] : ($e(n) || (n = [n]), Array.from(n).map((e) => typeof e == "string" ? new j(e) : e instanceof st ? new j(e.data, e.getAttributes()) : e));
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
@@ -12622,7 +12622,7 @@ Read more: ${Iw}#error-${n}`;
       if (i === this._boundaryEndParent && t.offset == this.boundaries.end.offset)
         return { done: !0, value: void 0 };
       const s = On(t, i), o = s || fm(t, i, s);
-      if (o instanceof $) {
+      if (o instanceof W) {
         if (!this.shallow)
           t.path.push(0), this._visitedParent = o;
         else {
@@ -12655,7 +12655,7 @@ Read more: ${Iw}#error-${n}`;
       if (i == this._boundaryStartParent && t.offset == this.boundaries.start.offset)
         return { done: !0, value: void 0 };
       const s = t.parent, o = On(t, s), r = o || mm(t, s, o);
-      if (r instanceof $)
+      if (r instanceof W)
         return t.offset--, this.shallow ? (this._position = t, Xt("elementStart", r, e, t, 1)) : (t.path.push(r.maxOffset), this._position = t, this._visitedParent = r, this.ignoreElementEnd ? this._previous() : Xt("elementEnd", r, e, t));
       if (r instanceof j) {
         let a;
@@ -13293,7 +13293,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class b extends jt {
+  class _ extends jt {
     /**
      * Creates a range spanning from `start` position to `end` position.
      *
@@ -13417,7 +13417,7 @@ Read more: ${Iw}#error-${n}`;
      */
     getDifference(e) {
       const t = [];
-      return this.isIntersecting(e) ? (this.containsPosition(e.start) && t.push(new b(this.start, e.start)), this.containsPosition(e.end) && t.push(new b(e.end, this.end))) : t.push(new b(this.start, this.end)), t;
+      return this.isIntersecting(e) ? (this.containsPosition(e.start) && t.push(new _(this.start, e.start)), this.containsPosition(e.end) && t.push(new _(e.end, this.end))) : t.push(new _(this.start, this.end)), t;
     }
     /**
      * Returns an intersection of this {@link ~Range range} and given {@link ~Range range}.
@@ -13443,7 +13443,7 @@ Read more: ${Iw}#error-${n}`;
     getIntersection(e) {
       if (this.isIntersecting(e)) {
         let t = this.start, i = this.end;
-        return this.containsPosition(e.start) && (t = e.start), this.containsPosition(e.end) && (i = e.end), new b(t, i);
+        return this.containsPosition(e.start) && (t = e.start), this.containsPosition(e.end) && (i = e.end), new _(t, i);
       }
       return null;
     }
@@ -13482,7 +13482,7 @@ Read more: ${Iw}#error-${n}`;
       if (i || (this.start.isBefore(e.start) ? i = t ? this.end.isTouching(e.start) : this.end.isEqual(e.start) : i = t ? e.end.isTouching(this.start) : e.end.isEqual(this.start)), !i)
         return null;
       let s = this.start, o = this.end;
-      return e.start.isBefore(s) && (s = e.start), e.end.isAfter(o) && (o = e.end), new b(s, o);
+      return e.start.isBefore(s) && (s = e.start), e.end.isAfter(o) && (o = e.end), new _(s, o);
     }
     /**
      * Computes and returns the smallest set of {@link #isFlat flat} ranges, that covers this range in whole.
@@ -13532,11 +13532,11 @@ Read more: ${Iw}#error-${n}`;
       let s = i.parent;
       for (; i.path.length > t + 1; ) {
         const o = s.maxOffset - i.offset;
-        o !== 0 && e.push(new b(i, i.getShiftedBy(o))), i.path = i.path.slice(0, -1), i.offset++, s = s.parent;
+        o !== 0 && e.push(new _(i, i.getShiftedBy(o))), i.path = i.path.slice(0, -1), i.offset++, s = s.parent;
       }
       for (; i.path.length <= this.end.path.length; ) {
         const o = this.end.path[i.path.length - 1], r = o - i.offset;
-        r !== 0 && e.push(new b(i, i.getShiftedBy(r))), i.offset = o, i.path.push(0);
+        r !== 0 && e.push(new _(i, i.getShiftedBy(r))), i.offset = o, i.path.push(0);
       }
       return e;
     }
@@ -13621,7 +13621,7 @@ Read more: ${Iw}#error-${n}`;
         case "merge":
           return [this._getTransformedByMergeOperation(e)];
       }
-      return [new b(this.start, this.end)];
+      return [new _(this.start, this.end)];
     }
     /**
      * Returns a range that is a result of transforming this range by multiple `operations`.
@@ -13631,7 +13631,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Range which is the result of transformation.
      */
     getTransformedByOperations(e) {
-      const t = [new b(this.start, this.end)];
+      const t = [new _(this.start, this.end)];
       for (const i of e)
         for (let s = 0; s < t.length; s++) {
           const o = t[s].getTransformedByOperation(i);
@@ -13712,7 +13712,7 @@ Read more: ${Iw}#error-${n}`;
     _getTransformedBySplitOperation(e) {
       const t = this.start._getTransformedBySplitOperation(e);
       let i = this.end._getTransformedBySplitOperation(e);
-      return this.end.isEqual(e.insertionPosition) && (i = this.end.getShiftedBy(1)), t.root != i.root && (i = this.end.getShiftedBy(-1)), new b(t, i);
+      return this.end.isEqual(e.insertionPosition) && (i = this.end.getShiftedBy(1)), t.root != i.root && (i = this.end.getShiftedBy(-1)), new _(t, i);
     }
     /**
      * Returns a result of transforming a copy of this range by merge operation.
@@ -13723,9 +13723,9 @@ Read more: ${Iw}#error-${n}`;
      */
     _getTransformedByMergeOperation(e) {
       if (this.start.isEqual(e.targetPosition) && this.end.isEqual(e.deletionPosition))
-        return new b(this.start);
+        return new _(this.start);
       let t = this.start._getTransformedByMergeOperation(e), i = this.end._getTransformedByMergeOperation(e);
-      return t.root != i.root && (i = this.end.getShiftedBy(-1)), t.isAfter(i) ? (e.sourcePosition.isBefore(e.targetPosition) ? (t = y._createAt(i), t.offset = 0) : (e.deletionPosition.isEqual(t) || (i = e.deletionPosition), t = e.targetPosition), new b(t, i)) : new b(t, i);
+      return t.root != i.root && (i = this.end.getShiftedBy(-1)), t.isAfter(i) ? (e.sourcePosition.isBefore(e.targetPosition) ? (t = y._createAt(i), t.offset = 0) : (e.deletionPosition.isEqual(t) || (i = e.deletionPosition), t = e.targetPosition), new _(t, i)) : new _(t, i);
     }
     /**
      * Returns an array containing one or two {@link ~Range ranges} that are a result of transforming this
@@ -13762,11 +13762,11 @@ Read more: ${Iw}#error-${n}`;
     _getTransformedByInsertion(e, t, i = !1) {
       if (i && this.containsPosition(e))
         return [
-          new b(this.start, e),
-          new b(e.getShiftedBy(t), this.end._getTransformedByInsertion(e, t))
+          new _(this.start, e),
+          new _(e.getShiftedBy(t), this.end._getTransformedByInsertion(e, t))
         ];
       {
-        const s = new b(this.start, this.end);
+        const s = new _(this.start, this.end);
         return s.start = s.start._getTransformedByInsertion(e, t), s.end = s.end._getTransformedByInsertion(e, t), [s];
       }
     }
@@ -13784,19 +13784,19 @@ Read more: ${Iw}#error-${n}`;
     _getTransformedByMove(e, t, i, s = !1) {
       if (this.isCollapsed) {
         const d = this.start._getTransformedByMove(e, t, i);
-        return [new b(d)];
+        return [new _(d)];
       }
-      const o = b._createFromPositionAndShift(e, i), r = t._getTransformedByDeletion(e, i);
+      const o = _._createFromPositionAndShift(e, i), r = t._getTransformedByDeletion(e, i);
       if (this.containsPosition(t) && !s && (o.containsPosition(this.start) || o.containsPosition(this.end))) {
         const d = this.start._getTransformedByMove(e, t, i), h = this.end._getTransformedByMove(e, t, i);
-        return [new b(d, h)];
+        return [new _(d, h)];
       }
       let a;
       const l = this.getDifference(o);
       let c = null;
       const u = this.getIntersection(o);
-      if (l.length == 1 ? c = new b(l[0].start._getTransformedByDeletion(e, i), l[0].end._getTransformedByDeletion(e, i)) : l.length == 2 && (c = new b(this.start, this.end._getTransformedByDeletion(e, i))), c ? a = c._getTransformedByInsertion(r, i, u !== null || s) : a = [], u) {
-        const d = new b(u.start._getCombined(o.start, r), u.end._getCombined(o.start, r));
+      if (l.length == 1 ? c = new _(l[0].start._getTransformedByDeletion(e, i), l[0].end._getTransformedByDeletion(e, i)) : l.length == 2 && (c = new _(this.start, this.end._getTransformedByDeletion(e, i))), c ? a = c._getTransformedByInsertion(r, i, u !== null || s) : a = [], u) {
+        const d = new _(u.start._getCombined(o.start, r), u.end._getCombined(o.start, r));
         a.length == 2 ? a.splice(1, 0, d) : a.push(d);
       }
       return a;
@@ -13815,7 +13815,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _getTransformedByDeletion(e, t) {
       let i = this.start._getTransformedByDeletion(e, t), s = this.end._getTransformedByDeletion(e, t);
-      return i == null && s == null ? null : (i == null && (i = e), s == null && (s = e), new b(i, s));
+      return i == null && s == null ? null : (i == null && (i = e), s == null && (s = e), new _(i, s));
     }
     /**
      * Creates a new range, spreading from specified {@link module:engine/model/position~Position position} to a position moved by
@@ -13891,7 +13891,7 @@ Read more: ${Iw}#error-${n}`;
       return new this(y.fromJSON(e.start, t), y.fromJSON(e.end, t));
     }
   }
-  b.prototype.is = function(n) {
+  _.prototype.is = function(n) {
     return n === "range" || n === "model:range";
   };
   /**
@@ -14027,7 +14027,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Corresponding model range.
      */
     toModelRange(e) {
-      return new b(this.toModelPosition(e.start), this.toModelPosition(e.end));
+      return new _(this.toModelPosition(e.start), this.toModelPosition(e.end));
     }
     /**
      * Gets the corresponding view range.
@@ -14036,7 +14036,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Corresponding view range.
      */
     toViewRange(e) {
-      return new O(this.toViewPosition(e.start), this.toViewPosition(e.end));
+      return new N(this.toViewPosition(e.start), this.toViewPosition(e.end));
     }
     /**
      * Gets the corresponding model position.
@@ -14443,7 +14443,7 @@ Read more: ${Iw}#error-${n}`;
         this._convertMarkerRemove(r.name, r.range, s);
       const o = this._reduceChanges(e.getChanges());
       for (const r of o)
-        r.type === "insert" ? this._convertInsert(b._createFromPositionAndShift(r.position, r.length), s) : r.type === "reinsert" ? this._convertReinsert(b._createFromPositionAndShift(r.position, r.length), s) : r.type === "remove" ? this._convertRemove(r.position, r.length, r.name, s) : this._convertAttribute(r.range, r.attributeKey, r.attributeOldValue, r.attributeNewValue, s);
+        r.type === "insert" ? this._convertInsert(_._createFromPositionAndShift(r.position, r.length), s) : r.type === "reinsert" ? this._convertReinsert(_._createFromPositionAndShift(r.position, r.length), s) : r.type === "remove" ? this._convertRemove(r.position, r.length, r.name, s) : this._convertAttribute(r.range, r.attributeKey, r.attributeOldValue, r.attributeNewValue, s);
       s.mapper.flushDeferredBindings();
       for (const r of s.mapper.flushUnboundMarkerNames()) {
         const a = t.get(r).getRange();
@@ -14562,7 +14562,7 @@ Read more: ${Iw}#error-${n}`;
       for (const r of e) {
         const a = {
           item: r.item,
-          range: b._createFromPositionAndShift(r.previousPosition, r.length),
+          range: _._createFromPositionAndShift(r.previousPosition, r.length),
           attributeKey: t,
           attributeOldValue: i,
           attributeNewValue: s
@@ -14606,7 +14606,7 @@ Read more: ${Iw}#error-${n}`;
         for (const o of t.getItems()) {
           if (!i.consumable.test(o, s))
             continue;
-          const r = { item: o, range: b._createOn(o), markerName: e, markerRange: t };
+          const r = { item: o, range: _._createOn(o), markerName: e, markerRange: t };
           this.fire(s, r, i);
         }
       }
@@ -14711,7 +14711,7 @@ Read more: ${Iw}#error-${n}`;
     _testAndFireAddAttributes(e, t) {
       const i = {
         item: e,
-        range: b._createOn(e)
+        range: _._createOn(e)
       };
       for (const s of i.item.getAttributeKeys())
         i.attributeKey = s, i.attributeOldValue = null, i.attributeNewValue = i.item.getAttribute(s), this._testAndFire(`attribute:${s}`, i, t);
@@ -14732,8 +14732,8 @@ Read more: ${Iw}#error-${n}`;
         consumable: new vk(),
         writer: e,
         options: i,
-        convertItem: (o) => this._convertInsert(b._createOn(o), s),
-        convertChildren: (o) => this._convertInsert(b._createIn(o), s, { doNotAddConsumables: !0 }),
+        convertItem: (o) => this._convertInsert(_._createOn(o), s),
+        convertChildren: (o) => this._convertInsert(_._createIn(o), s, { doNotAddConsumables: !0 }),
         convertAttributes: (o) => this._testAndFireAddAttributes(o, s),
         canReuseView: (o) => !t.has(s.mapper.toModelElement(o))
       };
@@ -14752,7 +14752,7 @@ Read more: ${Iw}#error-${n}`;
     return `${n}:${t}`;
   }
   function ou(n) {
-    const e = n.item, t = b._createFromPositionAndShift(n.previousPosition, n.length);
+    const e = n.item, t = _._createFromPositionAndShift(n.previousPosition, n.length);
     return {
       item: e,
       range: t
@@ -14905,7 +14905,7 @@ Read more: ${Iw}#error-${n}`;
      */
     *getRanges() {
       for (const e of this._ranges)
-        yield new b(e.start, e.end);
+        yield new _(e.start, e.end);
     }
     /**
      * Returns a copy of the first range in the selection.
@@ -14919,7 +14919,7 @@ Read more: ${Iw}#error-${n}`;
       let e = null;
       for (const t of this._ranges)
         (!e || t.start.isBefore(e.start)) && (e = t);
-      return e ? new b(e.start, e.end) : null;
+      return e ? new _(e.start, e.end) : null;
     }
     /**
      * Returns a copy of the last range in the selection.
@@ -14933,7 +14933,7 @@ Read more: ${Iw}#error-${n}`;
       let e = null;
       for (const t of this._ranges)
         (!e || t.end.isAfter(e.end)) && (e = t);
-      return e ? new b(e.start, e.end) : null;
+      return e ? new _(e.start, e.end) : null;
     }
     /**
      * Returns the first position in the selection.
@@ -15019,23 +15019,23 @@ Read more: ${Iw}#error-${n}`;
         this._setRanges(t.getRanges(), t.isBackward);
       else if (t && typeof t.getRanges == "function")
         this._setRanges(t.getRanges(), t.isBackward);
-      else if (t instanceof b)
+      else if (t instanceof _)
         this._setRanges([t], !!s && !!s.backward);
       else if (t instanceof y)
-        this._setRanges([new b(t)]);
+        this._setRanges([new _(t)]);
       else if (t instanceof vi) {
         const o = !!s && !!s.backward;
         let r;
         if (i == "in")
-          r = b._createIn(t);
+          r = _._createIn(t);
         else if (i == "on")
-          r = b._createOn(t);
+          r = _._createOn(t);
         else if (i !== void 0)
-          r = new b(y._createAt(t, i));
+          r = new _(y._createAt(t, i));
         else
           throw new g("model-selection-setto-required-second-parameter", [this, t]);
         this._setRanges([r], o);
-      } else if (We(t))
+      } else if ($e(t))
         this._setRanges(t, s && !!s.backward);
       else
         throw new g("model-selection-setto-not-selectable", [this, t]);
@@ -15052,7 +15052,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _setRanges(e, t = !1) {
       const i = Array.from(e), s = i.some((o) => {
-        if (!(o instanceof b))
+        if (!(o instanceof _))
           throw new g("model-selection-set-ranges-not-range", [this, e]);
         return this._ranges.every((r) => !r.isEqual(o));
       });
@@ -15074,7 +15074,7 @@ Read more: ${Iw}#error-${n}`;
       if (i.compareWith(this.focus) == "same")
         return;
       const s = this.anchor;
-      this._ranges.length && this._popRange(), i.compareWith(s) == "before" ? (this._pushRange(new b(i, s)), this._lastRangeBackward = !0) : (this._pushRange(new b(s, i)), this._lastRangeBackward = !1), this.fire("change:range", { directChange: !0 });
+      this._ranges.length && this._popRange(), i.compareWith(s) == "before" ? (this._pushRange(new _(i, s)), this._lastRangeBackward = !0) : (this._pushRange(new _(s, i)), this._lastRangeBackward = !1), this.fire("change:range", { directChange: !0 });
     }
     /**
      * Gets an attribute value for given key or `undefined` if that attribute is not set on the selection.
@@ -15235,7 +15235,7 @@ Read more: ${Iw}#error-${n}`;
      * if given range is intersecting with any range that is already stored in this selection.
      */
     _pushRange(e) {
-      this._checkRange(e), this._ranges.push(new b(e.start, e.end));
+      this._checkRange(e), this._ranges.push(new _(e.start, e.end));
     }
     /**
      * Checks if given range intersects with ranges that are already in the selection. Throws an error if it does.
@@ -15286,7 +15286,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function ml(n, e) {
     const t = Ak(n);
-    return t ? !e.containsRange(b._createOn(t), !0) : !0;
+    return t ? !e.containsRange(_._createOn(t), !0) : !0;
   }
   function Tk(n, e) {
     return n ? e.isCollapsed || n.isEmpty ? !0 : e.start.isTouching(y._createAt(n, n.maxOffset)) ? !1 : ml(n, e) : !1;
@@ -15307,7 +15307,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Pe extends G(b) {
+  class Pe extends G(_) {
     /**
      * Creates a live range.
      *
@@ -15328,7 +15328,7 @@ Read more: ${Iw}#error-${n}`;
      * Creates a {@link module:engine/model/range~Range range instance} that is equal to this live range.
      */
     toRange() {
-      return new b(this.start, this.end);
+      return new _(this.start, this.end);
     }
     /**
      * Creates a `LiveRange` instance that is equal to the given range.
@@ -15348,7 +15348,7 @@ Read more: ${Iw}#error-${n}`;
     }, { priority: "low" });
   }
   function Sk(n) {
-    const e = this.getTransformedByOperation(n), t = b._createFromRanges(e), i = !t.isEqual(this), s = Ik(this, n);
+    const e = this.getTransformedByOperation(n), t = _._createFromRanges(e), i = !t.isEqual(this), s = Ik(this, n);
     let o = null;
     if (i) {
       t.root.rootName == "$graveyard" && (n.type == "remove" ? o = n.sourcePosition : o = n.deletionPosition);
@@ -16906,18 +16906,18 @@ Read more: ${Iw}#error-${n}`;
       e && r || !e && !a ? (c = r, u = !0) : (c = a, u = !1);
       const d = t.mapper.toViewElement(c);
       if (d) {
-        $k(d, e, u, t, i, s);
+        Wk(d, e, u, t, i, s);
         return;
       }
     }
     const l = t.mapper.toViewPosition(o);
-    Wk(l, e, t, i, s);
+    $k(l, e, t, i, s);
   }
-  function $k(n, e, t, i, s, o) {
+  function Wk(n, e, t, i, s, o) {
     const r = `data-${o.group}-${e ? "start" : "end"}-${t ? "before" : "after"}`, a = n.hasAttribute(r) ? n.getAttribute(r).split(",") : [];
     a.unshift(o.name), i.writer.setAttribute(r, a.join(","), n), i.mapper.bindElementToMarker(n, s.markerName);
   }
-  function Wk(n, e, t, i, s) {
+  function $k(n, e, t, i, s) {
     const o = `${s.group}-${e ? "start" : "end"}`, r = s.name ? { name: s.name } : null, a = t.writer.createUIElement(o, r);
     t.writer.insert(n, a), t.mapper.bindElementToMarker(a, i.markerName);
   }
@@ -17011,7 +17011,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function Kk(n) {
     return (e, t, i) => {
-      if (!t.item || !(t.item instanceof $))
+      if (!t.item || !(t.item instanceof W))
         return;
       const s = gl(n, t, i);
       if (!s || !i.consumable.test(t.item, e.name))
@@ -17019,7 +17019,7 @@ Read more: ${Iw}#error-${n}`;
       const o = i.mapper.toViewElement(t.item);
       if (o && o.getCustomProperty("addHighlight")) {
         i.consumable.consume(t.item, e.name);
-        for (const a of b._createIn(t.item))
+        for (const a of _._createIn(t.item))
           i.consumable.consume(a.item, e.name);
         o.getCustomProperty("addHighlight")(o, s, i.writer), i.mapper.bindElementToMarker(o, t.markerName);
       }
@@ -17873,12 +17873,12 @@ Read more: ${Iw}#error-${n}`;
     const t = n.start, i = e.getNearestSelectionRange(t);
     if (!i) {
       const o = t.getAncestors().reverse().find((r) => e.isObject(r));
-      return o ? b._createOn(o) : null;
+      return o ? _._createOn(o) : null;
     }
     if (!i.isCollapsed)
       return i;
     const s = i.start;
-    return t.isEqual(s) ? null : new b(s);
+    return t.isEqual(s) ? null : new _(s);
   }
   function AT(n, e) {
     const { start: t, end: i } = n, s = e.checkChild(t, "$text"), o = e.checkChild(i, "$text"), r = e.getLimitElement(t), a = e.getLimitElement(i);
@@ -17887,14 +17887,14 @@ Read more: ${Iw}#error-${n}`;
         return null;
       if (xT(t, i, e)) {
         const d = t.nodeAfter && e.isSelectable(t.nodeAfter) ? null : e.getNearestSelectionRange(t, "forward"), f = i.nodeBefore && e.isSelectable(i.nodeBefore) ? null : e.getNearestSelectionRange(i, "backward"), m = d ? d.start : t, p = f ? f.end : i;
-        return new b(m, p);
+        return new _(m, p);
       }
     }
     const l = r && !r.is("rootElement"), c = a && !a.is("rootElement");
     if (l || c) {
       const u = t.nodeAfter && i.nodeBefore && t.nodeAfter.parent === i.nodeBefore.parent, d = l && (!u || !hu(t.nodeAfter, e)), h = c && (!u || !hu(i.nodeBefore, e));
       let f = t, m = i;
-      return d && (f = y._createBefore(du(r, e))), h && (m = y._createAfter(du(a, e))), new b(f, m);
+      return d && (f = y._createBefore(du(r, e))), h && (m = y._createAfter(du(a, e))), new _(f, m);
     }
     return null;
   }
@@ -18030,7 +18030,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function PT(n, e, t) {
     return (i, s) => {
-      if (!(t.document.isComposing && !V.isAndroid))
+      if (!(t.document.isComposing && !M.isAndroid))
         for (let o = 0; o < s.targetRanges.length; o++) {
           const r = s.targetRanges[o], a = n.toModelRange(r), l = Vm(a, e);
           !l || l.isEqual(a) || (s.targetRanges[o] = n.toViewRange(l));
@@ -18690,9 +18690,9 @@ Read more: ${Iw}#error-${n}`;
     checkMerge(e, t) {
       if (e instanceof y) {
         const i = e.nodeBefore, s = e.nodeAfter;
-        if (!(i instanceof $))
+        if (!(i instanceof W))
           throw new g("schema-check-merge-no-element-before", this);
-        if (!(s instanceof $))
+        if (!(s instanceof W))
           throw new g("schema-check-merge-no-element-after", this);
         return this.checkMerge(i, s);
       }
@@ -18865,7 +18865,7 @@ Read more: ${Iw}#error-${n}`;
      */
     getLimitElement(e) {
       let t;
-      for (e instanceof y ? t = e.parent : t = (e instanceof b ? [e] : Array.from(e.getRanges())).reduce((s, o) => {
+      for (e instanceof y ? t = e.parent : t = (e instanceof _ ? [e] : Array.from(e.getRanges())).reduce((s, o) => {
         const r = o.getCommonAncestor();
         return s ? s.getCommonAncestor(r, { includeSelf: !0 }) : r;
       }, null); !this.isLimit(t) && t.parent; )
@@ -18934,23 +18934,23 @@ Read more: ${Iw}#error-${n}`;
       if (e.root.rootName == "$graveyard")
         return null;
       if (this.checkChild(e, "$text"))
-        return new b(e);
+        return new _(e);
       let i, s;
       const o = e.getAncestors().reverse().find((r) => this.isLimit(r)) || e.root;
       (t == "both" || t == "backward") && (i = new xt({
-        boundaries: b._createIn(o),
+        boundaries: _._createIn(o),
         startPosition: e,
         direction: "backward"
       })), (t == "both" || t == "forward") && (s = new xt({
-        boundaries: b._createIn(o),
+        boundaries: _._createIn(o),
         startPosition: e
       }));
       for (const r of jT(i, s)) {
         const a = r.walker == i ? "elementEnd" : "elementStart", l = r.value;
         if (l.type == a && this.isObject(l.item))
-          return b._createOn(l.item);
+          return _._createOn(l.item);
         if (this.checkChild(l.nextPosition, "$text"))
-          return new b(l.nextPosition);
+          return new _(l.nextPosition);
       }
       return null;
     }
@@ -18997,7 +18997,7 @@ Read more: ${Iw}#error-${n}`;
         if (i.is("$text"))
           fu(this, i, t);
         else {
-          const o = b._createIn(i).getPositions();
+          const o = _._createIn(i).getPositions();
           for (const r of o) {
             const a = r.nodeBefore || r.parent;
             fu(this, a, t);
@@ -19072,8 +19072,8 @@ Read more: ${Iw}#error-${n}`;
     *_getValidRangesForRange(e, t) {
       let i = e.start, s = e.start;
       for (const o of e.getItems({ shallow: !0 }))
-        o.is("element") && (yield* this._getValidRangesForRange(b._createIn(o), t)), this.checkAttribute(o, t) || (i.isEqual(s) || (yield new b(i, s)), i = y._createAfter(o)), s = y._createAfter(o);
-      i.isEqual(s) || (yield new b(i, s));
+        o.is("element") && (yield* this._getValidRangesForRange(_._createIn(o), t)), this.checkAttribute(o, t) || (i.isEqual(s) || (yield new _(i, s)), i = y._createAfter(o)), s = y._createAfter(o);
+      i.isEqual(s) || (yield new _(i, s));
     }
     /**
      * Returns a model range which is optimal (in terms of UX) for inserting a widget block.
@@ -19097,14 +19097,14 @@ Read more: ${Iw}#error-${n}`;
     findOptimalInsertionRange(e, t) {
       const i = e.getSelectedElement();
       if (i && this.isObject(i) && !this.isInline(i))
-        return t == "before" || t == "after" ? new b(y._createAt(i, t)) : b._createOn(i);
+        return t == "before" || t == "after" ? new _(y._createAt(i, t)) : _._createOn(i);
       const s = me(e.getSelectedBlocks());
       if (!s)
-        return new b(e.focus);
+        return new _(e.focus);
       if (s.isEmpty)
-        return new b(y._createAt(s, 0));
+        return new _(y._createAt(s, 0));
       const o = y._createAfter(s);
-      return e.focus.isTouching(o) ? new b(o) : new b(y._createBefore(s));
+      return e.focus.isTouching(o) ? new _(o) : new _(y._createBefore(s));
     }
   }
   class ai {
@@ -19221,7 +19221,7 @@ Read more: ${Iw}#error-${n}`;
       allowChildren: [],
       inheritTypesFrom: []
     };
-    return HT(n, t), Yt(n, t, "allowIn"), Yt(n, t, "allowContentOf"), Yt(n, t, "allowWhere"), Yt(n, t, "allowAttributes"), Yt(n, t, "allowAttributesOf"), Yt(n, t, "allowChildren"), Yt(n, t, "inheritTypesFrom"), $T(n, t), t;
+    return HT(n, t), Yt(n, t, "allowIn"), Yt(n, t, "allowContentOf"), Yt(n, t, "allowWhere"), Yt(n, t, "allowAttributes"), Yt(n, t, "allowAttributesOf"), Yt(n, t, "allowChildren"), Yt(n, t, "inheritTypesFrom"), WT(n, t), t;
   }
   function MT(n, e) {
     const t = n[e];
@@ -19233,7 +19233,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function BT(n, e) {
     for (const t of n[e].allowContentOf)
-      n[t] && WT(n, t).forEach((s) => {
+      n[t] && $T(n, t).forEach((s) => {
         s.allowIn.push(e);
       });
     delete n[e].allowContentOf;
@@ -19296,13 +19296,13 @@ Read more: ${Iw}#error-${n}`;
       typeof s == "string" ? e[t].push(s) : Array.isArray(s) && e[t].push(...s);
     }
   }
-  function $T(n, e) {
+  function WT(n, e) {
     for (const t of n) {
       const i = t.inheritAllFrom;
       i && (e.allowContentOf.push(i), e.allowWhere.push(i), e.allowAttributesOf.push(i), e.inheritTypesFrom.push(i));
     }
   }
-  function WT(n, e) {
+  function $T(n, e) {
     const t = n[e];
     return qT(n).filter((i) => i.allowIn.includes(t.name));
   }
@@ -19411,7 +19411,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _convertItem(e, t) {
       const i = { viewItem: e, modelCursor: t, modelRange: null };
-      if (e.is("element") ? this.fire(`element:${e.name}`, i, this.conversionApi) : e.is("$text") ? this.fire("text", i, this.conversionApi) : this.fire("documentFragment", i, this.conversionApi), i.modelRange && !(i.modelRange instanceof b))
+      if (e.is("element") ? this.fire(`element:${e.name}`, i, this.conversionApi) : e.is("$text") ? this.fire("text", i, this.conversionApi) : this.fire("documentFragment", i, this.conversionApi), i.modelRange && !(i.modelRange instanceof _))
         throw new g("view-conversion-dispatcher-incorrect-result", this);
       return { modelRange: i.modelRange, modelCursor: i.modelCursor };
     }
@@ -19420,10 +19420,10 @@ Read more: ${Iw}#error-${n}`;
      */
     _convertChildren(e, t) {
       let i = t.is("position") ? t : y._createAt(t, 0);
-      const s = new b(i);
+      const s = new _(i);
       for (const o of Array.from(e.getChildren())) {
         const r = this._convertItem(o, i);
-        r.modelRange instanceof b && (s.end = r.modelRange.end, i = r.modelCursor);
+        r.modelRange instanceof _ && (s.end = r.modelRange.end, i = r.modelCursor);
       }
       return { modelRange: s, modelCursor: i };
     }
@@ -19509,12 +19509,12 @@ Read more: ${Iw}#error-${n}`;
     }
   }
   function JT(n, e) {
-    const t = /* @__PURE__ */ new Set(), i = /* @__PURE__ */ new Map(), s = b._createIn(n).getItems();
+    const t = /* @__PURE__ */ new Set(), i = /* @__PURE__ */ new Map(), s = _._createIn(n).getItems();
     for (const o of s)
       o.is("element", "$marker") && t.add(o);
     for (const o of t) {
       const r = o.getAttribute("data-name"), a = e.createPositionBefore(o);
-      i.has(r) ? i.get(r).end = a.clone() : i.set(r, new b(a.clone())), e.remove(o);
+      i.has(r) ? i.get(r).end = a.clone() : i.set(r, new _(a.clone())), e.remove(o);
     }
     return i;
   }
@@ -19687,7 +19687,7 @@ Read more: ${Iw}#error-${n}`;
     toView(e, t = {}) {
       const i = this.viewDocument, s = this._viewWriter;
       this.mapper.clearBindings();
-      const o = b._createIn(e), r = new ri(i);
+      const o = _._createIn(e), r = new ri(i);
       this.mapper.bindElements(e, r);
       const a = e.is("documentFragment") ? e.markers : t2(e);
       return this.downcastDispatcher.convert(o, a, s, t), r;
@@ -19858,7 +19858,7 @@ Read more: ${Iw}#error-${n}`;
     const e = [], t = n.root.document;
     if (!t)
       return /* @__PURE__ */ new Map();
-    const i = b._createIn(n);
+    const i = _._createIn(n);
     for (const s of t.model.markers) {
       const o = s.getRange(), r = o.isCollapsed, a = o.start.isEqual(i.start) || o.end.isEqual(i.end);
       if (r && a)
@@ -20442,7 +20442,7 @@ Read more: ${Iw}#error-${n}`;
     const t = Bm(e), i = t.reduce((r, a) => r + a.offsetSize, 0), s = n.parent;
     ts(n);
     const o = n.index;
-    return s._insertChild(o, t), es(s, o + t.length), es(s, o), new b(n, n.getShiftedBy(i));
+    return s._insertChild(o, t), es(s, o + t.length), es(s, o), new _(n, n.getShiftedBy(i));
   }
   function Mm(n) {
     if (!n.isFlat)
@@ -20475,7 +20475,7 @@ Read more: ${Iw}#error-${n}`;
         e.push(new j(i.data, i.getAttributes()));
       else if (i instanceof vi)
         e.push(i);
-      else if (We(i))
+      else if ($e(i))
         for (const s of i)
           t(s);
     }
@@ -20540,8 +20540,8 @@ Read more: ${Iw}#error-${n}`;
      */
     get affectedSelectable() {
       return [
-        b._createFromPositionAndShift(this.sourcePosition, this.howMany),
-        b._createFromPositionAndShift(this.targetPosition, 0)
+        _._createFromPositionAndShift(this.sourcePosition, this.howMany),
+        _._createFromPositionAndShift(this.targetPosition, 0)
       ];
     }
     /**
@@ -20595,7 +20595,7 @@ Read more: ${Iw}#error-${n}`;
      * @internal
      */
     _execute() {
-      Qn(b._createFromPositionAndShift(this.sourcePosition, this.howMany), this.targetPosition);
+      Qn(_._createFromPositionAndShift(this.sourcePosition, this.howMany), this.targetPosition);
     }
     /**
      * @inheritDoc
@@ -20708,7 +20708,7 @@ Read more: ${Iw}#error-${n}`;
     static fromJSON(e, t) {
       const i = [];
       for (const o of e.nodes)
-        o.name ? i.push($.fromJSON(o)) : i.push(j.fromJSON(o));
+        o.name ? i.push(W.fromJSON(o)) : i.push(j.fromJSON(o));
       const s = new be(y.fromJSON(e.position, t), i, e.baseVersion);
       return s.shouldReceiveAttributes = e.shouldReceiveAttributes, s;
     }
@@ -20753,17 +20753,17 @@ Read more: ${Iw}#error-${n}`;
      */
     get movedRange() {
       const e = this.splitPosition.getShiftedBy(Number.POSITIVE_INFINITY);
-      return new b(this.splitPosition, e);
+      return new _(this.splitPosition, e);
     }
     /**
      * @inheritDoc
      */
     get affectedSelectable() {
       const e = [
-        b._createFromPositionAndShift(this.splitPosition, 0),
-        b._createFromPositionAndShift(this.insertionPosition, 0)
+        _._createFromPositionAndShift(this.splitPosition, 0),
+        _._createFromPositionAndShift(this.insertionPosition, 0)
       ];
-      return this.graveyardPosition && e.push(b._createFromPositionAndShift(this.graveyardPosition, 0)), e;
+      return this.graveyardPosition && e.push(_._createFromPositionAndShift(this.graveyardPosition, 0)), e;
     }
     /**
      * Creates and returns an operation that has the same parameters as this operation.
@@ -20803,12 +20803,12 @@ Read more: ${Iw}#error-${n}`;
     _execute() {
       const e = this.splitPosition.parent;
       if (this.graveyardPosition)
-        Qn(b._createFromPositionAndShift(this.graveyardPosition, 1), this.insertionPosition);
+        Qn(_._createFromPositionAndShift(this.graveyardPosition, 1), this.insertionPosition);
       else {
         const i = e._clone();
         wl(this.insertionPosition, i);
       }
-      const t = new b(y._createAt(e, this.splitPosition.offset), y._createAt(e, e.maxOffset));
+      const t = new _(y._createAt(e, this.splitPosition.offset), y._createAt(e, e.maxOffset));
       Qn(t, this.moveTargetPosition);
     }
     /**
@@ -20880,7 +20880,7 @@ Read more: ${Iw}#error-${n}`;
      */
     get movedRange() {
       const e = this.sourcePosition.getShiftedBy(Number.POSITIVE_INFINITY);
-      return new b(this.sourcePosition, e);
+      return new _(this.sourcePosition, e);
     }
     /**
      * @inheritDoc
@@ -20888,10 +20888,10 @@ Read more: ${Iw}#error-${n}`;
     get affectedSelectable() {
       const e = this.sourcePosition.parent;
       return [
-        b._createOn(e),
+        _._createOn(e),
         // These could be positions but `Selectable` type only supports `Iterable<Range>`.
-        b._createFromPositionAndShift(this.targetPosition, 0),
-        b._createFromPositionAndShift(this.graveyardPosition, 0)
+        _._createFromPositionAndShift(this.targetPosition, 0),
+        _._createFromPositionAndShift(this.graveyardPosition, 0)
       ];
     }
     /**
@@ -20927,8 +20927,8 @@ Read more: ${Iw}#error-${n}`;
      * @internal
      */
     _execute() {
-      const e = this.sourcePosition.parent, t = b._createIn(e);
-      Qn(t, this.targetPosition), Qn(b._createOn(e), this.graveyardPosition);
+      const e = this.sourcePosition.parent, t = _._createIn(e);
+      Qn(t, this.targetPosition), Qn(_._createOn(e), this.graveyardPosition);
     }
     /**
      * @inheritDoc
@@ -21025,7 +21025,7 @@ Read more: ${Iw}#error-${n}`;
      * @param document Document on which this operation will be applied.
      */
     static fromJSON(e, t) {
-      return new Re(e.name, e.oldRange ? b.fromJSON(e.oldRange, t) : null, e.newRange ? b.fromJSON(e.newRange, t) : null, t.model.markers, e.affectsData, e.baseVersion);
+      return new Re(e.name, e.oldRange ? _.fromJSON(e.oldRange, t) : null, e.newRange ? _.fromJSON(e.newRange, t) : null, t.model.markers, e.affectsData, e.baseVersion);
     }
   }
   /**
@@ -21120,7 +21120,7 @@ Read more: ${Iw}#error-${n}`;
      * @param document Document on which this operation will be applied.
      */
     static fromJSON(e, t) {
-      return new ae(b.fromJSON(e.range, t), e.key, e.oldValue, e.newValue, e.baseVersion);
+      return new ae(_.fromJSON(e.range, t), e.key, e.oldValue, e.newValue, e.baseVersion);
     }
   }
   /**
@@ -21208,7 +21208,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _validate() {
       const e = this.position.nodeAfter;
-      if (e instanceof $) {
+      if (e instanceof W) {
         if (e.name !== this.oldName)
           throw new g("rename-operation-wrong-name", this);
       } else
@@ -21543,7 +21543,7 @@ Read more: ${Iw}#error-${n}`;
           if (e.splitPosition.isEqual(t.sourcePosition) || e.splitPosition.isBefore(t.sourcePosition))
             this._setRelation(e, t, "splitBefore");
           else {
-            const i = b._createFromPositionAndShift(t.sourcePosition, t.howMany);
+            const i = _._createFromPositionAndShift(t.sourcePosition, t.howMany);
             if (e.splitPosition.hasSameParentAs(t.sourcePosition) && i.containsPosition(e.splitPosition)) {
               const s = i.end.offset - e.splitPosition.offset, o = e.splitPosition.offset - i.start.offset;
               this._setRelation(e, t, { howMany: s, offset: o });
@@ -21556,7 +21556,7 @@ Read more: ${Iw}#error-${n}`;
         if (!i)
           return;
         if (t instanceof U) {
-          const s = b._createFromPositionAndShift(t.sourcePosition, t.howMany), o = s.containsPosition(i.start) || s.start.isEqual(i.start), r = s.containsPosition(i.end) || s.end.isEqual(i.end);
+          const s = _._createFromPositionAndShift(t.sourcePosition, t.howMany), o = s.containsPosition(i.start) || s.start.isEqual(i.start), r = s.containsPosition(i.end) || s.end.isEqual(i.end);
           (o || r) && !s.containsRange(i) && this._setRelation(e, t, {
             side: o ? "left" : "right",
             path: o ? i.start.path.slice() : i.end.path.slice()
@@ -21662,18 +21662,18 @@ Read more: ${Iw}#error-${n}`;
     const s = n.nodes.getNode(0).getAttribute(e);
     if (s == t)
       return null;
-    const o = new b(n.position, n.position.getShiftedBy(n.howMany));
+    const o = new _(n.position, n.position.getShiftedBy(n.howMany));
     return new ae(o, e, s, t, 0);
   }
   z(ae, oe, (n, e) => {
     const t = [];
-    n.range.start.hasSameParentAs(e.deletionPosition) && (n.range.containsPosition(e.deletionPosition) || n.range.start.isEqual(e.deletionPosition)) && t.push(b._createFromPositionAndShift(e.graveyardPosition, 1));
+    n.range.start.hasSameParentAs(e.deletionPosition) && (n.range.containsPosition(e.deletionPosition) || n.range.start.isEqual(e.deletionPosition)) && t.push(_._createFromPositionAndShift(e.graveyardPosition, 1));
     const i = n.range._getTransformedByMergeOperation(e);
     return i.isCollapsed || t.push(i), t.map((s) => new ae(s, n.key, n.oldValue, n.newValue, n.baseVersion));
   });
   z(ae, U, (n, e) => c2(n.range, e).map((i) => new ae(i, n.key, n.oldValue, n.newValue, n.baseVersion)));
   function c2(n, e) {
-    const t = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const t = _._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let i = null, s = [];
     t.containsRange(n, !0) ? i = n : n.start.hasSameParentAs(t.start) ? (s = n.getDifference(t), i = n.getIntersection(t)) : s = [n];
     const o = [];
@@ -21689,7 +21689,7 @@ Read more: ${Iw}#error-${n}`;
       return e.graveyardPosition || n.range.end.offset++, [n];
     if (n.range.start.hasSameParentAs(e.splitPosition) && n.range.containsPosition(e.splitPosition)) {
       const t = n.clone();
-      return t.range = new b(e.moveTargetPosition.clone(), n.range.end._getCombined(e.splitPosition, e.moveTargetPosition)), n.range.end = e.splitPosition.clone(), n.range.end.stickiness = "toPrevious", [n, t];
+      return t.range = new _(e.moveTargetPosition.clone(), n.range.end._getCombined(e.splitPosition, e.moveTargetPosition)), n.range.end = e.splitPosition.clone(), n.range.end.stickiness = "toPrevious", [n, t];
     }
     return n.range = n.range._getTransformedBySplitOperation(e), [n];
   });
@@ -21716,15 +21716,15 @@ Read more: ${Iw}#error-${n}`;
   });
   z(Re, oe, (n, e) => (n.oldRange && (n.oldRange = n.oldRange._getTransformedByMergeOperation(e)), n.newRange && (n.newRange = n.newRange._getTransformedByMergeOperation(e)), [n]));
   z(Re, U, (n, e, t) => {
-    if (n.oldRange && (n.oldRange = b._createFromRanges(n.oldRange._getTransformedByMoveOperation(e))), n.newRange) {
+    if (n.oldRange && (n.oldRange = _._createFromRanges(n.oldRange._getTransformedByMoveOperation(e))), n.newRange) {
       if (t.abRelation) {
-        const i = b._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
+        const i = _._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
         if (t.abRelation.side == "left" && e.targetPosition.isEqual(n.newRange.start))
           return n.newRange.end = i.end, n.newRange.start.path = t.abRelation.path, [n];
         if (t.abRelation.side == "right" && e.targetPosition.isEqual(n.newRange.end))
           return n.newRange.start = i.start, n.newRange.end.path = t.abRelation.path, [n];
       }
-      n.newRange = b._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
+      n.newRange = _._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
     }
     return [n];
   });
@@ -21757,7 +21757,7 @@ Read more: ${Iw}#error-${n}`;
     return n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition = n.sourcePosition._getTransformedByMergeOperation(e), n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), (!n.graveyardPosition.isEqual(e.graveyardPosition) || !t.aIsStrong) && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
   z(oe, U, (n, e, t) => {
-    const i = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const i = _._createFromPositionAndShift(e.sourcePosition, e.howMany);
     return e.type == "remove" && !t.bWasUndone && !t.forceWeakRemove && n.deletionPosition.hasSameParentAs(e.sourcePosition) && i.containsPosition(n.sourcePosition) ? [new ue(0)] : (e.sourcePosition.getShiftedBy(e.howMany).isEqual(n.sourcePosition) ? n.sourcePosition.stickiness = "toNone" : e.targetPosition.isEqual(n.sourcePosition) && t.abRelation == "mergeSourceAffected" ? n.sourcePosition.stickiness = "toNext" : e.sourcePosition.isEqual(n.targetPosition) ? (n.targetPosition.stickiness = "toNone", n.howMany -= e.howMany) : e.targetPosition.isEqual(n.targetPosition) && t.abRelation == "mergeTargetWasBefore" ? (n.targetPosition.stickiness = "toPrevious", n.howMany += e.howMany) : (n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition.hasSameParentAs(e.sourcePosition) && (n.howMany -= e.howMany)), n.sourcePosition = n.sourcePosition._getTransformedByMoveOperation(e), n.targetPosition = n.targetPosition._getTransformedByMoveOperation(e), n.sourcePosition.stickiness = "toPrevious", n.targetPosition.stickiness = "toNext", n.graveyardPosition.isEqual(e.targetPosition) || (n.graveyardPosition = n.graveyardPosition._getTransformedByMoveOperation(e)), [n]);
   });
   z(oe, K, (n, e, t) => {
@@ -21775,58 +21775,58 @@ Read more: ${Iw}#error-${n}`;
     return n.sourcePosition.hasSameParentAs(e.splitPosition) && (n.howMany = e.splitPosition.offset), n.sourcePosition = n.sourcePosition._getTransformedBySplitOperation(e), n.targetPosition = n.targetPosition._getTransformedBySplitOperation(e), [n];
   });
   z(U, be, (n, e) => {
-    const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByInsertOperation(e, !1)[0];
+    const i = _._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByInsertOperation(e, !1)[0];
     return n.sourcePosition = i.start, n.howMany = i.end.offset - i.start.offset, n.targetPosition.isEqual(e.position) || (n.targetPosition = n.targetPosition._getTransformedByInsertOperation(e)), [n];
   });
   z(U, U, (n, e, t) => {
-    const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany), s = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const i = _._createFromPositionAndShift(n.sourcePosition, n.howMany), s = _._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let o = t.aIsStrong, r = !t.aIsStrong;
     t.abRelation == "insertBefore" || t.baRelation == "insertAfter" ? r = !0 : (t.abRelation == "insertAfter" || t.baRelation == "insertBefore") && (r = !1);
     let a;
     if (n.targetPosition.isEqual(e.targetPosition) && r ? a = n.targetPosition._getTransformedByDeletion(e.sourcePosition, e.howMany) : a = n.targetPosition._getTransformedByMove(e.sourcePosition, e.targetPosition, e.howMany), bu(n, e) && bu(e, n))
       return [e.getReversed()];
     if (i.containsPosition(e.targetPosition) && i.containsRange(s, !0))
-      return i.start = i.start._getTransformedByMove(e.sourcePosition, e.targetPosition, e.howMany), i.end = i.end._getTransformedByMove(e.sourcePosition, e.targetPosition, e.howMany), Wi([i], a);
+      return i.start = i.start._getTransformedByMove(e.sourcePosition, e.targetPosition, e.howMany), i.end = i.end._getTransformedByMove(e.sourcePosition, e.targetPosition, e.howMany), $i([i], a);
     if (s.containsPosition(n.targetPosition) && s.containsRange(i, !0))
-      return i.start = i.start._getCombined(e.sourcePosition, e.getMovedRangeStart()), i.end = i.end._getCombined(e.sourcePosition, e.getMovedRangeStart()), Wi([i], a);
+      return i.start = i.start._getCombined(e.sourcePosition, e.getMovedRangeStart()), i.end = i.end._getCombined(e.sourcePosition, e.getMovedRangeStart()), $i([i], a);
     const u = Ee(n.sourcePosition.getParentPath(), e.sourcePosition.getParentPath());
     if (u == "prefix" || u == "extension")
-      return i.start = i.start._getTransformedByMove(e.sourcePosition, e.targetPosition, e.howMany), i.end = i.end._getTransformedByMove(e.sourcePosition, e.targetPosition, e.howMany), Wi([i], a);
+      return i.start = i.start._getTransformedByMove(e.sourcePosition, e.targetPosition, e.howMany), i.end = i.end._getTransformedByMove(e.sourcePosition, e.targetPosition, e.howMany), $i([i], a);
     n.type == "remove" && e.type != "remove" && !t.aWasUndone && !t.forceWeakRemove ? o = !0 : n.type != "remove" && e.type == "remove" && !t.bWasUndone && !t.forceWeakRemove && (o = !1);
     const d = [], h = i.getDifference(s);
     for (const m of h) {
       m.start = m.start._getTransformedByDeletion(e.sourcePosition, e.howMany), m.end = m.end._getTransformedByDeletion(e.sourcePosition, e.howMany);
-      const p = Ee(m.start.getParentPath(), e.getMovedRangeStart().getParentPath()) == "same", _ = m._getTransformedByInsertion(e.getMovedRangeStart(), e.howMany, p);
-      d.push(..._);
+      const p = Ee(m.start.getParentPath(), e.getMovedRangeStart().getParentPath()) == "same", w = m._getTransformedByInsertion(e.getMovedRangeStart(), e.howMany, p);
+      d.push(...w);
     }
     const f = i.getIntersection(s);
-    return f !== null && o && (f.start = f.start._getCombined(e.sourcePosition, e.getMovedRangeStart()), f.end = f.end._getCombined(e.sourcePosition, e.getMovedRangeStart()), d.length === 0 ? d.push(f) : d.length == 1 ? s.start.isBefore(i.start) || s.start.isEqual(i.start) ? d.unshift(f) : d.push(f) : d.splice(1, 0, f)), d.length === 0 ? [new ue(n.baseVersion)] : Wi(d, a);
+    return f !== null && o && (f.start = f.start._getCombined(e.sourcePosition, e.getMovedRangeStart()), f.end = f.end._getCombined(e.sourcePosition, e.getMovedRangeStart()), d.length === 0 ? d.push(f) : d.length == 1 ? s.start.isBefore(i.start) || s.start.isEqual(i.start) ? d.unshift(f) : d.push(f) : d.splice(1, 0, f)), d.length === 0 ? [new ue(n.baseVersion)] : $i(d, a);
   });
   z(U, K, (n, e, t) => {
     let i = n.targetPosition.clone();
     (!n.targetPosition.isEqual(e.insertionPosition) || !e.graveyardPosition || t.abRelation == "moveTargetAfter") && (i = n.targetPosition._getTransformedBySplitOperation(e));
-    const s = b._createFromPositionAndShift(n.sourcePosition, n.howMany);
+    const s = _._createFromPositionAndShift(n.sourcePosition, n.howMany);
     if (s.end.isEqual(e.insertionPosition))
       return e.graveyardPosition || n.howMany++, n.targetPosition = i, [n];
     if (s.start.hasSameParentAs(e.splitPosition) && s.containsPosition(e.splitPosition)) {
-      let a = new b(e.splitPosition, s.end);
+      let a = new _(e.splitPosition, s.end);
       a = a._getTransformedBySplitOperation(e);
       const l = [
-        new b(s.start, e.splitPosition),
+        new _(s.start, e.splitPosition),
         a
       ];
-      return Wi(l, i);
+      return $i(l, i);
     }
     n.targetPosition.isEqual(e.splitPosition) && t.abRelation == "insertAtSource" && (i = e.moveTargetPosition), n.targetPosition.isEqual(e.insertionPosition) && t.abRelation == "insertBetween" && (i = n.targetPosition);
     const r = [s._getTransformedBySplitOperation(e)];
     if (e.graveyardPosition) {
       const a = s.start.isEqual(e.graveyardPosition) || s.containsPosition(e.graveyardPosition);
-      n.howMany > 1 && a && !t.aWasUndone && r.push(b._createFromPositionAndShift(e.insertionPosition, 1));
+      n.howMany > 1 && a && !t.aWasUndone && r.push(_._createFromPositionAndShift(e.insertionPosition, 1));
     }
-    return Wi(r, i);
+    return $i(r, i);
   });
   z(U, oe, (n, e, t) => {
-    const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany);
+    const i = _._createFromPositionAndShift(n.sourcePosition, n.howMany);
     if (e.deletionPosition.hasSameParentAs(n.sourcePosition) && i.containsPosition(e.sourcePosition)) {
       if (n.type == "remove" && !t.forceWeakRemove) {
         if (!t.aWasUndone) {
@@ -21843,7 +21843,7 @@ Read more: ${Iw}#error-${n}`;
       } else if (n.howMany == 1)
         return t.bWasUndone ? (n.sourcePosition = e.graveyardPosition.clone(), n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), [n]) : [new ue(0)];
     }
-    const o = b._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByMergeOperation(e);
+    const o = _._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByMergeOperation(e);
     return n.sourcePosition = o.start, n.howMany = o.end.offset - o.start.offset, n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), [n];
   });
   z(Le, be, (n, e) => (n.position = n.position._getTransformedByInsertOperation(e), [n]));
@@ -21885,7 +21885,7 @@ Read more: ${Iw}#error-${n}`;
     return n.splitPosition.hasSameParentAs(e.deletionPosition) && !n.splitPosition.isAfter(e.deletionPosition) && n.howMany--, n.splitPosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.splitPosition = n.splitPosition._getTransformedByMergeOperation(e), n.insertionPosition = K.getInsertionPosition(n.splitPosition), n.graveyardPosition && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
   z(K, U, (n, e, t) => {
-    const i = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const i = _._createFromPositionAndShift(e.sourcePosition, e.howMany);
     if (n.graveyardPosition) {
       const o = i.start.isEqual(n.graveyardPosition) || i.containsPosition(n.graveyardPosition);
       if (!t.bWasUndone && o) {
@@ -21939,7 +21939,7 @@ Read more: ${Iw}#error-${n}`;
   function bu(n, e) {
     return n.targetPosition._getTransformedByDeletion(e.sourcePosition, e.howMany) === null;
   }
-  function Wi(n, e) {
+  function $i(n, e) {
     const t = [];
     for (let i = 0; i < n.length; i++) {
       const s = n[i], o = new U(s.start, s.end.offset - s.start.offset, e, 0);
@@ -22109,7 +22109,7 @@ Read more: ${Iw}#error-${n}`;
           if (this._isInInsertedElement(t.position.parent))
             return;
           this._markRemove(t.position.parent, t.position.offset, 1), this._markInsert(t.position.parent, t.position.offset, 1);
-          const i = b._createFromPositionAndShift(t.position, 1);
+          const i = _._createFromPositionAndShift(t.position, 1);
           for (const s of this._markerCollection.getMarkersIntersectingRange(i)) {
             const o = s.getData();
             this.bufferMarkerChange(s.name, o, o);
@@ -22255,10 +22255,10 @@ Read more: ${Iw}#error-${n}`;
             const d = r[l].attributes, h = o[c].attributes;
             let f;
             if (r[l].name == "$text")
-              f = new b(y._createAt(i, l), y._createAt(i, l + 1));
+              f = new _(y._createAt(i, l), y._createAt(i, l + 1));
             else {
               const m = i.offsetToIndex(l);
-              f = new b(y._createAt(i, l), y._createAt(i.getChild(m), 0));
+              f = new _(y._createAt(i, l), y._createAt(i.getChild(m), 0));
             }
             t.push(...this._getAttributesDiff(f, h, d)), l++, c++;
           } else
@@ -22331,7 +22331,7 @@ Read more: ${Iw}#error-${n}`;
       if (this._isInInsertedElement(e.parent))
         return;
       this._markRemove(e.parent, e.startOffset, e.offsetSize), this._markInsert(e.parent, e.startOffset, e.offsetSize), this._refreshedItems.add(e);
-      const t = b._createOn(e);
+      const t = _._createOn(e);
       for (const i of this._markerCollection.getMarkersIntersectingRange(t)) {
         const s = i.getData();
         this.bufferMarkerChange(i.name, s, s);
@@ -22598,7 +22598,7 @@ Read more: ${Iw}#error-${n}`;
      * and `howMany`.
      */
     _removeAllNestedChanges(e, t, i) {
-      const s = new b(y._createAt(e, t), y._createAt(e, t + i));
+      const s = new _(y._createAt(e, t), y._createAt(e, t + i));
       for (const o of s.getItems({ shallow: !0 }))
         o.is("element") && (this._elementSnapshots.delete(o), this._changesInElement.delete(o), this._removeAllNestedChanges(o, 0, o.maxOffset));
     }
@@ -22777,7 +22777,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Co extends $ {
+  class Co extends W {
     /**
      * Creates root element.
      *
@@ -23337,7 +23337,7 @@ Read more: ${Iw}#error-${n}`;
      * @internal
      */
     _execute() {
-      Mm(b._createFromPositionAndShift(this.sourcePosition, this.howMany));
+      Mm(_._createFromPositionAndShift(this.sourcePosition, this.howMany));
     }
     /**
      * @inheritDoc
@@ -23534,7 +23534,7 @@ Read more: ${Iw}#error-${n}`;
     static fromJSON(e) {
       const t = [];
       for (const i of e)
-        i.name ? t.push($.fromJSON(i)) : t.push(j.fromJSON(i));
+        i.name ? t.push(W.fromJSON(i)) : t.push(j.fromJSON(i));
       return new Et(t);
     }
     /**
@@ -23580,7 +23580,7 @@ Read more: ${Iw}#error-${n}`;
     return n === "documentFragment" || n === "model:documentFragment";
   };
   function _2(n) {
-    return typeof n == "string" ? [new j(n)] : (We(n) || (n = [n]), Array.from(n).map((e) => typeof e == "string" ? new j(e) : e instanceof st ? new j(e.data, e.getAttributes()) : e));
+    return typeof n == "string" ? [new j(n)] : ($e(n) || (n = [n]), Array.from(n).map((e) => typeof e == "string" ? new j(e) : e instanceof st ? new j(e.data, e.getAttributes()) : e));
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
@@ -23626,7 +23626,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Created element.
      */
     createElement(e, t) {
-      return new $(e, t);
+      return new W(e, t);
     }
     /**
      * Creates a new {@link module:engine/model/documentfragment~DocumentFragment document fragment}.
@@ -23698,7 +23698,7 @@ Read more: ${Iw}#error-${n}`;
       const s = y._createAt(t, i);
       if (e.parent)
         if (Tu(e.root, s.root)) {
-          this.move(b._createOn(e), s);
+          this.move(_._createOn(e), s);
           return;
         } else {
           if (e.root.document)
@@ -23708,15 +23708,15 @@ Read more: ${Iw}#error-${n}`;
       const o = s.root.document ? s.root.document.version : null, r = new be(s, e, o);
       if (e instanceof j && (r.shouldReceiveAttributes = !0), this.batch.addOperation(r), this.model.applyOperation(r), e instanceof Et)
         for (const [a, l] of e.markers) {
-          const c = y._createAt(l.root, 0), d = { range: new b(l.start._getCombined(c, s), l.end._getCombined(c, s)), usingOperation: !0, affectsData: !0 };
+          const c = y._createAt(l.root, 0), d = { range: new _(l.start._getCombined(c, s), l.end._getCombined(c, s)), usingOperation: !0, affectsData: !0 };
           this.model.markers.has(a) ? this.updateMarker(a, d) : this.addMarker(a, d);
         }
     }
     insertText(e, t, i, s) {
-      t instanceof Et || t instanceof $ || t instanceof y ? this.insert(this.createText(e), t, i) : this.insert(this.createText(e, t), i, s);
+      t instanceof Et || t instanceof W || t instanceof y ? this.insert(this.createText(e), t, i) : this.insert(this.createText(e, t), i, s);
     }
     insertElement(e, t, i, s) {
-      t instanceof Et || t instanceof $ || t instanceof y ? this.insert(this.createElement(e), t, i) : this.insert(this.createElement(e, t), i, s);
+      t instanceof Et || t instanceof W || t instanceof y ? this.insert(this.createElement(e), t, i) : this.insert(this.createElement(e, t), i, s);
     }
     /**
      * Inserts item at the end of the given parent.
@@ -23737,10 +23737,10 @@ Read more: ${Iw}#error-${n}`;
       this.insert(e, t, "end");
     }
     appendText(e, t, i) {
-      t instanceof Et || t instanceof $ ? this.insert(this.createText(e), t, "end") : this.insert(this.createText(e, t), i, "end");
+      t instanceof Et || t instanceof W ? this.insert(this.createText(e), t, "end") : this.insert(this.createText(e, t), i, "end");
     }
     appendElement(e, t, i) {
-      t instanceof Et || t instanceof $ ? this.insert(this.createElement(e), t, "end") : this.insert(this.createElement(e, t), i, "end");
+      t instanceof Et || t instanceof W ? this.insert(this.createElement(e), t, "end") : this.insert(this.createElement(e, t), i, "end");
     }
     /**
      * Sets value of the attribute with given key on a {@link module:engine/model/item~Item model item}
@@ -23751,7 +23751,7 @@ Read more: ${Iw}#error-${n}`;
      * @param itemOrRange Model item or range on which the attribute will be set.
      */
     setAttribute(e, t, i) {
-      if (this._assertWriterUsedCorrectly(), i instanceof b) {
+      if (this._assertWriterUsedCorrectly(), i instanceof _) {
         const s = i.getMinimalFlatRanges();
         for (const o of s)
           Cu(this, e, t, o);
@@ -23784,7 +23784,7 @@ Read more: ${Iw}#error-${n}`;
      * @param itemOrRange Model item or range from which the attribute will be removed.
      */
     removeAttribute(e, t) {
-      if (this._assertWriterUsedCorrectly(), t instanceof b) {
+      if (this._assertWriterUsedCorrectly(), t instanceof _) {
         const i = t.getMinimalFlatRanges();
         for (const s of i)
           Cu(this, e, null, s);
@@ -23802,7 +23802,7 @@ Read more: ${Iw}#error-${n}`;
         for (const s of i.getAttributeKeys())
           this.removeAttribute(s, i);
       };
-      if (!(e instanceof b))
+      if (!(e instanceof _))
         t(e);
       else
         for (const i of e.getItems())
@@ -23838,7 +23838,7 @@ Read more: ${Iw}#error-${n}`;
      * @param offset Offset or one of the flags. Used only when second parameter is a {@link module:engine/model/item~Item model item}.
      */
     move(e, t, i) {
-      if (this._assertWriterUsedCorrectly(), !(e instanceof b))
+      if (this._assertWriterUsedCorrectly(), !(e instanceof _))
         throw new g("writer-move-invalid-range", this);
       if (!e.isFlat)
         throw new g("writer-move-range-not-flat", this);
@@ -23857,7 +23857,7 @@ Read more: ${Iw}#error-${n}`;
      */
     remove(e) {
       this._assertWriterUsedCorrectly();
-      const i = (e instanceof b ? e : b._createOn(e)).getMinimalFlatRanges().reverse();
+      const i = (e instanceof _ ? e : _._createOn(e)).getMinimalFlatRanges().reverse();
       for (const s of i)
         this._addOperationForAffectedMarkers("move", s), y2(s.start, s.end.offset - s.start.offset, this.batch, this.model);
     }
@@ -23872,9 +23872,9 @@ Read more: ${Iw}#error-${n}`;
     merge(e) {
       this._assertWriterUsedCorrectly();
       const t = e.nodeBefore, i = e.nodeAfter;
-      if (this._addOperationForAffectedMarkers("merge", e), !(t instanceof $))
+      if (this._addOperationForAffectedMarkers("merge", e), !(t instanceof W))
         throw new g("writer-merge-no-element-before", this);
-      if (!(i instanceof $))
+      if (!(i instanceof W))
         throw new g("writer-merge-no-element-after", this);
       e.root.document ? this._merge(e) : this._mergeDetached(e);
     }
@@ -23947,7 +23947,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _mergeDetached(e) {
       const t = e.nodeBefore, i = e.nodeAfter;
-      this.move(b._createIn(i), y._createAt(t, "end")), this.remove(i);
+      this.move(_._createIn(i), y._createAt(t, "end")), this.remove(i);
     }
     /**
      * Performs merge action in a non-detached tree.
@@ -23965,7 +23965,7 @@ Read more: ${Iw}#error-${n}`;
      * @param newName New element name.
      */
     rename(e, t) {
-      if (this._assertWriterUsedCorrectly(), !(e instanceof $))
+      if (this._assertWriterUsedCorrectly(), !(e instanceof W))
         throw new g("writer-rename-not-element-instance", this);
       const i = e.root.document ? e.root.document.version : null, s = new Le(y._createBefore(e), e.name, t, i);
       this.batch.addOperation(s), this.model.applyOperation(s);
@@ -23997,7 +23997,7 @@ Read more: ${Iw}#error-${n}`;
       } while (i !== t);
       return {
         position: e,
-        range: new b(y._createAt(s, "end"), y._createAt(o, 0))
+        range: new _(y._createAt(s, "end"), y._createAt(o, 0))
       };
     }
     /**
@@ -24012,13 +24012,13 @@ Read more: ${Iw}#error-${n}`;
     wrap(e, t) {
       if (this._assertWriterUsedCorrectly(), !e.isFlat)
         throw new g("writer-wrap-range-not-flat", this);
-      const i = t instanceof $ ? t : new $(t);
+      const i = t instanceof W ? t : new W(t);
       if (i.childCount > 0)
         throw new g("writer-wrap-element-not-empty", this);
       if (i.parent !== null)
         throw new g("writer-wrap-element-attached", this);
       this.insert(i, e.start);
-      const s = new b(e.start.getShiftedBy(1), e.end.getShiftedBy(1));
+      const s = new _(e.start.getShiftedBy(1), e.end.getShiftedBy(1));
       this.move(s, y._createAt(i, 0));
     }
     /**
@@ -24030,7 +24030,7 @@ Read more: ${Iw}#error-${n}`;
     unwrap(e) {
       if (this._assertWriterUsedCorrectly(), e.parent === null)
         throw new g("writer-unwrap-element-no-parent", this);
-      this.move(b._createIn(e), this.createPositionAfter(e)), this.remove(e);
+      this.move(_._createIn(e), this.createPositionAfter(e)), this.remove(e);
     }
     /**
      * Adds a {@link module:engine/model/markercollection~Marker marker}. Marker is a named range, which tracks
@@ -24371,7 +24371,7 @@ Read more: ${Iw}#error-${n}`;
       c = d.item.getAttribute(e), a && l != c && (l != t && u(), r = a), a = d.nextPosition, l = c;
     a instanceof y && a != r && l != t && u();
     function u() {
-      const d = new b(r, a), h = d.root.document ? o.version : null, f = new ae(d, e, l, t, h);
+      const d = new _(r, a), h = d.root.document ? o.version : null, f = new ae(d, e, l, t, h);
       n.batch.addOperation(f), s.applyOperation(f);
     }
   }
@@ -24383,7 +24383,7 @@ Read more: ${Iw}#error-${n}`;
         const u = i.document ? o.version : null;
         l = new It(i, e, r, t, u);
       } else {
-        a = new b(y._createBefore(i), n.createPositionAfter(i));
+        a = new _(y._createBefore(i), n.createPositionAfter(i));
         const u = a.root.document ? o.version : null;
         l = new ae(a, e, r, t, u);
       }
@@ -24504,7 +24504,7 @@ Read more: ${Iw}#error-${n}`;
     return !t && i;
   }
   function I2(n, e, t) {
-    const i = new b(n, e);
+    const i = new _(n, e);
     for (const s of i.getWalker())
       if (t.isLimit(s.item))
         return !1;
@@ -24582,8 +24582,8 @@ Read more: ${Iw}#error-${n}`;
           u.sort(({ position: d }, { position: h }) => d.isBefore(h) ? 1 : -1);
           for (const { position: d, name: h, isCollapsed: f } of u) {
             let m = null, p = null;
-            const _ = d.parent === e && d.isAtStart, v = d.parent === e && d.isAtEnd;
-            !_ && !v ? (m = i.createElement("$marker"), i.insert(m, d)) : f && (p = _ ? "start" : "end"), r.push({
+            const w = d.parent === e && d.isAtStart, v = d.parent === e && d.isAtEnd;
+            !w && !v ? (m = i.createElement("$marker"), i.insert(m, d)) : f && (p = w ? "start" : "end"), r.push({
               name: h,
               element: m,
               collapsed: p
@@ -24598,8 +24598,8 @@ Read more: ${Iw}#error-${n}`;
       if (e.is("documentFragment") && r.length) {
         const u = l ? Pe.fromRange(l) : null, d = {};
         for (let h = r.length - 1; h >= 0; h--) {
-          const { name: f, element: m, collapsed: p } = r[h], _ = !d[f];
-          if (_ && (d[f] = []), m) {
+          const { name: f, element: m, collapsed: p } = r[h], w = !d[f];
+          if (w && (d[f] = []), m) {
             const v = i.createPositionAt(m, "before");
             d[f].push(v), i.remove(m);
           } else {
@@ -24608,14 +24608,14 @@ Read more: ${Iw}#error-${n}`;
               p && d[f].push(o.position);
               continue;
             }
-            p ? d[f].push(v[p]) : d[f].push(_ ? v.start : v.end);
+            p ? d[f].push(v[p]) : d[f].push(w ? v.start : v.end);
           }
         }
         for (const [h, [f, m]] of Object.entries(d))
           f && m && f.root === m.root && f.root.document && !i.model.markers.has(h) && i.addMarker(h, {
             usingOperation: !0,
             affectsData: !0,
-            range: new b(f, m)
+            range: new _(f, m)
           });
         u && (l = u.toRange(), u.detach());
       }
@@ -24659,14 +24659,14 @@ Read more: ${Iw}#error-${n}`;
      * Returns `null` if there is no valid range to select after insertion.
      */
     getSelectionRange() {
-      return this._nodeToSelect ? b._createOn(this._nodeToSelect) : this.model.schema.getNearestSelectionRange(this.position);
+      return this._nodeToSelect ? _._createOn(this._nodeToSelect) : this.model.schema.getNearestSelectionRange(this.position);
     }
     /**
      * Returns a range which contains all the performed changes. This is a range that, if removed, would return the model to the state
      * before the insertion. Returns `null` if no changes were done.
      */
     getAffectedRange() {
-      return this._affectedStart ? new b(this._affectedStart, this._affectedEnd) : null;
+      return this._affectedStart ? new _(this._affectedStart, this._affectedEnd) : null;
     }
     /**
      * Destroys `Insertion` instance.
@@ -24739,7 +24739,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _mergeOnLeft() {
       const e = this._firstNode;
-      if (!(e instanceof $) || !this._canMergeLeft(e))
+      if (!(e instanceof W) || !this._canMergeLeft(e))
         return;
       const t = le._createBefore(e);
       t.stickiness = "toNext";
@@ -24754,7 +24754,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _mergeOnRight() {
       const e = this._lastNode;
-      if (!(e instanceof $) || !this._canMergeRight(e))
+      if (!(e instanceof W) || !this._canMergeRight(e))
         return;
       const t = le._createAfter(e);
       t.stickiness = "toNext";
@@ -24772,7 +24772,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _canMergeLeft(e) {
       const t = e.previousSibling;
-      return t instanceof $ && this.canMergeWith.has(t) && this.model.schema.checkMerge(t, e);
+      return t instanceof W && this.canMergeWith.has(t) && this.model.schema.checkMerge(t, e);
     }
     /**
      * Checks whether specified node can be merged with next sibling element.
@@ -24781,7 +24781,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _canMergeRight(e) {
       const t = e.nextSibling;
-      return t instanceof $ && this.canMergeWith.has(t) && this.model.schema.checkMerge(e, t);
+      return t instanceof W && this.canMergeWith.has(t) && this.model.schema.checkMerge(e, t);
     }
     /**
      * Tries wrapping the node in a new paragraph and inserting it this way.
@@ -24929,10 +24929,10 @@ Read more: ${Iw}#error-${n}`;
     let t = n.position.textNode;
     for (t || (t = e ? n.position.nodeAfter : n.position.nodeBefore); t && t.is("$text"); ) {
       const i = n.position.offset - t.startOffset;
-      if (W2(t, i, e))
+      if ($2(t, i, e))
         t = e ? n.position.nodeAfter : n.position.nodeBefore;
       else {
-        if ($2(t.data, i, e))
+        if (W2(t.data, i, e))
           break;
         n.next();
       }
@@ -24941,13 +24941,13 @@ Read more: ${Iw}#error-${n}`;
   }
   function H2(n, e) {
     const t = n.root, i = y._createAt(t, e ? "end" : 0);
-    return e ? new b(n, i) : new b(i, n);
+    return e ? new _(n, i) : new _(i, n);
   }
-  function $2(n, e, t) {
+  function W2(n, e, t) {
     const i = e + (t ? 0 : -1);
     return N2.includes(n.charAt(i));
   }
-  function W2(n, e, t) {
+  function $2(n, e, t) {
     return e === (t ? n.offsetSize : 0);
   }
   /**
@@ -25445,7 +25445,7 @@ Read more: ${Iw}#error-${n}`;
      * @param options.ignoreMarkers Whether markers should be ignored.
      */
     hasContent(e, t = {}) {
-      const i = e instanceof b ? e : b._createIn(e);
+      const i = e instanceof _ ? e : _._createIn(e);
       if (i.isCollapsed)
         return !1;
       const { ignoreWhitespaces: s = !1, ignoreMarkers: o = !1 } = t;
@@ -25557,7 +25557,7 @@ Read more: ${Iw}#error-${n}`;
      * @param end End position. If not set, the range will be collapsed to the `start` position.
      */
     createRange(e, t) {
-      return new b(e, t);
+      return new _(e, t);
     }
     /**
      * Creates a range inside the given element which starts before the first child of
@@ -25575,7 +25575,7 @@ Read more: ${Iw}#error-${n}`;
      * @param element Element which is a parent for the range.
      */
     createRangeIn(e) {
-      return b._createIn(e);
+      return _._createIn(e);
     }
     /**
      * Creates a range that starts before the given {@link module:engine/model/item~Item model item} and ends after it.
@@ -25592,7 +25592,7 @@ Read more: ${Iw}#error-${n}`;
      * @param item
      */
     createRangeOn(e) {
-      return b._createOn(e);
+      return _._createOn(e);
     }
     createSelection(...e) {
       return new Fe(...e);
@@ -25976,13 +25976,13 @@ Read more: ${Iw}#error-${n}`;
      * @param end End position. If not set, range will be collapsed at `start` position.
      */
     createRange(e, t) {
-      return new O(e, t);
+      return new N(e, t);
     }
     /**
      * Creates a range that starts before given {@link module:engine/view/item~Item view item} and ends after it.
      */
     createRangeOn(e) {
-      return O._createOn(e);
+      return N._createOn(e);
     }
     /**
      * Creates a range inside an {@link module:engine/view/element~Element element} which starts before the first child of
@@ -25991,7 +25991,7 @@ Read more: ${Iw}#error-${n}`;
      * @param element Element which is a parent for the range.
      */
     createRangeIn(e) {
-      return O._createIn(e);
+      return N._createIn(e);
     }
     createSelection(...e) {
       return new St(...e);
@@ -26199,7 +26199,7 @@ Read more: ${Iw}#error-${n}`;
     return iE.test(n);
   }
   const nE = /^[+-]?[0-9]*([.][0-9]+)?%$/;
-  function $m(n) {
+  function Wm(n) {
     return nE.test(n);
   }
   const sE = ["repeat-x", "repeat-y", "repeat", "space", "round", "no-repeat"];
@@ -26234,7 +26234,7 @@ Read more: ${Iw}#error-${n}`;
     const s = [];
     return i !== e ? s.push(n, e, t, i) : t !== n ? s.push(n, e, t) : e !== n ? s.push(n, e) : s.push(n), s.join(" ");
   }
-  function Wm(n) {
+  function $m(n) {
     return (e) => ({
       path: n,
       value: Fn(e)
@@ -26409,14 +26409,14 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   function _E(n) {
-    n.setNormalizer("margin", Wm("margin")), n.setNormalizer("margin-top", (e) => ({ path: "margin.top", value: e })), n.setNormalizer("margin-right", (e) => ({ path: "margin.right", value: e })), n.setNormalizer("margin-bottom", (e) => ({ path: "margin.bottom", value: e })), n.setNormalizer("margin-left", (e) => ({ path: "margin.left", value: e })), n.setReducer("margin", Dn("margin")), n.setStyleRelation("margin", ["margin-top", "margin-right", "margin-bottom", "margin-left"]);
+    n.setNormalizer("margin", $m("margin")), n.setNormalizer("margin-top", (e) => ({ path: "margin.top", value: e })), n.setNormalizer("margin-right", (e) => ({ path: "margin.right", value: e })), n.setNormalizer("margin-bottom", (e) => ({ path: "margin.bottom", value: e })), n.setNormalizer("margin-left", (e) => ({ path: "margin.left", value: e })), n.setReducer("margin", Dn("margin")), n.setStyleRelation("margin", ["margin-top", "margin-right", "margin-bottom", "margin-left"]);
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   function vE(n) {
-    n.setNormalizer("padding", Wm("padding")), n.setNormalizer("padding-top", (e) => ({ path: "padding.top", value: e })), n.setNormalizer("padding-right", (e) => ({ path: "padding.right", value: e })), n.setNormalizer("padding-bottom", (e) => ({ path: "padding.bottom", value: e })), n.setNormalizer("padding-left", (e) => ({ path: "padding.left", value: e })), n.setReducer("padding", Dn("padding")), n.setStyleRelation("padding", ["padding-top", "padding-right", "padding-bottom", "padding-left"]);
+    n.setNormalizer("padding", $m("padding")), n.setNormalizer("padding-top", (e) => ({ path: "padding.top", value: e })), n.setNormalizer("padding-right", (e) => ({ path: "padding.right", value: e })), n.setNormalizer("padding-bottom", (e) => ({ path: "padding.bottom", value: e })), n.setNormalizer("padding-left", (e) => ({ path: "padding.left", value: e })), n.setReducer("padding", Dn("padding")), n.setStyleRelation("padding", ["padding-top", "padding-right", "padding-bottom", "padding-left"]);
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
@@ -27126,7 +27126,7 @@ Read more: ${Iw}#error-${n}`;
       return this._actions[Symbol.iterator]();
     }
   }
-  const xE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.591 10.177 4.243 4.242a1 1 0 0 1-1.415 1.415l-4.242-4.243-4.243 4.243a1 1 0 0 1-1.414-1.415l4.243-4.242L4.52 5.934A1 1 0 0 1 5.934 4.52l4.243 4.243 4.242-4.243a1 1 0 1 1 1.415 1.414l-4.243 4.243z"/></svg>', SE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 16h9a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2z"/><path d="M17 1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h14zm0 1.5H3a.5.5 0 0 0-.492.41L2.5 3v9a.5.5 0 0 0 .41.492L3 12.5h14a.5.5 0 0 0 .492-.41L17.5 12V3a.5.5 0 0 0-.41-.492L17 2.5z" fill-opacity=".6"/></svg>', IE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.972 16.615a.997.997 0 0 1-.744-.292l-4.596-4.596a1 1 0 1 1 1.414-1.414l3.926 3.926 9.937-9.937a1 1 0 0 1 1.414 1.415L7.717 16.323a.997.997 0 0 1-.745.292z"/></svg>', PE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.333 2 .19 2.263a5.899 5.899 0 0 1 1.458.604L14.714 3.4 16.6 5.286l-1.467 1.733c.263.452.468.942.605 1.46L18 8.666v2.666l-2.263.19a5.899 5.899 0 0 1-.604 1.458l1.467 1.733-1.886 1.886-1.733-1.467a5.899 5.899 0 0 1-1.46.605L11.334 18H8.667l-.19-2.263a5.899 5.899 0 0 1-1.458-.604L5.286 16.6 3.4 14.714l1.467-1.733a5.899 5.899 0 0 1-.604-1.458L2 11.333V8.667l2.262-.189a5.899 5.899 0 0 1 .605-1.459L3.4 5.286 5.286 3.4l1.733 1.467a5.899 5.899 0 0 1 1.46-.605L8.666 2h2.666zM10 6.267a3.733 3.733 0 1 0 0 7.466 3.733 3.733 0 0 0 0-7.466z"/></svg>', RE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.209 18.717A8.5 8.5 0 1 1 18.686 9.6h-.008l.002.12a3 3 0 0 1-2.866 2.997h-.268l-.046-.002v.002h-4.791a2 2 0 1 0 0 4 1 1 0 1 1-.128 1.992 8.665 8.665 0 0 1-.372.008Zm-3.918-7.01a1.25 1.25 0 1 0-2.415-.648 1.25 1.25 0 0 0 2.415.647ZM5.723 8.18a1.25 1.25 0 1 0 .647-2.414 1.25 1.25 0 0 0-.647 2.414ZM9.76 6.155a1.25 1.25 0 1 0 .647-2.415 1.25 1.25 0 0 0-.647 2.415Zm4.028 1.759a1.25 1.25 0 1 0 .647-2.415 1.25 1.25 0 0 0-.647 2.415Z"/></svg>', LE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m8.636 9.531-2.758 3.94a.5.5 0 0 0 .122.696l3.224 2.284h1.314l2.636-3.736L8.636 9.53zm.288 8.451L5.14 15.396a2 2 0 0 1-.491-2.786l6.673-9.53a2 2 0 0 1 2.785-.49l3.742 2.62a2 2 0 0 1 .491 2.785l-7.269 10.053-2.147-.066z"/><path d="M4 18h5.523v-1H4zm-2 0h1v-1H2z"/></svg>', VE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 1a9 9 0 1 1-8.027 13.075l1.128-1.129A7.502 7.502 0 0 0 18.5 10a7.5 7.5 0 1 0-14.962.759l-.745-.746-.76.76A9 9 0 0 1 11 1z"/><path d="M.475 8.17a.75.75 0 0 1 .978.047l.075.082 1.284 1.643 1.681-1.284a.75.75 0 0 1 .978.057l.073.083a.75.75 0 0 1-.057.978l-.083.073-2.27 1.737a.75.75 0 0 1-.973-.052l-.074-.082-1.741-2.23a.75.75 0 0 1 .13-1.052z"/><path d="M11.5 5v4.999l3.196 3.196-1.06 1.06L10.1 10.72l-.1-.113V5z"/></svg>', ME = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.085 6.22 2.943 4.078a.75.75 0 1 1 1.06-1.06l2.592 2.59A11.094 11.094 0 0 1 10 5.068c4.738 0 8.578 3.101 8.578 5.083 0 1.197-1.401 2.803-3.555 3.887l1.714 1.713a.75.75 0 0 1-.09 1.138.488.488 0 0 1-.15.084.75.75 0 0 1-.821-.16L6.17 7.304c-.258.11-.51.233-.757.365l6.239 6.24-.006.005.78.78c-.388.094-.78.166-1.174.215l-1.11-1.11h.011L4.55 8.197a7.2 7.2 0 0 0-.665.514l-.112.098 4.897 4.897-.005.006 1.276 1.276a10.164 10.164 0 0 1-1.477-.117l-.479-.479-.009.009-4.863-4.863-.022.031a2.563 2.563 0 0 0-.124.2c-.043.077-.08.158-.108.241a.534.534 0 0 0-.028.133.29.29 0 0 0 .008.072.927.927 0 0 0 .082.226c.067.133.145.26.234.379l3.242 3.365.025.01.59.623c-3.265-.918-5.59-3.155-5.59-4.668 0-1.194 1.448-2.838 3.663-3.93zm7.07.531a4.632 4.632 0 0 1 1.108 5.992l.345.344.046-.018a9.313 9.313 0 0 0 2-1.112c.256-.187.5-.392.727-.613.137-.134.27-.277.392-.431.072-.091.141-.185.203-.286.057-.093.107-.19.148-.292a.72.72 0 0 0 .036-.12.29.29 0 0 0 .008-.072.492.492 0 0 0-.028-.133.999.999 0 0 0-.036-.096 2.165 2.165 0 0 0-.071-.145 2.917 2.917 0 0 0-.125-.2 3.592 3.592 0 0 0-.263-.335 5.444 5.444 0 0 0-.53-.523 7.955 7.955 0 0 0-1.054-.768 9.766 9.766 0 0 0-1.879-.891c-.337-.118-.68-.219-1.027-.301zm-2.85.21-.069.002a.508.508 0 0 0-.254.097.496.496 0 0 0-.104.679.498.498 0 0 0 .326.199l.045.005c.091.003.181.003.272.012a2.45 2.45 0 0 1 2.017 1.513c.024.061.043.125.069.185a.494.494 0 0 0 .45.287h.008a.496.496 0 0 0 .35-.158.482.482 0 0 0 .13-.335.638.638 0 0 0-.048-.219 3.379 3.379 0 0 0-.36-.723 3.438 3.438 0 0 0-2.791-1.543l-.028-.001h-.013z"/></svg>', BE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.035 1C2.446 1 2 1.54 2 2.098V10.5h1.5v-8h13v8H18V2.098C18 1.539 17.48 1 16.9 1H3.035Zm10.453 2.61a1.885 1.885 0 0 0-1.442.736 1.89 1.89 0 0 0 1.011 2.976 1.903 1.903 0 0 0 2.253-1.114 1.887 1.887 0 0 0-1.822-2.598ZM7.463 8.163a.611.611 0 0 0-.432.154L5.071 10.5h5.119L7.88 8.348a.628.628 0 0 0-.417-.185Zm6.236 1.059a.62.62 0 0 0-.42.164L12.07 10.5h2.969l-.92-1.113a.618.618 0 0 0-.42-.165ZM.91 11.5a.91.91 0 0 0-.91.912v6.877c0 .505.405.91.91.91h18.178a.91.91 0 0 0 .912-.91v-6.877a.908.908 0 0 0-.912-.912H.91ZM3.668 13h1.947l2.135 5.7H5.898l-.28-.946H3.601l-.278.945H1.516L3.668 13Zm4.947 0h1.801v4.3h2.7v1.4h-4.5V13h-.001Zm4.5 0h5.4v1.4h-1.798v4.3h-1.701v-4.3h-1.9V13h-.001Zm-8.517 1.457-.614 2.059h1.262l-.648-2.059Z"/></svg>', OE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M12.68 13.74h-.001l4.209 4.208a1 1 0 1 0 1.414-1.414l-4.267-4.268a6 6 0 1 0-1.355 1.474ZM13 9a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>', NE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11.463 5.187a.888.888 0 1 1 1.254 1.255L9.16 10l3.557 3.557a.888.888 0 1 1-1.254 1.255L7.26 10.61a.888.888 0 0 1 .16-1.382l4.043-4.042z"/></svg>', FE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.537 14.813a.888.888 0 1 1-1.254-1.255L10.84 10 7.283 6.442a.888.888 0 1 1 1.254-1.255L12.74 9.39a.888.888 0 0 1-.16 1.382l-4.043 4.042z"/></svg>', DE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.66 9.118a.693.693 0 0 1 .956.032l3.65 3.411 2.422-2.238a.695.695 0 0 1 .945 0L17.5 13.6V2.5h-15v11.1l4.16-4.482ZM17.8 1c.652 0 1.2.47 1.2 1.1v14.362c0 .64-.532 1.038-1.184 1.038H2.184C1.532 17.5 1 17.103 1 16.462V2.1C1 1.47 1.537 1 2.2 1h15.6Zm-5.655 6a2.128 2.128 0 0 1 .157-2.364A2.133 2.133 0 1 1 12.145 7Z"/></svg>', zE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1C.538 1 0 1.47 0 2.1v14.363c0 .64.534 1.037 1.186 1.037h9.494a2.97 2.97 0 0 1-.414-.287 2.998 2.998 0 0 1-1.055-2.03 3.003 3.003 0 0 1 .693-2.185l.383-.455-.02.018-3.65-3.41a.695.695 0 0 0-.957-.034L1.5 13.6V2.5h15v5.535a2.97 2.97 0 0 1 1.412.932l.088.105V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.713 2.803a2.146 2.146 0 0 0-2.049 1.992 2.14 2.14 0 0 0 1.28 2.096 2.13 2.13 0 0 0 2.644-3.11 2.134 2.134 0 0 0-1.875-.978Z"/><path d="M15.522 19.1a.79.79 0 0 0 .79-.79v-5.373l2.059 2.455a.79.79 0 1 0 1.211-1.015l-3.352-3.995a.79.79 0 0 0-.995-.179.784.784 0 0 0-.299.221l-3.35 3.99a.79.79 0 1 0 1.21 1.017l1.936-2.306v5.185c0 .436.353.79.79.79Z"/><path d="M15.522 19.1a.79.79 0 0 0 .79-.79v-5.373l2.059 2.455a.79.79 0 1 0 1.211-1.015l-3.352-3.995a.79.79 0 0 0-.995-.179.784.784 0 0 0-.299.221l-3.35 3.99a.79.79 0 1 0 1.21 1.017l1.936-2.306v5.185c0 .436.353.79.79.79Z"/></svg>', UE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1c-.662 0-1.2.47-1.2 1.1v14.248c0 .64.533 1.152 1.185 1.152h6.623v-7.236L6.617 9.15a.694.694 0 0 0-.957-.033L1.602 13.55V2.553l14.798.003V9.7H18V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.723 2.805a2.094 2.094 0 0 0-1.621.832 2.127 2.127 0 0 0 1.136 3.357 2.13 2.13 0 0 0 2.611-1.506 2.133 2.133 0 0 0-.76-2.244 2.13 2.13 0 0 0-1.366-.44Z"/><path clip-rule="evenodd" d="M19.898 12.369v6.187a.844.844 0 0 1-.844.844h-8.719a.844.844 0 0 1-.843-.844v-7.312a.844.844 0 0 1 .843-.844h2.531a.843.843 0 0 1 .597.248l.838.852h4.75c.223 0 .441.114.6.272a.844.844 0 0 1 .247.597Zm-1.52.654-4.377.02-1.1-1.143H11v6h7.4l-.023-4.877Z"/></svg>', HE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1C.538 1 0 1.47 0 2.1v14.363c0 .64.534 1.037 1.186 1.037h7.029a5.401 5.401 0 0 1 .615-4.338l.762-1.232-2.975-2.78a.696.696 0 0 0-.957-.033L1.5 13.6V2.5h15v6.023c.449.131.887.32 1.307.573l.058.033c.046.028.09.057.135.086V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.713 2.803a2.15 2.15 0 0 0-1.611.834 2.118 2.118 0 0 0-.438 1.158 2.14 2.14 0 0 0 1.277 2.096 2.132 2.132 0 0 0 2.645-3.11 2.13 2.13 0 0 0-1.873-.978Z"/><path d="M16.63 10.294a3.003 3.003 0 0 0-4.142.887l-.117.177a.647.647 0 0 0-.096.492.664.664 0 0 0 .278.418.7.7 0 0 0 .944-.234 1.741 1.741 0 0 1 2.478-.463 1.869 1.869 0 0 1 .476 2.55.637.637 0 0 0-.071.5.646.646 0 0 0 .309.396.627.627 0 0 0 .869-.19l.027-.041a3.226 3.226 0 0 0-.956-4.492Zm-6.061 3.78-.044.066a3.228 3.228 0 0 0 .82 4.403 3.005 3.005 0 0 0 4.275-.798l.13-.197a.626.626 0 0 0 .092-.475.638.638 0 0 0-.268-.402.713.713 0 0 0-.99.26l-.018.029a1.741 1.741 0 0 1-2.477.461 1.87 1.87 0 0 1-.475-2.55l.029-.047a.647.647 0 0 0 .086-.485.66.66 0 0 0-.275-.408l-.04-.027a.609.609 0 0 0-.845.17Z"/><path d="M15.312 13.925c.24-.36.154-.838-.19-1.067-.346-.23-.82-.124-1.059.236l-1.268 1.907c-.239.36-.153.838.192 1.067.345.23.818.123 1.057-.236l1.268-1.907Z"/></svg>', $E = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m9.239 13.938-2.88-1.663a.75.75 0 0 1 .75-1.3L9 12.067V4.75a.75.75 0 1 1 1.5 0v7.318l1.89-1.093a.75.75 0 0 1 .75 1.3l-2.879 1.663a.752.752 0 0 1-.511.187.752.752 0 0 1-.511-.187zM4.25 17a.75.75 0 1 1 0-1.5h10.5a.75.75 0 0 1 0 1.5H4.25z"/></svg>', WE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.75 11.875a.752.752 0 0 1 .508.184l2.883 1.666a.75.75 0 0 1-.659 1.344l-.091-.044-1.892-1.093.001 4.318a.75.75 0 1 1-1.5 0v-4.317l-1.89 1.092a.75.75 0 0 1-.75-1.3l2.879-1.663a.752.752 0 0 1 .51-.187zM15.25 9a.75.75 0 1 1 0 1.5H4.75a.75.75 0 1 1 0-1.5h10.5zM9.75.375a.75.75 0 0 1 .75.75v4.318l1.89-1.093.092-.045a.75.75 0 0 1 .659 1.344l-2.883 1.667a.752.752 0 0 1-.508.184.752.752 0 0 1-.511-.187L6.359 5.65a.75.75 0 0 1 .75-1.299L9 5.442V1.125a.75.75 0 0 1 .75-.75z"/></svg>', qE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m10.261 7.062 2.88 1.663a.75.75 0 0 1-.75 1.3L10.5 8.933v7.317a.75.75 0 1 1-1.5 0V8.932l-1.89 1.093a.75.75 0 0 1-.75-1.3l2.879-1.663a.752.752 0 0 1 .511-.187.752.752 0 0 1 .511.187zM15.25 4a.75.75 0 1 1 0 1.5H4.75a.75.75 0 0 1 0-1.5h10.5z"/></svg>', GE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 4c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75z"/></svg>', jE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm2.286 4c0 .414.336.75.75.75h9.928a.75.75 0 1 0 0-1.5H5.036a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h9.928a.75.75 0 1 0 0-1.5H5.036a.75.75 0 0 0-.75.75z"/></svg>', KE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M18 3.75a.75.75 0 0 1-.75.75H2.75a.75.75 0 1 1 0-1.5h14.5a.75.75 0 0 1 .75.75zm0 8a.75.75 0 0 1-.75.75H2.75a.75.75 0 1 1 0-1.5h14.5a.75.75 0 0 1 .75.75zm0 4a.75.75 0 0 1-.75.75H7.321a.75.75 0 1 1 0-1.5h9.929a.75.75 0 0 1 .75.75zm0-8a.75.75 0 0 1-.75.75H7.321a.75.75 0 1 1 0-1.5h9.929a.75.75 0 0 1 .75.75z"/></svg>', ZE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 4c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75z"/></svg>', JE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', XE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M15.003 7v5.5a1 1 0 0 1-1 1H5.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H6.5V12h6.997V7.5z"/></svg>', YE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M18.003 7v5.5a1 1 0 0 1-1 1H8.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H9.5V12h6.997V7.5z"/></svg>', QE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M18 7v5.5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1zm-1.505.5H3.504V12h12.991V7.5z"/></svg>', e5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm11.5 9H18v1.5h-4.5zM2 15h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', t5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm11.5 9H18v1.5h-4.5zm0-3H18v1.5h-4.5zm0-3H18v1.5h-4.5zM2 15h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', i5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2zm0-9h5v1.5H2zm0 3h5v1.5H2zm0 3h5v1.5H2z"/><path d="M18.003 7v5.5a1 1 0 0 1-1 1H8.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H9.5V12h6.997V7.5z"/></svg>', n5 = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.5 17v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zM1 15.5v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm0-2v1h-1v-1h1zm-19 0v1H0v-1h1zM14.5 2v1h-1V2h1zm2 0v1h-1V2h1zm2 0v1h-1V2h1zm-8 0v1h-1V2h1zm-2 0v1h-1V2h1zm-2 0v1h-1V2h1zm-2 0v1h-1V2h1zm8 0v1h-1V2h1zm-10 0v1h-1V2h1z"/><path d="M18.095 2H1.905C.853 2 0 2.895 0 4v12c0 1.105.853 2 1.905 2h16.19C19.147 18 20 17.105 20 16V4c0-1.105-.853-2-1.905-2zm0 1.5c.263 0 .476.224.476.5v12c0 .276-.213.5-.476.5H1.905a.489.489 0 0 1-.476-.5V4c0-.276.213-.5.476-.5h16.19z"/></svg>', s5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M13 5.5H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2ZM13 7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-8A.5.5 0 0 1 2 7h11Z"/></svg>', o5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M7 9.5H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2ZM7 11a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-4A.5.5 0 0 1 2 11h5Z"/></svg>', r5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M10 7.5H2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2ZM10 9a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-6A.5.5 0 0 1 2 9h8Z"/></svg>', a5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m7.3 17.37-.061.088a1.518 1.518 0 0 1-.934.535l-4.178.663-.806-4.153a1.495 1.495 0 0 1 .187-1.058l.056-.086L8.77 2.639c.958-1.351 2.803-1.076 4.296-.03 1.497 1.047 2.387 2.693 1.433 4.055L7.3 17.37zM9.14 4.728l-5.545 8.346 3.277 2.294 5.544-8.346L9.14 4.728zM6.07 16.512l-3.276-2.295.53 2.73 2.746-.435zM9.994 3.506 13.271 5.8c.316-.452-.16-1.333-1.065-1.966-.905-.634-1.895-.78-2.212-.328zM8 18.5 9.375 17H19v1.5H8z"/></svg>', l5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.999 2H15a1 1 0 0 1 0 2h-1.004v13a1 1 0 1 1-2 0V4H8.999v13a1 1 0 1 1-2 0v-7A4 4 0 0 1 3 6a4 4 0 0 1 3.999-4z"/></svg>', c5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.423a6.5 6.5 0 0 1 6.056-6.408l.038.67C6.448 5.423 5.354 7.663 5.22 10H9c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574zm8 0a6.5 6.5 0 0 1 6.056-6.408l.038.67c-2.646.739-3.74 2.979-3.873 5.315H17c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574z"/></svg>', u5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="9.5" cy="4.5" r="1.5"/><circle cx="9.5" cy="10.5" r="1.5"/><circle cx="9.5" cy="16.5" r="1.5"/></svg>', d5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3.25a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 3.25a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M5 10a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 10a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M5 16.75a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 16.75a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/></svg>', h5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.187 17H5.773c-.637 0-1.092-.138-1.364-.415-.273-.277-.409-.718-.409-1.323V4.738c0-.617.14-1.062.419-1.332.279-.27.73-.406 1.354-.406h4.68c.69 0 1.288.041 1.793.124.506.083.96.242 1.36.478.341.197.644.447.906.75a3.262 3.262 0 0 1 .808 2.162c0 1.401-.722 2.426-2.167 3.075C15.05 10.175 16 11.315 16 13.01a3.756 3.756 0 0 1-2.296 3.504 6.1 6.1 0 0 1-1.517.377c-.571.073-1.238.11-2 .11zm-.217-6.217H7v4.087h3.069c1.977 0 2.965-.69 2.965-2.072 0-.707-.256-1.22-.768-1.537-.512-.319-1.277-.478-2.296-.478zM7 5.13v3.619h2.606c.729 0 1.292-.067 1.69-.2a1.6 1.6 0 0 0 .91-.765c.165-.267.247-.566.247-.897 0-.707-.26-1.176-.778-1.409-.519-.232-1.31-.348-2.375-.348H7z"/></svg>', f5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 5.5H7v5h3.5a2.5 2.5 0 1 0 0-5zM5 3h6.5v.025a5 5 0 0 1 0 9.95V13H7v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/></svg>', m5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 0 0-1 1v6H3a1 1 0 1 0 0 2h6v6a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V3a1 1 0 0 0-1-1Z"/></svg>', g5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.816 11.5 7.038 4.785 4.261 11.5h5.555Zm.62 1.5H3.641l-1.666 4.028H.312l5.789-14h1.875l5.789 14h-1.663L10.436 13Z"/><path d="m12.09 17-.534-1.292.848-1.971.545 1.319L12.113 17h-.023Zm1.142-5.187.545 1.319L15.5 9.13l1.858 4.316h-3.45l.398.965h3.467L18.887 17H20l-3.873-9h-1.254l-1.641 3.813Z"/></svg>', p5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M19 4.5 14 0H3v12.673l.868-1.041c.185-.222.4-.402.632-.54V1.5h8v5h5v7.626a2.24 2.24 0 0 1 1.5.822V4.5ZM14 5V2l3.3 3H14Zm-3.692 12.5c.062.105.133.206.213.303L11.52 19H8v-.876a2.243 2.243 0 0 0 1.82-.624h.488Zm7.518-.657a.75.75 0 0 0-1.152-.96L15.5 17.29V12H14v5.29l-1.174-1.408a.75.75 0 0 0-1.152.96l2.346 2.816a.95.95 0 0 0 1.46 0l2.346-2.815Zm-15.056-.38a.75.75 0 0 1-.096-1.056l2.346-2.815a.95.95 0 0 1 1.46 0l2.346 2.815a.75.75 0 1 1-1.152.96L6.5 14.96V20H5v-5.04l-1.174 1.408a.75.75 0 0 1-1.056.096Z"/></svg>', w5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m14.958 9.367-2.189 1.837a.75.75 0 0 0 .965 1.149l3.788-3.18a.747.747 0 0 0 .21-.284.75.75 0 0 0-.17-.945L13.77 4.762a.75.75 0 1 0-.964 1.15l2.331 1.955H6.22A.75.75 0 0 0 6 7.9a4 4 0 1 0 1.477 7.718l-.344-1.489A2.5 2.5 0 1 1 6.039 9.4l-.008-.032h8.927z"/></svg>', b5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m5.042 9.367 2.189 1.837a.75.75 0 0 1-.965 1.149l-3.788-3.18a.747.747 0 0 1-.21-.284.75.75 0 0 1 .17-.945L6.23 4.762a.75.75 0 1 1 .964 1.15L4.863 7.866h8.917A.75.75 0 0 1 14 7.9a4 4 0 1 1-1.477 7.718l.344-1.489a2.5 2.5 0 1 0 1.094-4.73l.008-.032H5.042z"/></svg>', _5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 5.75c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zm-6 0C1 4.784 1.777 4 2.75 4c.966 0 1.75.777 1.75 1.75 0 .966-.777 1.75-1.75 1.75C1.784 7.5 1 6.723 1 5.75zm6 9c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zm-6 0c0-.966.777-1.75 1.75-1.75.966 0 1.75.777 1.75 1.75 0 .966-.777 1.75-1.75 1.75-.966 0-1.75-.777-1.75-1.75z"/></svg>', v5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 5.75c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM3.5 3v5H2V3.7H1v-1h2.5V3zM.343 17.857l2.59-3.257H2.92a.6.6 0 1 0-1.04 0H.302a2 2 0 1 1 3.995 0h-.001c-.048.405-.16.734-.333.988-.175.254-.59.692-1.244 1.312H4.3v1h-4l.043-.043zM7 14.75a.75.75 0 0 1 .75-.75h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75z"/></svg>', y5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m2.315 14.705 2.224-2.24a.689.689 0 0 1 .963 0 .664.664 0 0 1 0 .949L2.865 16.07a.682.682 0 0 1-.112.089.647.647 0 0 1-.852-.051L.688 14.886a.635.635 0 0 1 0-.903.647.647 0 0 1 .91 0l.717.722zm5.185.045a.75.75 0 0 1 .75-.75h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75zM2.329 5.745l2.21-2.226a.689.689 0 0 1 .963 0 .664.664 0 0 1 0 .95L2.865 7.125a.685.685 0 0 1-.496.196.644.644 0 0 1-.468-.187L.688 5.912a.635.635 0 0 1 0-.903.647.647 0 0 1 .91 0l.73.736zM7.5 5.75A.75.75 0 0 1 8.25 5h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75z"/></svg>', C5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M12.87 12.61a.75.75 0 0 1-.089.976l-.085.07-3.154 2.254 3.412 2.414a.75.75 0 0 1 .237.95l-.057.095a.75.75 0 0 1-.95.237l-.096-.058-4.272-3.022-.003-1.223 4.01-2.867a.75.75 0 0 1 1.047.174zm2.795-.231.095.057 4.011 2.867-.003 1.223-4.272 3.022-.095.058a.75.75 0 0 1-.88-.151l-.07-.086-.058-.095a.75.75 0 0 1 .15-.88l.087-.07 3.412-2.414-3.154-2.253-.085-.071a.75.75 0 0 1 .862-1.207zM16 0a2 2 0 0 1 2 2v9.354l-.663-.492-.837-.001V2a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v15a.5.5 0 0 0 .5.5h3.118L7.156 19H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h14zM5.009 15l.003 1H3v-1h2.009zm2.188-2-1.471 1H5v-1h2.197zM10 11v.095L8.668 12H7v-1h3zm4-2v1H7V9h7zm0-2v1H7V7h7zm-4-2v1H5V5h5zM6 3v1H3V3h3z"/></svg>', k5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11.627 16.5zm5.873-.196zm0-7.001V8h-13v8.5h4.341c.191.54.457 1.044.785 1.5H2a1.5 1.5 0 0 1-1.5-1.5v-13A1.5 1.5 0 0 1 2 2h4.5a1.5 1.5 0 0 1 1.06.44L9.122 4H16a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 19 8v2.531a6.027 6.027 0 0 0-1.5-1.228zM16 6.5v-1H8.5l-2-2H2v13h1V8a1.5 1.5 0 0 1 1.5-1.5H16z"/><path d="M14.5 19.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zM15 14v-2h-1v2h-2v1h2v2h1v-2h2v-1h-2z"/></svg>', T5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M19 9v10h-2v-8h-2V9h4zM4 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V11H4v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H3a1 1 0 0 1 1 1v4.5z"/></svg>', E5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V11H3v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H2a1 1 0 0 1 1 1v4.5zm16.076 8.343V18.5h-6.252c.067-.626.27-1.22.61-1.78.338-.561 1.006-1.305 2.005-2.232.804-.749 1.297-1.257 1.479-1.523.245-.368.368-.732.368-1.092 0-.398-.107-.703-.32-.917-.214-.214-.51-.32-.886-.32-.372 0-.669.111-.889.336-.22.224-.347.596-.38 1.117l-1.778-.178c.106-.982.438-1.686.997-2.114.558-.427 1.257-.64 2.095-.64.918 0 1.64.247 2.164.742.525.495.787 1.11.787 1.847 0 .419-.075.818-.225 1.197-.15.378-.388.775-.714 1.19-.216.275-.605.67-1.168 1.187-.563.516-.92.859-1.07 1.028a3.11 3.11 0 0 0-.365.495h3.542z"/></svg>', A5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V11H3v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H2a1 1 0 0 1 1 1v4.5zm9.989 7.53 1.726-.209c.055.44.203.777.445 1.01.24.232.533.349.876.349.368 0 .678-.14.93-.42.251-.279.377-.655.377-1.13 0-.448-.12-.803-.362-1.066a1.153 1.153 0 0 0-.882-.393c-.228 0-.501.044-.819.133l.197-1.453c.482.012.85-.092 1.105-.315.253-.222.38-.517.38-.885 0-.313-.093-.563-.279-.75-.186-.185-.434-.278-.743-.278a1.07 1.07 0 0 0-.78.317c-.216.212-.347.52-.394.927l-1.644-.28c.114-.562.287-1.012.517-1.348.231-.337.553-.601.965-.794a3.24 3.24 0 0 1 1.387-.289c.876 0 1.579.28 2.108.838.436.457.653.973.653 1.549 0 .817-.446 1.468-1.339 1.955.533.114.96.37 1.28.768.319.398.478.878.478 1.441 0 .817-.298 1.513-.895 2.088-.596.576-1.339.864-2.228.864-.842 0-1.54-.243-2.094-.727-.555-.485-.876-1.118-.965-1.901z"/></svg>', x5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm13.55 10v-1.873h-3.81v-1.561l4.037-5.91h1.498v5.904h1.156v1.567h-1.156V18.5H17.05zm0-3.44v-3.18l-2.14 3.18h2.14z"/></svg>', S5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm9.578 7.607 1.777-.184c.05.402.201.72.45.955a1.223 1.223 0 0 0 1.81-.101c.258-.303.387-.759.387-1.368 0-.572-.128-1-.384-1.286-.256-.285-.59-.428-1-.428-.512 0-.971.226-1.377.679l-1.448-.21.915-4.843h4.716v1.67H15.56l-.28 1.58a2.697 2.697 0 0 1 1.219-.298 2.68 2.68 0 0 1 2.012.863c.55.576.825 1.323.825 2.241a3.36 3.36 0 0 1-.666 2.05c-.605.821-1.445 1.232-2.52 1.232-.86 0-1.56-.23-2.101-.692-.542-.461-.866-1.081-.971-1.86z"/></svg>', I5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm15.595 2.973-1.726.19c-.043-.355-.153-.617-.33-.787-.178-.169-.409-.253-.692-.253-.377 0-.695.169-.956.507-.26.339-.424 1.043-.492 2.114.445-.525.997-.787 1.657-.787.745 0 1.383.284 1.914.85.531.568.797 1.3.797 2.197 0 .952-.28 1.716-.838 2.291-.559.576-1.276.864-2.152.864-.94 0-1.712-.365-2.317-1.095-.605-.73-.908-1.927-.908-3.59 0-1.705.316-2.935.946-3.688.63-.753 1.45-1.13 2.457-1.13.706 0 1.291.198 1.755.594.463.395.758.97.885 1.723zm-4.043 3.891c0 .58.133 1.028.4 1.343.266.315.57.473.914.473.33 0 .605-.13.825-.388.22-.258.33-.68.33-1.27 0-.604-.118-1.047-.355-1.329a1.115 1.115 0 0 0-.89-.422c-.342 0-.632.134-.869.403s-.355.666-.355 1.19z"/></svg>', P5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 9h16v2H2z"/></svg>', R5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17 0a2 2 0 0 1 2 2v7a1 1 0 0 1 1 1v5a1 1 0 0 1-.883.993l-.118.006L19 17a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2l-.001-1.001-.116-.006A1 1 0 0 1 0 15v-5a1 1 0 0 1 .999-1L1 2a2 2 0 0 1 2-2h14zm.499 15.999h-15L2.5 17a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5l-.001-1.001zm-3.478-6.013-.014.014H14v.007l-1.525 1.525-1.46-1.46-.015.013V10h-1v5h1v-3.53l1.428 1.43.048.043.131-.129L14 11.421V15h1v-5h-.965l-.014-.014zM2 10H1v5h1v-2h2v2h1v-5H4v2H2v-2zm7 0H6v1h1v4h1v-4h1v-1zm8 0h-1v5h3v-1h-2v-4zm0-8.5H3a.5.5 0 0 0-.5.5l-.001 6.999h15L17.5 2a.5.5 0 0 0-.5-.5zM10 7v1H4V7h6zm3-2v1H4V5h9zm-3-2v1H4V3h6z"/></svg>', L5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm5 6c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM2.75 16.5h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 1 0 0 1.5zM1.632 6.95 5.02 9.358a.4.4 0 0 1-.013.661l-3.39 2.207A.4.4 0 0 1 1 11.892V7.275a.4.4 0 0 1 .632-.326z"/></svg>', V5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm5 6c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM2.75 16.5h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 1 0 0 1.5zm1.618-9.55L.98 9.358a.4.4 0 0 0 .013.661l3.39 2.207A.4.4 0 0 0 5 11.892V7.275a.4.4 0 0 0-.632-.326z"/></svg>', M5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 5.5v3h4v-3H3Zm0 4v3h4v-3H3Zm0 4v3h4v-3H3Zm5 3h4v-3H8v3Zm5 0h4v-3h-4v3Zm4-4v-3h-4v3h4Zm0-4v-3h-4v3h4Zm1.5 8A1.5 1.5 0 0 1 17 18H3a1.5 1.5 0 0 1-1.5-1.5V3c.222-.863 1.068-1.5 2-1.5h13c.932 0 1.778.637 2 1.5v13.5Zm-6.5-4v-3H8v3h4Zm0-4v-3H8v3h4Z"/></svg>';
+  const xE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.591 10.177 4.243 4.242a1 1 0 0 1-1.415 1.415l-4.242-4.243-4.243 4.243a1 1 0 0 1-1.414-1.415l4.243-4.242L4.52 5.934A1 1 0 0 1 5.934 4.52l4.243 4.243 4.242-4.243a1 1 0 1 1 1.415 1.414l-4.243 4.243z"/></svg>', SE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 16h9a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2z"/><path d="M17 1a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h14zm0 1.5H3a.5.5 0 0 0-.492.41L2.5 3v9a.5.5 0 0 0 .41.492L3 12.5h14a.5.5 0 0 0 .492-.41L17.5 12V3a.5.5 0 0 0-.41-.492L17 2.5z" fill-opacity=".6"/></svg>', IE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.972 16.615a.997.997 0 0 1-.744-.292l-4.596-4.596a1 1 0 1 1 1.414-1.414l3.926 3.926 9.937-9.937a1 1 0 0 1 1.414 1.415L7.717 16.323a.997.997 0 0 1-.745.292z"/></svg>', PE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.333 2 .19 2.263a5.899 5.899 0 0 1 1.458.604L14.714 3.4 16.6 5.286l-1.467 1.733c.263.452.468.942.605 1.46L18 8.666v2.666l-2.263.19a5.899 5.899 0 0 1-.604 1.458l1.467 1.733-1.886 1.886-1.733-1.467a5.899 5.899 0 0 1-1.46.605L11.334 18H8.667l-.19-2.263a5.899 5.899 0 0 1-1.458-.604L5.286 16.6 3.4 14.714l1.467-1.733a5.899 5.899 0 0 1-.604-1.458L2 11.333V8.667l2.262-.189a5.899 5.899 0 0 1 .605-1.459L3.4 5.286 5.286 3.4l1.733 1.467a5.899 5.899 0 0 1 1.46-.605L8.666 2h2.666zM10 6.267a3.733 3.733 0 1 0 0 7.466 3.733 3.733 0 0 0 0-7.466z"/></svg>', RE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.209 18.717A8.5 8.5 0 1 1 18.686 9.6h-.008l.002.12a3 3 0 0 1-2.866 2.997h-.268l-.046-.002v.002h-4.791a2 2 0 1 0 0 4 1 1 0 1 1-.128 1.992 8.665 8.665 0 0 1-.372.008Zm-3.918-7.01a1.25 1.25 0 1 0-2.415-.648 1.25 1.25 0 0 0 2.415.647ZM5.723 8.18a1.25 1.25 0 1 0 .647-2.414 1.25 1.25 0 0 0-.647 2.414ZM9.76 6.155a1.25 1.25 0 1 0 .647-2.415 1.25 1.25 0 0 0-.647 2.415Zm4.028 1.759a1.25 1.25 0 1 0 .647-2.415 1.25 1.25 0 0 0-.647 2.415Z"/></svg>', LE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m8.636 9.531-2.758 3.94a.5.5 0 0 0 .122.696l3.224 2.284h1.314l2.636-3.736L8.636 9.53zm.288 8.451L5.14 15.396a2 2 0 0 1-.491-2.786l6.673-9.53a2 2 0 0 1 2.785-.49l3.742 2.62a2 2 0 0 1 .491 2.785l-7.269 10.053-2.147-.066z"/><path d="M4 18h5.523v-1H4zm-2 0h1v-1H2z"/></svg>', VE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 1a9 9 0 1 1-8.027 13.075l1.128-1.129A7.502 7.502 0 0 0 18.5 10a7.5 7.5 0 1 0-14.962.759l-.745-.746-.76.76A9 9 0 0 1 11 1z"/><path d="M.475 8.17a.75.75 0 0 1 .978.047l.075.082 1.284 1.643 1.681-1.284a.75.75 0 0 1 .978.057l.073.083a.75.75 0 0 1-.057.978l-.083.073-2.27 1.737a.75.75 0 0 1-.973-.052l-.074-.082-1.741-2.23a.75.75 0 0 1 .13-1.052z"/><path d="M11.5 5v4.999l3.196 3.196-1.06 1.06L10.1 10.72l-.1-.113V5z"/></svg>', ME = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5.085 6.22 2.943 4.078a.75.75 0 1 1 1.06-1.06l2.592 2.59A11.094 11.094 0 0 1 10 5.068c4.738 0 8.578 3.101 8.578 5.083 0 1.197-1.401 2.803-3.555 3.887l1.714 1.713a.75.75 0 0 1-.09 1.138.488.488 0 0 1-.15.084.75.75 0 0 1-.821-.16L6.17 7.304c-.258.11-.51.233-.757.365l6.239 6.24-.006.005.78.78c-.388.094-.78.166-1.174.215l-1.11-1.11h.011L4.55 8.197a7.2 7.2 0 0 0-.665.514l-.112.098 4.897 4.897-.005.006 1.276 1.276a10.164 10.164 0 0 1-1.477-.117l-.479-.479-.009.009-4.863-4.863-.022.031a2.563 2.563 0 0 0-.124.2c-.043.077-.08.158-.108.241a.534.534 0 0 0-.028.133.29.29 0 0 0 .008.072.927.927 0 0 0 .082.226c.067.133.145.26.234.379l3.242 3.365.025.01.59.623c-3.265-.918-5.59-3.155-5.59-4.668 0-1.194 1.448-2.838 3.663-3.93zm7.07.531a4.632 4.632 0 0 1 1.108 5.992l.345.344.046-.018a9.313 9.313 0 0 0 2-1.112c.256-.187.5-.392.727-.613.137-.134.27-.277.392-.431.072-.091.141-.185.203-.286.057-.093.107-.19.148-.292a.72.72 0 0 0 .036-.12.29.29 0 0 0 .008-.072.492.492 0 0 0-.028-.133.999.999 0 0 0-.036-.096 2.165 2.165 0 0 0-.071-.145 2.917 2.917 0 0 0-.125-.2 3.592 3.592 0 0 0-.263-.335 5.444 5.444 0 0 0-.53-.523 7.955 7.955 0 0 0-1.054-.768 9.766 9.766 0 0 0-1.879-.891c-.337-.118-.68-.219-1.027-.301zm-2.85.21-.069.002a.508.508 0 0 0-.254.097.496.496 0 0 0-.104.679.498.498 0 0 0 .326.199l.045.005c.091.003.181.003.272.012a2.45 2.45 0 0 1 2.017 1.513c.024.061.043.125.069.185a.494.494 0 0 0 .45.287h.008a.496.496 0 0 0 .35-.158.482.482 0 0 0 .13-.335.638.638 0 0 0-.048-.219 3.379 3.379 0 0 0-.36-.723 3.438 3.438 0 0 0-2.791-1.543l-.028-.001h-.013z"/></svg>', BE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.035 1C2.446 1 2 1.54 2 2.098V10.5h1.5v-8h13v8H18V2.098C18 1.539 17.48 1 16.9 1H3.035Zm10.453 2.61a1.885 1.885 0 0 0-1.442.736 1.89 1.89 0 0 0 1.011 2.976 1.903 1.903 0 0 0 2.253-1.114 1.887 1.887 0 0 0-1.822-2.598ZM7.463 8.163a.611.611 0 0 0-.432.154L5.071 10.5h5.119L7.88 8.348a.628.628 0 0 0-.417-.185Zm6.236 1.059a.62.62 0 0 0-.42.164L12.07 10.5h2.969l-.92-1.113a.618.618 0 0 0-.42-.165ZM.91 11.5a.91.91 0 0 0-.91.912v6.877c0 .505.405.91.91.91h18.178a.91.91 0 0 0 .912-.91v-6.877a.908.908 0 0 0-.912-.912H.91ZM3.668 13h1.947l2.135 5.7H5.898l-.28-.946H3.601l-.278.945H1.516L3.668 13Zm4.947 0h1.801v4.3h2.7v1.4h-4.5V13h-.001Zm4.5 0h5.4v1.4h-1.798v4.3h-1.701v-4.3h-1.9V13h-.001Zm-8.517 1.457-.614 2.059h1.262l-.648-2.059Z"/></svg>', OE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M12.68 13.74h-.001l4.209 4.208a1 1 0 1 0 1.414-1.414l-4.267-4.268a6 6 0 1 0-1.355 1.474ZM13 9a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>', NE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11.463 5.187a.888.888 0 1 1 1.254 1.255L9.16 10l3.557 3.557a.888.888 0 1 1-1.254 1.255L7.26 10.61a.888.888 0 0 1 .16-1.382l4.043-4.042z"/></svg>', FE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.537 14.813a.888.888 0 1 1-1.254-1.255L10.84 10 7.283 6.442a.888.888 0 1 1 1.254-1.255L12.74 9.39a.888.888 0 0 1-.16 1.382l-4.043 4.042z"/></svg>', DE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.66 9.118a.693.693 0 0 1 .956.032l3.65 3.411 2.422-2.238a.695.695 0 0 1 .945 0L17.5 13.6V2.5h-15v11.1l4.16-4.482ZM17.8 1c.652 0 1.2.47 1.2 1.1v14.362c0 .64-.532 1.038-1.184 1.038H2.184C1.532 17.5 1 17.103 1 16.462V2.1C1 1.47 1.537 1 2.2 1h15.6Zm-5.655 6a2.128 2.128 0 0 1 .157-2.364A2.133 2.133 0 1 1 12.145 7Z"/></svg>', zE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1C.538 1 0 1.47 0 2.1v14.363c0 .64.534 1.037 1.186 1.037h9.494a2.97 2.97 0 0 1-.414-.287 2.998 2.998 0 0 1-1.055-2.03 3.003 3.003 0 0 1 .693-2.185l.383-.455-.02.018-3.65-3.41a.695.695 0 0 0-.957-.034L1.5 13.6V2.5h15v5.535a2.97 2.97 0 0 1 1.412.932l.088.105V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.713 2.803a2.146 2.146 0 0 0-2.049 1.992 2.14 2.14 0 0 0 1.28 2.096 2.13 2.13 0 0 0 2.644-3.11 2.134 2.134 0 0 0-1.875-.978Z"/><path d="M15.522 19.1a.79.79 0 0 0 .79-.79v-5.373l2.059 2.455a.79.79 0 1 0 1.211-1.015l-3.352-3.995a.79.79 0 0 0-.995-.179.784.784 0 0 0-.299.221l-3.35 3.99a.79.79 0 1 0 1.21 1.017l1.936-2.306v5.185c0 .436.353.79.79.79Z"/><path d="M15.522 19.1a.79.79 0 0 0 .79-.79v-5.373l2.059 2.455a.79.79 0 1 0 1.211-1.015l-3.352-3.995a.79.79 0 0 0-.995-.179.784.784 0 0 0-.299.221l-3.35 3.99a.79.79 0 1 0 1.21 1.017l1.936-2.306v5.185c0 .436.353.79.79.79Z"/></svg>', UE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1c-.662 0-1.2.47-1.2 1.1v14.248c0 .64.533 1.152 1.185 1.152h6.623v-7.236L6.617 9.15a.694.694 0 0 0-.957-.033L1.602 13.55V2.553l14.798.003V9.7H18V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.723 2.805a2.094 2.094 0 0 0-1.621.832 2.127 2.127 0 0 0 1.136 3.357 2.13 2.13 0 0 0 2.611-1.506 2.133 2.133 0 0 0-.76-2.244 2.13 2.13 0 0 0-1.366-.44Z"/><path clip-rule="evenodd" d="M19.898 12.369v6.187a.844.844 0 0 1-.844.844h-8.719a.844.844 0 0 1-.843-.844v-7.312a.844.844 0 0 1 .843-.844h2.531a.843.843 0 0 1 .597.248l.838.852h4.75c.223 0 .441.114.6.272a.844.844 0 0 1 .247.597Zm-1.52.654-4.377.02-1.1-1.143H11v6h7.4l-.023-4.877Z"/></svg>', HE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.201 1C.538 1 0 1.47 0 2.1v14.363c0 .64.534 1.037 1.186 1.037h7.029a5.401 5.401 0 0 1 .615-4.338l.762-1.232-2.975-2.78a.696.696 0 0 0-.957-.033L1.5 13.6V2.5h15v6.023c.449.131.887.32 1.307.573l.058.033c.046.028.09.057.135.086V2.1c0-.63-.547-1.1-1.2-1.1H1.202Zm11.713 2.803a2.15 2.15 0 0 0-1.611.834 2.118 2.118 0 0 0-.438 1.158 2.14 2.14 0 0 0 1.277 2.096 2.132 2.132 0 0 0 2.645-3.11 2.13 2.13 0 0 0-1.873-.978Z"/><path d="M16.63 10.294a3.003 3.003 0 0 0-4.142.887l-.117.177a.647.647 0 0 0-.096.492.664.664 0 0 0 .278.418.7.7 0 0 0 .944-.234 1.741 1.741 0 0 1 2.478-.463 1.869 1.869 0 0 1 .476 2.55.637.637 0 0 0-.071.5.646.646 0 0 0 .309.396.627.627 0 0 0 .869-.19l.027-.041a3.226 3.226 0 0 0-.956-4.492Zm-6.061 3.78-.044.066a3.228 3.228 0 0 0 .82 4.403 3.005 3.005 0 0 0 4.275-.798l.13-.197a.626.626 0 0 0 .092-.475.638.638 0 0 0-.268-.402.713.713 0 0 0-.99.26l-.018.029a1.741 1.741 0 0 1-2.477.461 1.87 1.87 0 0 1-.475-2.55l.029-.047a.647.647 0 0 0 .086-.485.66.66 0 0 0-.275-.408l-.04-.027a.609.609 0 0 0-.845.17Z"/><path d="M15.312 13.925c.24-.36.154-.838-.19-1.067-.346-.23-.82-.124-1.059.236l-1.268 1.907c-.239.36-.153.838.192 1.067.345.23.818.123 1.057-.236l1.268-1.907Z"/></svg>', WE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m9.239 13.938-2.88-1.663a.75.75 0 0 1 .75-1.3L9 12.067V4.75a.75.75 0 1 1 1.5 0v7.318l1.89-1.093a.75.75 0 0 1 .75 1.3l-2.879 1.663a.752.752 0 0 1-.511.187.752.752 0 0 1-.511-.187zM4.25 17a.75.75 0 1 1 0-1.5h10.5a.75.75 0 0 1 0 1.5H4.25z"/></svg>', $E = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.75 11.875a.752.752 0 0 1 .508.184l2.883 1.666a.75.75 0 0 1-.659 1.344l-.091-.044-1.892-1.093.001 4.318a.75.75 0 1 1-1.5 0v-4.317l-1.89 1.092a.75.75 0 0 1-.75-1.3l2.879-1.663a.752.752 0 0 1 .51-.187zM15.25 9a.75.75 0 1 1 0 1.5H4.75a.75.75 0 1 1 0-1.5h10.5zM9.75.375a.75.75 0 0 1 .75.75v4.318l1.89-1.093.092-.045a.75.75 0 0 1 .659 1.344l-2.883 1.667a.752.752 0 0 1-.508.184.752.752 0 0 1-.511-.187L6.359 5.65a.75.75 0 0 1 .75-1.299L9 5.442V1.125a.75.75 0 0 1 .75-.75z"/></svg>', qE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m10.261 7.062 2.88 1.663a.75.75 0 0 1-.75 1.3L10.5 8.933v7.317a.75.75 0 1 1-1.5 0V8.932l-1.89 1.093a.75.75 0 0 1-.75-1.3l2.879-1.663a.752.752 0 0 1 .511-.187.752.752 0 0 1 .511.187zM15.25 4a.75.75 0 1 1 0 1.5H4.75a.75.75 0 0 1 0-1.5h10.5z"/></svg>', GE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 4c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75z"/></svg>', jE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm2.286 4c0 .414.336.75.75.75h9.928a.75.75 0 1 0 0-1.5H5.036a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h9.928a.75.75 0 1 0 0-1.5H5.036a.75.75 0 0 0-.75.75z"/></svg>', KE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M18 3.75a.75.75 0 0 1-.75.75H2.75a.75.75 0 1 1 0-1.5h14.5a.75.75 0 0 1 .75.75zm0 8a.75.75 0 0 1-.75.75H2.75a.75.75 0 1 1 0-1.5h14.5a.75.75 0 0 1 .75.75zm0 4a.75.75 0 0 1-.75.75H7.321a.75.75 0 1 1 0-1.5h9.929a.75.75 0 0 1 .75.75zm0-8a.75.75 0 0 1-.75.75H7.321a.75.75 0 1 1 0-1.5h9.929a.75.75 0 0 1 .75.75z"/></svg>', ZE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0 4c0 .414.336.75.75.75h9.929a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm0-8c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75z"/></svg>', JE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', XE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M15.003 7v5.5a1 1 0 0 1-1 1H5.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H6.5V12h6.997V7.5z"/></svg>', YE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M18.003 7v5.5a1 1 0 0 1-1 1H8.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H9.5V12h6.997V7.5z"/></svg>', QE = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2z"/><path d="M18 7v5.5a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1zm-1.505.5H3.504V12h12.991V7.5z"/></svg>', e5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm11.5 9H18v1.5h-4.5zM2 15h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', t5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm11.5 9H18v1.5h-4.5zm0-3H18v1.5h-4.5zm0-3H18v1.5h-4.5zM2 15h16v1.5H2z"/><path d="M12.003 7v5.5a1 1 0 0 1-1 1H2.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H3.5V12h6.997V7.5z"/></svg>', i5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path opacity=".5" d="M2 3h16v1.5H2zm0 12h16v1.5H2zm0-9h5v1.5H2zm0 3h5v1.5H2zm0 3h5v1.5H2z"/><path d="M18.003 7v5.5a1 1 0 0 1-1 1H8.996a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h8.007a1 1 0 0 1 1 1zm-1.506.5H9.5V12h6.997V7.5z"/></svg>', n5 = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.5 17v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zm2 0v1h-1v-1h1zM1 15.5v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm-19-2v1H0v-1h1zm19 0v1h-1v-1h1zm0-2v1h-1v-1h1zm-19 0v1H0v-1h1zM14.5 2v1h-1V2h1zm2 0v1h-1V2h1zm2 0v1h-1V2h1zm-8 0v1h-1V2h1zm-2 0v1h-1V2h1zm-2 0v1h-1V2h1zm-2 0v1h-1V2h1zm8 0v1h-1V2h1zm-10 0v1h-1V2h1z"/><path d="M18.095 2H1.905C.853 2 0 2.895 0 4v12c0 1.105.853 2 1.905 2h16.19C19.147 18 20 17.105 20 16V4c0-1.105-.853-2-1.905-2zm0 1.5c.263 0 .476.224.476.5v12c0 .276-.213.5-.476.5H1.905a.489.489 0 0 1-.476-.5V4c0-.276.213-.5.476-.5h16.19z"/></svg>', s5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M13 5.5H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2ZM13 7a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-8A.5.5 0 0 1 2 7h11Z"/></svg>', o5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M7 9.5H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2ZM7 11a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-4A.5.5 0 0 1 2 11h5Z"/></svg>', r5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 16.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1ZM1 15v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 13v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 11v1H0v-1h1Zm19 0v1h-1v-1h1ZM1 9v1H0V9h1Zm19 0v1h-1V9h1ZM1 7v1H0V7h1Zm19 0v1h-1V7h1ZM1 5v1H0V5h1Zm19 0v1h-1V5h1Zm0-2v1h-1V3h1ZM1 3v1H0V3h1Zm13.5-1.5v1h-1v-1h1Zm2 0v1h-1v-1h1Zm2 0v1h-1v-1h1Zm-8 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm-2 0v1h-1v-1h1Zm8 0v1h-1v-1h1Zm-10 0v1h-1v-1h1Z"/><path d="M10 7.5H2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2ZM10 9a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-6A.5.5 0 0 1 2 9h8Z"/></svg>', a5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m7.3 17.37-.061.088a1.518 1.518 0 0 1-.934.535l-4.178.663-.806-4.153a1.495 1.495 0 0 1 .187-1.058l.056-.086L8.77 2.639c.958-1.351 2.803-1.076 4.296-.03 1.497 1.047 2.387 2.693 1.433 4.055L7.3 17.37zM9.14 4.728l-5.545 8.346 3.277 2.294 5.544-8.346L9.14 4.728zM6.07 16.512l-3.276-2.295.53 2.73 2.746-.435zM9.994 3.506 13.271 5.8c.316-.452-.16-1.333-1.065-1.966-.905-.634-1.895-.78-2.212-.328zM8 18.5 9.375 17H19v1.5H8z"/></svg>', l5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6.999 2H15a1 1 0 0 1 0 2h-1.004v13a1 1 0 1 1-2 0V4H8.999v13a1 1 0 1 1-2 0v-7A4 4 0 0 1 3 6a4 4 0 0 1 3.999-4z"/></svg>', c5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.423a6.5 6.5 0 0 1 6.056-6.408l.038.67C6.448 5.423 5.354 7.663 5.22 10H9c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574zm8 0a6.5 6.5 0 0 1 6.056-6.408l.038.67c-2.646.739-3.74 2.979-3.873 5.315H17c.552 0 .5.432.5.986v4.511c0 .554-.448.503-1 .503h-5c-.552 0-.5-.449-.5-1.003v-4.574z"/></svg>', u5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="9.5" cy="4.5" r="1.5"/><circle cx="9.5" cy="10.5" r="1.5"/><circle cx="9.5" cy="16.5" r="1.5"/></svg>', d5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3.25a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 3.25a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M5 10a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 10a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M5 16.75a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/><path d="M12 16.75a1.5 1.5 0 1 0 3 0 1.5 1.5 0 1 0-3 0"/></svg>', h5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.187 17H5.773c-.637 0-1.092-.138-1.364-.415-.273-.277-.409-.718-.409-1.323V4.738c0-.617.14-1.062.419-1.332.279-.27.73-.406 1.354-.406h4.68c.69 0 1.288.041 1.793.124.506.083.96.242 1.36.478.341.197.644.447.906.75a3.262 3.262 0 0 1 .808 2.162c0 1.401-.722 2.426-2.167 3.075C15.05 10.175 16 11.315 16 13.01a3.756 3.756 0 0 1-2.296 3.504 6.1 6.1 0 0 1-1.517.377c-.571.073-1.238.11-2 .11zm-.217-6.217H7v4.087h3.069c1.977 0 2.965-.69 2.965-2.072 0-.707-.256-1.22-.768-1.537-.512-.319-1.277-.478-2.296-.478zM7 5.13v3.619h2.606c.729 0 1.292-.067 1.69-.2a1.6 1.6 0 0 0 .91-.765c.165-.267.247-.566.247-.897 0-.707-.26-1.176-.778-1.409-.519-.232-1.31-.348-2.375-.348H7z"/></svg>', f5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 5.5H7v5h3.5a2.5 2.5 0 1 0 0-5zM5 3h6.5v.025a5 5 0 0 1 0 9.95V13H7v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/></svg>', m5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 0 0-1 1v6H3a1 1 0 1 0 0 2h6v6a1 1 0 1 0 2 0v-6h6a1 1 0 1 0 0-2h-6V3a1 1 0 0 0-1-1Z"/></svg>', g5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.816 11.5 7.038 4.785 4.261 11.5h5.555Zm.62 1.5H3.641l-1.666 4.028H.312l5.789-14h1.875l5.789 14h-1.663L10.436 13Z"/><path d="m12.09 17-.534-1.292.848-1.971.545 1.319L12.113 17h-.023Zm1.142-5.187.545 1.319L15.5 9.13l1.858 4.316h-3.45l.398.965h3.467L18.887 17H20l-3.873-9h-1.254l-1.641 3.813Z"/></svg>', p5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M19 4.5 14 0H3v12.673l.868-1.041c.185-.222.4-.402.632-.54V1.5h8v5h5v7.626a2.24 2.24 0 0 1 1.5.822V4.5ZM14 5V2l3.3 3H14Zm-3.692 12.5c.062.105.133.206.213.303L11.52 19H8v-.876a2.243 2.243 0 0 0 1.82-.624h.488Zm7.518-.657a.75.75 0 0 0-1.152-.96L15.5 17.29V12H14v5.29l-1.174-1.408a.75.75 0 0 0-1.152.96l2.346 2.816a.95.95 0 0 0 1.46 0l2.346-2.815Zm-15.056-.38a.75.75 0 0 1-.096-1.056l2.346-2.815a.95.95 0 0 1 1.46 0l2.346 2.815a.75.75 0 1 1-1.152.96L6.5 14.96V20H5v-5.04l-1.174 1.408a.75.75 0 0 1-1.056.096Z"/></svg>', w5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m14.958 9.367-2.189 1.837a.75.75 0 0 0 .965 1.149l3.788-3.18a.747.747 0 0 0 .21-.284.75.75 0 0 0-.17-.945L13.77 4.762a.75.75 0 1 0-.964 1.15l2.331 1.955H6.22A.75.75 0 0 0 6 7.9a4 4 0 1 0 1.477 7.718l-.344-1.489A2.5 2.5 0 1 1 6.039 9.4l-.008-.032h8.927z"/></svg>', b5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m5.042 9.367 2.189 1.837a.75.75 0 0 1-.965 1.149l-3.788-3.18a.747.747 0 0 1-.21-.284.75.75 0 0 1 .17-.945L6.23 4.762a.75.75 0 1 1 .964 1.15L4.863 7.866h8.917A.75.75 0 0 1 14 7.9a4 4 0 1 1-1.477 7.718l.344-1.489a2.5 2.5 0 1 0 1.094-4.73l.008-.032H5.042z"/></svg>', _5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 5.75c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zm-6 0C1 4.784 1.777 4 2.75 4c.966 0 1.75.777 1.75 1.75 0 .966-.777 1.75-1.75 1.75C1.784 7.5 1 6.723 1 5.75zm6 9c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zm-6 0c0-.966.777-1.75 1.75-1.75.966 0 1.75.777 1.75 1.75 0 .966-.777 1.75-1.75 1.75-.966 0-1.75-.777-1.75-1.75z"/></svg>', v5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 5.75c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM3.5 3v5H2V3.7H1v-1h2.5V3zM.343 17.857l2.59-3.257H2.92a.6.6 0 1 0-1.04 0H.302a2 2 0 1 1 3.995 0h-.001c-.048.405-.16.734-.333.988-.175.254-.59.692-1.244 1.312H4.3v1h-4l.043-.043zM7 14.75a.75.75 0 0 1 .75-.75h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75z"/></svg>', y5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m2.315 14.705 2.224-2.24a.689.689 0 0 1 .963 0 .664.664 0 0 1 0 .949L2.865 16.07a.682.682 0 0 1-.112.089.647.647 0 0 1-.852-.051L.688 14.886a.635.635 0 0 1 0-.903.647.647 0 0 1 .91 0l.717.722zm5.185.045a.75.75 0 0 1 .75-.75h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75zM2.329 5.745l2.21-2.226a.689.689 0 0 1 .963 0 .664.664 0 0 1 0 .95L2.865 7.125a.685.685 0 0 1-.496.196.644.644 0 0 1-.468-.187L.688 5.912a.635.635 0 0 1 0-.903.647.647 0 0 1 .91 0l.73.736zM7.5 5.75A.75.75 0 0 1 8.25 5h9.5a.75.75 0 1 1 0 1.5h-9.5a.75.75 0 0 1-.75-.75z"/></svg>', C5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M12.87 12.61a.75.75 0 0 1-.089.976l-.085.07-3.154 2.254 3.412 2.414a.75.75 0 0 1 .237.95l-.057.095a.75.75 0 0 1-.95.237l-.096-.058-4.272-3.022-.003-1.223 4.01-2.867a.75.75 0 0 1 1.047.174zm2.795-.231.095.057 4.011 2.867-.003 1.223-4.272 3.022-.095.058a.75.75 0 0 1-.88-.151l-.07-.086-.058-.095a.75.75 0 0 1 .15-.88l.087-.07 3.412-2.414-3.154-2.253-.085-.071a.75.75 0 0 1 .862-1.207zM16 0a2 2 0 0 1 2 2v9.354l-.663-.492-.837-.001V2a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v15a.5.5 0 0 0 .5.5h3.118L7.156 19H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h14zM5.009 15l.003 1H3v-1h2.009zm2.188-2-1.471 1H5v-1h2.197zM10 11v.095L8.668 12H7v-1h3zm4-2v1H7V9h7zm0-2v1H7V7h7zm-4-2v1H5V5h5zM6 3v1H3V3h3z"/></svg>', k5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11.627 16.5zm5.873-.196zm0-7.001V8h-13v8.5h4.341c.191.54.457 1.044.785 1.5H2a1.5 1.5 0 0 1-1.5-1.5v-13A1.5 1.5 0 0 1 2 2h4.5a1.5 1.5 0 0 1 1.06.44L9.122 4H16a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 19 8v2.531a6.027 6.027 0 0 0-1.5-1.228zM16 6.5v-1H8.5l-2-2H2v13h1V8a1.5 1.5 0 0 1 1.5-1.5H16z"/><path d="M14.5 19.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10zM15 14v-2h-1v2h-2v1h2v2h1v-2h2v-1h-2z"/></svg>', T5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M19 9v10h-2v-8h-2V9h4zM4 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V11H4v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H3a1 1 0 0 1 1 1v4.5z"/></svg>', E5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V11H3v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H2a1 1 0 0 1 1 1v4.5zm16.076 8.343V18.5h-6.252c.067-.626.27-1.22.61-1.78.338-.561 1.006-1.305 2.005-2.232.804-.749 1.297-1.257 1.479-1.523.245-.368.368-.732.368-1.092 0-.398-.107-.703-.32-.917-.214-.214-.51-.32-.886-.32-.372 0-.669.111-.889.336-.22.224-.347.596-.38 1.117l-1.778-.178c.106-.982.438-1.686.997-2.114.558-.427 1.257-.64 2.095-.64.918 0 1.64.247 2.164.742.525.495.787 1.11.787 1.847 0 .419-.075.818-.225 1.197-.15.378-.388.775-.714 1.19-.216.275-.605.67-1.168 1.187-.563.516-.92.859-1.07 1.028a3.11 3.11 0 0 0-.365.495h3.542z"/></svg>', A5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V11H3v4.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1H2a1 1 0 0 1 1 1v4.5zm9.989 7.53 1.726-.209c.055.44.203.777.445 1.01.24.232.533.349.876.349.368 0 .678-.14.93-.42.251-.279.377-.655.377-1.13 0-.448-.12-.803-.362-1.066a1.153 1.153 0 0 0-.882-.393c-.228 0-.501.044-.819.133l.197-1.453c.482.012.85-.092 1.105-.315.253-.222.38-.517.38-.885 0-.313-.093-.563-.279-.75-.186-.185-.434-.278-.743-.278a1.07 1.07 0 0 0-.78.317c-.216.212-.347.52-.394.927l-1.644-.28c.114-.562.287-1.012.517-1.348.231-.337.553-.601.965-.794a3.24 3.24 0 0 1 1.387-.289c.876 0 1.579.28 2.108.838.436.457.653.973.653 1.549 0 .817-.446 1.468-1.339 1.955.533.114.96.37 1.28.768.319.398.478.878.478 1.441 0 .817-.298 1.513-.895 2.088-.596.576-1.339.864-2.228.864-.842 0-1.54-.243-2.094-.727-.555-.485-.876-1.118-.965-1.901z"/></svg>', x5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm13.55 10v-1.873h-3.81v-1.561l4.037-5.91h1.498v5.904h1.156v1.567h-1.156V18.5H17.05zm0-3.44v-3.18l-2.14 3.18h2.14z"/></svg>', S5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm9.578 7.607 1.777-.184c.05.402.201.72.45.955a1.223 1.223 0 0 0 1.81-.101c.258-.303.387-.759.387-1.368 0-.572-.128-1-.384-1.286-.256-.285-.59-.428-1-.428-.512 0-.971.226-1.377.679l-1.448-.21.915-4.843h4.716v1.67H15.56l-.28 1.58a2.697 2.697 0 0 1 1.219-.298 2.68 2.68 0 0 1 2.012.863c.55.576.825 1.323.825 2.241a3.36 3.36 0 0 1-.666 2.05c-.605.821-1.445 1.232-2.52 1.232-.86 0-1.56-.23-2.101-.692-.542-.461-.866-1.081-.971-1.86z"/></svg>', I5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 8.5h5V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v11.5a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1V11h-5v4.5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h.5a1 1 0 0 1 1 1v4.5zm15.595 2.973-1.726.19c-.043-.355-.153-.617-.33-.787-.178-.169-.409-.253-.692-.253-.377 0-.695.169-.956.507-.26.339-.424 1.043-.492 2.114.445-.525.997-.787 1.657-.787.745 0 1.383.284 1.914.85.531.568.797 1.3.797 2.197 0 .952-.28 1.716-.838 2.291-.559.576-1.276.864-2.152.864-.94 0-1.712-.365-2.317-1.095-.605-.73-.908-1.927-.908-3.59 0-1.705.316-2.935.946-3.688.63-.753 1.45-1.13 2.457-1.13.706 0 1.291.198 1.755.594.463.395.758.97.885 1.723zm-4.043 3.891c0 .58.133 1.028.4 1.343.266.315.57.473.914.473.33 0 .605-.13.825-.388.22-.258.33-.68.33-1.27 0-.604-.118-1.047-.355-1.329a1.115 1.115 0 0 0-.89-.422c-.342 0-.632.134-.869.403s-.355.666-.355 1.19z"/></svg>', P5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 9h16v2H2z"/></svg>', R5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17 0a2 2 0 0 1 2 2v7a1 1 0 0 1 1 1v5a1 1 0 0 1-.883.993l-.118.006L19 17a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2l-.001-1.001-.116-.006A1 1 0 0 1 0 15v-5a1 1 0 0 1 .999-1L1 2a2 2 0 0 1 2-2h14zm.499 15.999h-15L2.5 17a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5l-.001-1.001zm-3.478-6.013-.014.014H14v.007l-1.525 1.525-1.46-1.46-.015.013V10h-1v5h1v-3.53l1.428 1.43.048.043.131-.129L14 11.421V15h1v-5h-.965l-.014-.014zM2 10H1v5h1v-2h2v2h1v-5H4v2H2v-2zm7 0H6v1h1v4h1v-4h1v-1zm8 0h-1v5h3v-1h-2v-4zm0-8.5H3a.5.5 0 0 0-.5.5l-.001 6.999h15L17.5 2a.5.5 0 0 0-.5-.5zM10 7v1H4V7h6zm3-2v1H4V5h9zm-3-2v1H4V3h6z"/></svg>', L5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm5 6c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM2.75 16.5h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 1 0 0 1.5zM1.632 6.95 5.02 9.358a.4.4 0 0 1-.013.661l-3.39 2.207A.4.4 0 0 1 1 11.892V7.275a.4.4 0 0 1 .632-.326z"/></svg>', V5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.75c0 .414.336.75.75.75h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 0 0-.75.75zm5 6c0 .414.336.75.75.75h9.5a.75.75 0 1 0 0-1.5h-9.5a.75.75 0 0 0-.75.75zM2.75 16.5h14.5a.75.75 0 1 0 0-1.5H2.75a.75.75 0 1 0 0 1.5zm1.618-9.55L.98 9.358a.4.4 0 0 0 .013.661l3.39 2.207A.4.4 0 0 0 5 11.892V7.275a.4.4 0 0 0-.632-.326z"/></svg>', M5 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 5.5v3h4v-3H3Zm0 4v3h4v-3H3Zm0 4v3h4v-3H3Zm5 3h4v-3H8v3Zm5 0h4v-3h-4v3Zm4-4v-3h-4v3h4Zm0-4v-3h-4v3h4Zm1.5 8A1.5 1.5 0 0 1 17 18H3a1.5 1.5 0 0 1-1.5-1.5V3c.222-.863 1.068-1.5 2-1.5h13c.932 0 1.778.637 2 1.5v13.5Zm-6.5-4v-3H8v3h4Zm0-4v-3H8v3h4Z"/></svg>';
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
@@ -27153,8 +27153,8 @@ Read more: ${Iw}#error-${n}`;
     paragraph: f5,
     plus: m5,
     text: g5,
-    alignBottom: $E,
-    alignMiddle: WE,
+    alignBottom: WE,
+    alignMiddle: $E,
     alignTop: qE,
     alignLeft: GE,
     alignCenter: jE,
@@ -27889,7 +27889,7 @@ Read more: ${Iw}#error-${n}`;
     });
   }
   function Iu(n) {
-    if (typeof n == "string" ? n = W5(n) : n.text && q5(n), n.on && (n.eventListeners = $5(n.on), delete n.on), !n.text) {
+    if (typeof n == "string" ? n = $5(n) : n.text && q5(n), n.on && (n.eventListeners = W5(n.on), delete n.on), !n.text) {
       n.attributes && H5(n.attributes);
       const e = [];
       if (n.children)
@@ -27906,12 +27906,12 @@ Read more: ${Iw}#error-${n}`;
     for (const e in n)
       n[e].value && (n[e].value = Z(n[e].value)), Zm(n, e);
   }
-  function $5(n) {
+  function W5(n) {
     for (const e in n)
       Zm(n, e);
     return n;
   }
-  function W5(n) {
+  function $5(n) {
     return {
       text: [n]
     };
@@ -28125,7 +28125,7 @@ Read more: ${Iw}#error-${n}`;
      * @param children Children views to be registered.
      */
     registerChild(e) {
-      We(e) || (e = [e]);
+      $e(e) || (e = [e]);
       for (const t of e)
         this._unboundChildren.add(t);
     }
@@ -28138,7 +28138,7 @@ Read more: ${Iw}#error-${n}`;
      * @param children Child views to be removed.
      */
     deregisterChild(e) {
-      We(e) || (e = [e]);
+      $e(e) || (e = [e]);
       for (const t of e)
         this._unboundChildren.remove(t);
     }
@@ -28340,7 +28340,7 @@ Read more: ${Iw}#error-${n}`;
       const t = this.locale.t, i = tt(document, "dt"), s = tt(document, "dd"), o = K5(e.keystroke), r = [];
       for (const a of o)
         r.push(a.map(j5).join(""));
-      return i.innerHTML = e.label, s.innerHTML = r.join(", ") + (e.mayRequireFn && V.isMac ? ` ${t("(may require <kbd>Fn</kbd>)")}` : ""), [i, s];
+      return i.innerHTML = e.label, s.innerHTML = r.join(", ") + (e.mayRequireFn && M.isMac ? ` ${t("(may require <kbd>Fn</kbd>)")}` : ""), [i, s];
     }
   }
   function j5(n) {
@@ -28354,7 +28354,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Z5 extends w {
+  class Z5 extends b {
     constructor() {
       super(...arguments), this.contentView = null;
     }
@@ -28693,7 +28693,7 @@ Read more: ${Iw}#error-${n}`;
           })
         }
       };
-      V.isSafari && (this._focusDelayed || (this._focusDelayed = rl(() => this.focus(), 0)), o.on.mousedown = i.to(() => {
+      M.isSafari && (this._focusDelayed || (this._focusDelayed = rl(() => this.focus(), 0)), o.on.mousedown = i.to(() => {
         this._focusDelayed();
       }), o.on.mouseup = i.to(() => {
         this._focusDelayed.cancel();
@@ -29095,7 +29095,7 @@ Read more: ${Iw}#error-${n}`;
         this.focusTracker.add(t.element);
       }), this.items.on("remove", (e, t) => {
         this.focusTracker.remove(t.element);
-      }), this.keystrokes.listenTo(this.element), $a({
+      }), this.keystrokes.listenTo(this.element), Wa({
         keystrokeHandler: this.keystrokes,
         focusTracker: this.focusTracker,
         gridItems: this.items,
@@ -31394,7 +31394,7 @@ Read more: ${Iw}#error-${n}`;
       });
     }
   }
-  class $A extends wg {
+  class WA extends wg {
     constructor(e) {
       super(e, "hue", 'aria-label="Hue" aria-valuemin="0" aria-valuemax="360"', !1);
     }
@@ -31410,7 +31410,7 @@ Read more: ${Iw}#error-${n}`;
       return { h: t ? os(this.h + e.x * 360, 0, 360) : 360 * e.x };
     }
   }
-  class WA extends wg {
+  class $A extends wg {
     constructor(e) {
       super(e, "saturation", 'aria-label="Color"', !0);
     }
@@ -31433,7 +31433,7 @@ Read more: ${Iw}#error-${n}`;
       };
     }
   }
-  const qA = ':host{display:flex;flex-direction:column;position:relative;width:200px;height:200px;user-select:none;-webkit-user-select:none;cursor:default}:host([hidden]){display:none!important}[role=slider]{position:relative;touch-action:none;user-select:none;-webkit-user-select:none;outline:0}[role=slider]:last-child{border-radius:0 0 8px 8px}[part$=pointer]{position:absolute;z-index:1;box-sizing:border-box;width:28px;height:28px;display:flex;place-content:center center;transform:translate(-50%,-50%);background-color:#fff;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.2)}[part$=pointer]::after{content:"";width:100%;height:100%;border-radius:inherit;background-color:currentColor}[role=slider]:focus [part$=pointer]{transform:translate(-50%,-50%) scale(1.1)}', GA = "[part=hue]{flex:0 0 24px;background:linear-gradient(to right,red 0,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}[part=hue-pointer]{top:50%;z-index:2}", jA = "[part=saturation]{flex-grow:1;border-color:transparent;border-bottom:12px solid #000;border-radius:8px 8px 0 0;background-image:linear-gradient(to top,#000,transparent),linear-gradient(to right,#fff,rgba(255,255,255,0));box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}[part=saturation-pointer]{z-index:3}", Os = Symbol("same"), Pr = Symbol("color"), $u = Symbol("hsva"), Rr = Symbol("update"), Wu = Symbol("parts"), qu = Symbol("css"), Gu = Symbol("sliders");
+  const qA = ':host{display:flex;flex-direction:column;position:relative;width:200px;height:200px;user-select:none;-webkit-user-select:none;cursor:default}:host([hidden]){display:none!important}[role=slider]{position:relative;touch-action:none;user-select:none;-webkit-user-select:none;outline:0}[role=slider]:last-child{border-radius:0 0 8px 8px}[part$=pointer]{position:absolute;z-index:1;box-sizing:border-box;width:28px;height:28px;display:flex;place-content:center center;transform:translate(-50%,-50%);background-color:#fff;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 4px rgba(0,0,0,.2)}[part$=pointer]::after{content:"";width:100%;height:100%;border-radius:inherit;background-color:currentColor}[role=slider]:focus [part$=pointer]{transform:translate(-50%,-50%) scale(1.1)}', GA = "[part=hue]{flex:0 0 24px;background:linear-gradient(to right,red 0,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,red 100%)}[part=hue-pointer]{top:50%;z-index:2}", jA = "[part=saturation]{flex-grow:1;border-color:transparent;border-bottom:12px solid #000;border-radius:8px 8px 0 0;background-image:linear-gradient(to top,#000,transparent),linear-gradient(to right,#fff,rgba(255,255,255,0));box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}[part=saturation-pointer]{z-index:3}", Os = Symbol("same"), Pr = Symbol("color"), Wu = Symbol("hsva"), Rr = Symbol("update"), $u = Symbol("parts"), qu = Symbol("css"), Gu = Symbol("sliders");
   class KA extends HTMLElement {
     static get observedAttributes() {
       return ["color"];
@@ -31442,7 +31442,7 @@ Read more: ${Iw}#error-${n}`;
       return [qA, GA, jA];
     }
     get [Gu]() {
-      return [WA, $A];
+      return [$A, WA];
     }
     get color() {
       return this[Pr];
@@ -31456,7 +31456,7 @@ Read more: ${Iw}#error-${n}`;
     constructor() {
       super();
       const e = pg(`<style>${this[qu].join("")}</style>`), t = this.attachShadow({ mode: "open" });
-      t.appendChild(e.content.cloneNode(!0)), t.addEventListener("move", this), this[Wu] = this[Gu].map((i) => new i(t));
+      t.appendChild(e.content.cloneNode(!0)), t.addEventListener("move", this), this[$u] = this[Gu].map((i) => new i(t));
     }
     connectedCallback() {
       if (this.hasOwnProperty("color")) {
@@ -31470,7 +31470,7 @@ Read more: ${Iw}#error-${n}`;
       this[Os](s) || (this.color = s);
     }
     handleEvent(e) {
-      const t = this[$u], i = { ...t, ...e.detail };
+      const t = this[Wu], i = { ...t, ...e.detail };
       this[Rr](i);
       let s;
       !gg(i, t) && !this[Os](s = this.colorModel.fromHsva(i)) && (this[Pr] = s, xl(this, "color-changed", { value: s }));
@@ -31479,7 +31479,7 @@ Read more: ${Iw}#error-${n}`;
       return this.color && this.colorModel.equal(e, this.color);
     }
     [Rr](e) {
-      this[$u] = e, this[Wu].forEach((t) => t.update(e));
+      this[Wu] = e, this[$u].forEach((t) => t.update(e));
     }
   }
   const ZA = {
@@ -31551,7 +31551,7 @@ Read more: ${Iw}#error-${n}`;
      */
     focus() {
       /* istanbul ignore next -- @preserve */
-      !this._config.hideInput && (V.isGecko || V.isiOS || V.isSafari) && this.hexInputRow.children.get(1).focus(), this.slidersView.first.focus();
+      !this._config.hideInput && (M.isGecko || M.isiOS || M.isSafari) && this.hexInputRow.children.get(1).focus(), this.slidersView.first.focus();
     }
     /**
      * Creates collection of sliders in color picker.
@@ -32664,7 +32664,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Tt extends w {
+  class Tt extends b {
     /**
      * @inheritDoc
      */
@@ -33038,7 +33038,7 @@ Read more: ${Iw}#error-${n}`;
   ye._getOptimalPosition = qo;
   ye.defaultPositions = bg();
   function _a(n) {
-    return fi(n) ? n : Wo(n) ? n.commonAncestorContainer : typeof n == "function" ? _a(n()) : null;
+    return fi(n) ? n : $o(n) ? n.commonAncestorContainer : typeof n == "function" ? _a(n()) : null;
   }
   function bg(n = {}) {
     const { sideOffset: e = ye.arrowSideOffset, heightOffset: t = ye.arrowHeightOffset, stickyVerticalOffset: i = ye.stickyVerticalOffset, config: s } = n;
@@ -34318,7 +34318,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ns = un("px");
-  class $t extends w {
+  class Wt extends b {
     /**
      * @inheritDoc
      */
@@ -35581,7 +35581,7 @@ Read more: ${Iw}#error-${n}`;
       ]
     }
   ];
-  function $x(n) {
+  function Wx(n) {
     let e;
     return !("items" in n) || !n.items ? e = {
       items: ut(Hx),
@@ -35599,7 +35599,7 @@ Read more: ${Iw}#error-${n}`;
       ...n
     }, e;
   }
-  function Wx({ normalizedConfig: n, locale: e, componentFactory: t }) {
+  function $x({ normalizedConfig: n, locale: e, componentFactory: t }) {
     const i = ut(n);
     return qx(n, i), Gx(n, i), jx(n, i, t), Cg(n, i), Kx(i, e), i;
   }
@@ -35996,7 +35996,7 @@ Read more: ${Iw}#error-${n}`;
      * configuration reference to learn how to configure the menu bar.
      */
     fillFromConfig(e, t) {
-      const i = this.locale, o = Wx({
+      const i = this.locale, o = $x({
         normalizedConfig: e,
         locale: i,
         componentFactory: t
@@ -36135,7 +36135,7 @@ Read more: ${Iw}#error-${n}`;
      * @param view The view of the UI.
      */
     constructor(e, t) {
-      super(e), this.view = t, this._toolbarConfig = dg(e.config.get("toolbar")), this._menuBarConfig = $x(e.config.get("menuBar") || {}), this._elementReplacer = new My(), this.listenTo(e.editing.view, "scrollToTheSelection", this._handleScrollToTheSelectionWithStickyPanel.bind(this));
+      super(e), this.view = t, this._toolbarConfig = dg(e.config.get("toolbar")), this._menuBarConfig = Wx(e.config.get("menuBar") || {}), this._elementReplacer = new My(), this.listenTo(e.editing.view, "scrollToTheSelection", this._handleScrollToTheSelectionWithStickyPanel.bind(this));
     }
     /**
      * @inheritDoc
@@ -37205,7 +37205,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Un extends w {
+  class Un extends b {
     constructor() {
       super(...arguments), this._markersToCopy = /* @__PURE__ */ new Map();
     }
@@ -37477,7 +37477,7 @@ Read more: ${Iw}#error-${n}`;
           [r.type]: a
         }), r.markerElement && e.remove(r.markerElement), o;
       }, {});
-      return yy(s, (o) => new b(o.start || e.createPositionFromPath(t, [0]), o.end || e.createPositionAt(t, "end")));
+      return yy(s, (o) => new _(o.start || e.createPositionFromPath(t, [0]), o.end || e.createPositionAt(t, "end")));
     }
     /**
      * Returns array that contains list of fake markers with corresponding `$marker` elements.
@@ -37533,7 +37533,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Xe extends w {
+  class Xe extends b {
     /**
      * @inheritDoc
      */
@@ -37706,7 +37706,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class fS extends L {
+  class fS extends V {
     /**
      * Creates an instance of the command.
      *
@@ -37770,7 +37770,7 @@ Read more: ${Iw}#error-${n}`;
      * @inheritDoc
      */
     constructor(e) {
-      super(e), this.focusObserver = e.getObserver(yo), V.isAndroid && od.push("insertCompositionText");
+      super(e), this.focusObserver = e.getObserver(yo), M.isAndroid && od.push("insertCompositionText");
       const t = e.document;
       t.on("beforeinput", (i, s) => {
         if (!this.isEnabled)
@@ -37785,7 +37785,7 @@ Read more: ${Iw}#error-${n}`;
           selection: e.createSelection(r)
         })), c.stop.called && i.stop();
       }), t.on("compositionend", (i, { data: s, domEvent: o }) => {
-        !this.isEnabled || V.isAndroid || s && t.fire("insertText", new Ji(e, o, {
+        !this.isEnabled || M.isAndroid || s && t.fire("insertText", new Ji(e, o, {
           text: s,
           selection: t.selection
         }));
@@ -37806,7 +37806,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Rg extends w {
+  class Rg extends b {
     /**
      * @inheritDoc
      */
@@ -37824,8 +37824,8 @@ Read more: ${Iw}#error-${n}`;
         i.document.isComposing || a.preventDefault();
         const { text: l, selection: c, resultRange: u } = a, d = Array.from(c.getRanges()).map((m) => e.editing.mapper.toModelRange(m));
         let h = l;
-        if (V.isAndroid) {
-          const m = Array.from(d[0].getItems()).reduce((p, _) => p + (_.is("$textProxy") ? _.data : ""), "");
+        if (M.isAndroid) {
+          const m = Array.from(d[0].getItems()).reduce((p, w) => p + (w.is("$textProxy") ? w.data : ""), "");
           m && (m.length <= h.length ? h.startsWith(m) && (h = h.substring(m.length), d[0].start = d[0].start.getShiftedBy(m.length)) : m.startsWith(h) && (d[0].start = d[0].start.getShiftedBy(h.length), h = ""));
         }
         const f = {
@@ -37833,7 +37833,7 @@ Read more: ${Iw}#error-${n}`;
           selection: t.createSelection(d)
         };
         u && (f.resultRange = e.editing.mapper.toModelRange(u)), e.execute("insertText", f), i.scrollToTheSelection();
-      }), V.isAndroid ? this.listenTo(i.document, "keydown", (r, a) => {
+      }), M.isAndroid ? this.listenTo(i.document, "keydown", (r, a) => {
         s.isCollapsed || a.keyCode != 229 || !i.document.isComposing || rd(t, o);
       }) : this.listenTo(i.document, "compositionstart", () => {
         s.isCollapsed || rd(t, o);
@@ -37852,7 +37852,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ad extends L {
+  class ad extends V {
     /**
      * Creates an instance of the command.
      *
@@ -38065,10 +38065,10 @@ Read more: ${Iw}#error-${n}`;
           unit: c.unit,
           sequence: i
         };
-        u.unit == zt && (u.selectionToRemove = e.createSelection(r[0])), l === "deleteContentBackward" && (V.isAndroid && (u.sequence = 1), _S(r) && (u.unit = zt, u.selectionToRemove = e.createSelection(r)));
+        u.unit == zt && (u.selectionToRemove = e.createSelection(r[0])), l === "deleteContentBackward" && (M.isAndroid && (u.sequence = 1), _S(r) && (u.unit = zt, u.selectionToRemove = e.createSelection(r)));
         const d = new dn(t, "delete", r[0]);
         t.fire(d, new Ji(e, a, u)), d.stop.called && s.stop();
-      }), V.isBlink && bS(this);
+      }), M.isBlink && bS(this);
     }
     /**
      * @inheritDoc
@@ -38136,7 +38136,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class bt extends w {
+  class bt extends b {
     /**
      * @inheritDoc
      */
@@ -38178,7 +38178,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Vg extends w {
+  class Vg extends b {
     static get requires() {
       return [Rg, bt];
     }
@@ -38257,7 +38257,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Eo extends w {
+  class Eo extends b {
     /**
      * @inheritDoc
      */
@@ -38511,7 +38511,7 @@ Read more: ${Iw}#error-${n}`;
     "typography",
     "quotes"
   ];
-  class yS extends w {
+  class yS extends b {
     /**
      * @inheritDoc
      */
@@ -38558,14 +38558,14 @@ Read more: ${Iw}#error-${n}`;
         const { from: c, to: u } = l.normalizedTransformation, d = c.exec(l.text), h = u(d.slice(1)), f = l.range;
         let m = d.index;
         t.enqueueChange((p) => {
-          for (let _ = 1; _ < d.length; _++) {
-            const v = d[_], C = h[_ - 1];
+          for (let w = 1; w < d.length; w++) {
+            const v = d[w], C = h[w - 1];
             if (C == null) {
               m += v.length;
               continue;
             }
-            const M = f.start.getShiftedBy(m), N = t.createRange(M, M.getShiftedBy(v.length)), q = TS(M);
-            t.insertContent(p.createText(C, q), N), m += C.length;
+            const L = f.start.getShiftedBy(m), O = t.createRange(L, L.getShiftedBy(v.length)), q = TS(L);
+            t.insertContent(p.createText(C, q), O), m += C.length;
           }
           t.enqueueChange(() => {
             i.requestUndoOnBackspace();
@@ -38653,7 +38653,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class xS extends L {
+  class xS extends V {
     /**
      * @inheritDoc
      */
@@ -38727,7 +38727,7 @@ Read more: ${Iw}#error-${n}`;
         if (!this.isEnabled)
           return;
         let r = o.inputType;
-        V.isSafari && i && r == "insertParagraph" && (r = "insertLineBreak");
+        M.isSafari && i && r == "insertParagraph" && (r = "insertLineBreak");
         const a = o.domEvent, l = SS[r];
         if (!l)
           return;
@@ -38752,7 +38752,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class rr extends w {
+  class rr extends b {
     /**
      * @inheritDoc
      */
@@ -38777,7 +38777,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class IS extends L {
+  class IS extends V {
     /**
      * @inheritDoc
      */
@@ -38825,7 +38825,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LS extends w {
+  class LS extends b {
     /**
      * @inheritDoc
      */
@@ -38999,10 +38999,10 @@ Read more: ${Iw}#error-${n}`;
   function ei(n, e, t) {
     return !!n && re(n) && !t.isInline(e);
   }
-  function $S(n) {
+  function WS(n) {
     return n.closest(".ck-widget__type-around__button");
   }
-  function WS(n) {
+  function $S(n) {
     return n.classList.contains("ck-widget__type-around__button_before") ? "before" : "after";
   }
   function qS(n, e) {
@@ -39018,7 +39018,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const zg = ["before", "after"], jS = new DOMParser().parseFromString(GS, "image/svg+xml").firstChild, pd = "ck-widget__type-around_disabled";
-  class KS extends w {
+  class KS extends b {
     constructor() {
       super(...arguments), this._currentFakeCaretModelElement = null;
     }
@@ -39268,10 +39268,10 @@ Read more: ${Iw}#error-${n}`;
     _enableInsertingParagraphsOnButtonClick() {
       const e = this.editor, t = e.editing.view;
       this._listenToIfEnabled(t.document, "mousedown", (i, s) => {
-        const o = $S(s.domTarget);
+        const o = WS(s.domTarget);
         if (!o)
           return;
-        const r = WS(o), a = qS(o, t.domConverter), l = e.editing.mapper.toModelElement(a);
+        const r = $S(o), a = qS(o, t.domConverter), l = e.editing.mapper.toModelElement(a);
         this._insertParagraph(l, r), s.preventDefault(), i.stop();
       });
     }
@@ -39315,7 +39315,7 @@ Read more: ${Iw}#error-${n}`;
       const t = this.editor.editing.view.document;
       this._listenToIfEnabled(t, "insertText", (i, s) => {
         this._insertParagraphAccordingToFakeCaretPosition() && (s.selection = t.selection);
-      }, { priority: "high" }), V.isAndroid ? this._listenToIfEnabled(t, "keydown", (i, s) => {
+      }, { priority: "high" }), M.isAndroid ? this._listenToIfEnabled(t, "keydown", (i, s) => {
         s.keyCode == 229 && this._insertParagraphAccordingToFakeCaretPosition();
       }) : this._listenToIfEnabled(t, "compositionstart", () => {
         this._insertParagraphAccordingToFakeCaretPosition();
@@ -39562,7 +39562,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class mn extends w {
+  class mn extends b {
     constructor() {
       super(...arguments), this._previouslySelected = /* @__PURE__ */ new Set();
     }
@@ -39651,7 +39651,7 @@ Read more: ${Iw}#error-${n}`;
       }
       if (nI(r) || !re(r) && (r = r.findAncestor(re), !r))
         return;
-      V.isAndroid && t.preventDefault(), o.isFocused || s.focus();
+      M.isAndroid && t.preventDefault(), o.isFocused || s.focus();
       const a = i.editing.mapper.toModelElement(r);
       this._setSelectionOverElement(a);
     }
@@ -39685,8 +39685,8 @@ Read more: ${Iw}#error-${n}`;
       }
       if (!r.isCollapsed && !t.shiftKey) {
         const h = r.getFirstPosition(), f = r.getLastPosition(), m = h.nodeAfter, p = f.nodeBefore;
-        (m && o.isObject(m) || p && o.isObject(p)) && (s.change((_) => {
-          _.setSelection(c ? f : h);
+        (m && o.isObject(m) || p && o.isObject(p)) && (s.change((w) => {
+          w.setSelection(c ? f : h);
         }), t.preventDefault(), e.stop());
         return;
       }
@@ -39833,7 +39833,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class xo extends w {
+  class xo extends b {
     constructor() {
       super(...arguments), this._toolbarDefinitions = /* @__PURE__ */ new Map();
     }
@@ -39841,7 +39841,7 @@ Read more: ${Iw}#error-${n}`;
      * @inheritDoc
      */
     static get requires() {
-      return [$t];
+      return [Wt];
     }
     /**
      * @inheritDoc
@@ -40374,7 +40374,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Nr extends w {
+  class Nr extends b {
     constructor() {
       super(...arguments), this._resizers = /* @__PURE__ */ new Map();
     }
@@ -40517,7 +40517,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class zs extends w {
+  class zs extends b {
     constructor() {
       super(...arguments), this.removeDropMarkerDelayed = rl(() => this.removeDropMarker(), 40), this._updateDropMarkerThrottled = Ki((e) => this._updateDropMarker(e), 40), this._reconvertMarkerThrottled = Ki(() => {
         this.editor.model.markers.has("drop-target") && this.editor.editing.reconvertMarker("drop-target");
@@ -40629,9 +40629,9 @@ Read more: ${Iw}#error-${n}`;
       const t = this.editor.editing, i = e.start.nodeBefore, s = e.start.nodeAfter, o = e.start.parent, r = i ? t.mapper.toViewElement(i) : null, a = r ? t.view.domConverter.mapViewToDom(r) : null, l = s ? t.mapper.toViewElement(s) : null, c = l ? t.view.domConverter.mapViewToDom(l) : null, u = t.mapper.toViewElement(o);
       if (!u)
         return;
-      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = E.window, p = a ? new B(a) : null, _ = c ? new B(c) : null, v = new B(d).excludeScrollbarsAndBorders(), C = p ? p.bottom : v.top, M = _ ? _.top : v.bottom, N = E.window.getComputedStyle(d), q = C <= M ? (C + M) / 2 : M;
+      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = E.window, p = a ? new B(a) : null, w = c ? new B(c) : null, v = new B(d).excludeScrollbarsAndBorders(), C = p ? p.bottom : v.top, L = w ? w.top : v.bottom, O = E.window.getComputedStyle(d), q = C <= L ? (C + L) / 2 : L;
       if (h.top < q && q < h.bottom) {
-        const x = v.left + parseFloat(N.paddingLeft), R = v.right - parseFloat(N.paddingRight), I = Math.max(x + f, h.left), ee = Math.min(R + f, h.right);
+        const x = v.left + parseFloat(O.paddingLeft), R = v.right - parseFloat(O.paddingRight), I = Math.max(x + f, h.left), ee = Math.min(R + f, h.right);
         this._dropTargetLineView.set({
           isVisible: !0,
           left: I,
@@ -40732,7 +40732,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class yI extends w {
+  class yI extends b {
     constructor() {
       super(...arguments), this._isBlockDragging = !1, this._domEmitter = new (Me())();
     }
@@ -40749,7 +40749,7 @@ Read more: ${Iw}#error-${n}`;
       const e = this.editor;
       if (this.listenTo(e, "change:isReadOnly", (t, i, s) => {
         s ? (this.forceDisabled("readOnlyMode"), this._isBlockDragging = !1) : this.clearForceDisabled("readOnlyMode");
-      }), V.isAndroid && this.forceDisabled("noAndroidSupport"), e.plugins.has("BlockToolbar")) {
+      }), M.isAndroid && this.forceDisabled("noAndroidSupport"), e.plugins.has("BlockToolbar")) {
         const i = e.plugins.get("BlockToolbar").buttonView.element;
         this._domEmitter.listenTo(i, "dragstart", (s, o) => this._handleBlockDragStart(o)), this._domEmitter.listenTo(E.document, "dragover", (s, o) => this._handleBlockDragging(o)), this._domEmitter.listenTo(E.document, "drop", (s, o) => this._handleBlockDragging(o)), this._domEmitter.listenTo(E.document, "dragend", () => this._handleBlockDragEnd(), { useCapture: !0 }), this.isEnabled && i.setAttribute("draggable", "true"), this.on("change:isEnabled", (s, o, r) => {
           i.setAttribute("draggable", r ? "true" : "false");
@@ -40800,7 +40800,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class CI extends w {
+  class CI extends b {
     constructor() {
       super(...arguments), this._clearDraggableAttributesDelayed = rl(() => this._clearDraggableAttributes(), 40), this._blockMode = !1, this._domEmitter = new (Me())();
     }
@@ -40825,7 +40825,7 @@ Read more: ${Iw}#error-${n}`;
         o ? this.forceDisabled("readOnlyMode") : this.clearForceDisabled("readOnlyMode");
       }), this.on("change:isEnabled", (i, s, o) => {
         o || this._finalizeDragging(!1);
-      }), V.isAndroid && this.forceDisabled("noAndroidSupport");
+      }), M.isAndroid && this.forceDisabled("noAndroidSupport");
     }
     /**
      * @inheritDoc
@@ -40866,7 +40866,7 @@ Read more: ${Iw}#error-${n}`;
           return;
         }
         const { clientX: l, clientY: c } = a.domEvent;
-        o.updateDropMarker(a.target, a.targetRanges, l, c, this._blockMode, this._draggedRange), this._draggedRange || (a.dataTransfer.dropEffect = "copy"), V.isGecko || (a.dataTransfer.effectAllowed == "copy" ? a.dataTransfer.dropEffect = "copy" : ["all", "copyMove"].includes(a.dataTransfer.effectAllowed) && (a.dataTransfer.dropEffect = "move")), r.stop();
+        o.updateDropMarker(a.target, a.targetRanges, l, c, this._blockMode, this._draggedRange), this._draggedRange || (a.dataTransfer.dropEffect = "copy"), M.isGecko || (a.dataTransfer.effectAllowed == "copy" ? a.dataTransfer.dropEffect = "copy" : ["all", "copyMove"].includes(a.dataTransfer.effectAllowed) && (a.dataTransfer.dropEffect = "move")), r.stop();
       }, { priority: "low" });
     }
     /**
@@ -40912,11 +40912,11 @@ Read more: ${Iw}#error-${n}`;
     _setupDraggableAttributeHandling() {
       const e = this.editor, t = e.editing.view, i = t.document;
       this.listenTo(i, "mousedown", (s, o) => {
-        if (V.isAndroid || !o)
+        if (M.isAndroid || !o)
           return;
         this._clearDraggableAttributesDelayed.cancel();
         let r = Td(o.target);
-        if (V.isBlink && !e.isReadOnly && !r && !i.selection.isCollapsed) {
+        if (M.isBlink && !e.isReadOnly && !r && !i.selection.isCollapsed) {
           const a = i.selection.getSelectedElement();
           (!a || !re(a)) && (r = i.selection.editableElement);
         }
@@ -40924,7 +40924,7 @@ Read more: ${Iw}#error-${n}`;
           a.setAttribute("draggable", "true", r);
         }), this._draggableElement = e.editing.mapper.toModelElement(r));
       }), this.listenTo(i, "mouseup", () => {
-        V.isAndroid || this._clearDraggableAttributesDelayed();
+        M.isAndroid || this._clearDraggableAttributesDelayed();
       });
     }
     /**
@@ -40967,7 +40967,7 @@ Read more: ${Iw}#error-${n}`;
         this._draggedRange = Pe.fromRange(a);
         return;
       }
-      const l = $g(i, r);
+      const l = Wg(i, r);
       if (r.length > 1)
         this._draggedRange = Pe.fromRange(l), this._blockMode = !0;
       else if (r.length == 1) {
@@ -40988,11 +40988,11 @@ Read more: ${Iw}#error-${n}`;
       if (r.contains(t))
         return;
       const c = parseFloat(a.paddingLeft), u = tt(E.document, "div");
-      u.className = "ck ck-content", u.style.width = a.width, u.style.paddingLeft = `${l.left - i + c}px`, V.isiOS && (u.style.backgroundColor = "white"), u.innerHTML = e.getData("text/html"), e.setDragImage(u, 0, 0), this._previewContainer.appendChild(u);
+      u.className = "ck ck-content", u.style.width = a.width, u.style.paddingLeft = `${l.left - i + c}px`, M.isiOS && (u.style.backgroundColor = "white"), u.innerHTML = e.getData("text/html"), e.setDragImage(u, 0, 0), this._previewContainer.appendChild(u);
     }
   }
   function kd(n) {
-    return V.isGecko ? n.dropEffect : ["all", "copyMove"].includes(n.effectAllowed) ? "move" : "copy";
+    return M.isGecko ? n.dropEffect : ["all", "copyMove"].includes(n.effectAllowed) ? "move" : "copy";
   }
   function Td(n) {
     if (n.is("editableElement"))
@@ -41004,12 +41004,12 @@ Read more: ${Iw}#error-${n}`;
     const e = n.findAncestor((t) => re(t) || t.is("editableElement"));
     return re(e) ? e : null;
   }
-  function $g(n, e) {
+  function Wg(n, e) {
     const t = e[0], i = e[e.length - 1], s = t.getCommonAncestor(i), o = n.createPositionBefore(t), r = n.createPositionAfter(i);
     if (s && s.is("element") && !n.schema.isLimit(s)) {
       const a = n.createRangeOn(s), l = o.isTouching(a.start), c = r.isTouching(a.end);
       if (l && c)
-        return $g(n, [s]);
+        return Wg(n, [s]);
     }
     return n.createRange(o, r);
   }
@@ -41017,7 +41017,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class kI extends w {
+  class kI extends b {
     /**
      * @inheritDoc
      */
@@ -41059,7 +41059,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Rl extends w {
+  class Rl extends b {
     /**
      * @inheritDoc
      */
@@ -41099,7 +41099,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class EI extends L {
+  class EI extends V {
     /**
      * @inheritDoc
      */
@@ -41130,7 +41130,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const AI = ms("Ctrl+A");
-  class xI extends w {
+  class xI extends b {
     /**
      * @inheritDoc
      */
@@ -41159,7 +41159,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class II extends w {
+  class II extends b {
     /**
      * @inheritDoc
      */
@@ -41196,7 +41196,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class PI extends w {
+  class PI extends b {
     /**
      * @inheritDoc
      */
@@ -41214,7 +41214,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Wg extends L {
+  class $g extends V {
     /**
      * @inheritDoc
      */
@@ -41315,7 +41315,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class VI extends Wg {
+  class VI extends $g {
     /**
      * Executes the command. This method reverts a {@link module:engine/model/batch~Batch batch} added to the command's stack, transforms
      * and applies the reverted version on the {@link module:engine/model/document~Document document} and removes the batch from the stack.
@@ -41338,7 +41338,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class MI extends Wg {
+  class MI extends $g {
     /**
      * Executes the command. This method reverts the last {@link module:engine/model/batch~Batch batch} added to
      * the command's stack, applies the reverted and transformed version on the
@@ -41359,7 +41359,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class BI extends w {
+  class BI extends b {
     constructor() {
       super(...arguments), this._batchRegistry = /* @__PURE__ */ new WeakSet();
     }
@@ -41400,7 +41400,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class OI extends w {
+  class OI extends b {
     /**
      * @inheritDoc
      */
@@ -41449,7 +41449,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ll extends w {
+  class Ll extends b {
     /**
      * @inheritDoc
      */
@@ -41467,7 +41467,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class NI extends w {
+  class NI extends b {
     /**
      * @inheritDoc
      */
@@ -41485,7 +41485,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class FI extends L {
+  class FI extends V {
     constructor(e) {
       super(e), this._isEnabledBasedOnSelection = !1;
     }
@@ -41521,7 +41521,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class DI extends L {
+  class DI extends V {
     constructor(e) {
       super(e), this._isEnabledBasedOnSelection = !1;
     }
@@ -41561,7 +41561,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ws extends w {
+  class ws extends b {
     /**
      * @inheritDoc
      */
@@ -41630,7 +41630,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ml = "alignment";
-  class zI extends L {
+  class zI extends V {
     /**
      * @inheritDoc
      */
@@ -41675,7 +41675,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $I extends w {
+  class WI extends b {
     /**
      * @inheritDoc
      */
@@ -41695,7 +41695,7 @@ Read more: ${Iw}#error-${n}`;
      */
     init() {
       const e = this.editor, t = e.locale, i = e.model.schema, o = jg(e.config.get("alignment.options")).filter((c) => qg(c.name) && !Gg(c.name, t)), r = o.some((c) => !!c.className);
-      i.extend("$block", { allowAttributes: "alignment" }), e.model.schema.setAttributeProperties("alignment", { isFormatting: !0 }), r ? e.conversion.attributeToAttribute(jI(o)) : e.conversion.for("downcast").attributeToAttribute(WI(o));
+      i.extend("$block", { allowAttributes: "alignment" }), e.model.schema.setAttributeProperties("alignment", { isFormatting: !0 }), r ? e.conversion.attributeToAttribute(jI(o)) : e.conversion.for("downcast").attributeToAttribute($I(o));
       const a = qI(o);
       for (const c of a)
         e.conversion.for("upcast").attributeToAttribute(c);
@@ -41705,7 +41705,7 @@ Read more: ${Iw}#error-${n}`;
       e.commands.add("alignment", new zI(e));
     }
   }
-  function WI(n) {
+  function $I(n) {
     const e = {};
     for (const { name: i } of n)
       e[i] = {
@@ -41779,7 +41779,7 @@ Read more: ${Iw}#error-${n}`;
     ["center", A.alignCenter],
     ["justify", A.alignJustify]
   ]);
-  class KI extends w {
+  class KI extends b {
     /**
      * Returns the localized option titles provided by the plugin.
      *
@@ -41905,12 +41905,12 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ZI extends w {
+  class ZI extends b {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [$I, KI];
+      return [WI, KI];
     }
     /**
      * @inheritDoc
@@ -41923,7 +41923,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class lr extends L {
+  class lr extends V {
     /**
      * Creates an instance of the command.
      *
@@ -42057,7 +42057,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class iP extends w {
+  class iP extends b {
     /**
      * @inheritDoc
      */
@@ -42140,7 +42140,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class nP extends w {
+  class nP extends b {
     /**
      * @inheritDoc
      */
@@ -42220,7 +42220,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Yg extends w {
+  class Yg extends b {
     /**
      * @inheritDoc
      */
@@ -42358,7 +42358,7 @@ Read more: ${Iw}#error-${n}`;
     "xx-large",
     "xxx-large"
   ];
-  class dP extends w {
+  class dP extends b {
     /**
      * @inheritDoc
      */
@@ -42399,7 +42399,7 @@ Read more: ${Iw}#error-${n}`;
      * @param definition Converter definition out of input data.
      */
     _prepareAnyValueConverters(e) {
-      const t = this.editor, i = e.model.values.filter((s) => !Yo(String(s)) && !$m(String(s)));
+      const t = this.editor, i = e.model.values.filter((s) => !Yo(String(s)) && !Wm(String(s)));
       if (i.length)
         throw new g("font-size-invalid-use-of-named-presets", null, { presets: i });
       t.conversion.for("downcast").attributeToElement({
@@ -42453,7 +42453,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class hP extends w {
+  class hP extends b {
     /**
      * @inheritDoc
      */
@@ -42545,7 +42545,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class mP extends w {
+  class mP extends b {
     /**
      * @inheritDoc
      */
@@ -42584,7 +42584,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class pP extends w {
+  class pP extends b {
     /**
      * @inheritDoc
      */
@@ -42695,7 +42695,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Qg extends w {
+  class Qg extends b {
     /**
      * Creates a plugin which introduces a dropdown with a pre–configured
      * {@link module:ui/colorselector/colorselectorview~ColorSelectorView}.
@@ -42751,8 +42751,8 @@ Read more: ${Iw}#error-${n}`;
           this._undoStepBatch = e.model.createBatch();
         }), f.on("colorPicker:cancel", () => {
           this._undoStepBatch.operations.length && (d.isOpen = !1, e.execute("undo", this._undoStepBatch)), e.editing.view.focus();
-        }), d.on("change:isOpen", (m, p, _) => {
-          h || (h = !0, d.colorSelectorView.appendUI()), _ && (l !== 0 && f.updateDocumentColors(e.model, this.componentName), f.updateSelectedColors(), f.showColorGridsFragment());
+        }), d.on("change:isOpen", (m, p, w) => {
+          h || (h = !0, d.colorSelectorView.appendUI()), w && (l !== 0 && f.updateDocumentColors(e.model, this.componentName), f.updateSelectedColors(), f.showColorGridsFragment());
         }), Al(d, () => d.colorSelectorView.colorGridsFragmentView.staticColorsGrid.items.find((m) => m.isOn)), d;
       }), e.ui.componentFactory.add(`menuBar:${this.componentName}`, (u) => {
         const d = new Ke(u);
@@ -42781,8 +42781,8 @@ Read more: ${Iw}#error-${n}`;
             value: p.value,
             batch: this._undoStepBatch
           }), e.editing.view.focus();
-        }), d.on("change:isOpen", (m, p, _) => {
-          h || (h = !0, f.appendUI()), _ && (l !== 0 && f.updateDocumentColors(e.model, this.componentName), f.updateSelectedColors(), f.showColorGridsFragment());
+        }), d.on("change:isOpen", (m, p, w) => {
+          h || (h = !0, f.appendUI()), w && (l !== 0 && f.updateDocumentColors(e.model, this.componentName), f.updateSelectedColors(), f.showColorGridsFragment());
         }), d.panelView.children.add(f), d;
       });
     }
@@ -42816,7 +42816,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class _P extends w {
+  class _P extends b {
     /**
      * @inheritDoc
      */
@@ -42846,7 +42846,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class yP extends w {
+  class yP extends b {
     /**
      * @inheritDoc
      */
@@ -42971,7 +42971,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ep extends w {
+  class ep extends b {
     /**
      * @inheritDoc
      */
@@ -42989,7 +42989,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class TP extends w {
+  class TP extends b {
     /**
      * @inheritDoc
      */
@@ -43007,7 +43007,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ci extends L {
+  class Ci extends V {
     /**
      * @param attributeKey Attribute that will be set by the command.
      */
@@ -43075,7 +43075,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Mi = "bold";
-  class EP extends w {
+  class EP extends b {
     /**
      * @inheritDoc
      */
@@ -43135,7 +43135,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Hs = "bold";
-  class AP extends w {
+  class AP extends b {
     /**
      * @inheritDoc
      */
@@ -43166,7 +43166,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class xP extends w {
+  class xP extends b {
     /**
      * @inheritDoc
      */
@@ -43185,7 +43185,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const ti = "code", SP = "ck-code_selected";
-  class IP extends w {
+  class IP extends b {
     /**
      * @inheritDoc
      */
@@ -43232,8 +43232,8 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const $s = "code";
-  class RP extends w {
+  const Ws = "code";
+  class RP extends b {
     /**
      * @inheritDoc
      */
@@ -43246,24 +43246,24 @@ Read more: ${Iw}#error-${n}`;
     init() {
       const e = this.editor, t = e.locale.t, i = ki({
         editor: e,
-        commandName: $s,
+        commandName: Ws,
         plugin: this,
         icon: PP,
         label: t("Code")
       });
-      e.ui.componentFactory.add($s, () => {
-        const s = i(P), o = e.commands.get($s);
+      e.ui.componentFactory.add(Ws, () => {
+        const s = i(P), o = e.commands.get(Ws);
         return s.set({
           tooltip: !0
         }), s.bind("isOn").to(o, "value"), s;
-      }), e.ui.componentFactory.add("menuBar:" + $s, () => i(de));
+      }), e.ui.componentFactory.add("menuBar:" + Ws, () => i(de));
     }
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LP extends w {
+  class LP extends b {
     /**
      * @inheritDoc
      */
@@ -43282,7 +43282,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Bi = "italic";
-  class VP extends w {
+  class VP extends b {
     /**
      * @inheritDoc
      */
@@ -43323,8 +43323,8 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const Ws = "italic";
-  class BP extends w {
+  const $s = "italic";
+  class BP extends b {
     /**
      * @inheritDoc
      */
@@ -43335,27 +43335,27 @@ Read more: ${Iw}#error-${n}`;
      * @inheritDoc
      */
     init() {
-      const e = this.editor, t = e.commands.get(Ws), i = e.locale.t, s = ki({
+      const e = this.editor, t = e.commands.get($s), i = e.locale.t, s = ki({
         editor: e,
-        commandName: Ws,
+        commandName: $s,
         plugin: this,
         icon: MP,
         keystroke: "CTRL+I",
         label: i("Italic")
       });
-      e.ui.componentFactory.add(Ws, () => {
+      e.ui.componentFactory.add($s, () => {
         const o = s(P);
         return o.set({
           tooltip: !0
         }), o.bind("isOn").to(t, "value"), o;
-      }), e.ui.componentFactory.add("menuBar:" + Ws, () => s(de));
+      }), e.ui.componentFactory.add("menuBar:" + $s, () => s(de));
     }
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class OP extends w {
+  class OP extends b {
     /**
      * @inheritDoc
      */
@@ -43374,7 +43374,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Tn = "strikethrough";
-  class NP extends w {
+  class NP extends b {
     /**
      * @inheritDoc
      */
@@ -43417,7 +43417,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const qs = "strikethrough";
-  class DP extends w {
+  class DP extends b {
     /**
      * @inheritDoc
      */
@@ -43448,7 +43448,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class zP extends w {
+  class zP extends b {
     /**
      * @inheritDoc
      */
@@ -43467,7 +43467,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const En = "subscript";
-  class UP extends w {
+  class UP extends b {
     /**
      * @inheritDoc
      */
@@ -43501,7 +43501,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Gs = "subscript";
-  class $P extends w {
+  class WP extends b {
     /**
      * @inheritDoc
      */
@@ -43531,12 +43531,12 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class WP extends w {
+  class $P extends b {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [UP, $P];
+      return [UP, WP];
     }
     /**
      * @inheritDoc
@@ -43550,7 +43550,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const An = "superscript";
-  class qP extends w {
+  class qP extends b {
     /**
      * @inheritDoc
      */
@@ -43584,7 +43584,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const js = "superscript";
-  class jP extends w {
+  class jP extends b {
     /**
      * @inheritDoc
      */
@@ -43614,7 +43614,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class KP extends w {
+  class KP extends b {
     /**
      * @inheritDoc
      */
@@ -43633,7 +43633,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const xn = "underline";
-  class ZP extends w {
+  class ZP extends b {
     /**
      * @inheritDoc
      */
@@ -43672,7 +43672,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ks = "underline";
-  class XP extends w {
+  class XP extends b {
     /**
      * @inheritDoc
      */
@@ -43703,7 +43703,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class YP extends w {
+  class YP extends b {
     /**
      * @inheritDoc
      */
@@ -43721,7 +43721,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class QP extends L {
+  class QP extends V {
     /**
      * Creates an instance of the command.
      *
@@ -43762,7 +43762,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ld = "paragraph";
-  class eR extends w {
+  class eR extends b {
     /**
      * @inheritDoc
      */
@@ -43847,7 +43847,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class iR extends w {
+  class iR extends b {
     /**
      * @inheritDoc
      */
@@ -43931,7 +43931,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class nR extends w {
+  class nR extends b {
     /**
      * @inheritDoc
      */
@@ -44072,11 +44072,11 @@ Read more: ${Iw}#error-${n}`;
   }
   function Ol(n, e = {}) {
     return [
-      ...Wt(n, { ...e, direction: "backward" }),
-      ...Wt(n, { ...e, direction: "forward" })
+      ...$t(n, { ...e, direction: "backward" }),
+      ...$t(n, { ...e, direction: "forward" })
     ];
   }
-  function Wt(n, e = {}) {
+  function $t(n, e = {}) {
     const t = e.direction == "forward", i = Array.from(new Ye(n, {
       ...e,
       includeSelf: t,
@@ -44138,7 +44138,7 @@ Read more: ${Iw}#error-${n}`;
     return Ti(e);
   }
   function Nl(n, e) {
-    const t = Wt(n, { direction: "forward" }), i = sn.next();
+    const t = $t(n, { direction: "forward" }), i = sn.next();
     for (const s of t)
       e.setAttribute("listItemId", i, s);
     return t;
@@ -44147,7 +44147,7 @@ Read more: ${Iw}#error-${n}`;
     const i = {};
     for (const [o, r] of e.getAttributes())
       o.startsWith("list") && (i[o] = r);
-    const s = Wt(n, { direction: "forward" });
+    const s = $t(n, { direction: "forward" });
     for (const o of s)
       t.setAttributes(i, o);
     return s;
@@ -44228,13 +44228,13 @@ Read more: ${Iw}#error-${n}`;
     return n == "numbered" || n == "customNumbered";
   }
   function uR(n, e, t) {
-    return Wt(e, { direction: "forward" }).pop().index > n.index ? ka(n, e, t) : [];
+    return $t(e, { direction: "forward" }).pop().index > n.index ? ka(n, e, t) : [];
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Md extends L {
+  class Md extends V {
     /**
      * Creates an instance of the command.
      *
@@ -44303,7 +44303,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Zs extends L {
+  class Zs extends V {
     /**
      * Creates an instance of the command.
      *
@@ -44338,7 +44338,7 @@ Read more: ${Iw}#error-${n}`;
       const t = this.editor.model, i = t.document, s = cs(t), o = Array.from(i.selection.getSelectedBlocks()).filter((a) => t.schema.checkAttribute(a, "listType") || Dr(a, t.schema)), r = e.forceValue !== void 0 ? !e.forceValue : this.value;
       t.change((a) => {
         if (r) {
-          const l = o[o.length - 1], c = Wt(l, { direction: "forward" }), u = [];
+          const l = o[o.length - 1], c = $t(l, { direction: "forward" }), u = [];
           c.length > 1 && u.push(...Nl(c[1], a)), u.push(...cr(o, a)), u.push(...lR(l, a)), this._fireAfterExecute(u);
         } else if ((s || i.selection.isCollapsed) && fe(o[0])) {
           const l = tp(s || o[0], this._listWalkerOptions);
@@ -44411,7 +44411,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Od extends L {
+  class Od extends V {
     /**
      * Creates an instance of the command.
      *
@@ -44514,7 +44514,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Nd extends L {
+  class Nd extends V {
     /**
      * Creates an instance of the command.
      *
@@ -44571,7 +44571,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class dR extends w {
+  class dR extends b {
     /**
      * @inheritDoc
      */
@@ -44699,7 +44699,7 @@ Read more: ${Iw}#error-${n}`;
         o.getAttribute("listItemId") != a && (t.setAttribute("listItemId", a, o), s = !0);
         continue;
       }
-      for (const l of Wt(o, { direction: "forward" }))
+      for (const l of $t(o, { direction: "forward" }))
         i.add(l), l.getAttribute("listType") != r && (a = sn.next(), r = l.getAttribute("listType")), l.getAttribute("listItemId") != a && (t.setAttribute("listItemId", a, l), s = !0);
     }
     return s;
@@ -44762,10 +44762,10 @@ Read more: ${Iw}#error-${n}`;
         if (u.has(h))
           continue;
         const m = h.getAttribute("listIndent");
-        f && m < f.getAttribute("listIndent") && (d.length = m + 1), d[m] = Object.fromEntries(Array.from(h.getAttributes()).filter(([_]) => t.includes(_)));
-        const p = Wt(h, { direction: "forward" });
-        for (const _ of p)
-          u.add(_), (o(_, p) || r(_, d, l)) && c.push(_);
+        f && m < f.getAttribute("listIndent") && (d.length = m + 1), d[m] = Object.fromEntries(Array.from(h.getAttributes()).filter(([w]) => t.includes(w)));
+        const p = $t(h, { direction: "forward" });
+        for (const w of p)
+          u.add(w), (o(w, p) || r(w, d, l)) && c.push(w);
       }
       return c;
     }
@@ -44928,7 +44928,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const ro = ["listType", "listIndent", "listItemId"];
-  class AR extends w {
+  class AR extends b {
     /**
      * @inheritDoc
      */
@@ -45216,14 +45216,14 @@ Read more: ${Iw}#error-${n}`;
    */
   function Hd(n, e, t, i) {
     n.ui.componentFactory.add(e, () => {
-      const s = $d(P, n, e, t, i);
+      const s = Wd(P, n, e, t, i);
       return s.set({
         tooltip: !0,
         isToggleable: !0
       }), s;
-    }), n.ui.componentFactory.add(`menuBar:${e}`, () => $d(de, n, e, t, i));
+    }), n.ui.componentFactory.add(`menuBar:${e}`, () => Wd(de, n, e, t, i));
   }
-  function $d(n, e, t, i, s) {
+  function Wd(n, e, t, i, s) {
     const o = e.commands.get(t), r = new n(e.locale);
     return r.set({
       label: i,
@@ -45236,7 +45236,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class IR extends w {
+  class IR extends b {
     /**
      * @inheritDoc
      */
@@ -45255,7 +45255,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class PR extends w {
+  class PR extends b {
     /**
      * @inheritDoc
      */
@@ -45305,7 +45305,7 @@ Read more: ${Iw}#error-${n}`;
   function LR(n) {
     return n.createContainerElement("span", { class: "image-inline" }, n.createEmptyElement("img"));
   }
-  function Wd(n) {
+  function $d(n) {
     return n.createContainerElement("figure", { class: "image" }, [
       n.createEmptyElement("img"),
       n.createSlot("children")
@@ -45337,7 +45337,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const VR = /^(image|image-inline)$/;
-  class Ae extends w {
+  class Ae extends b {
     constructor() {
       super(...arguments), this._domEmitter = new (Me())();
     }
@@ -45547,7 +45547,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const NR = new RegExp(String(/^(http(s)?:\/\/)?[\w-]+\.[\w.~:/[\]@!$&'()*+,;=%-]+/.source + /\.(jpg|jpeg|png|gif|ico|webp|JPG|JPEG|PNG|GIF|ICO|WEBP)/.source + /(\?[\w.~:/[\]@!$&'()*+,;=%-]*)?/.source + /(#[\w.~:/[\]@!$&'()*+,;=%-]*)?$/.source));
-  class FR extends w {
+  class FR extends b {
     /**
      * @inheritDoc
      */
@@ -45615,7 +45615,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class DR extends L {
+  class DR extends V {
     /**
      * @inheritDoc
      */
@@ -45641,7 +45641,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class zR extends w {
+  class zR extends b {
     /**
      * @inheritDoc
      */
@@ -45775,12 +45775,12 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $R extends w {
+  class WR extends b {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [$t];
+      return [Wt];
     }
     /**
      * @inheritDoc
@@ -45878,12 +45878,12 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class up extends w {
+  class up extends b {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [zR, $R];
+      return [zR, WR];
     }
     /**
      * @inheritDoc
@@ -45896,7 +45896,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function WR(n) {
+  function $R(n) {
     const e = (t, i, s) => {
       if (!s.consumable.test(i.viewItem, { name: !0, classes: "image" }))
         return;
@@ -45972,7 +45972,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class qR extends L {
+  class qR extends V {
     /**
      * @inheritDoc
      */
@@ -46012,7 +46012,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class GR extends L {
+  class GR extends V {
     constructor(e) {
       super(e), this.decorate("cleanupImage");
     }
@@ -46058,7 +46058,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class hp extends w {
+  class hp extends b {
     /**
      * @inheritDoc
      */
@@ -46097,7 +46097,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class fp extends w {
+  class fp extends b {
     /**
      * @inheritDoc
      */
@@ -46173,8 +46173,8 @@ Read more: ${Iw}#error-${n}`;
           const f = h.writer, m = h.mapper.toViewElement(d.item), p = i.findViewImgElement(m);
           if (d.attributeNewValue !== null ? f.setAttribute(l, d.attributeNewValue, p) : f.removeAttribute(l, p), d.item.hasAttribute("sources"))
             return;
-          const _ = d.item.hasAttribute("resizedWidth");
-          if (e === "imageInline" && !_ && !c)
+          const w = d.item.hasAttribute("resizedWidth");
+          if (e === "imageInline" && !w && !c)
             return;
           const v = d.item.getAttribute("width"), C = d.item.getAttribute("height");
           v && C && f.setStyle("aspect-ratio", `${v}/${C}`, p);
@@ -46186,7 +46186,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class mp extends L {
+  class mp extends V {
     /**
      * @inheritDoc
      *
@@ -46234,7 +46234,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class gp extends w {
+  class gp extends b {
     /**
      * @inheritDoc
      */
@@ -46302,7 +46302,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class pp extends w {
+  class pp extends b {
     /**
      * @inheritDoc
      */
@@ -46333,14 +46333,14 @@ Read more: ${Iw}#error-${n}`;
       const e = this.editor, t = e.t, i = e.conversion, s = e.plugins.get("ImageUtils");
       i.for("dataDowncast").elementToStructure({
         model: "imageBlock",
-        view: (o, { writer: r }) => Wd(r)
+        view: (o, { writer: r }) => $d(r)
       }), i.for("editingDowncast").elementToStructure({
         model: "imageBlock",
-        view: (o, { writer: r }) => s.toImageWidget(Wd(r), r, t("image widget"))
+        view: (o, { writer: r }) => s.toImageWidget($d(r), r, t("image widget"))
       }), i.for("downcast").add(Ro(s, "imageBlock", "src")).add(Ro(s, "imageBlock", "alt")).add(dp(s, "imageBlock")), i.for("upcast").elementToElement({
         view: ap(e, "imageBlock"),
         model: (o, { writer: r }) => r.createElement("imageBlock", o.hasAttribute("src") ? { src: o.getAttribute("src") } : void 0)
-      }).add(WR(s));
+      }).add($R(s));
     }
     /**
      * Integrates the plugin with the clipboard pipeline.
@@ -46457,7 +46457,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class vs extends w {
+  class vs extends b {
     /**
      * @inheritDoc
      */
@@ -46546,7 +46546,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ZR extends w {
+  class ZR extends b {
     /**
      * @inheritDoc
      */
@@ -46564,7 +46564,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class JR extends w {
+  class JR extends b {
     /**
      * @inheritDoc
      */
@@ -46650,7 +46650,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class XR extends w {
+  class XR extends b {
     /**
      * @inheritDoc
      */
@@ -46668,7 +46668,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class YR extends w {
+  class YR extends b {
     /**
      * @inheritDoc
      */
@@ -46686,7 +46686,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class wp extends w {
+  class wp extends b {
     /**
      * @inheritDoc
      */
@@ -46730,7 +46730,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class QR extends L {
+  class QR extends V {
     /**
      * @inheritDoc
      */
@@ -46796,7 +46796,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class eL extends w {
+  class eL extends b {
     /**
      * @inheritDoc
      */
@@ -46893,7 +46893,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _getSavedCaption(e) {
       const t = this._savedCaptionsMap.get(e);
-      return t ? $.fromJSON(t) : null;
+      return t ? W.fromJSON(t) : null;
     }
     /**
      * Saves a {@link module:engine/model/element~Element#toJSON JSONified} caption for
@@ -46942,7 +46942,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class tL extends w {
+  class tL extends b {
     /**
      * @inheritDoc
      */
@@ -46984,7 +46984,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class iL extends w {
+  class iL extends b {
     /**
      * @inheritDoc
      */
@@ -47040,7 +47040,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class aL extends w {
+  class aL extends b {
     /**
      * @inheritDoc
      */
@@ -47154,7 +47154,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class li extends w {
+  class li extends b {
     constructor() {
       super(...arguments), this.loaders = new Ce(), this._loadersMap = /* @__PURE__ */ new Map(), this._pendingAction = null;
     }
@@ -47360,7 +47360,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class cL extends w {
+  class cL extends b {
     /**
      * @inheritDoc
      */
@@ -47419,7 +47419,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class dL extends w {
+  class dL extends b {
     /**
      * @inheritDoc
      */
@@ -47513,7 +47513,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class _L extends L {
+  class _L extends V {
     /**
      * @inheritDoc
      */
@@ -47551,7 +47551,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class vL extends w {
+  class vL extends b {
     /**
      * @inheritDoc
      */
@@ -47610,8 +47610,8 @@ Read more: ${Iw}#error-${n}`;
               const p = m.getAttribute("uploadId");
               if (!p)
                 continue;
-              const _ = s.loaders.get(p);
-              _ && (f ? u.has(p) || _.abort() : (u.add(p), this._uploadImageElements.set(p, m), _.status == "idle" && this._readAndUpload(_)));
+              const w = s.loaders.get(p);
+              w && (f ? u.has(p) || w.abort() : (u.add(p), this._uploadImageElements.set(p, m), w.status == "idle" && this._readAndUpload(w)));
             }
           }
       }), this.on("uploadComplete", (c, { imageElement: u, data: d }) => {
@@ -47646,7 +47646,7 @@ Read more: ${Iw}#error-${n}`;
       }), e.read().then(() => {
         const u = e.upload(), d = l.get(e.id);
         /* istanbul ignore next -- @preserve */
-        if (V.isSafari) {
+        if (M.isSafari) {
           const h = t.editing.mapper.toViewElement(d), f = a.findViewImgElement(h);
           t.editing.view.once("render", () => {
             if (!f.parent)
@@ -47715,7 +47715,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Cp extends w {
+  class Cp extends b {
     /**
      * @inheritDoc
      */
@@ -47839,7 +47839,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class TL extends w {
+  class TL extends b {
     /**
      * @inheritDoc
      */
@@ -47898,7 +47898,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class EL extends w {
+  class EL extends b {
     /**
      * @inheritDoc
      */
@@ -47916,7 +47916,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class AL extends w {
+  class AL extends b {
     /**
      * @inheritDoc
      */
@@ -47934,7 +47934,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class xL extends L {
+  class xL extends V {
     /**
      * @inheritDoc
      */
@@ -47974,7 +47974,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class kp extends w {
+  class kp extends b {
     /**
      * @inheritDoc
      */
@@ -48096,7 +48096,7 @@ Read more: ${Iw}#error-${n}`;
     large: A.objectSizeLarge,
     original: A.objectSizeFull
   };
-  class SL extends w {
+  class SL extends b {
     /**
      * @inheritDoc
      */
@@ -48223,7 +48223,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const IL = "figure.image.ck-widget > img,figure.image.ck-widget > picture > img,figure.image.ck-widget > a > img,figure.image.ck-widget > a > picture > img,span.image-inline.ck-widget > img,span.image-inline.ck-widget > picture > img", Ur = "image_resized";
-  class PL extends w {
+  class PL extends b {
     /**
      * @inheritDoc
      */
@@ -48293,7 +48293,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class RL extends w {
+  class RL extends b {
     /**
      * @inheritDoc
      */
@@ -48311,7 +48311,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LL extends L {
+  class LL extends V {
     /**
      * Creates an instance of the image style command. When executed, the command applies one of
      * {@link module:image/imageconfig~ImageStyleConfig#options style options} to the currently selected image.
@@ -48569,7 +48569,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Rp extends w {
+  class Rp extends b {
     /**
      * @inheritDoc
      */
@@ -48628,7 +48628,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class HL extends w {
+  class HL extends b {
     /**
      * @inheritDoc
      */
@@ -48749,7 +48749,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $L extends w {
+  class WL extends b {
     /**
      * @inheritDoc
      */
@@ -48767,7 +48767,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class WL extends w {
+  class $L extends b {
     /**
      * @inheritDoc
      */
@@ -48930,7 +48930,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class n3 extends L {
+  class n3 extends V {
     constructor() {
       super(...arguments), this.manualDecorators = new Ce(), this.automaticDecorators = new GL();
     }
@@ -49114,7 +49114,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class s3 extends L {
+  class s3 extends V {
     /**
      * @inheritDoc
      */
@@ -49182,7 +49182,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const r3 = "ck-link_selected", nh = "automatic", a3 = "manual", l3 = /^(https?:)?\/\//;
-  class ur extends w {
+  class ur extends b {
     /**
      * @inheritDoc
      */
@@ -49290,7 +49290,7 @@ Read more: ${Iw}#error-${n}`;
     _enableLinkOpen() {
       const e = this.editor, i = e.editing.view.document;
       this.listenTo(i, "click", (s, o) => {
-        if (!(V.isMac ? o.domEvent.metaKey : o.domEvent.ctrlKey))
+        if (!(M.isMac ? o.domEvent.metaKey : o.domEvent.ctrlKey))
           return;
         let a = o.domTarget;
         if (a.tagName.toLowerCase() != "a" && (a = a.closest("a")), !a)
@@ -49614,7 +49614,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const ht = "link-ui";
-  class Bp extends w {
+  class Bp extends b {
     constructor() {
       super(...arguments), this.actionsView = null, this.formView = null;
     }
@@ -49622,7 +49622,7 @@ Read more: ${Iw}#error-${n}`;
      * @inheritDoc
      */
     static get requires() {
-      return [$t];
+      return [Wt];
     }
     /**
      * @inheritDoc
@@ -49635,7 +49635,7 @@ Read more: ${Iw}#error-${n}`;
      */
     init() {
       const e = this.editor, t = this.editor.t;
-      e.editing.view.addObserver(G2), this._balloon = e.plugins.get($t), this._createToolbarLinkButton(), this._enableBalloonActivators(), e.conversion.for("editingDowncast").markerToHighlight({
+      e.editing.view.addObserver(G2), this._balloon = e.plugins.get(Wt), this._createToolbarLinkButton(), this._enableBalloonActivators(), e.conversion.for("editingDowncast").markerToHighlight({
         model: ht,
         view: {
           classes: ["ck-fake-link-selection"]
@@ -49963,7 +49963,7 @@ Read more: ${Iw}#error-${n}`;
     "(^|\\s)(((?:(?:(?:https?|ftp):)?\\/\\/)(?:\\S+(?::\\S*)?@)?(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(((?!www\\.)|(www\\.))(?![-_])(?:[-_a-z0-9\\u00a1-\\uffff]{1,63}\\.)+(?:[a-z\\u00a1-\\uffff]{2,63})))(?::\\d{2,5})?(?:[/?#]\\S*)?)|((www.|(\\S+@))((?![-_])(?:[-_a-z0-9\\u00a1-\\uffff]{1,63}\\.))+(?:[a-z\\u00a1-\\uffff]{2,63})))$",
     "i"
   ), g3 = 2;
-  class p3 extends w {
+  class p3 extends b {
     /**
      * @inheritDoc
      */
@@ -50119,7 +50119,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class v3 extends w {
+  class v3 extends b {
     /**
      * @inheritDoc
      */
@@ -50137,7 +50137,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class y3 extends w {
+  class y3 extends b {
     /**
      * @inheritDoc
      */
@@ -50252,7 +50252,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class A3 extends w {
+  class A3 extends b {
     /**
      * @inheritDoc
      */
@@ -50310,7 +50310,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class x3 extends w {
+  class x3 extends b {
     /**
      * @inheritDoc
      */
@@ -50328,7 +50328,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class S3 extends w {
+  class S3 extends b {
     /**
      * @inheritDoc
      */
@@ -50347,7 +50347,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class I3 extends w {
+  class I3 extends b {
     /**
      * @inheritDoc
      */
@@ -50390,7 +50390,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class P3 extends w {
+  class P3 extends b {
     /**
      * @inheritDoc
      */
@@ -50408,7 +50408,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Js extends L {
+  class Js extends V {
     /**
      * Creates an instance of the command.
      */
@@ -50523,7 +50523,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const R3 = ["paragraph", "heading1", "heading2", "heading3", "heading4", "heading5", "heading6"];
-  class L3 extends w {
+  class L3 extends b {
     /**
      * @inheritDoc
      */
@@ -50620,7 +50620,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class V3 extends L {
+  class V3 extends V {
     /**
      * @inheritDoc
      */
@@ -50653,7 +50653,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class O3 extends w {
+  class O3 extends b {
     /**
      * @inheritDoc
      */
@@ -50686,7 +50686,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class F3 extends w {
+  class F3 extends b {
     /**
      * @inheritDoc
      */
@@ -50722,7 +50722,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class D3 extends w {
+  class D3 extends b {
     /**
      * @inheritDoc
      */
@@ -50740,7 +50740,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class z3 extends L {
+  class z3 extends V {
     /**
      * @inheritDoc
      */
@@ -50840,7 +50840,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class U3 extends w {
+  class U3 extends b {
     /**
      * @inheritDoc
      */
@@ -50901,7 +50901,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class H3 extends w {
+  class H3 extends b {
     /**
      * @inheritDoc
      */
@@ -50938,7 +50938,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $3 extends w {
+  class W3 extends b {
     /**
      * @inheritDoc
      */
@@ -50973,7 +50973,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function W3(n, e, t) {
+  function $3(n, e, t) {
     return e.setCustomProperty("media", !0, n), ar(n, e, { label: t });
   }
   function uh(n, e, t, i) {
@@ -50999,7 +50999,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class q3 extends L {
+  class q3 extends V {
     /**
      * @inheritDoc
      */
@@ -51186,7 +51186,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Lo extends w {
+  class Lo extends b {
     /**
      * @inheritDoc
      */
@@ -51298,7 +51298,7 @@ Read more: ${Iw}#error-${n}`;
             elementName: r,
             renderForEditingView: !0
           });
-          return W3(d, c, i("media widget"));
+          return $3(d, c, i("media widget"));
         }
       }), s.for("editingDowncast").add(ch(a, {
         elementName: r,
@@ -51336,7 +51336,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const X3 = /^(?:http(s)?:\/\/)?[\w-]+\.[\w-.~:/?#[\]@!$&'()*+,;=%]+$/;
-  class Y3 extends w {
+  class Y3 extends b {
     /**
      * @inheritDoc
      */
@@ -51542,7 +51542,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class t7 extends w {
+  class t7 extends b {
     /**
      * @inheritDoc
      */
@@ -51599,7 +51599,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class n7 extends w {
+  class n7 extends b {
     /**
      * @inheritDoc
      */
@@ -52116,7 +52116,7 @@ Read more: ${Iw}#error-${n}`;
     n = n.replace(/<!--\[if gte vml 1]>/g, ""), n = n.replace(/<o:SmartTagType(?:\s+[^\s>=]+(?:="[^"]*")?)*\s*\/?>/gi, "");
     const i = z7(q7(n)), s = t.parseFromString(i, "text/html");
     U7(s);
-    const o = s.body.innerHTML, r = $7(s, e), a = W7(s);
+    const o = s.body.innerHTML, r = W7(s, e), a = $7(s);
     return {
       body: r,
       bodyString: o,
@@ -52124,13 +52124,13 @@ Read more: ${Iw}#error-${n}`;
       stylesString: a.stylesString
     };
   }
-  function $7(n, e) {
+  function W7(n, e) {
     const t = new Ko(e), i = new Jo(t, { renderingMode: "data" }), s = n.createDocumentFragment(), o = n.body.childNodes;
     for (; o.length > 0; )
       s.appendChild(o[0]);
     return i.domToView(s, { skipComments: !0 });
   }
-  function W7(n) {
+  function $7(n) {
     const e = [], t = [], i = Array.from(n.getElementsByTagName("style"));
     for (const s of i)
       s.sheet && s.sheet.cssRules && s.sheet.cssRules.length && (e.push(s.sheet), t.push(s.innerHTML));
@@ -52150,7 +52150,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class G7 extends w {
+  class G7 extends b {
     /**
      * @inheritDoc
      */
@@ -52409,7 +52409,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class W {
+  class $ {
     /**
      * Creates an instance of the table walker.
      *
@@ -52712,7 +52712,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function vh(n = {}) {
     return (e, { writer: t }) => {
-      const i = e.parent, s = i.parent, o = s.getChildIndex(i), r = new W(s, { row: o }), a = s.getAttribute("headingRows") || 0, l = s.getAttribute("headingColumns") || 0;
+      const i = e.parent, s = i.parent, o = s.getChildIndex(i), r = new $(s, { row: o }), a = s.getAttribute("headingRows") || 0, l = s.getAttribute("headingColumns") || 0;
       let c = null;
       for (const u of r)
         if (u.cell == e) {
@@ -52748,7 +52748,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class n4 extends L {
+  class n4 extends V {
     /**
      * @inheritDoc
      */
@@ -52785,7 +52785,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ch extends L {
+  class Ch extends V {
     /**
      * Creates a new `InsertRowCommand` instance.
      *
@@ -52819,7 +52819,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class kh extends L {
+  class kh extends V {
     /**
      * Creates a new `InsertColumnCommand` instance.
      *
@@ -52854,7 +52854,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Th extends L {
+  class Th extends V {
     /**
      * Creates a new `SplitCellCommand` instance.
      *
@@ -52887,20 +52887,20 @@ Read more: ${Iw}#error-${n}`;
     const { startRow: i, startColumn: s, endRow: o, endColumn: r } = e, a = t.createElement("table"), l = o - i + 1;
     for (let u = 0; u < l; u++)
       t.insertElement("tableRow", a, "end");
-    const c = [...new W(n, { startRow: i, endRow: o, startColumn: s, endColumn: r, includeAllSlots: !0 })];
+    const c = [...new $(n, { startRow: i, endRow: o, startColumn: s, endColumn: r, includeAllSlots: !0 })];
     for (const { row: u, column: d, cell: h, isAnchor: f, cellAnchorRow: m, cellAnchorColumn: p } of c) {
-      const _ = u - i, v = a.getChild(_);
+      const w = u - i, v = a.getChild(w);
       if (!f)
         (m < i || p < s) && Ei(t, t.createPositionAt(v, "end"));
       else {
         const C = t.cloneElement(h);
-        t.append(C, v), Wp(C, u, d, o, r, t);
+        t.append(C, v), $p(C, u, d, o, r, t);
       }
     }
     return o4(a, n, i, s, t), a;
   }
   function zp(n, e, t = 0) {
-    const i = [], s = new W(n, { startRow: t, endRow: e - 1 });
+    const i = [], s = new $(n, { startRow: t, endRow: e - 1 });
     for (const o of s) {
       const { row: r, cellHeight: a } = o, l = r + a - 1;
       r < e && e <= l && i.push(o);
@@ -52912,23 +52912,23 @@ Read more: ${Iw}#error-${n}`;
     c > 1 && (l.rowspan = c);
     const u = parseInt(n.getAttribute("colspan") || "1");
     u > 1 && (l.colspan = u);
-    const d = o, h = d + a, f = [...new W(s, { startRow: d, endRow: h, includeAllSlots: !0 })];
+    const d = o, h = d + a, f = [...new $(s, { startRow: d, endRow: h, includeAllSlots: !0 })];
     let m = null, p;
-    for (const _ of f) {
-      const { row: v, column: C, cell: M } = _;
-      M === n && p === void 0 && (p = C), p !== void 0 && p === C && v === h && (m = Ei(t, _.getPositionBefore(), l));
+    for (const w of f) {
+      const { row: v, column: C, cell: L } = w;
+      L === n && p === void 0 && (p = C), p !== void 0 && p === C && v === h && (m = Ei(t, w.getPositionBefore(), l));
     }
     return se("rowspan", a, n, t), m;
   }
   function Hp(n, e) {
-    const t = [], i = new W(n);
+    const t = [], i = new $(n);
     for (const s of i) {
       const { column: o, cellWidth: r } = s, a = o + r - 1;
       o < e && e <= a && t.push(s);
     }
     return t;
   }
-  function $p(n, e, t, i) {
+  function Wp(n, e, t, i) {
     const s = parseInt(n.getAttribute("colspan")), o = t - e, r = {}, a = s - o;
     a > 1 && (r.colspan = a);
     const l = parseInt(n.getAttribute("rowspan") || "1");
@@ -52936,7 +52936,7 @@ Read more: ${Iw}#error-${n}`;
     const c = Ei(i, i.createPositionAfter(n), r);
     return se("colspan", o, n, i), c;
   }
-  function Wp(n, e, t, i, s, o) {
+  function $p(n, e, t, i, s, o) {
     const r = parseInt(n.getAttribute("colspan") || "1"), a = parseInt(n.getAttribute("rowspan") || "1");
     if (t + r - 1 > s) {
       const u = s - t + 1;
@@ -52961,7 +52961,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function Ra(n, e) {
     const t = e.getColumns(n), i = new Array(t).fill(0);
-    for (const { column: o } of new W(n))
+    for (const { column: o } of new $(n))
       i[o]++;
     const s = i.reduce((o, r, a) => r ? o : [...o, a], []);
     if (s.length > 0) {
@@ -52984,7 +52984,7 @@ Read more: ${Iw}#error-${n}`;
     Ra(n, e) || La(n, e);
   }
   function qp(n, e) {
-    const t = Array.from(new W(n, {
+    const t = Array.from(new $(n, {
       startColumn: e.firstColumn,
       endColumn: e.lastColumn,
       row: e.lastRow
@@ -52995,7 +52995,7 @@ Read more: ${Iw}#error-${n}`;
     return e.lastRow + s;
   }
   function Gp(n, e) {
-    const t = Array.from(new W(n, {
+    const t = Array.from(new $(n, {
       startRow: e.firstRow,
       endRow: e.lastRow,
       column: e.lastColumn
@@ -53009,7 +53009,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ys extends L {
+  class Ys extends V {
     /**
      * Creates a new `MergeCellCommand` instance.
      *
@@ -53041,8 +53041,8 @@ Read more: ${Iw}#error-${n}`;
         l4(u, c, a);
         const h = this.isHorizontal ? "colspan" : "rowspan", f = parseInt(s.getAttribute(h) || "1"), m = parseInt(o.getAttribute(h) || "1");
         a.setAttribute(h, f + m, c), a.setSelection(a.createRangeIn(c));
-        const p = this.editor.plugins.get("TableUtils"), _ = d.findAncestor("table");
-        Hl(_, p);
+        const p = this.editor.plugins.get("TableUtils"), w = d.findAncestor("table");
+        Hl(w, p);
       });
     }
     /**
@@ -53074,7 +53074,7 @@ Read more: ${Iw}#error-${n}`;
     const r = parseInt(n.getAttribute("rowspan") || "1"), a = s.getAttribute("headingRows") || 0, l = e == "down" && o + r === a, c = e == "up" && o === a;
     if (a && (l || c))
       return null;
-    const u = parseInt(n.getAttribute("rowspan") || "1"), d = e == "down" ? o + u : o, h = [...new W(s, { endRow: d })], m = h.find((_) => _.cell === n).column, p = h.find(({ row: _, cellHeight: v, column: C }) => C !== m ? !1 : e == "down" ? _ === d : d === _ + v);
+    const u = parseInt(n.getAttribute("rowspan") || "1"), d = e == "down" ? o + u : o, h = [...new $(s, { endRow: d })], m = h.find((w) => w.cell === n).column, p = h.find(({ row: w, cellHeight: v, column: C }) => C !== m ? !1 : e == "down" ? w === d : d === w + v);
     return p && p.cell ? p.cell : null;
   }
   function l4(n, e, t) {
@@ -53088,7 +53088,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class c4 extends L {
+  class c4 extends V {
     /**
      * @inheritDoc
      */
@@ -53130,7 +53130,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class d4 extends L {
+  class d4 extends V {
     /**
      * @inheritDoc
      */
@@ -53146,7 +53146,7 @@ Read more: ${Iw}#error-${n}`;
      * @inheritDoc
      */
     execute() {
-      const e = this.editor.plugins.get("TableUtils"), [t, i] = f4(this.editor.model.document.selection, e), s = t.parent.parent, o = [...new W(s)], r = {
+      const e = this.editor.plugins.get("TableUtils"), [t, i] = f4(this.editor.model.document.selection, e), s = t.parent.parent, o = [...new $(s)], r = {
         first: o.find((l) => l.cell === t).column,
         last: o.find((l) => l.cell === i).column
       }, a = h4(o, t, i, r);
@@ -53170,7 +53170,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class m4 extends L {
+  class m4 extends V {
     /**
      * @inheritDoc
      */
@@ -53214,7 +53214,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class g4 extends L {
+  class g4 extends V {
     /**
      * @inheritDoc
      */
@@ -53241,7 +53241,7 @@ Read more: ${Iw}#error-${n}`;
         if (l) {
           const u = Hp(o, l);
           for (const { cell: d, column: h } of u)
-            $p(d, h, l, c);
+            Wp(d, h, l, c);
         }
         se("headingColumns", l, o, c, 0);
       });
@@ -53313,7 +53313,7 @@ Read more: ${Iw}#error-${n}`;
   function us(n) {
     return n.map((e) => typeof e == "number" ? e : parseFloat(e)).filter((e) => !Number.isNaN(e)).reduce((e, t) => e + t, 0);
   }
-  function $l(n) {
+  function Wl(n) {
     const e = n.map((s) => s === "auto" ? s : parseFloat(s.replace("%", "")));
     let t = k4(e);
     const i = us(t);
@@ -53368,7 +53368,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class pe extends w {
+  class pe extends b {
     /**
      * @inheritDoc
      */
@@ -53410,7 +53410,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Returns a `{row, column}` object.
      */
     getCellLocation(e) {
-      const t = e.parent, i = t.parent, s = i.getChildIndex(t), o = new W(i, { row: s });
+      const t = e.parent, i = t.parent, s = i.getChildIndex(t), o = new $(i, { row: s });
       for (const { cell: r, row: a, column: l } of o)
         if (r === e)
           return { row: a, column: l };
@@ -53439,7 +53439,7 @@ Read more: ${Iw}#error-${n}`;
      */
     createTable(e, t) {
       const i = e.createElement("table"), s = t.rows || 2, o = t.columns || 2;
-      return $r(e, i, 0, s, o), t.headingRows && se("headingRows", Math.min(t.headingRows, s), i, e, 0), t.headingColumns && se("headingColumns", Math.min(t.headingColumns, o), i, e, 0), i;
+      return Wr(e, i, 0, s, o), t.headingRows && se("headingRows", Math.min(t.headingRows, s), i, e, 0), t.headingColumns && se("headingColumns", Math.min(t.headingColumns, o), i, e, 0), i;
     }
     /**
      * Inserts rows into a table.
@@ -53476,20 +53476,20 @@ Read more: ${Iw}#error-${n}`;
       i.change((u) => {
         const d = e.getAttribute("headingRows") || 0;
         if (d > s && se("headingRows", d + o, e, u, 0), !r && (s === 0 || s === l)) {
-          $r(u, e, s, o, c);
+          Wr(u, e, s, o, c);
           return;
         }
-        const h = r ? Math.max(s, a) : s, f = new W(e, { endRow: h }), m = new Array(c).fill(1);
-        for (const { row: p, column: _, cellHeight: v, cellWidth: C, cell: M } of f) {
-          const N = p + v - 1, q = p < s && s <= N, x = p <= a && a <= N;
-          q ? (u.setAttribute("rowspan", v + o, M), m[_] = -C) : r && x && (m[_] = C);
+        const h = r ? Math.max(s, a) : s, f = new $(e, { endRow: h }), m = new Array(c).fill(1);
+        for (const { row: p, column: w, cellHeight: v, cellWidth: C, cell: L } of f) {
+          const O = p + v - 1, q = p < s && s <= O, x = p <= a && a <= O;
+          q ? (u.setAttribute("rowspan", v + o, L), m[w] = -C) : r && x && (m[w] = C);
         }
         for (let p = 0; p < o; p++) {
-          const _ = u.createElement("tableRow");
-          u.insert(_, e, s);
+          const w = u.createElement("tableRow");
+          u.insert(w, e, s);
           for (let v = 0; v < m.length; v++) {
-            const C = m[v], M = u.createPositionAt(_, "end");
-            C > 0 && Ei(u, M, C > 1 ? { colspan: C } : void 0), v += Math.abs(C) - 1;
+            const C = m[v], L = u.createPositionAt(w, "end");
+            C > 0 && Ei(u, L, C > 1 ? { colspan: C } : void 0), v += Math.abs(C) - 1;
           }
         }
       });
@@ -53529,19 +53529,19 @@ Read more: ${Iw}#error-${n}`;
         const l = this.getColumns(e);
         if (s === 0 || l === s) {
           for (const u of e.getChildren())
-            u.is("element", "tableRow") && $i(o, r, r.createPositionAt(u, s ? "end" : 0));
+            u.is("element", "tableRow") && Wi(o, r, r.createPositionAt(u, s ? "end" : 0));
           return;
         }
-        const c = new W(e, { column: s, includeAllSlots: !0 });
+        const c = new $(e, { column: s, includeAllSlots: !0 });
         for (const u of c) {
-          const { row: d, cell: h, cellAnchorColumn: f, cellAnchorRow: m, cellWidth: p, cellHeight: _ } = u;
+          const { row: d, cell: h, cellAnchorColumn: f, cellAnchorRow: m, cellWidth: p, cellHeight: w } = u;
           if (f < s) {
             r.setAttribute("colspan", p + o, h);
-            const v = m + _ - 1;
+            const v = m + w - 1;
             for (let C = d; C <= v; C++)
               c.skipRow(C);
           } else
-            $i(o, r, u.getPositionBefore());
+            Wi(o, r, u.getPositionBefore());
         }
       });
     }
@@ -53625,7 +53625,7 @@ Read more: ${Iw}#error-${n}`;
         x4(e, { first: s, last: r }, a);
         const l = Cs(e);
         for (let c = r; c >= s; c--) {
-          for (const { cell: u, column: d, cellWidth: h } of [...new W(e)])
+          for (const { cell: u, column: d, cellWidth: h } of [...new $(e)])
             d <= c && h > 1 && d + h > c ? se("colspan", h - 1, u, a) : d === c && a.remove(u);
           if (l[c]) {
             const u = c === 0 ? l[1] : l[c - 1], d = parseFloat(l[c].getAttribute("columnWidth")), h = parseFloat(u.getAttribute("columnWidth"));
@@ -53685,17 +53685,17 @@ Read more: ${Iw}#error-${n}`;
           const d = {};
           c > 1 && (d.colspan = c), r > 1 && (d.rowspan = r);
           const h = a > t ? t - 1 : a - 1;
-          $i(h, l, l.createPositionAfter(e), d);
+          Wi(h, l, l.createPositionAfter(e), d);
         }
         if (a < t) {
-          const c = t - a, u = [...new W(o)], { column: d } = u.find(({ cell: p }) => p === e), h = u.filter(({ cell: p, cellWidth: _, column: v }) => {
-            const C = p !== e && v === d, M = v < d && v + _ > d;
-            return C || M;
+          const c = t - a, u = [...new $(o)], { column: d } = u.find(({ cell: p }) => p === e), h = u.filter(({ cell: p, cellWidth: w, column: v }) => {
+            const C = p !== e && v === d, L = v < d && v + w > d;
+            return C || L;
           });
-          for (const { cell: p, cellWidth: _ } of h)
-            l.setAttribute("colspan", _ + c, p);
+          for (const { cell: p, cellWidth: w } of h)
+            l.setAttribute("colspan", w + c, p);
           const f = {};
-          r > 1 && (f.rowspan = r), $i(c, l, l.createPositionAfter(e), f);
+          r > 1 && (f.rowspan = r), Wi(c, l, l.createPositionAfter(e), f);
           const m = o.getAttribute("headingColumns") || 0;
           m > d && se("headingColumns", m + c, o, l);
         }
@@ -53758,7 +53758,7 @@ Read more: ${Iw}#error-${n}`;
       const i = this.editor.model, s = e.parent, o = s.parent, r = o.getChildIndex(s), a = parseInt(e.getAttribute("rowspan") || "1"), l = parseInt(e.getAttribute("colspan") || "1");
       i.change((c) => {
         if (a > 1) {
-          const u = [...new W(o, {
+          const u = [...new $(o, {
             startRow: r,
             endRow: r + a - 1,
             includeAllSlots: !0
@@ -53767,19 +53767,19 @@ Read more: ${Iw}#error-${n}`;
           const { column: f } = u.find(({ cell: p }) => p === e), m = {};
           d > 1 && (m.rowspan = d), l > 1 && (m.colspan = l);
           for (const p of u) {
-            const { column: _, row: v } = p, C = v >= r + h, M = _ === f, N = (v + r + h) % d === 0;
-            C && M && N && $i(1, c, p.getPositionBefore(), m);
+            const { column: w, row: v } = p, C = v >= r + h, L = w === f, O = (v + r + h) % d === 0;
+            C && L && O && Wi(1, c, p.getPositionBefore(), m);
           }
         }
         if (a < t) {
-          const u = t - a, d = [...new W(o, { startRow: 0, endRow: r })];
-          for (const { cell: m, cellHeight: p, row: _ } of d)
-            if (m !== e && _ + p > r) {
+          const u = t - a, d = [...new $(o, { startRow: 0, endRow: r })];
+          for (const { cell: m, cellHeight: p, row: w } of d)
+            if (m !== e && w + p > r) {
               const v = p + u;
               c.setAttribute("rowspan", v, m);
             }
           const h = {};
-          l > 1 && (h.colspan = l), $r(c, o, r + 1, u, 1, h);
+          l > 1 && (h.colspan = l), Wr(c, o, r + 1, u, 1, h);
           const f = o.getAttribute("headingRows") || 0;
           f > r && se("headingRows", f + u, o, c);
         }
@@ -53825,7 +53825,7 @@ Read more: ${Iw}#error-${n}`;
      * @param options An object with configuration.
      */
     createTableWalker(e, t = {}) {
-      return new W(e, t);
+      return new $(e, t);
     }
     /**
      * Returns all model table cells that are fully selected (from the outside)
@@ -53900,7 +53900,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Returns an object with the `first` and `last` table column indexes.
      */
     getColumnIndexes(e) {
-      const t = e[0].findAncestor("table"), s = [...new W(t)].filter((o) => e.includes(o.cell)).map((o) => o.column);
+      const t = e[0].findAncestor("table"), s = [...new $(t)].filter((o) => e.includes(o.cell)).map((o) => o.column);
       return this._getFirstLastIndexesObject(s);
     }
     /**
@@ -53981,13 +53981,13 @@ Read more: ${Iw}#error-${n}`;
       return s === o;
     }
   }
-  function $r(n, e, t, i, s, o = {}) {
+  function Wr(n, e, t, i, s, o = {}) {
     for (let r = 0; r < i; r++) {
       const a = n.createElement("tableRow");
-      n.insert(a, e, t), $i(s, n, n.createPositionAt(a, "end"), o);
+      n.insert(a, e, t), Wi(s, n, n.createPositionAt(a, "end"), o);
     }
   }
-  function $i(n, e, t, i = {}) {
+  function Wi(n, e, t, i = {}) {
     for (let s = 0; s < n; s++)
       Ei(e, t, i);
   }
@@ -54013,7 +54013,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function I4(n, { first: e, last: t }) {
     const i = /* @__PURE__ */ new Map(), s = [];
-    for (const { row: o, column: r, cellHeight: a, cell: l } of new W(n, { endRow: t })) {
+    for (const { row: o, column: r, cellHeight: a, cell: l } of new $(n, { endRow: t })) {
       const c = o + a - 1;
       if (o >= e && o <= t && c > t) {
         const h = t - o + 1, f = a - h;
@@ -54033,7 +54033,7 @@ Read more: ${Iw}#error-${n}`;
     return { cellsToMove: i, cellsToTrim: s };
   }
   function P4(n, e, t, i) {
-    const o = [...new W(n, {
+    const o = [...new $(n, {
       includeAllSlots: !0,
       row: e
     })], r = n.getChild(e);
@@ -54057,7 +54057,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class V4 extends L {
+  class V4 extends V {
     /**
      * @inheritDoc
      */
@@ -54106,7 +54106,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class O4 extends L {
+  class O4 extends V {
     /**
      * @inheritDoc
      */
@@ -54137,7 +54137,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class N4 extends L {
+  class N4 extends V {
     /**
      * @inheritDoc
      */
@@ -54156,7 +54156,7 @@ Read more: ${Iw}#error-${n}`;
      */
     execute() {
       const e = this.editor.plugins.get("TableUtils"), t = this.editor.model, i = e.getSelectionAffectedTableCells(t.document.selection), s = i[0], o = i.pop(), r = s.findAncestor("table"), a = e.getCellLocation(s), l = e.getCellLocation(o), c = Math.min(a.column, l.column), u = Math.max(a.column, l.column), d = [];
-      for (const h of new W(r, { startColumn: c, endColumn: u }))
+      for (const h of new $(r, { startColumn: c, endColumn: u }))
         d.push(t.createRangeOn(h.cell));
       t.change((h) => {
         h.setSelection(d);
@@ -54176,7 +54176,7 @@ Read more: ${Iw}#error-${n}`;
     const s = /* @__PURE__ */ new Set();
     for (const o of t) {
       let r = null;
-      o.type == "insert" && o.name == "table" && (r = o.position.nodeAfter), (o.type == "insert" || o.type == "remove") && (o.name == "tableRow" || o.name == "tableCell") && (r = o.position.findAncestor("table")), W4(o) && (r = o.range.start.findAncestor("table")), r && !s.has(r) && (i = z4(r, n) || i, i = U4(r, n) || i, s.add(r));
+      o.type == "insert" && o.name == "table" && (r = o.position.nodeAfter), (o.type == "insert" || o.type == "remove") && (o.name == "tableRow" || o.name == "tableCell") && (r = o.position.findAncestor("table")), $4(o) && (r = o.range.start.findAncestor("table")), r && !s.has(r) && (i = z4(r, n) || i, i = U4(r, n) || i, s.add(r));
     }
     return i;
   }
@@ -54192,7 +54192,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function U4(n, e) {
     let t = !1;
-    const i = $4(n), s = [];
+    const i = W4(n), s = [];
     for (const [l, c] of i.entries())
       !c && n.getChild(l).is("element", "tableRow") && s.push(l);
     if (s.length) {
@@ -54216,7 +54216,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function H4(n) {
     const e = parseInt(n.getAttribute("headingRows") || "0"), t = Array.from(n.getChildren()).reduce((s, o) => o.is("element", "tableRow") ? s + 1 : s, 0), i = [];
-    for (const { row: s, cell: o, cellHeight: r } of new W(n)) {
+    for (const { row: s, cell: o, cellHeight: r } of new $(n)) {
       if (r < 2)
         continue;
       const l = s < e ? e : t;
@@ -54227,13 +54227,13 @@ Read more: ${Iw}#error-${n}`;
     }
     return i;
   }
-  function $4(n) {
+  function W4(n) {
     const e = new Array(n.childCount).fill(0);
-    for (const { rowIndex: t } of new W(n, { includeAllSlots: !0 }))
+    for (const { rowIndex: t } of new $(n, { includeAllSlots: !0 }))
       e[t]++;
     return e;
   }
-  function W4(n) {
+  function $4(n) {
     if (n.type !== "attribute")
       return !1;
     const e = n.attributeKey;
@@ -54293,7 +54293,7 @@ Read more: ${Iw}#error-${n}`;
         (i.name == "tableRow" || i.name == "tableCell") && (s = i.position.findAncestor("table"), o = i.name == "tableRow");
       if (!s)
         continue;
-      const r = s.getAttribute("headingRows") || 0, a = s.getAttribute("headingColumns") || 0, l = new W(s);
+      const r = s.getAttribute("headingRows") || 0, a = s.getAttribute("headingColumns") || 0, l = new $(s);
       for (const c of l) {
         const d = c.row < r || c.column < a ? "th" : "td", h = e.mapper.toViewElement(c.cell);
         h && h.is("element") && h.name != d && e.reconvertItem(o ? c.cell.parent : c.cell);
@@ -54326,7 +54326,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ks extends w {
+  class ks extends b {
     /**
      * @inheritDoc
      */
@@ -54484,7 +54484,7 @@ Read more: ${Iw}#error-${n}`;
       }), this.on("change:columns", () => this._highlightGridBoxes()), this.on("change:rows", () => this._highlightGridBoxes());
     }
     render() {
-      super.render(), $a({
+      super.render(), Wa({
         keystrokeHandler: this.keystrokes,
         focusTracker: this.focusTracker,
         gridItems: this.items,
@@ -54563,7 +54563,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class tV extends w {
+  class tV extends b {
     /**
      * @inheritDoc
      */
@@ -54794,7 +54794,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ui extends w {
+  class ui extends b {
     /**
      * @inheritDoc
      */
@@ -54984,7 +54984,7 @@ Read more: ${Iw}#error-${n}`;
         startColumn: l,
         endColumn: c
       };
-      for (const { row: m, cell: p } of new W(e.findAncestor("table"), d))
+      for (const { row: m, cell: p } of new $(e.findAncestor("table"), d))
         u[m - r].push(p);
       const h = o.row < s.row, f = o.column < s.column;
       return h && u.reverse(), f && u.forEach((m) => m.reverse()), {
@@ -54997,7 +54997,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class nV extends w {
+  class nV extends b {
     /**
      * @inheritDoc
      */
@@ -55087,7 +55087,7 @@ Read more: ${Iw}#error-${n}`;
      * Replaces the part of selectedTable with pastedTable.
      */
     _replaceSelectedCellsWithPasted(e, t, i, s, o) {
-      const { width: r, height: a } = t, l = rV(e, r, a), c = [...new W(i, {
+      const { width: r, height: a } = t, l = rV(e, r, a), c = [...new $(i, {
         startRow: s.firstRow,
         endRow: s.lastRow,
         startColumn: s.firstColumn,
@@ -55095,19 +55095,19 @@ Read more: ${Iw}#error-${n}`;
         includeAllSlots: !0
       })], u = [];
       let d;
-      for (const _ of c) {
-        const { row: v, column: C } = _;
-        C === s.firstColumn && (d = _.getPositionBefore());
-        const M = v - s.firstRow, N = C - s.firstColumn, q = l[M % a][N % r], x = q ? o.cloneElement(q) : null, R = this._replaceTableSlotCell(_, x, d, o);
-        R && (Wp(R, v, C, s.lastRow, s.lastColumn, o), u.push(R), d = o.createPositionAfter(R));
+      for (const w of c) {
+        const { row: v, column: C } = w;
+        C === s.firstColumn && (d = w.getPositionBefore());
+        const L = v - s.firstRow, O = C - s.firstColumn, q = l[L % a][O % r], x = q ? o.cloneElement(q) : null, R = this._replaceTableSlotCell(w, x, d, o);
+        R && ($p(R, v, C, s.lastRow, s.lastColumn, o), u.push(R), d = o.createPositionAfter(R));
       }
       const h = parseInt(i.getAttribute("headingRows") || "0"), f = parseInt(i.getAttribute("headingColumns") || "0"), m = s.firstRow < h && h <= s.lastRow, p = s.firstColumn < f && f <= s.lastColumn;
       if (m) {
-        const _ = { first: s.firstColumn, last: s.lastColumn }, v = Oa(i, h, _, o, s.firstRow);
+        const w = { first: s.firstColumn, last: s.lastColumn }, v = Oa(i, h, w, o, s.firstRow);
         u.push(...v);
       }
       if (p) {
-        const _ = { first: s.firstRow, last: s.lastRow }, v = Na(i, f, _, o);
+        const w = { first: s.firstRow, last: s.lastRow }, v = Na(i, f, w, o);
         u.push(...v);
       }
       return u;
@@ -55168,7 +55168,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function rV(n, e, t) {
     const i = new Array(t).fill(null).map(() => new Array(e).fill(null));
-    for (const { column: s, row: o, cell: r } of new W(n))
+    for (const { column: s, row: o, cell: r } of new $(n))
       i[o][s] = r;
     return i;
   }
@@ -55180,7 +55180,7 @@ Read more: ${Iw}#error-${n}`;
     return e < 1 ? void 0 : zp(n, e, s).filter(({ column: a, cellWidth: l }) => Jp(a, l, t)).map(({ cell: a }) => Up(a, e, i));
   }
   function Na(n, e, t, i) {
-    return e < 1 ? void 0 : Hp(n, e).filter(({ row: r, cellHeight: a }) => Jp(r, a, t)).map(({ cell: r, column: a }) => $p(r, a, e, i));
+    return e < 1 ? void 0 : Hp(n, e).filter(({ row: r, cellHeight: a }) => Jp(r, a, t)).map(({ cell: r, column: a }) => Wp(r, a, e, i));
   }
   function Jp(n, e, t) {
     const i = n + e - 1, { first: s, last: o } = t, r = n >= s && n <= o, a = n < s && i >= s;
@@ -55190,7 +55190,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class lV extends w {
+  class lV extends b {
     /**
      * @inheritDoc
      */
@@ -55265,16 +55265,16 @@ Read more: ${Iw}#error-${n}`;
         });
         return;
       }
-      let _;
+      let w;
       if (a && m)
-        _ = u.getChild(d + 1).getChild(0);
+        w = u.getChild(d + 1).getChild(0);
       else if (!a && f) {
         const v = u.getChild(d - 1);
-        _ = v.getChild(v.childCount - 1);
+        w = v.getChild(v.childCount - 1);
       } else
-        _ = c.getChild(h + (a ? 1 : -1));
+        w = c.getChild(h + (a ? 1 : -1));
       i.model.change((v) => {
-        v.setSelection(v.createRangeIn(_));
+        v.setSelection(v.createRangeIn(w));
       });
     }
     /**
@@ -55334,7 +55334,7 @@ Read more: ${Iw}#error-${n}`;
      * @param expandSelection If the current selection should be expanded. Default value is false.
      */
     _navigateFromCellInDirection(e, t, i = !1) {
-      const s = this.editor.model, o = e.findAncestor("table"), r = [...new W(o, { includeAllSlots: !0 })], { row: a, column: l } = r[r.length - 1], c = r.find(({ cell: C }) => C == e);
+      const s = this.editor.model, o = e.findAncestor("table"), r = [...new $(o, { includeAllSlots: !0 })], { row: a, column: l } = r[r.length - 1], c = r.find(({ cell: C }) => C == e);
       let { row: u, column: d } = c;
       switch (t) {
         case "left":
@@ -55358,14 +55358,14 @@ Read more: ${Iw}#error-${n}`;
         return;
       }
       d < 0 ? (d = i ? 0 : l, u--) : d > l && (d = i ? l : 0, u++);
-      const p = r.find((C) => C.row == u && C.column == d).cell, _ = ["right", "down"].includes(t), v = this.editor.plugins.get("TableSelection");
+      const p = r.find((C) => C.row == u && C.column == d).cell, w = ["right", "down"].includes(t), v = this.editor.plugins.get("TableSelection");
       if (i && v.isEnabled) {
         const C = v.getAnchorCell() || e;
         v.setCellSelection(C, p);
       } else {
-        const C = s.createPositionAt(p, _ ? 0 : "end");
-        s.change((M) => {
-          M.setSelection(C);
+        const C = s.createPositionAt(p, w ? 0 : "end");
+        s.change((L) => {
+          L.setSelection(C);
         });
       }
     }
@@ -55392,7 +55392,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class cV extends w {
+  class cV extends b {
     /**
      * @inheritDoc
      */
@@ -55476,7 +55476,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class uV extends w {
+  class uV extends b {
     /**
      * @inheritDoc
      */
@@ -55521,7 +55521,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class dV extends w {
+  class dV extends b {
     /**
      * @inheritDoc
      */
@@ -55715,7 +55715,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const Wl = (n) => n === "";
+  const $l = (n) => n === "";
   function ql(n) {
     return {
       none: n("None"),
@@ -55736,13 +55736,13 @@ Read more: ${Iw}#error-${n}`;
     return n('The value is invalid. Try "10px" or "2em" or simply "2".');
   }
   function Vo(n) {
-    return n = n.trim().toLowerCase(), Wl(n) || Hm(n);
+    return n = n.trim().toLowerCase(), $l(n) || Hm(n);
   }
-  function $n(n) {
-    return n = n.trim(), Wl(n) || ow(n) || Yo(n) || $m(n);
+  function Wn(n) {
+    return n = n.trim(), $l(n) || ow(n) || Yo(n) || Wm(n);
   }
   function nw(n) {
-    return n = n.trim(), Wl(n) || ow(n) || Yo(n);
+    return n = n.trim(), $l(n) || ow(n) || Yo(n);
   }
   function sw(n, e) {
     const t = new Ce(), i = ql(n.t);
@@ -55940,8 +55940,8 @@ Read more: ${Iw}#error-${n}`;
       }), this.options = t;
       const { borderStyleDropdown: i, borderWidthInput: s, borderColorInput: o, borderRowLabel: r } = this._createBorderFields(), { backgroundRowLabel: a, backgroundInput: l } = this._createBackgroundFields(), { widthInput: c, operatorLabel: u, heightInput: d, dimensionsLabel: h } = this._createDimensionFields(), { horizontalAlignmentToolbar: f, verticalAlignmentToolbar: m, alignmentLabel: p } = this._createAlignmentFields();
       this.focusTracker = new Q(), this.keystrokes = new ne(), this.children = this.createCollection(), this.borderStyleDropdown = i, this.borderWidthInput = s, this.borderColorInput = o, this.backgroundInput = l, this.paddingInput = this._createPaddingField(), this.widthInput = c, this.heightInput = d, this.horizontalAlignmentToolbar = f, this.verticalAlignmentToolbar = m;
-      const { saveButtonView: _, cancelButtonView: v } = this._createActionButtons();
-      this.saveButtonView = _, this.cancelButtonView = v, this._focusables = new ke(), this._focusCycler = new _e({
+      const { saveButtonView: w, cancelButtonView: v } = this._createActionButtons();
+      this.saveButtonView = w, this.cancelButtonView = v, this._focusables = new ke(), this._focusCycler = new _e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -56384,12 +56384,12 @@ Read more: ${Iw}#error-${n}`;
     horizontalAlignment: "tableCellHorizontalAlignment",
     verticalAlignment: "tableCellVerticalAlignment"
   };
-  class bV extends w {
+  class bV extends b {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [$t];
+      return [Wt];
     }
     /**
      * @inheritDoc
@@ -56416,7 +56416,7 @@ Read more: ${Iw}#error-${n}`;
         includeHorizontalAlignmentProperty: !0,
         includePaddingProperty: !0,
         isRightToLeftContent: e.locale.contentLanguageDirection === "rtl"
-      }), this._balloon = e.plugins.get($t), this.view = null, this._isReady = !1, e.ui.componentFactory.add("tableCellProperties", (i) => {
+      }), this._balloon = e.plugins.get(Wt), this.view = null, this._isReady = !1, e.ui.componentFactory.add("tableCellProperties", (i) => {
         const s = new P(i);
         s.set({
           label: t("Cell properties"),
@@ -56472,17 +56472,17 @@ Read more: ${Iw}#error-${n}`;
         viewField: l.paddingInput,
         commandName: "tableCellPadding",
         errorText: d,
-        validator: $n
+        validator: Wn
       })), l.on("change:width", this._getValidatedPropertyChangeCallback({
         viewField: l.widthInput,
         commandName: "tableCellWidth",
         errorText: d,
-        validator: $n
+        validator: Wn
       })), l.on("change:height", this._getValidatedPropertyChangeCallback({
         viewField: l.heightInput,
         commandName: "tableCellHeight",
         errorText: d,
-        validator: $n
+        validator: Wn
       })), l.on("change:backgroundColor", this._getValidatedPropertyChangeCallback({
         viewField: l.backgroundInput,
         commandName: "tableCellBackgroundColor",
@@ -56587,7 +56587,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Bt extends L {
+  class Bt extends V {
     /**
      * Creates a new `TableCellPropertyCommand` instance.
      *
@@ -56672,7 +56672,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class uw extends w {
+  class uw extends b {
     /**
      * @inheritDoc
      */
@@ -56886,7 +56886,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Oh = /^(top|middle|bottom)$/, Nh = /^(left|center|right|justify)$/;
-  class SV extends w {
+  class SV extends b {
     /**
      * @inheritDoc
      */
@@ -57033,7 +57033,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LV extends w {
+  class LV extends b {
     /**
      * @inheritDoc
      */
@@ -57051,7 +57051,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Si extends L {
+  class Si extends V {
     /**
      * Creates a new `TablePropertyCommand` instance.
      *
@@ -57264,7 +57264,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const zV = /^(left|center|right)$/, UV = /^(left|none|right)$/;
-  class HV extends w {
+  class HV extends b {
     /**
      * @inheritDoc
      */
@@ -57286,11 +57286,11 @@ Read more: ${Iw}#error-${n}`;
       const s = Ts(e.config.get("table.tableProperties.defaultProperties"), {
         includeAlignmentProperty: !0
       });
-      e.data.addStyleProcessorRules(qm), $V(t, i, {
+      e.data.addStyleProcessorRules(qm), WV(t, i, {
         color: s.borderColor,
         style: s.borderStyle,
         width: s.borderWidth
-      }), e.commands.add("tableBorderColor", new MV(e, s.borderColor)), e.commands.add("tableBorderStyle", new BV(e, s.borderStyle)), e.commands.add("tableBorderWidth", new OV(e, s.borderWidth)), WV(t, i, s.alignment), e.commands.add("tableAlignment", new DV(e, s.alignment)), Fh(t, i, {
+      }), e.commands.add("tableBorderColor", new MV(e, s.borderColor)), e.commands.add("tableBorderStyle", new BV(e, s.borderStyle)), e.commands.add("tableBorderWidth", new OV(e, s.borderWidth)), $V(t, i, s.alignment), e.commands.add("tableAlignment", new DV(e, s.alignment)), Fh(t, i, {
         modelAttribute: "tableWidth",
         styleName: "width",
         defaultValue: s.width
@@ -57305,7 +57305,7 @@ Read more: ${Iw}#error-${n}`;
       }), e.commands.add("tableBackgroundColor", new VV(e, s.backgroundColor));
     }
   }
-  function $V(n, e, t) {
+  function WV(n, e, t) {
     const i = {
       width: "tableBorderWidth",
       color: "tableBorderColor",
@@ -57315,7 +57315,7 @@ Read more: ${Iw}#error-${n}`;
       allowAttributes: Object.values(i)
     }), Ia(e, "table", i, t), lo(e, { modelAttribute: i.color, styleName: "border-color" }), lo(e, { modelAttribute: i.style, styleName: "border-style" }), lo(e, { modelAttribute: i.width, styleName: "border-width" });
   }
-  function WV(n, e, t) {
+  function $V(n, e, t) {
     n.extend("table", {
       allowAttributes: ["tableAlignment"]
     }), e.for("downcast").attributeToAttribute({
@@ -57403,8 +57403,8 @@ Read more: ${Iw}#error-${n}`;
       }), this.options = t;
       const { borderStyleDropdown: i, borderWidthInput: s, borderColorInput: o, borderRowLabel: r } = this._createBorderFields(), { backgroundRowLabel: a, backgroundInput: l } = this._createBackgroundFields(), { widthInput: c, operatorLabel: u, heightInput: d, dimensionsLabel: h } = this._createDimensionFields(), { alignmentToolbar: f, alignmentLabel: m } = this._createAlignmentFields();
       this.focusTracker = new Q(), this.keystrokes = new ne(), this.children = this.createCollection(), this.borderStyleDropdown = i, this.borderWidthInput = s, this.borderColorInput = o, this.backgroundInput = l, this.widthInput = c, this.heightInput = d, this.alignmentToolbar = f;
-      const { saveButtonView: p, cancelButtonView: _ } = this._createActionButtons();
-      this.saveButtonView = p, this.cancelButtonView = _, this._focusables = new ke(), this._focusCycler = new _e({
+      const { saveButtonView: p, cancelButtonView: w } = this._createActionButtons();
+      this.saveButtonView = p, this.cancelButtonView = w, this._focusables = new ke(), this._focusCycler = new _e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -57715,12 +57715,12 @@ Read more: ${Iw}#error-${n}`;
     height: "tableHeight",
     alignment: "tableAlignment"
   };
-  class JV extends w {
+  class JV extends b {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [$t];
+      return [Wt];
     }
     /**
      * @inheritDoc
@@ -57744,7 +57744,7 @@ Read more: ${Iw}#error-${n}`;
       const e = this.editor, t = e.t;
       this._defaultTableProperties = Ts(e.config.get("table.tableProperties.defaultProperties"), {
         includeAlignmentProperty: !0
-      }), this._balloon = e.plugins.get($t), e.ui.componentFactory.add("tableProperties", (i) => {
+      }), this._balloon = e.plugins.get(Wt), e.ui.componentFactory.add("tableProperties", (i) => {
         const s = new P(i);
         s.set({
           label: t("Table properties"),
@@ -57805,12 +57805,12 @@ Read more: ${Iw}#error-${n}`;
         viewField: l.widthInput,
         commandName: "tableWidth",
         errorText: d,
-        validator: $n
+        validator: Wn
       })), l.on("change:height", this._getValidatedPropertyChangeCallback({
         viewField: l.heightInput,
         commandName: "tableHeight",
         errorText: d,
-        validator: $n
+        validator: Wn
       })), l.on("change:alignment", this._getPropertyChangeCallback("tableAlignment")), l;
     }
     /**
@@ -57909,7 +57909,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class XV extends w {
+  class XV extends b {
     /**
      * @inheritDoc
      */
@@ -57973,7 +57973,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class iM extends L {
+  class iM extends V {
     /**
      * @inheritDoc
      */
@@ -58024,7 +58024,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class nM extends w {
+  class nM extends b {
     /**
      * @inheritDoc
      */
@@ -58080,7 +58080,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _getSavedCaption(e) {
       const t = this._savedCaptionsMap.get(e);
-      return t ? $.fromJSON(t) : null;
+      return t ? W.fromJSON(t) : null;
     }
     /**
      * Saves a {@link module:engine/model/element~Element#toJSON JSONified} caption for
@@ -58108,7 +58108,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class sM extends w {
+  class sM extends b {
     /**
      * @inheritDoc
      */
@@ -58144,7 +58144,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class oM extends w {
+  class oM extends b {
     /**
      * @inheritDoc
      */
@@ -58162,7 +58162,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class rM extends L {
+  class rM extends V {
     /**
      * @inheritDoc
      */
@@ -58182,7 +58182,7 @@ Read more: ${Iw}#error-${n}`;
           return;
         if (!o)
           return a.remove(l);
-        const c = $l(o);
+        const c = Wl(o);
         if (l)
           Array.from(l.getChildren()).forEach((u, d) => a.setAttribute("columnWidth", c[d], u));
         else {
@@ -58203,7 +58203,7 @@ Read more: ${Iw}#error-${n}`;
         return;
       const a = Cs(r), l = n.getColumns(o);
       let c = A4(r, s.writer);
-      c = Array.from({ length: l }, (u, d) => c[d] || "auto"), (c.length != a.length || c.includes("auto")) && Kp(a, r, $l(c), s.writer);
+      c = Array.from({ length: l }, (u, d) => c[d] || "auto"), (c.length != a.length || c.includes("auto")) && Kp(a, r, Wl(c), s.writer);
     }, { priority: "low" });
   }
   function lM() {
@@ -58216,7 +58216,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class cM extends w {
+  class cM extends b {
     /**
      * @inheritDoc
      */
@@ -58315,7 +58315,7 @@ Read more: ${Iw}#error-${n}`;
         let r = !1;
         for (const a of b4(t)) {
           const l = this.getColumnGroupElement(a), c = this.getTableColumnElements(l), u = this.getTableColumnsWidths(l);
-          let d = $l(u);
+          let d = Wl(u);
           d = i(d, a, this), !po(u, d) && (Kp(c, l, d, o), r = !0);
         }
         return r;
@@ -58331,11 +58331,11 @@ Read more: ${Iw}#error-${n}`;
             continue;
           const m = f > 0, p = a._tableUtilsPlugin.getCellLocation(h).column;
           if (m) {
-            const _ = _4(r, a.editor), v = C4(f, _);
+            const w = _4(r, a.editor), v = C4(f, w);
             u.splice(p, 0, ...v);
           } else {
-            const _ = u.splice(p, Math.abs(f));
-            u[p] += us(_);
+            const w = u.splice(p, Math.abs(f));
+            u[p] += us(w);
           }
         }
         return u.map((h) => h + "%");
@@ -58440,17 +58440,17 @@ Read more: ${Iw}#error-${n}`;
         u(h, r, a);
       }), this._isResizingActive = !0, this._resizingData = this._getResizingData(t, r), l.change((h) => d(h, a, this._resizingData));
       function c(h, f, m) {
-        const p = Array(f.getColumns(h)), _ = new W(h);
-        for (const v of _) {
-          const C = m.editing.mapper.toViewElement(v.cell), M = m.editing.view.domConverter.mapViewToDom(C), N = T4(M);
-          (!p[v.column] || N < p[v.column]) && (p[v.column] = Ie(N));
+        const p = Array(f.getColumns(h)), w = new $(h);
+        for (const v of w) {
+          const C = m.editing.mapper.toViewElement(v.cell), L = m.editing.view.domConverter.mapViewToDom(C), O = T4(L);
+          (!p[v.column] || O < p[v.column]) && (p[v.column] = Ie(O));
         }
         return p;
       }
       function u(h, f, m) {
         const p = h.createContainerElement("colgroup");
-        for (let _ = 0; _ < f.length; _++) {
-          const v = h.createEmptyElement("col"), C = `${Ie(f[_] / us(f) * 100)}%`;
+        for (let w = 0; w < f.length; w++) {
+          const v = h.createEmptyElement("col"), C = `${Ie(f[w] / us(f) * 100)}%`;
           h.setStyle("width", C, v), h.insert(h.createPositionAt(p, "end"), v);
         }
         h.insert(h.createPositionAt(m, 0), p);
@@ -58476,15 +58476,15 @@ Read more: ${Iw}#error-${n}`;
         this._onMouseUpHandler();
         return;
       }
-      const { columnPosition: i, flags: { isRightEdge: s, isTableCentered: o, isLtrContent: r }, elements: { viewFigure: a, viewLeftColumn: l, viewRightColumn: c }, widths: { viewFigureParentWidth: u, tableWidth: d, leftColumnWidth: h, rightColumnWidth: f } } = this._resizingData, m = -h + Va, p = s ? u - d : f - Va, _ = (r ? 1 : -1) * (s && o ? 2 : 1), v = y4((t.clientX - i) * _, Math.min(m, 0), Math.max(p, 0));
+      const { columnPosition: i, flags: { isRightEdge: s, isTableCentered: o, isLtrContent: r }, elements: { viewFigure: a, viewLeftColumn: l, viewRightColumn: c }, widths: { viewFigureParentWidth: u, tableWidth: d, leftColumnWidth: h, rightColumnWidth: f } } = this._resizingData, m = -h + Va, p = s ? u - d : f - Va, w = (r ? 1 : -1) * (s && o ? 2 : 1), v = y4((t.clientX - i) * w, Math.min(m, 0), Math.max(p, 0));
       v !== 0 && this.editor.editing.view.change((C) => {
-        const M = Ie((h + v) * 100 / d);
-        if (C.setStyle("width", `${M}%`, l), s) {
-          const N = Ie((d + v) * 100 / u);
-          C.setStyle("width", `${N}%`, a);
+        const L = Ie((h + v) * 100 / d);
+        if (C.setStyle("width", `${L}%`, l), s) {
+          const O = Ie((d + v) * 100 / u);
+          C.setStyle("width", `${O}%`, a);
         } else {
-          const N = Ie((f - v) * 100 / d);
-          C.setStyle("width", `${N}%`, c);
+          const O = Ie((f - v) * 100 / d);
+          C.setStyle("width", `${O}%`, c);
         }
       });
     }
@@ -58504,11 +58504,11 @@ Read more: ${Iw}#error-${n}`;
         columnWidths: u
       }) : r.change((p) => {
         if (c)
-          for (const _ of l)
-            p.setStyle("width", c.shift(), _);
+          for (const w of l)
+            p.setStyle("width", c.shift(), w);
         else
           p.remove(s);
-        m && (h ? p.setStyle("width", h, i) : p.removeStyle("width", i)), !c && !h && p.removeClass("ck-table-resized", [...i.getChildren()].find((_) => _.name === "table"));
+        m && (h ? p.setStyle("width", h, i) : p.removeStyle("width", i)), !c && !h && p.removeClass("ck-table-resized", [...i.getChildren()].find((w) => w.name === "table"));
       })), r.change((p) => {
         p.removeClass("ck-table-column-resizer__active", e);
       }), this._isResizingActive = !1, this._resizingData = null;
@@ -58521,7 +58521,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns The data needed for the resizing process.
      */
     _getResizingData(e, t) {
-      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = v4(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), p = m.findAncestor("figure"), _ = [...m.getChildren()].find((I) => I.is("element", "colgroup")), v = _.getChild(c), C = d ? void 0 : _.getChild(c + 1), M = Ma(i.editing.view.domConverter.mapViewToDom(p.parent)), N = Ma(i.editing.view.domConverter.mapViewToDom(p)), q = jp(l, i), x = t[c], R = d ? void 0 : t[c + 1];
+      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = v4(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), p = m.findAncestor("figure"), w = [...m.getChildren()].find((I) => I.is("element", "colgroup")), v = w.getChild(c), C = d ? void 0 : w.getChild(c + 1), L = Ma(i.editing.view.domConverter.mapViewToDom(p.parent)), O = Ma(i.editing.view.domConverter.mapViewToDom(p)), q = jp(l, i), x = t[c], R = d ? void 0 : t[c + 1];
       return {
         columnPosition: s,
         flags: {
@@ -58533,13 +58533,13 @@ Read more: ${Iw}#error-${n}`;
           viewResizer: o,
           modelTable: l,
           viewFigure: p,
-          viewColgroup: _,
+          viewColgroup: w,
           viewLeftColumn: v,
           viewRightColumn: C
         },
         widths: {
-          viewFigureParentWidth: M,
-          viewFigureWidth: N,
+          viewFigureParentWidth: L,
+          viewFigureWidth: O,
           tableWidth: q,
           leftColumnWidth: x,
           rightColumnWidth: R
@@ -58562,7 +58562,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class uM extends w {
+  class uM extends b {
     /**
      * @inheritDoc
      */
@@ -58935,11 +58935,11 @@ Read more: ${Iw}#error-${n}`;
         return;
       const m = t.exec(h.data.substr(0, l.end.offset));
       m && n.model.enqueueChange((p) => {
-        const _ = p.createPositionAt(d, 0), v = p.createPositionAt(d, m[0].length), C = new Pe(_, v);
+        const w = p.createPositionAt(d, 0), v = p.createPositionAt(d, m[0].length), C = new Pe(w, v);
         if (s({ match: m }) !== !1) {
           p.remove(C);
-          const N = n.model.document.selection.getFirstRange(), q = p.createRangeIn(d);
-          d.isEmpty && !q.isEqual(N) && !q.containsRange(N, !0) && p.remove(d);
+          const O = n.model.document.selection.getFirstRange(), q = p.createRangeIn(d);
+          d.isEmpty && !q.isEqual(O) && !q.containsRange(O, !0) && p.remove(d);
         }
         C.detach(), n.model.enqueueChange(() => {
           n.plugins.get("Delete").requestUndoOnBackspace();
@@ -58963,11 +58963,11 @@ Read more: ${Iw}#error-${n}`;
         const p = [
           u,
           u + d.length
-        ], _ = [
+        ], w = [
           u + d.length + h.length,
           u + d.length + h.length + f.length
         ];
-        l.push(p), l.push(_), c.push([u + d.length, u + d.length + h.length]);
+        l.push(p), l.push(w), c.push([u + d.length, u + d.length + h.length]);
       }
       return {
         remove: l,
@@ -58982,11 +58982,11 @@ Read more: ${Iw}#error-${n}`;
       const u = Array.from(l.document.differ.getChanges()), d = u[0];
       if (u.length != 1 || d.type !== "insert" || d.name != "$text" || d.length != 1)
         return;
-      const h = c.focus, f = h.parent, { text: m, range: p } = _M(l.createRange(l.createPositionAt(f, 0), h), l), _ = o(m), v = Hh(p.start, _.format, l), C = Hh(p.start, _.remove, l);
-      v.length && C.length && l.enqueueChange((M) => {
-        if (i(M, v) !== !1) {
+      const h = c.focus, f = h.parent, { text: m, range: p } = _M(l.createRange(l.createPositionAt(f, 0), h), l), w = o(m), v = Hh(p.start, w.format, l), C = Hh(p.start, w.remove, l);
+      v.length && C.length && l.enqueueChange((L) => {
+        if (i(L, v) !== !1) {
           for (const q of C.reverse())
-            M.remove(q);
+            L.remove(q);
           l.enqueueChange(() => {
             n.plugins.get("Delete").requestUndoOnBackspace();
           });
@@ -59005,7 +59005,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class vM extends w {
+  class vM extends b {
     /**
      * @inheritDoc
      */
@@ -59246,7 +59246,7 @@ Read more: ${Iw}#error-${n}`;
             "ck-character-grid"
           ]
         }
-      }), this.focusTracker = new Q(), this.keystrokes = new ne(), $a({
+      }), this.focusTracker = new Q(), this.keystrokes = new ne(), Wa({
         keystrokeHandler: this.keystrokes,
         focusTracker: this.focusTracker,
         gridItems: this.tiles,
@@ -59417,8 +59417,8 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const Wr = "All";
-  class xM extends w {
+  const $r = "All";
+  class xM extends b {
     /**
      * @inheritDoc
      */
@@ -59473,7 +59473,7 @@ Read more: ${Iw}#error-${n}`;
      * characters category.
      */
     addItems(e, t, i = { label: e }) {
-      if (e === Wr)
+      if (e === $r)
         throw new g("special-character-invalid-group-name", null);
       const s = this._getGroup(e, i.label);
       for (const o of t)
@@ -59495,7 +59495,7 @@ Read more: ${Iw}#error-${n}`;
      * Returns a collection of special characters symbol names (titles).
      */
     getCharactersForGroup(e) {
-      if (e === Wr)
+      if (e === $r)
         return new Set(this._characters.keys());
       const t = this._groups.get(e);
       if (t)
@@ -59541,7 +59541,7 @@ Read more: ${Iw}#error-${n}`;
     _createDropdownPanelContent(e, t) {
       const i = Array.from(this.getGroups()).map((l) => [l, this._groups.get(l).label]), s = new Map([
         // Add a special group that shows all available special characters.
-        [Wr, this._allSpecialCharactersGroupLabel],
+        [$r, this._allSpecialCharactersGroupLabel],
         ...i
       ]), o = new yM(e, s), r = new CM(e), a = new kM(e);
       return r.delegate("execute").to(t), r.on("tileHover", (l, c) => {
@@ -59557,7 +59557,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class dw extends w {
+  class dw extends b {
     /**
      * @inheritDoc
      */
@@ -59599,7 +59599,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class hw extends w {
+  class hw extends b {
     /**
      * @inheritDoc
      */
@@ -59646,7 +59646,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class fw extends w {
+  class fw extends b {
     /**
      * @inheritDoc
      */
@@ -59710,7 +59710,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class mw extends w {
+  class mw extends b {
     /**
      * @inheritDoc
      */
@@ -59858,7 +59858,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class gw extends w {
+  class gw extends b {
     /**
      * @inheritDoc
      */
@@ -59914,7 +59914,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class SM extends w {
+  class SM extends b {
     /**
      * @inheritDoc
      */
@@ -59944,7 +59944,122 @@ Read more: ${Iw}#error-${n}`;
     const e = n.en = n.en || {};
     e.dictionary = Object.assign(e.dictionary || {}, { "(may require <kbd>Fn</kbd>)": "(may require <kbd>Fn</kbd>)", "%0 of %1": "%0 of %1", Accept: "Accept", Accessibility: "Accessibility", "Accessibility help": "Accessibility help", "Align cell text to the bottom": "Align cell text to the bottom", "Align cell text to the center": "Align cell text to the center", "Align cell text to the left": "Align cell text to the left", "Align cell text to the middle": "Align cell text to the middle", "Align cell text to the right": "Align cell text to the right", "Align cell text to the top": "Align cell text to the top", "Align center": "Align center", "Align left": "Align left", "Align right": "Align right", "Align table to the left": "Align table to the left", "Align table to the right": "Align table to the right", Alignment: "Alignment", All: "All", "Almost equal to": "Almost equal to", Angle: "Angle", "Approximately equal to": "Approximately equal to", Aquamarine: "Aquamarine", Arrows: "Arrows", "Asterisk operator": "Asterisk operator", "Austral sign": "Austral sign", "back with leftwards arrow above": "back with leftwards arrow above", Background: "Background", "Below, you can find a list of keyboard shortcuts that can be used in the editor.": "Below, you can find a list of keyboard shortcuts that can be used in the editor.", Big: "Big", "Bitcoin sign": "Bitcoin sign", Black: "Black", "Block quote": "Block quote", Blue: "Blue", Bold: "Bold", "Bold text": "Bold text", Border: "Border", "Break text": "Break text", "Bulleted List": "Bulleted List", "Bulleted list styles toolbar": "Bulleted list styles toolbar", Cancel: "Cancel", "Cannot access default workspace.": "Cannot access default workspace.", "Cannot determine a category for the uploaded file.": "Cannot determine a category for the uploaded file.", "Cannot upload file:": "Cannot upload file:", "Caption for image: %0": "Caption for image: %0", "Caption for the image": "Caption for the image", "Cedi sign": "Cedi sign", "Cell properties": "Cell properties", "Cent sign": "Cent sign", "Center table": "Center table", "Centered image": "Centered image", "Change image text alternative": "Change image text alternative", "Character categories": "Character categories", "Choose heading": "Choose heading", Circle: "Circle", Clear: "Clear", "Click to edit block": "Click to edit block", Close: "Close", "Close contextual balloons, dropdowns, and dialogs": "Close contextual balloons, dropdowns, and dialogs", Code: "Code", "Colon sign": "Colon sign", Color: "Color", "Color picker": "Color picker", Column: "Column", "Contains as member": "Contains as member", "Content editing keystrokes": "Content editing keystrokes", "Copy selected content": "Copy selected content", "Copyright sign": "Copyright sign", "Create link": "Create link", "Cruzeiro sign": "Cruzeiro sign", Currency: "Currency", "Currency sign": "Currency sign", Dashed: "Dashed", Decimal: "Decimal", "Decimal with leading zero": "Decimal with leading zero", "Decrease indent": "Decrease indent", "Decrease list item indent": "Decrease list item indent", Default: "Default", "Degree sign": "Degree sign", "Delete column": "Delete column", "Delete row": "Delete row", "Dim grey": "Dim grey", Dimensions: "Dimensions", Disc: "Disc", "Division sign": "Division sign", "Document colors": "Document colors", "Dollar sign": "Dollar sign", "Dong sign": "Dong sign", Dotted: "Dotted", Double: "Double", "Double dagger": "Double dagger", "Double exclamation mark": "Double exclamation mark", "Double low-9 quotation mark": "Double low-9 quotation mark", "Double question mark": "Double question mark", Downloadable: "Downloadable", "downwards arrow to bar": "downwards arrow to bar", "downwards dashed arrow": "downwards dashed arrow", "downwards double arrow": "downwards double arrow", "downwards simple arrow": "downwards simple arrow", "Drachma sign": "Drachma sign", "Drag to move": "Drag to move", "Dropdown toolbar": "Dropdown toolbar", "Edit block": "Edit block", "Edit image": "Edit image", "Edit link": "Edit link", "Editor block content toolbar": "Editor block content toolbar", "Editor contextual toolbar": "Editor contextual toolbar", "Editor dialog": "Editor dialog", "Editor editing area: %0": "Editor editing area: %0", "Editor menu bar": "Editor menu bar", "Editor toolbar": "Editor toolbar", "Element of": "Element of", "Em dash": "Em dash", "Empty set": "Empty set", "En dash": "En dash", "end with leftwards arrow above": "end with leftwards arrow above", "Enter image caption": "Enter image caption", "Enter table caption": "Enter table caption", "Euro sign": "Euro sign", "Euro-currency sign": "Euro-currency sign", "Exclamation question mark": "Exclamation question mark", "Execute the currently focused button. Executing buttons that interact with the editor content moves the focus back to the content.": "Execute the currently focused button. Executing buttons that interact with the editor content moves the focus back to the content.", "Failed to determine category of edited image.": "Failed to determine category of edited image.", "Font Background Color": "Font Background Color", "Font Color": "Font Color", "Font Family": "Font Family", "Font Size": "Font Size", "For all": "For all", "Fraction slash": "Fraction slash", "French franc sign": "French franc sign", "Full size image": "Full size image", "German penny sign": "German penny sign", "Greater-than or equal to": "Greater-than or equal to", "Greater-than sign": "Greater-than sign", Green: "Green", Grey: "Grey", Groove: "Groove", "Guarani sign": "Guarani sign", "Header column": "Header column", "Header row": "Header row", Heading: "Heading", "Heading 1": "Heading 1", "Heading 2": "Heading 2", "Heading 3": "Heading 3", "Heading 4": "Heading 4", "Heading 5": "Heading 5", "Heading 6": "Heading 6", Height: "Height", "Help Contents. To close this dialog press ESC.": "Help Contents. To close this dialog press ESC.", HEX: "HEX", "Horizontal ellipsis": "Horizontal ellipsis", "Horizontal line": "Horizontal line", "Horizontal text alignment toolbar": "Horizontal text alignment toolbar", "Hryvnia sign": "Hryvnia sign", Huge: "Huge", "Identical to": "Identical to", "Image from computer": "Image from computer", "Image resize list": "Image resize list", "Image toolbar": "Image toolbar", "image widget": "image widget", "In line": "In line", "Increase indent": "Increase indent", "Increase list item indent": "Increase list item indent", "Indian rupee sign": "Indian rupee sign", Infinity: "Infinity", Insert: "Insert", "Insert a hard break (a new paragraph)": "Insert a hard break (a new paragraph)", "Insert a new paragraph directly after a widget": "Insert a new paragraph directly after a widget", "Insert a new paragraph directly before a widget": "Insert a new paragraph directly before a widget", "Insert a new table row (when in the last cell of a table)": "Insert a new table row (when in the last cell of a table)", "Insert a soft break (a <code>&lt;br&gt;</code> element)": "Insert a soft break (a <code>&lt;br&gt;</code> element)", "Insert column left": "Insert column left", "Insert column right": "Insert column right", "Insert image": "Insert image", "Insert image via URL": "Insert image via URL", "Insert image with file manager": "Insert image with file manager", "Insert media": "Insert media", "Insert paragraph after block": "Insert paragraph after block", "Insert paragraph before block": "Insert paragraph before block", "Insert row above": "Insert row above", "Insert row below": "Insert row below", "Insert table": "Insert table", "Insert with file manager": "Insert with file manager", Inset: "Inset", Integral: "Integral", Intersection: "Intersection", "Invalid start index value.": "Invalid start index value.", "Inverted exclamation mark": "Inverted exclamation mark", "Inverted question mark": "Inverted question mark", Italic: "Italic", "Italic text": "Italic text", Justify: "Justify", "Justify cell text": "Justify cell text", "Keystrokes that can be used in a list": "Keystrokes that can be used in a list", "Keystrokes that can be used in a table cell": "Keystrokes that can be used in a table cell", "Keystrokes that can be used when a widget is selected (for example: image, table, etc.)": "Keystrokes that can be used when a widget is selected (for example: image, table, etc.)", "Kip sign": "Kip sign", Latin: "Latin", "Latin capital letter a with breve": "Latin capital letter a with breve", "Latin capital letter a with macron": "Latin capital letter a with macron", "Latin capital letter a with ogonek": "Latin capital letter a with ogonek", "Latin capital letter c with acute": "Latin capital letter c with acute", "Latin capital letter c with caron": "Latin capital letter c with caron", "Latin capital letter c with circumflex": "Latin capital letter c with circumflex", "Latin capital letter c with dot above": "Latin capital letter c with dot above", "Latin capital letter d with caron": "Latin capital letter d with caron", "Latin capital letter d with stroke": "Latin capital letter d with stroke", "Latin capital letter e with breve": "Latin capital letter e with breve", "Latin capital letter e with caron": "Latin capital letter e with caron", "Latin capital letter e with dot above": "Latin capital letter e with dot above", "Latin capital letter e with macron": "Latin capital letter e with macron", "Latin capital letter e with ogonek": "Latin capital letter e with ogonek", "Latin capital letter eng": "Latin capital letter eng", "Latin capital letter g with breve": "Latin capital letter g with breve", "Latin capital letter g with cedilla": "Latin capital letter g with cedilla", "Latin capital letter g with circumflex": "Latin capital letter g with circumflex", "Latin capital letter g with dot above": "Latin capital letter g with dot above", "Latin capital letter h with circumflex": "Latin capital letter h with circumflex", "Latin capital letter h with stroke": "Latin capital letter h with stroke", "Latin capital letter i with breve": "Latin capital letter i with breve", "Latin capital letter i with dot above": "Latin capital letter i with dot above", "Latin capital letter i with macron": "Latin capital letter i with macron", "Latin capital letter i with ogonek": "Latin capital letter i with ogonek", "Latin capital letter i with tilde": "Latin capital letter i with tilde", "Latin capital letter j with circumflex": "Latin capital letter j with circumflex", "Latin capital letter k with cedilla": "Latin capital letter k with cedilla", "Latin capital letter l with acute": "Latin capital letter l with acute", "Latin capital letter l with caron": "Latin capital letter l with caron", "Latin capital letter l with cedilla": "Latin capital letter l with cedilla", "Latin capital letter l with middle dot": "Latin capital letter l with middle dot", "Latin capital letter l with stroke": "Latin capital letter l with stroke", "Latin capital letter n with acute": "Latin capital letter n with acute", "Latin capital letter n with caron": "Latin capital letter n with caron", "Latin capital letter n with cedilla": "Latin capital letter n with cedilla", "Latin capital letter o with breve": "Latin capital letter o with breve", "Latin capital letter o with double acute": "Latin capital letter o with double acute", "Latin capital letter o with macron": "Latin capital letter o with macron", "Latin capital letter r with acute": "Latin capital letter r with acute", "Latin capital letter r with caron": "Latin capital letter r with caron", "Latin capital letter r with cedilla": "Latin capital letter r with cedilla", "Latin capital letter s with acute": "Latin capital letter s with acute", "Latin capital letter s with caron": "Latin capital letter s with caron", "Latin capital letter s with cedilla": "Latin capital letter s with cedilla", "Latin capital letter s with circumflex": "Latin capital letter s with circumflex", "Latin capital letter t with caron": "Latin capital letter t with caron", "Latin capital letter t with cedilla": "Latin capital letter t with cedilla", "Latin capital letter t with stroke": "Latin capital letter t with stroke", "Latin capital letter u with breve": "Latin capital letter u with breve", "Latin capital letter u with double acute": "Latin capital letter u with double acute", "Latin capital letter u with macron": "Latin capital letter u with macron", "Latin capital letter u with ogonek": "Latin capital letter u with ogonek", "Latin capital letter u with ring above": "Latin capital letter u with ring above", "Latin capital letter u with tilde": "Latin capital letter u with tilde", "Latin capital letter w with circumflex": "Latin capital letter w with circumflex", "Latin capital letter y with circumflex": "Latin capital letter y with circumflex", "Latin capital letter y with diaeresis": "Latin capital letter y with diaeresis", "Latin capital letter z with acute": "Latin capital letter z with acute", "Latin capital letter z with caron": "Latin capital letter z with caron", "Latin capital letter z with dot above": "Latin capital letter z with dot above", "Latin capital ligature ij": "Latin capital ligature ij", "Latin capital ligature oe": "Latin capital ligature oe", "Latin small letter a with breve": "Latin small letter a with breve", "Latin small letter a with macron": "Latin small letter a with macron", "Latin small letter a with ogonek": "Latin small letter a with ogonek", "Latin small letter c with acute": "Latin small letter c with acute", "Latin small letter c with caron": "Latin small letter c with caron", "Latin small letter c with circumflex": "Latin small letter c with circumflex", "Latin small letter c with dot above": "Latin small letter c with dot above", "Latin small letter d with caron": "Latin small letter d with caron", "Latin small letter d with stroke": "Latin small letter d with stroke", "Latin small letter dotless i": "Latin small letter dotless i", "Latin small letter e with breve": "Latin small letter e with breve", "Latin small letter e with caron": "Latin small letter e with caron", "Latin small letter e with dot above": "Latin small letter e with dot above", "Latin small letter e with macron": "Latin small letter e with macron", "Latin small letter e with ogonek": "Latin small letter e with ogonek", "Latin small letter eng": "Latin small letter eng", "Latin small letter f with hook": "Latin small letter f with hook", "Latin small letter g with breve": "Latin small letter g with breve", "Latin small letter g with cedilla": "Latin small letter g with cedilla", "Latin small letter g with circumflex": "Latin small letter g with circumflex", "Latin small letter g with dot above": "Latin small letter g with dot above", "Latin small letter h with circumflex": "Latin small letter h with circumflex", "Latin small letter h with stroke": "Latin small letter h with stroke", "Latin small letter i with breve": "Latin small letter i with breve", "Latin small letter i with macron": "Latin small letter i with macron", "Latin small letter i with ogonek": "Latin small letter i with ogonek", "Latin small letter i with tilde": "Latin small letter i with tilde", "Latin small letter j with circumflex": "Latin small letter j with circumflex", "Latin small letter k with cedilla": "Latin small letter k with cedilla", "Latin small letter kra": "Latin small letter kra", "Latin small letter l with acute": "Latin small letter l with acute", "Latin small letter l with caron": "Latin small letter l with caron", "Latin small letter l with cedilla": "Latin small letter l with cedilla", "Latin small letter l with middle dot": "Latin small letter l with middle dot", "Latin small letter l with stroke": "Latin small letter l with stroke", "Latin small letter long s": "Latin small letter long s", "Latin small letter n preceded by apostrophe": "Latin small letter n preceded by apostrophe", "Latin small letter n with acute": "Latin small letter n with acute", "Latin small letter n with caron": "Latin small letter n with caron", "Latin small letter n with cedilla": "Latin small letter n with cedilla", "Latin small letter o with breve": "Latin small letter o with breve", "Latin small letter o with double acute": "Latin small letter o with double acute", "Latin small letter o with macron": "Latin small letter o with macron", "Latin small letter r with acute": "Latin small letter r with acute", "Latin small letter r with caron": "Latin small letter r with caron", "Latin small letter r with cedilla": "Latin small letter r with cedilla", "Latin small letter s with acute": "Latin small letter s with acute", "Latin small letter s with caron": "Latin small letter s with caron", "Latin small letter s with cedilla": "Latin small letter s with cedilla", "Latin small letter s with circumflex": "Latin small letter s with circumflex", "Latin small letter t with caron": "Latin small letter t with caron", "Latin small letter t with cedilla": "Latin small letter t with cedilla", "Latin small letter t with stroke": "Latin small letter t with stroke", "Latin small letter u with breve": "Latin small letter u with breve", "Latin small letter u with double acute": "Latin small letter u with double acute", "Latin small letter u with macron": "Latin small letter u with macron", "Latin small letter u with ogonek": "Latin small letter u with ogonek", "Latin small letter u with ring above": "Latin small letter u with ring above", "Latin small letter u with tilde": "Latin small letter u with tilde", "Latin small letter w with circumflex": "Latin small letter w with circumflex", "Latin small letter y with circumflex": "Latin small letter y with circumflex", "Latin small letter z with acute": "Latin small letter z with acute", "Latin small letter z with caron": "Latin small letter z with caron", "Latin small letter z with dot above": "Latin small letter z with dot above", "Latin small ligature ij": "Latin small ligature ij", "Latin small ligature oe": "Latin small ligature oe", "Left aligned image": "Left aligned image", "Left double quotation mark": "Left double quotation mark", "Left single quotation mark": "Left single quotation mark", "Left-pointing double angle quotation mark": "Left-pointing double angle quotation mark", "leftwards arrow to bar": "leftwards arrow to bar", "leftwards dashed arrow": "leftwards dashed arrow", "leftwards double arrow": "leftwards double arrow", "leftwards simple arrow": "leftwards simple arrow", "Less-than or equal to": "Less-than or equal to", "Less-than sign": "Less-than sign", "Light blue": "Light blue", "Light green": "Light green", "Light grey": "Light grey", Link: "Link", "Link image": "Link image", "Link URL": "Link URL", "Lira sign": "Lira sign", "List properties": "List properties", "Livre tournois sign": "Livre tournois sign", "Logical and": "Logical and", "Logical or": "Logical or", "Lower-latin": "Lower-latin", "Lower–roman": "Lower–roman", Macron: "Macron", "Manat sign": "Manat sign", Mathematical: "Mathematical", "Media toolbar": "Media toolbar", "Media URL": "Media URL", "media widget": "media widget", MENU_BAR_MENU_EDIT: "Edit", MENU_BAR_MENU_FILE: "File", MENU_BAR_MENU_FONT: "Font", MENU_BAR_MENU_FORMAT: "Format", MENU_BAR_MENU_HELP: "Help", MENU_BAR_MENU_INSERT: "Insert", MENU_BAR_MENU_TEXT: "Text", MENU_BAR_MENU_TOOLS: "Tools", MENU_BAR_MENU_VIEW: "View", "Merge cell down": "Merge cell down", "Merge cell left": "Merge cell left", "Merge cell right": "Merge cell right", "Merge cell up": "Merge cell up", "Merge cells": "Merge cells", "Mill sign": "Mill sign", "Minus sign": "Minus sign", "Move focus between form fields (inputs, buttons, etc.)": "Move focus between form fields (inputs, buttons, etc.)", "Move focus in and out of an active dialog window": "Move focus in and out of an active dialog window", "Move focus to the menu bar, navigate between menu bars": "Move focus to the menu bar, navigate between menu bars", "Move focus to the toolbar, navigate between toolbars": "Move focus to the toolbar, navigate between toolbars", "Move out of a link": "Move out of a link", "Move out of an inline code style": "Move out of an inline code style", "Move the caret to allow typing directly after a widget": "Move the caret to allow typing directly after a widget", "Move the caret to allow typing directly before a widget": "Move the caret to allow typing directly before a widget", "Move the selection to the next cell": "Move the selection to the next cell", "Move the selection to the previous cell": "Move the selection to the previous cell", "Multiplication sign": "Multiplication sign", "N-ary product": "N-ary product", "N-ary summation": "N-ary summation", Nabla: "Nabla", "Naira sign": "Naira sign", "Navigate through the table": "Navigate through the table", "Navigate through the toolbar or menu bar": "Navigate through the toolbar or menu bar", "New sheqel sign": "New sheqel sign", Next: "Next", "No results found": "No results found", "No searchable items": "No searchable items", None: "None", "Nordic mark sign": "Nordic mark sign", "Not an element of": "Not an element of", "Not equal to": "Not equal to", "Not sign": "Not sign", "Numbered List": "Numbered List", "Numbered list styles toolbar": "Numbered list styles toolbar", "on with exclamation mark with left right arrow above": "on with exclamation mark with left right arrow above", "Open file manager": "Open file manager", "Open in a new tab": "Open in a new tab", "Open link in new tab": "Open link in new tab", "Open media in new tab": "Open media in new tab", "Open the accessibility help dialog": "Open the accessibility help dialog", Orange: "Orange", Original: "Original", Outset: "Outset", Overline: "Overline", Padding: "Padding", Paragraph: "Paragraph", "Paragraph sign": "Paragraph sign", "Partial differential": "Partial differential", "Paste content": "Paste content", "Paste content as plain text": "Paste content as plain text", "Paste the media URL in the input.": "Paste the media URL in the input.", "Per mille sign": "Per mille sign", "Per ten thousand sign": "Per ten thousand sign", "Peseta sign": "Peseta sign", "Peso sign": "Peso sign", "Plus-minus sign": "Plus-minus sign", "Pound sign": "Pound sign", "Press %0 for help.": "Press %0 for help.", "Press Enter to type after or press Shift + Enter to type before the widget": "Press Enter to type after or press Shift + Enter to type before the widget", Previous: "Previous", "Processing the edited image.": "Processing the edited image.", "Proportional to": "Proportional to", Purple: "Purple", "Question exclamation mark": "Question exclamation mark", Red: "Red", Redo: "Redo", "Registered sign": "Registered sign", "Remove color": "Remove color", "Replace from computer": "Replace from computer", "Replace image": "Replace image", "Replace image from computer": "Replace image from computer", "Replace image with file manager": "Replace image with file manager", "Replace with file manager": "Replace with file manager", "Resize image": "Resize image", "Resize image to %0": "Resize image to %0", "Resize image to the original size": "Resize image to the original size", "Restore default": "Restore default", "Reversed order": "Reversed order", "Reversed paragraph sign": "Reversed paragraph sign", "Revert autoformatting action": "Revert autoformatting action", "Rich Text Editor": "Rich Text Editor", Ridge: "Ridge", "Right aligned image": "Right aligned image", "Right double quotation mark": "Right double quotation mark", "Right single quotation mark": "Right single quotation mark", "Right-pointing double angle quotation mark": "Right-pointing double angle quotation mark", "rightwards arrow to bar": "rightwards arrow to bar", "rightwards dashed arrow": "rightwards dashed arrow", "rightwards double arrow": "rightwards double arrow", "rightwards simple arrow": "rightwards simple arrow", Row: "Row", "Ruble sign": "Ruble sign", "Rupee sign": "Rupee sign", Save: "Save", "Section sign": "Section sign", "Select all": "Select all", "Select column": "Select column", "Select row": "Select row", "Server failed to process the image.": "Server failed to process the image.", "Show more items": "Show more items", "Side image": "Side image", "Single left-pointing angle quotation mark": "Single left-pointing angle quotation mark", "Single low-9 quotation mark": "Single low-9 quotation mark", "Single right-pointing angle quotation mark": "Single right-pointing angle quotation mark", Small: "Small", Solid: "Solid", "soon with rightwards arrow above": "soon with rightwards arrow above", "Special characters": "Special characters", "Spesmilo sign": "Spesmilo sign", "Split cell horizontally": "Split cell horizontally", "Split cell vertically": "Split cell vertically", Square: "Square", "Square root": "Square root", "Start at": "Start at", "Start index must be greater than 0.": "Start index must be greater than 0.", Strikethrough: "Strikethrough", "Strikethrough text": "Strikethrough text", Style: "Style", Subscript: "Subscript", Superscript: "Superscript", Table: "Table", "Table alignment toolbar": "Table alignment toolbar", "Table cell text alignment": "Table cell text alignment", "Table properties": "Table properties", "Table toolbar": "Table toolbar", "Tenge sign": "Tenge sign", Text: "Text", "Text alignment": "Text alignment", "Text alignment toolbar": "Text alignment toolbar", "Text alternative": "Text alternative", 'The color is invalid. Try "#FF0000" or "rgb(255,0,0)" or "red".': 'The color is invalid. Try "#FF0000" or "rgb(255,0,0)" or "red".', "The URL must not be empty.": "The URL must not be empty.", 'The value is invalid. Try "10px" or "2em" or simply "2".': 'The value is invalid. Try "10px" or "2em" or simply "2".', "There exists": "There exists", "These keyboard shortcuts allow for quick access to content editing features.": "These keyboard shortcuts allow for quick access to content editing features.", "This link has no URL": "This link has no URL", "This media URL is not supported.": "This media URL is not supported.", "Tilde operator": "Tilde operator", Tiny: "Tiny", "Tip: Paste the URL into the content to embed faster.": "Tip: Paste the URL into the content to embed faster.", "To-do List": "To-do List", "Toggle caption off": "Toggle caption off", "Toggle caption on": "Toggle caption on", "Toggle the circle list style": "Toggle the circle list style", "Toggle the decimal list style": "Toggle the decimal list style", "Toggle the decimal with leading zero list style": "Toggle the decimal with leading zero list style", "Toggle the disc list style": "Toggle the disc list style", "Toggle the lower–latin list style": "Toggle the lower–latin list style", "Toggle the lower–roman list style": "Toggle the lower–roman list style", "Toggle the square list style": "Toggle the square list style", "Toggle the upper–latin list style": "Toggle the upper–latin list style", "Toggle the upper–roman list style": "Toggle the upper–roman list style", "top with upwards arrow above": "top with upwards arrow above", "Trade mark sign": "Trade mark sign", "Tugrik sign": "Tugrik sign", "Turkish lira sign": "Turkish lira sign", Turquoise: "Turquoise", "Two dot leader": "Two dot leader", "Type or paste your content here.": "Type or paste your content here.", "Type your title": "Type your title", Underline: "Underline", "Underline text": "Underline text", Undo: "Undo", Union: "Union", Unlink: "Unlink", "up down arrow with base": "up down arrow with base", Update: "Update", "Update image URL": "Update image URL", "Upload failed": "Upload failed", "Upload from computer": "Upload from computer", "Upload image from computer": "Upload image from computer", "Upload in progress": "Upload in progress", "Upper-latin": "Upper-latin", "Upper-roman": "Upper-roman", "upwards arrow to bar": "upwards arrow to bar", "upwards dashed arrow": "upwards dashed arrow", "upwards double arrow": "upwards double arrow", "upwards simple arrow": "upwards simple arrow", "Use the following keystrokes for more efficient navigation in the CKEditor 5 user interface.": "Use the following keystrokes for more efficient navigation in the CKEditor 5 user interface.", "User interface and content navigation keystrokes": "User interface and content navigation keystrokes", "Vertical text alignment toolbar": "Vertical text alignment toolbar", "Vulgar fraction one half": "Vulgar fraction one half", "Vulgar fraction one quarter": "Vulgar fraction one quarter", "Vulgar fraction three quarters": "Vulgar fraction three quarters", White: "White", "Widget toolbar": "Widget toolbar", Width: "Width", "Won sign": "Won sign", "Wrap text": "Wrap text", Yellow: "Yellow", "Yen sign": "Yen sign" });
   })(window.CKEDITOR_TRANSLATIONS || (window.CKEDITOR_TRANSLATIONS = {}));
-  const IM = async ({
+  const IM = [
+    "undo",
+    "redo",
+    "|",
+    "heading",
+    "fontSize",
+    "fontFamily",
+    "bold",
+    "italic",
+    "underline",
+    "strikethrough",
+    "code",
+    "fontColor",
+    "fontBackgroundColor",
+    "superscript",
+    "subscript",
+    "|",
+    "alignment",
+    "bulletedList",
+    "numberedList",
+    "outdent",
+    "indent",
+    "|",
+    "horizontalLine",
+    "blockQuote",
+    "link",
+    "|",
+    "insertImage",
+    "insertTable",
+    "specialCharacters"
+  ], PM = {
+    language: "en",
+    placeholder: "Please enter content",
+    fontSize: {
+      options: [
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        "default",
+        18,
+        20,
+        22,
+        24,
+        26,
+        28,
+        36,
+        48,
+        72
+      ]
+    },
+    heading: {
+      options: [
+        { model: "paragraph", title: "Paragraph", class: "ck-heading_paragraph" },
+        { model: "heading1", view: "h1", title: "Heading 1", class: "ck-heading_heading1" },
+        { model: "heading2", view: "h2", title: "Heading 2", class: "ck-heading_heading2" },
+        { model: "heading3", view: "h3", title: "Heading 3", class: "ck-heading_heading3" }
+      ]
+    },
+    toolbar: {
+      items: IM,
+      shouldNotGroupWhenFull: !1
+    },
+    plugins: [
+      NI,
+      ws,
+      ZI,
+      TP,
+      xP,
+      LP,
+      OP,
+      zP,
+      $P,
+      KP,
+      YP,
+      nR,
+      ep,
+      Yg,
+      xM,
+      dw,
+      gw,
+      SM,
+      mw,
+      fw,
+      hw,
+      PR,
+      L3,
+      P3,
+      D3,
+      W3,
+      v3,
+      n7,
+      G7,
+      uV,
+      dV,
+      uM,
+      oM,
+      LV,
+      XV,
+      yS,
+      bM,
+      vM,
+      FR,
+      AL,
+      YR,
+      iL,
+      RL,
+      WL,
+      $L,
+      x3,
+      Cp,
+      cL
+    ]
+  }, RM = async ({
     targetId: n,
     lang: e = "en",
     initialData: t = "",
@@ -59954,161 +60069,47 @@ Read more: ${Iw}#error-${n}`;
     const o = document.getElementById(n);
     if (!o)
       return console.error("[CKEditor 경고] targetId에 해당하는 요소가 없습니다. targetId를 확인해주세요."), null;
-    const r = await sr.create(o, {
+    const r = {
+      ...PM,
       initialData: t,
-      plugins: [
-        NI,
-        ws,
-        ZI,
-        TP,
-        xP,
-        LP,
-        OP,
-        zP,
-        WP,
-        KP,
-        YP,
-        nR,
-        ep,
-        Yg,
-        xM,
-        dw,
-        gw,
-        SM,
-        mw,
-        fw,
-        hw,
-        PR,
-        L3,
-        P3,
-        D3,
-        $3,
-        v3,
-        n7,
-        G7,
-        uV,
-        dV,
-        uM,
-        oM,
-        LV,
-        XV,
-        yS,
-        bM,
-        vM,
-        FR,
-        AL,
-        YR,
-        iL,
-        RL,
-        $L,
-        WL,
-        x3,
-        Cp,
-        cL
-      ],
-      toolbar: {
-        items: [
-          "undo",
-          "redo",
-          "|",
-          "heading",
-          "fontSize",
-          "fontFamily",
-          "bold",
-          "italic",
-          "underline",
-          "strikethrough",
-          "code",
-          "fontColor",
-          "fontBackgroundColor",
-          "superscript",
-          "subscript",
-          "|",
-          "alignment",
-          "bulletedList",
-          "numberedList",
-          "outdent",
-          "indent",
-          "|",
-          "horizontalLine",
-          "blockQuote",
-          "link",
-          "|",
-          "insertImage",
-          "insertTable",
-          "specialCharacters"
-        ],
-        shouldNotGroupWhenFull: !1
-      },
       language: e === "ko" ? "ko" : "en",
-      placeholder: e === "ko" ? "내용을 입력해주세요" : "Please enter content",
-      image: {
-        toolbar: [
-          "imageStyle:inline",
-          "imageStyle:block",
-          "imageStyle:side",
-          "|",
-          "toggleImageCaption",
-          "imageTextAlternative",
-          "|",
-          "linkImage"
-        ],
-        insert: {
-          type: "auto"
-        }
-      },
-      table: {
-        contentToolbar: [
-          "tableColumn",
-          "tableRow",
-          "mergeTableCells",
-          "tableProperties",
-          "tableCellProperties",
-          "toggleTableCaption"
-        ]
-      },
-      fontSize: {
-        options: [
-          9,
-          11,
-          13,
-          15,
-          17,
-          19,
-          21
-        ]
-      }
-    });
-    return i && r.model.document.on("change:data", () => {
-      i(r.getData());
-    }), s && r.ui.focusTracker.on("change:isFocused", (a, l, c) => {
-      c || s(r.getData());
-    }), { editor: r };
-  }, PM = ({
+      placeholder: e === "ko" ? "내용을 입력해주세요" : "Please enter content"
+    };
+    return { editor: await sr.create(o, r).then((l) => (i && l.model.document.on("change:data", () => {
+      i(l.getData());
+    }), s && l.ui.focusTracker.on("change:isFocused", (c, u, d) => {
+      d || s(l.getData());
+    }), l)).catch((l) => (console.error("[CKEditor 에러] 에디터를 초기화하는 중 오류가 발생했습니다.", l), null)) };
+  }, LM = ({
     editor: n,
     minHeight: e = 200,
     maxHeight: t = 700,
     gapHeight: i = 100,
     sizingButtonPosition: s = "outer"
   }) => {
-    const r = document.querySelector(".ck-editor"), a = document.querySelector(".ck-content"), l = document.createElement("div"), c = document.createElement("button"), u = document.createElement("button");
-    l.classList.add("Spendit-Editor-Sizing-Buttons"), c.classList.add("Spendit-Editor-Sizing-Button"), c.classList.add("Spendit-Sizing-Top"), c.classList.add("Spendit-Sizing-Top-Disabled"), u.classList.add("Spendit-Editor-Sizing-Button"), u.classList.add("Spendit-Sizing-Bottom"), s === "inner" && l.classList.add("Spendit-Editor-Sizing-Buttons-Inner"), n.editing.view.change((d) => {
-      d.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), d.setStyle("min-height", `${e}px`, n.editing.view.document.getRoot()), d.setStyle("max-height", `${t}px`, n.editing.view.document.getRoot());
-    }), c.onclick = () => {
-      const d = a.offsetHeight - 2 - i;
-      n.editing.view.change((h) => {
-        const f = d <= e;
-        h.setStyle("height", f ? `${e}px` : `${d}px`, n.editing.view.document.getRoot()), f ? (c.classList.add("Spendit-Sizing-Top-Disabled"), u.classList.remove("Spendit-Sizing-Top-Disabled")) : (c.classList.remove("Spendit-Sizing-Top-Disabled"), u.classList.remove("Spendit-Sizing-Bottom-Disabled"));
+    const a = document.querySelector(".ck-editor"), l = document.querySelector(".ck-content"), c = h(s), u = c.querySelector(".Spendit-Sizing-Top"), d = c.querySelector(".Spendit-Sizing-Bottom");
+    n.editing.view.change((p) => {
+      p.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), p.setStyle("min-height", `${e}px`, n.editing.view.document.getRoot()), p.setStyle("max-height", `${t}px`, n.editing.view.document.getRoot());
+    }), u.onclick = () => m(-i), d.onclick = () => m(i);
+    function h(p) {
+      const w = document.createElement("div");
+      w.classList.add("Spendit-Editor-Sizing-Buttons"), w.classList.add(p === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "");
+      const v = f(["Spendit-Sizing-Top", "Spendit-Sizing-Top-Disabled"]), C = f(["Spendit-Sizing-Bottom"]);
+      return w.appendChild(v), w.appendChild(C), a.appendChild(w), w;
+    }
+    function f(p) {
+      const w = document.createElement("button");
+      return w.classList.add("Spendit-Editor-Sizing-Button"), p.forEach((v) => w.classList.add(v)), w;
+    }
+    function m(p) {
+      const w = l.offsetHeight - 2 + p;
+      n.editing.view.change((v) => {
+        const C = w >= t, L = w <= e, O = C ? t : L ? e : w;
+        v.setStyle("height", `${O}px`, n.editing.view.document.getRoot()), L ? (u.classList.add("Spendit-Sizing-Top-Disabled"), d.classList.remove("Spendit-Sizing-Bottom-Disabled")) : C ? (u.classList.remove("Spendit-Sizing-Top-Disabled"), d.classList.add("Spendit-Sizing-Bottom-Disabled")) : (u.classList.remove("Spendit-Sizing-Top-Disabled"), d.classList.remove("Spendit-Sizing-Bottom-Disabled"), window.scroll(0, window.scrollY + (p - 30)));
       });
-    }, u.onclick = () => {
-      const d = a.offsetHeight - 2 + i;
-      n.editing.view.change((h) => {
-        const f = d >= t;
-        h.setStyle("height", f ? `${t}px` : `${d}px`, n.editing.view.document.getRoot()), f ? (c.classList.remove("Spendit-Sizing-Top-Disabled"), u.classList.add("Spendit-Sizing-Bottom-Disabled")) : (c.classList.remove("Spendit-Sizing-Top-Disabled"), u.classList.remove("Spendit-Sizing-Bottom-Disabled"));
-      });
-    }, l.appendChild(c), l.appendChild(u), r.appendChild(l);
-  }, RM = async () => {
-    const { editor: n } = await IM({
+    }
+  }, VM = async () => {
+    const { editor: n } = await RM({
       targetId: "sample-editor",
       lang: "en",
       initialData: "<p>test</p>",
@@ -60119,7 +60120,7 @@ Read more: ${Iw}#error-${n}`;
         console.log("blur", e);
       }
     });
-    return PM({
+    return LM({
       editor: n,
       sizingButtonPosition: "inner"
     }), {
@@ -60127,7 +60128,7 @@ Read more: ${Iw}#error-${n}`;
     };
   };
   (async () => {
-    const { editor: n } = await RM(), e = document.getElementById("readonly-button"), t = document.getElementById("edit-button");
+    const { editor: n } = await VM(), e = document.getElementById("readonly-button"), t = document.getElementById("edit-button");
     e.addEventListener("click", () => {
       n.enableReadOnlyMode("test"), n.ui.view.toolbar.element.style.display = "none";
     }), t.addEventListener("click", () => {
@@ -60135,4 +60136,4 @@ Read more: ${Iw}#error-${n}`;
     });
   })();
 });
-export default LM();
+export default MM();

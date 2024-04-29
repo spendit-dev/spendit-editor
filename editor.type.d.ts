@@ -15,5 +15,5 @@ export interface EditorSizingButtonConfig {
     sizingButtonPosition?: 'inner' | 'outer';
 }
 export interface InitEditorResponse {
-    editor: ClassicEditor;
+    editor: ClassicEditor | null;
 }
