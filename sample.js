@@ -196,8 +196,8 @@ var MM = pw((Ue, He) => {
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   function Ln(n, e, t) {
-    t = t || function(p, w) {
-      return p === w;
+    t = t || function(p, _) {
+      return p === _;
     };
     const i = n.length, s = e.length;
     if (i > 200 || s > 200 || i + s > 300)
@@ -210,12 +210,12 @@ var MM = pw((Ue, He) => {
       o = "insert", r = "delete";
     const a = n.length, l = e.length, c = l - a, u = {}, d = {};
     function h(p) {
-      const w = (d[p - 1] !== void 0 ? d[p - 1] : -1) + 1, v = d[p + 1] !== void 0 ? d[p + 1] : -1, C = w > v ? -1 : 1;
-      u[p + C] && (u[p] = u[p + C].slice(0)), u[p] || (u[p] = []), u[p].push(w > v ? o : r);
-      let L = Math.max(w, v), O = L - p;
-      for (; O < a && L < l && t(n[O], e[L]); )
-        O++, L++, u[p].push("equal");
-      return L;
+      const _ = (d[p - 1] !== void 0 ? d[p - 1] : -1) + 1, v = d[p + 1] !== void 0 ? d[p + 1] : -1, C = _ > v ? -1 : 1;
+      u[p + C] && (u[p] = u[p + C].slice(0)), u[p] || (u[p] = []), u[p].push(_ > v ? o : r);
+      let R = Math.max(_, v), B = R - p;
+      for (; B < a && R < l && t(n[B], e[R]); )
+        B++, R++, u[p].push("equal");
+      return R;
     }
     let f = 0, m;
     do {
@@ -1327,14 +1327,14 @@ Read more: ${Iw}#error-${n}`;
     var f = o.get(n);
     if (f)
       return f;
-    o.set(n, r), D_(n) ? n.forEach(function(w) {
-      r.add(qi(w, e, t, w, n, o));
-    }) : O_(n) && n.forEach(function(w, v) {
-      r.set(v, qi(w, e, t, v, n, o));
+    o.set(n, r), D_(n) ? n.forEach(function(_) {
+      r.add(qi(_, e, t, _, n, o));
+    }) : O_(n) && n.forEach(function(_, v) {
+      r.set(v, qi(_, e, t, v, n, o));
     });
     var m = c ? l ? e_ : Jr : l ? ln : hs, p = u ? void 0 : m(n);
-    return Pb(p || n, function(w, v) {
-      p && (v = w, w = n[v]), $a(r, v, qi(w, e, t, v, n, o));
+    return Pb(p || n, function(_, v) {
+      p && (v = _, _ = n[v]), $a(r, v, qi(_, e, t, v, n, o));
     }), r;
   }
   var hv = 4;
@@ -1384,9 +1384,9 @@ Read more: ${Iw}#error-${n}`;
     for (o.set(n, e), o.set(e, n); ++d < a; ) {
       var m = n[d], p = e[d];
       if (i)
-        var w = r ? i(p, m, d, e, n, o) : i(m, p, d, n, e, o);
-      if (w !== void 0) {
-        if (w)
+        var _ = r ? i(p, m, d, e, n, o) : i(m, p, d, n, e, o);
+      if (_ !== void 0) {
+        if (_)
           continue;
         h = !1;
         break;
@@ -1469,20 +1469,20 @@ Read more: ${Iw}#error-${n}`;
       return f == e && m == n;
     var p = !0;
     o.set(n, e), o.set(e, n);
-    for (var w = r; ++d < l; ) {
+    for (var _ = r; ++d < l; ) {
       h = a[d];
       var v = n[h], C = e[h];
       if (i)
-        var L = r ? i(C, v, h, e, n, o) : i(v, C, h, n, e, o);
-      if (!(L === void 0 ? v === C || s(v, C, t, i, o) : L)) {
+        var R = r ? i(C, v, h, e, n, o) : i(v, C, h, n, e, o);
+      if (!(R === void 0 ? v === C || s(v, C, t, i, o) : R)) {
         p = !1;
         break;
       }
-      w || (w = h == "constructor");
+      _ || (_ = h == "constructor");
     }
-    if (p && !w) {
-      var O = n.constructor, q = e.constructor;
-      O != q && "constructor" in n && "constructor" in e && !(typeof O == "function" && O instanceof O && typeof q == "function" && q instanceof q) && (p = !1);
+    if (p && !_) {
+      var B = n.constructor, H = e.constructor;
+      B != H && "constructor" in n && "constructor" in e && !(typeof B == "function" && B instanceof B && typeof H == "function" && H instanceof H) && (p = !1);
     }
     return o.delete(n), o.delete(e), p;
   }
@@ -1501,8 +1501,8 @@ Read more: ${Iw}#error-${n}`;
     if (!(t & $v)) {
       var f = u && Ac.call(n, "__wrapped__"), m = d && Ac.call(e, "__wrapped__");
       if (f || m) {
-        var p = f ? n.value() : n, w = m ? e.value() : e;
-        return o || (o = new ot()), s(p, w, t, i, o);
+        var p = f ? n.value() : n, _ = m ? e.value() : e;
+        return o || (o = new ot()), s(p, _, t, i, o);
       }
     }
     return h ? (o || (o = new ot()), Wv(n, e, t, i, s, o)) : !1;
@@ -1619,38 +1619,38 @@ Read more: ${Iw}#error-${n}`;
       throw new TypeError(uy);
     e = ic(e) || 0, J(t) && (u = !!t.leading, d = "maxWait" in t, o = d ? dy(ic(t.maxWait) || 0, e) : o, h = "trailing" in t ? !!t.trailing : h);
     function f(x) {
-      var R = i, I = s;
-      return i = s = void 0, c = x, r = n.apply(I, R), r;
+      var L = i, I = s;
+      return i = s = void 0, c = x, r = n.apply(I, L), r;
     }
     function m(x) {
       return c = x, a = setTimeout(v, e), u ? f(x) : r;
     }
     function p(x) {
-      var R = x - l, I = x - c, ee = e - R;
+      var L = x - l, I = x - c, ee = e - L;
       return d ? hy(ee, o - I) : ee;
     }
-    function w(x) {
-      var R = x - l, I = x - c;
-      return l === void 0 || R >= e || R < 0 || d && I >= o;
+    function _(x) {
+      var L = x - l, I = x - c;
+      return l === void 0 || L >= e || L < 0 || d && I >= o;
     }
     function v() {
       var x = wr();
-      if (w(x))
+      if (_(x))
         return C(x);
       a = setTimeout(v, p(x));
     }
     function C(x) {
       return a = void 0, h && i ? f(x) : (i = s = void 0, r);
     }
-    function L() {
+    function R() {
       a !== void 0 && clearTimeout(a), c = 0, i = l = s = a = void 0;
     }
-    function O() {
+    function B() {
       return a === void 0 ? r : C(wr());
     }
-    function q() {
-      var x = wr(), R = w(x);
-      if (i = arguments, s = this, l = x, R) {
+    function H() {
+      var x = wr(), L = _(x);
+      if (i = arguments, s = this, l = x, L) {
         if (a === void 0)
           return m(l);
         if (d)
@@ -1658,7 +1658,7 @@ Read more: ${Iw}#error-${n}`;
       }
       return a === void 0 && (a = setTimeout(v, e)), r;
     }
-    return q.cancel = L, q.flush = O, q;
+    return H.cancel = R, H.flush = B, H;
   }
   function ea(n, e, t) {
     (t !== void 0 && !ds(n[e], t) || t === void 0 && !(e in n)) && Fo(n, e, t);
@@ -1771,8 +1771,8 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const wo = Symbol("observableProperties"), Wo = Symbol("boundObservables"), bo = Symbol("boundProperties"), Ii = Symbol("decoratedMethods"), Sc = Symbol("decoratedOriginal"), Nf = H(G());
-  function H(n) {
+  const wo = Symbol("observableProperties"), Wo = Symbol("boundObservables"), bo = Symbol("boundProperties"), Ii = Symbol("decoratedMethods"), Sc = Symbol("decoratedOriginal"), Nf = W(G());
+  function W(n) {
     if (!n)
       return Nf;
     class e extends n {
@@ -1886,7 +1886,7 @@ Read more: ${Iw}#error-${n}`;
     "_addEventListener",
     "_removeEventListener"
   ].forEach((n) => {
-    H[n] = Nf.prototype[n];
+    W[n] = Nf.prototype[n];
   });
   function br(n) {
     n[wo] || (Object.defineProperty(n, wo, {
@@ -2397,7 +2397,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const $f = ["top", "right", "bottom", "left", "width", "height"];
-  class B {
+  class O {
     /**
      * Creates an instance of rect.
      *
@@ -2436,8 +2436,8 @@ Read more: ${Iw}#error-${n}`;
         enumerable: !1
       }), sa(e) || t)
         if (t) {
-          const i = B.getDomRangeRects(e);
-          As(this, B.getBoundingRect(i));
+          const i = O.getDomRangeRects(e);
+          As(this, O.getBoundingRect(i));
         } else
           As(this, e.getBoundingClientRect());
       else if (_o(e)) {
@@ -2459,7 +2459,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns A cloned rect.
      */
     clone() {
-      return new B(this);
+      return new O(this);
     }
     /**
      * Moves the rect so that its upper–left corner lands in desired `[ x, y ]` location.
@@ -2496,7 +2496,7 @@ Read more: ${Iw}#error-${n}`;
       if (t.width = t.right - t.left, t.height = t.bottom - t.top, t.width < 0 || t.height < 0)
         return null;
       {
-        const i = new B(t);
+        const i = new O(t);
         return i._source = this._source, i;
       }
     }
@@ -2546,7 +2546,7 @@ Read more: ${Iw}#error-${n}`;
           i = s, s = s.parentNode;
           continue;
         }
-        const l = new B(s), c = t.getIntersection(l);
+        const l = new O(s), c = t.getIntersection(l);
         if (c)
           c.getArea() < t.getArea() && (t = c);
         else
@@ -2619,11 +2619,11 @@ Read more: ${Iw}#error-${n}`;
       const t = [], i = Array.from(e.getClientRects());
       if (i.length)
         for (const s of i)
-          t.push(new B(s));
+          t.push(new O(s));
       else {
         let s = e.startContainer;
         ce(s) && (s = s.parentNode);
-        const o = new B(s.getBoundingClientRect());
+        const o = new O(s.getBoundingClientRect());
         o.right = o.left, o.width = 0, t.push(o);
       }
       return t;
@@ -2646,7 +2646,7 @@ Read more: ${Iw}#error-${n}`;
       let i = 0;
       for (const s of e)
         i++, t.left = Math.min(t.left, s.left), t.top = Math.min(t.top, s.top), t.right = Math.max(t.right, s.right), t.bottom = Math.max(t.bottom, s.bottom);
-      return i == 0 ? null : (t.width = t.right - t.left, t.height = t.bottom - t.top, new B(t));
+      return i == 0 ? null : (t.width = t.right - t.left, t.height = t.bottom - t.top, new O(t));
     }
   }
   function As(n, e) {
@@ -2666,7 +2666,7 @@ Read more: ${Iw}#error-${n}`;
     return n instanceof HTMLElement ? n.ownerDocument.defaultView.getComputedStyle(n).overflow : "visible";
   }
   function Uy(n, e) {
-    const t = new B(e), i = Hf(e);
+    const t = new O(e), i = Hf(e);
     let s = 0, o = 0;
     s -= t.left, o -= t.top, s += e.scrollLeft, o += e.scrollTop, s -= i.left, o -= i.top, n.moveBy(s, o);
   }
@@ -2800,7 +2800,7 @@ Read more: ${Iw}#error-${n}`;
    */
   function qo({ element: n, target: e, positions: t, limiter: i, fitInViewport: s, viewportOffsetConfig: o }) {
     di(e) && (e = e()), di(i) && (i = i());
-    const r = Wf(n), a = Wy(o), l = new B(n), c = Mc(e, a);
+    const r = Wf(n), a = Wy(o), l = new O(n), c = Mc(e, a);
     let u;
     if (!c || !a.getIntersection(c))
       return null;
@@ -2822,12 +2822,12 @@ Read more: ${Iw}#error-${n}`;
     return u;
   }
   function Mc(n, e) {
-    const t = new B(n).getVisible();
+    const t = new O(n).getVisible();
     return t ? t.getIntersection(e) : null;
   }
   function Wy(n) {
     n = Object.assign({ top: 0, bottom: 0, left: 0, right: 0 }, n);
-    const e = new B(E.window);
+    const e = new O(E.window);
     return e.top += n.top, e.height -= n.top, e.bottom -= n.bottom, e.height -= n.bottom, e;
   }
   function $y(n, e) {
@@ -2942,7 +2942,7 @@ Read more: ${Iw}#error-${n}`;
     }
   }
   function Gy({ window: n, rect: e, alignToTop: t, forceScroll: i, viewportOffset: s }) {
-    const o = e.clone().moveBy(0, s.bottom), r = e.clone().moveBy(0, -s.top), a = new B(n).excludeScrollbarsAndBorders(), l = [r, o], c = t && i, u = l.every((p) => a.contains(p));
+    const o = e.clone().moveBy(0, s.bottom), r = e.clone().moveBy(0, -s.top), a = new O(n).excludeScrollbarsAndBorders(), l = [r, o], c = t && i, u = l.every((p) => a.contains(p));
     let { scrollX: d, scrollY: h } = n;
     const f = d, m = h;
     c ? h -= a.top - e.top + s.top : u || (Kf(r, a) ? h -= a.top - e.top + s.top : jf(o, a) && (t ? h += e.top - a.top - s.top : h += e.bottom - a.bottom + s.bottom)), u || (Zf(e, a) ? d -= a.left - e.left + s.left : Jf(e, a) && (d += e.right - a.right + s.right)), (d != f || h !== m) && n.scrollTo(d, h);
@@ -2952,7 +2952,7 @@ Read more: ${Iw}#error-${n}`;
     let l, c, u;
     const d = o || r.document.body;
     for (; n != d; )
-      c = e(), l = new B(n).excludeScrollbarsAndBorders(), u = l.contains(c), a ? n.scrollTop -= l.top - c.top + s : u || (Kf(c, l) ? n.scrollTop -= l.top - c.top + s : jf(c, l) && (t ? n.scrollTop += c.top - l.top - s : n.scrollTop += c.bottom - l.bottom + s)), u || (Zf(c, l) ? n.scrollLeft -= l.left - c.left + s : Jf(c, l) && (n.scrollLeft += c.right - l.right + s)), n = n.parentNode;
+      c = e(), l = new O(n).excludeScrollbarsAndBorders(), u = l.contains(c), a ? n.scrollTop -= l.top - c.top + s : u || (Kf(c, l) ? n.scrollTop -= l.top - c.top + s : jf(c, l) && (t ? n.scrollTop += c.top - l.top - s : n.scrollTop += c.bottom - l.bottom + s)), u || (Zf(c, l) ? n.scrollLeft -= l.left - c.left + s : Jf(c, l) && (n.scrollLeft += c.right - l.right + s)), n = n.parentNode;
   }
   function jf(n, e) {
     return n.bottom > e.bottom;
@@ -2977,13 +2977,13 @@ Read more: ${Iw}#error-${n}`;
       return n.parentNode;
   }
   function Nc(n, e) {
-    const t = sl(n), i = new B(n);
+    const t = sl(n), i = new O(n);
     if (t === e)
       return i;
     {
       let s = t;
       for (; s != e; ) {
-        const o = s.frameElement, r = new B(o).excludeScrollbarsAndBorders();
+        const o = s.frameElement, r = new O(o).excludeScrollbarsAndBorders();
         i.moveBy(r.left, r.top), s = s.parent;
       }
     }
@@ -3608,7 +3608,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Q extends Me(H()) {
+  class Q extends Me(W()) {
     constructor() {
       super(), this._elements = /* @__PURE__ */ new Set(), this._nextEventLoopTimeout = null, this.set("isFocused", !1), this.set("focusedElement", null);
     }
@@ -3838,7 +3838,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class b extends H() {
+  class w extends W() {
     /**
      * @inheritDoc
      */
@@ -3918,7 +3918,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class V extends H() {
+  class V extends W() {
     /**
      * Creates a new `Command` instance.
      *
@@ -4191,57 +4191,57 @@ Read more: ${Iw}#error-${n}`;
       const s = this, o = this._context;
       f(e), p(e);
       const r = e.filter((x) => !d(x, t)), a = [...m(r)];
-      q(a, i);
-      const l = L(a);
-      return O(l, "init").then(() => O(l, "afterInit")).then(() => l);
+      H(a, i);
+      const l = R(a);
+      return B(l, "init").then(() => B(l, "afterInit")).then(() => l);
       function c(x) {
         return typeof x == "function";
       }
       function u(x) {
         return c(x) && !!x.isContextPlugin;
       }
-      function d(x, R) {
-        return R.some((I) => I === x || h(x) === I || h(I) === x);
+      function d(x, L) {
+        return L.some((I) => I === x || h(x) === I || h(I) === x);
       }
       function h(x) {
         return c(x) ? x.pluginName || x.name : x;
       }
-      function f(x, R = /* @__PURE__ */ new Set()) {
+      function f(x, L = /* @__PURE__ */ new Set()) {
         x.forEach((I) => {
-          c(I) && (R.has(I) || (R.add(I), I.pluginName && !s._availablePlugins.has(I.pluginName) && s._availablePlugins.set(I.pluginName, I), I.requires && f(I.requires, R)));
+          c(I) && (L.has(I) || (L.add(I), I.pluginName && !s._availablePlugins.has(I.pluginName) && s._availablePlugins.set(I.pluginName, I), I.requires && f(I.requires, L)));
         });
       }
-      function m(x, R = /* @__PURE__ */ new Set()) {
-        return x.map((I) => c(I) ? I : s._availablePlugins.get(I)).reduce((I, ee) => R.has(ee) ? I : (R.add(ee), ee.requires && (p(ee.requires, ee), m(ee.requires, R).forEach((Zt) => I.add(Zt))), I.add(ee)), /* @__PURE__ */ new Set());
+      function m(x, L = /* @__PURE__ */ new Set()) {
+        return x.map((I) => c(I) ? I : s._availablePlugins.get(I)).reduce((I, ee) => L.has(ee) ? I : (L.add(ee), ee.requires && (p(ee.requires, ee), m(ee.requires, L).forEach((Zt) => I.add(Zt))), I.add(ee)), /* @__PURE__ */ new Set());
       }
-      function p(x, R = null) {
+      function p(x, L = null) {
         x.map((I) => c(I) ? I : s._availablePlugins.get(I) || I).forEach((I) => {
-          w(I, R), v(I, R), C(I, R);
+          _(I, L), v(I, L), C(I, L);
         });
       }
-      function w(x, R) {
+      function _(x, L) {
         if (!c(x))
-          throw R ? new g("plugincollection-soft-required", o, { missingPlugin: x, requiredBy: h(R) }) : new g("plugincollection-plugin-not-found", o, { plugin: x });
+          throw L ? new g("plugincollection-soft-required", o, { missingPlugin: x, requiredBy: h(L) }) : new g("plugincollection-plugin-not-found", o, { plugin: x });
       }
-      function v(x, R) {
-        if (u(R) && !u(x))
-          throw new g("plugincollection-context-required", o, { plugin: h(x), requiredBy: h(R) });
+      function v(x, L) {
+        if (u(L) && !u(x))
+          throw new g("plugincollection-context-required", o, { plugin: h(x), requiredBy: h(L) });
       }
-      function C(x, R) {
-        if (R && d(x, t))
-          throw new g("plugincollection-required", o, { plugin: h(x), requiredBy: h(R) });
+      function C(x, L) {
+        if (L && d(x, t))
+          throw new g("plugincollection-required", o, { plugin: h(x), requiredBy: h(L) });
       }
-      function L(x) {
-        return x.map((R) => {
-          let I = s._contextPlugins.get(R);
-          return I = I || new R(o), s._add(R, I), I;
+      function R(x) {
+        return x.map((L) => {
+          let I = s._contextPlugins.get(L);
+          return I = I || new L(o), s._add(L, I), I;
         });
       }
-      function O(x, R) {
-        return x.reduce((I, ee) => !ee[R] || s._contextPlugins.has(ee) ? I : I.then(ee[R].bind(ee)), Promise.resolve());
+      function B(x, L) {
+        return x.reduce((I, ee) => !ee[L] || s._contextPlugins.has(ee) ? I : I.then(ee[L].bind(ee)), Promise.resolve());
       }
-      function q(x, R) {
-        for (const I of R) {
+      function H(x, L) {
+        for (const I of L) {
           if (typeof I != "function")
             throw new g("plugincollection-replace-plugin-invalid-type", null, { pluginItem: I });
           const ee = I.pluginName;
@@ -4445,7 +4445,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Go extends H() {
+  class Go extends W() {
     /**
      * Creates a new plugin instance.
      */
@@ -6192,7 +6192,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class jo extends H(Zn) {
+  class jo extends W(Zn) {
     /**
      * Creates an editable element.
      *
@@ -7758,7 +7758,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  let Ko = class extends la(H()) {
+  let Ko = class extends la(W()) {
     /**
      * Creates a Document instance.
      *
@@ -9412,7 +9412,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ZC extends H() {
+  class ZC extends W() {
     /**
      * Creates a renderer instance.
      *
@@ -11413,7 +11413,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  let wk = class extends H() {
+  let wk = class extends W() {
     /**
      * @param stylesProcessor The styles processor instance.
      */
@@ -12341,7 +12341,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class W extends vi {
+  class $ extends vi {
     /**
      * Creates a model element.
      *
@@ -12483,7 +12483,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _clone(e = !1) {
       const t = e ? Array.from(this._children).map((i) => i._clone(!0)) : void 0;
-      return new W(this.name, this.getAttributes(), t);
+      return new $(this.name, this.getAttributes(), t);
     }
     /**
      * {@link module:engine/model/element~Element#_insertChild Inserts} one or more nodes at the end of this element.
@@ -12538,12 +12538,12 @@ Read more: ${Iw}#error-${n}`;
       if (e.children) {
         t = [];
         for (const i of e.children)
-          i.name ? t.push(W.fromJSON(i)) : t.push(j.fromJSON(i));
+          i.name ? t.push($.fromJSON(i)) : t.push(j.fromJSON(i));
       }
-      return new W(e.name, e.attributes, t);
+      return new $(e.name, e.attributes, t);
     }
   }
-  W.prototype.is = function(n, e) {
+  $.prototype.is = function(n, e) {
     return e ? e === this.name && (n === "element" || n === "model:element") : n === "element" || n === "model:element" || // From super.is(). This is highly utilised method and cannot call super. See ckeditor/ckeditor5#6529.
     n === "node" || n === "model:node";
   };
@@ -12622,7 +12622,7 @@ Read more: ${Iw}#error-${n}`;
       if (i === this._boundaryEndParent && t.offset == this.boundaries.end.offset)
         return { done: !0, value: void 0 };
       const s = On(t, i), o = s || fm(t, i, s);
-      if (o instanceof W) {
+      if (o instanceof $) {
         if (!this.shallow)
           t.path.push(0), this._visitedParent = o;
         else {
@@ -12655,7 +12655,7 @@ Read more: ${Iw}#error-${n}`;
       if (i == this._boundaryStartParent && t.offset == this.boundaries.start.offset)
         return { done: !0, value: void 0 };
       const s = t.parent, o = On(t, s), r = o || mm(t, s, o);
-      if (r instanceof W)
+      if (r instanceof $)
         return t.offset--, this.shallow ? (this._position = t, Xt("elementStart", r, e, t, 1)) : (t.path.push(r.maxOffset), this._position = t, this._visitedParent = r, this.ignoreElementEnd ? this._previous() : Xt("elementEnd", r, e, t));
       if (r instanceof j) {
         let a;
@@ -13293,7 +13293,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class _ extends jt {
+  class b extends jt {
     /**
      * Creates a range spanning from `start` position to `end` position.
      *
@@ -13417,7 +13417,7 @@ Read more: ${Iw}#error-${n}`;
      */
     getDifference(e) {
       const t = [];
-      return this.isIntersecting(e) ? (this.containsPosition(e.start) && t.push(new _(this.start, e.start)), this.containsPosition(e.end) && t.push(new _(e.end, this.end))) : t.push(new _(this.start, this.end)), t;
+      return this.isIntersecting(e) ? (this.containsPosition(e.start) && t.push(new b(this.start, e.start)), this.containsPosition(e.end) && t.push(new b(e.end, this.end))) : t.push(new b(this.start, this.end)), t;
     }
     /**
      * Returns an intersection of this {@link ~Range range} and given {@link ~Range range}.
@@ -13443,7 +13443,7 @@ Read more: ${Iw}#error-${n}`;
     getIntersection(e) {
       if (this.isIntersecting(e)) {
         let t = this.start, i = this.end;
-        return this.containsPosition(e.start) && (t = e.start), this.containsPosition(e.end) && (i = e.end), new _(t, i);
+        return this.containsPosition(e.start) && (t = e.start), this.containsPosition(e.end) && (i = e.end), new b(t, i);
       }
       return null;
     }
@@ -13482,7 +13482,7 @@ Read more: ${Iw}#error-${n}`;
       if (i || (this.start.isBefore(e.start) ? i = t ? this.end.isTouching(e.start) : this.end.isEqual(e.start) : i = t ? e.end.isTouching(this.start) : e.end.isEqual(this.start)), !i)
         return null;
       let s = this.start, o = this.end;
-      return e.start.isBefore(s) && (s = e.start), e.end.isAfter(o) && (o = e.end), new _(s, o);
+      return e.start.isBefore(s) && (s = e.start), e.end.isAfter(o) && (o = e.end), new b(s, o);
     }
     /**
      * Computes and returns the smallest set of {@link #isFlat flat} ranges, that covers this range in whole.
@@ -13532,11 +13532,11 @@ Read more: ${Iw}#error-${n}`;
       let s = i.parent;
       for (; i.path.length > t + 1; ) {
         const o = s.maxOffset - i.offset;
-        o !== 0 && e.push(new _(i, i.getShiftedBy(o))), i.path = i.path.slice(0, -1), i.offset++, s = s.parent;
+        o !== 0 && e.push(new b(i, i.getShiftedBy(o))), i.path = i.path.slice(0, -1), i.offset++, s = s.parent;
       }
       for (; i.path.length <= this.end.path.length; ) {
         const o = this.end.path[i.path.length - 1], r = o - i.offset;
-        r !== 0 && e.push(new _(i, i.getShiftedBy(r))), i.offset = o, i.path.push(0);
+        r !== 0 && e.push(new b(i, i.getShiftedBy(r))), i.offset = o, i.path.push(0);
       }
       return e;
     }
@@ -13621,7 +13621,7 @@ Read more: ${Iw}#error-${n}`;
         case "merge":
           return [this._getTransformedByMergeOperation(e)];
       }
-      return [new _(this.start, this.end)];
+      return [new b(this.start, this.end)];
     }
     /**
      * Returns a range that is a result of transforming this range by multiple `operations`.
@@ -13631,7 +13631,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Range which is the result of transformation.
      */
     getTransformedByOperations(e) {
-      const t = [new _(this.start, this.end)];
+      const t = [new b(this.start, this.end)];
       for (const i of e)
         for (let s = 0; s < t.length; s++) {
           const o = t[s].getTransformedByOperation(i);
@@ -13712,7 +13712,7 @@ Read more: ${Iw}#error-${n}`;
     _getTransformedBySplitOperation(e) {
       const t = this.start._getTransformedBySplitOperation(e);
       let i = this.end._getTransformedBySplitOperation(e);
-      return this.end.isEqual(e.insertionPosition) && (i = this.end.getShiftedBy(1)), t.root != i.root && (i = this.end.getShiftedBy(-1)), new _(t, i);
+      return this.end.isEqual(e.insertionPosition) && (i = this.end.getShiftedBy(1)), t.root != i.root && (i = this.end.getShiftedBy(-1)), new b(t, i);
     }
     /**
      * Returns a result of transforming a copy of this range by merge operation.
@@ -13723,9 +13723,9 @@ Read more: ${Iw}#error-${n}`;
      */
     _getTransformedByMergeOperation(e) {
       if (this.start.isEqual(e.targetPosition) && this.end.isEqual(e.deletionPosition))
-        return new _(this.start);
+        return new b(this.start);
       let t = this.start._getTransformedByMergeOperation(e), i = this.end._getTransformedByMergeOperation(e);
-      return t.root != i.root && (i = this.end.getShiftedBy(-1)), t.isAfter(i) ? (e.sourcePosition.isBefore(e.targetPosition) ? (t = y._createAt(i), t.offset = 0) : (e.deletionPosition.isEqual(t) || (i = e.deletionPosition), t = e.targetPosition), new _(t, i)) : new _(t, i);
+      return t.root != i.root && (i = this.end.getShiftedBy(-1)), t.isAfter(i) ? (e.sourcePosition.isBefore(e.targetPosition) ? (t = y._createAt(i), t.offset = 0) : (e.deletionPosition.isEqual(t) || (i = e.deletionPosition), t = e.targetPosition), new b(t, i)) : new b(t, i);
     }
     /**
      * Returns an array containing one or two {@link ~Range ranges} that are a result of transforming this
@@ -13762,11 +13762,11 @@ Read more: ${Iw}#error-${n}`;
     _getTransformedByInsertion(e, t, i = !1) {
       if (i && this.containsPosition(e))
         return [
-          new _(this.start, e),
-          new _(e.getShiftedBy(t), this.end._getTransformedByInsertion(e, t))
+          new b(this.start, e),
+          new b(e.getShiftedBy(t), this.end._getTransformedByInsertion(e, t))
         ];
       {
-        const s = new _(this.start, this.end);
+        const s = new b(this.start, this.end);
         return s.start = s.start._getTransformedByInsertion(e, t), s.end = s.end._getTransformedByInsertion(e, t), [s];
       }
     }
@@ -13784,19 +13784,19 @@ Read more: ${Iw}#error-${n}`;
     _getTransformedByMove(e, t, i, s = !1) {
       if (this.isCollapsed) {
         const d = this.start._getTransformedByMove(e, t, i);
-        return [new _(d)];
+        return [new b(d)];
       }
-      const o = _._createFromPositionAndShift(e, i), r = t._getTransformedByDeletion(e, i);
+      const o = b._createFromPositionAndShift(e, i), r = t._getTransformedByDeletion(e, i);
       if (this.containsPosition(t) && !s && (o.containsPosition(this.start) || o.containsPosition(this.end))) {
         const d = this.start._getTransformedByMove(e, t, i), h = this.end._getTransformedByMove(e, t, i);
-        return [new _(d, h)];
+        return [new b(d, h)];
       }
       let a;
       const l = this.getDifference(o);
       let c = null;
       const u = this.getIntersection(o);
-      if (l.length == 1 ? c = new _(l[0].start._getTransformedByDeletion(e, i), l[0].end._getTransformedByDeletion(e, i)) : l.length == 2 && (c = new _(this.start, this.end._getTransformedByDeletion(e, i))), c ? a = c._getTransformedByInsertion(r, i, u !== null || s) : a = [], u) {
-        const d = new _(u.start._getCombined(o.start, r), u.end._getCombined(o.start, r));
+      if (l.length == 1 ? c = new b(l[0].start._getTransformedByDeletion(e, i), l[0].end._getTransformedByDeletion(e, i)) : l.length == 2 && (c = new b(this.start, this.end._getTransformedByDeletion(e, i))), c ? a = c._getTransformedByInsertion(r, i, u !== null || s) : a = [], u) {
+        const d = new b(u.start._getCombined(o.start, r), u.end._getCombined(o.start, r));
         a.length == 2 ? a.splice(1, 0, d) : a.push(d);
       }
       return a;
@@ -13815,7 +13815,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _getTransformedByDeletion(e, t) {
       let i = this.start._getTransformedByDeletion(e, t), s = this.end._getTransformedByDeletion(e, t);
-      return i == null && s == null ? null : (i == null && (i = e), s == null && (s = e), new _(i, s));
+      return i == null && s == null ? null : (i == null && (i = e), s == null && (s = e), new b(i, s));
     }
     /**
      * Creates a new range, spreading from specified {@link module:engine/model/position~Position position} to a position moved by
@@ -13891,7 +13891,7 @@ Read more: ${Iw}#error-${n}`;
       return new this(y.fromJSON(e.start, t), y.fromJSON(e.end, t));
     }
   }
-  _.prototype.is = function(n) {
+  b.prototype.is = function(n) {
     return n === "range" || n === "model:range";
   };
   /**
@@ -14027,7 +14027,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Corresponding model range.
      */
     toModelRange(e) {
-      return new _(this.toModelPosition(e.start), this.toModelPosition(e.end));
+      return new b(this.toModelPosition(e.start), this.toModelPosition(e.end));
     }
     /**
      * Gets the corresponding view range.
@@ -14443,7 +14443,7 @@ Read more: ${Iw}#error-${n}`;
         this._convertMarkerRemove(r.name, r.range, s);
       const o = this._reduceChanges(e.getChanges());
       for (const r of o)
-        r.type === "insert" ? this._convertInsert(_._createFromPositionAndShift(r.position, r.length), s) : r.type === "reinsert" ? this._convertReinsert(_._createFromPositionAndShift(r.position, r.length), s) : r.type === "remove" ? this._convertRemove(r.position, r.length, r.name, s) : this._convertAttribute(r.range, r.attributeKey, r.attributeOldValue, r.attributeNewValue, s);
+        r.type === "insert" ? this._convertInsert(b._createFromPositionAndShift(r.position, r.length), s) : r.type === "reinsert" ? this._convertReinsert(b._createFromPositionAndShift(r.position, r.length), s) : r.type === "remove" ? this._convertRemove(r.position, r.length, r.name, s) : this._convertAttribute(r.range, r.attributeKey, r.attributeOldValue, r.attributeNewValue, s);
       s.mapper.flushDeferredBindings();
       for (const r of s.mapper.flushUnboundMarkerNames()) {
         const a = t.get(r).getRange();
@@ -14562,7 +14562,7 @@ Read more: ${Iw}#error-${n}`;
       for (const r of e) {
         const a = {
           item: r.item,
-          range: _._createFromPositionAndShift(r.previousPosition, r.length),
+          range: b._createFromPositionAndShift(r.previousPosition, r.length),
           attributeKey: t,
           attributeOldValue: i,
           attributeNewValue: s
@@ -14606,7 +14606,7 @@ Read more: ${Iw}#error-${n}`;
         for (const o of t.getItems()) {
           if (!i.consumable.test(o, s))
             continue;
-          const r = { item: o, range: _._createOn(o), markerName: e, markerRange: t };
+          const r = { item: o, range: b._createOn(o), markerName: e, markerRange: t };
           this.fire(s, r, i);
         }
       }
@@ -14711,7 +14711,7 @@ Read more: ${Iw}#error-${n}`;
     _testAndFireAddAttributes(e, t) {
       const i = {
         item: e,
-        range: _._createOn(e)
+        range: b._createOn(e)
       };
       for (const s of i.item.getAttributeKeys())
         i.attributeKey = s, i.attributeOldValue = null, i.attributeNewValue = i.item.getAttribute(s), this._testAndFire(`attribute:${s}`, i, t);
@@ -14732,8 +14732,8 @@ Read more: ${Iw}#error-${n}`;
         consumable: new vk(),
         writer: e,
         options: i,
-        convertItem: (o) => this._convertInsert(_._createOn(o), s),
-        convertChildren: (o) => this._convertInsert(_._createIn(o), s, { doNotAddConsumables: !0 }),
+        convertItem: (o) => this._convertInsert(b._createOn(o), s),
+        convertChildren: (o) => this._convertInsert(b._createIn(o), s, { doNotAddConsumables: !0 }),
         convertAttributes: (o) => this._testAndFireAddAttributes(o, s),
         canReuseView: (o) => !t.has(s.mapper.toModelElement(o))
       };
@@ -14752,7 +14752,7 @@ Read more: ${Iw}#error-${n}`;
     return `${n}:${t}`;
   }
   function ou(n) {
-    const e = n.item, t = _._createFromPositionAndShift(n.previousPosition, n.length);
+    const e = n.item, t = b._createFromPositionAndShift(n.previousPosition, n.length);
     return {
       item: e,
       range: t
@@ -14905,7 +14905,7 @@ Read more: ${Iw}#error-${n}`;
      */
     *getRanges() {
       for (const e of this._ranges)
-        yield new _(e.start, e.end);
+        yield new b(e.start, e.end);
     }
     /**
      * Returns a copy of the first range in the selection.
@@ -14919,7 +14919,7 @@ Read more: ${Iw}#error-${n}`;
       let e = null;
       for (const t of this._ranges)
         (!e || t.start.isBefore(e.start)) && (e = t);
-      return e ? new _(e.start, e.end) : null;
+      return e ? new b(e.start, e.end) : null;
     }
     /**
      * Returns a copy of the last range in the selection.
@@ -14933,7 +14933,7 @@ Read more: ${Iw}#error-${n}`;
       let e = null;
       for (const t of this._ranges)
         (!e || t.end.isAfter(e.end)) && (e = t);
-      return e ? new _(e.start, e.end) : null;
+      return e ? new b(e.start, e.end) : null;
     }
     /**
      * Returns the first position in the selection.
@@ -15019,19 +15019,19 @@ Read more: ${Iw}#error-${n}`;
         this._setRanges(t.getRanges(), t.isBackward);
       else if (t && typeof t.getRanges == "function")
         this._setRanges(t.getRanges(), t.isBackward);
-      else if (t instanceof _)
+      else if (t instanceof b)
         this._setRanges([t], !!s && !!s.backward);
       else if (t instanceof y)
-        this._setRanges([new _(t)]);
+        this._setRanges([new b(t)]);
       else if (t instanceof vi) {
         const o = !!s && !!s.backward;
         let r;
         if (i == "in")
-          r = _._createIn(t);
+          r = b._createIn(t);
         else if (i == "on")
-          r = _._createOn(t);
+          r = b._createOn(t);
         else if (i !== void 0)
-          r = new _(y._createAt(t, i));
+          r = new b(y._createAt(t, i));
         else
           throw new g("model-selection-setto-required-second-parameter", [this, t]);
         this._setRanges([r], o);
@@ -15052,7 +15052,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _setRanges(e, t = !1) {
       const i = Array.from(e), s = i.some((o) => {
-        if (!(o instanceof _))
+        if (!(o instanceof b))
           throw new g("model-selection-set-ranges-not-range", [this, e]);
         return this._ranges.every((r) => !r.isEqual(o));
       });
@@ -15074,7 +15074,7 @@ Read more: ${Iw}#error-${n}`;
       if (i.compareWith(this.focus) == "same")
         return;
       const s = this.anchor;
-      this._ranges.length && this._popRange(), i.compareWith(s) == "before" ? (this._pushRange(new _(i, s)), this._lastRangeBackward = !0) : (this._pushRange(new _(s, i)), this._lastRangeBackward = !1), this.fire("change:range", { directChange: !0 });
+      this._ranges.length && this._popRange(), i.compareWith(s) == "before" ? (this._pushRange(new b(i, s)), this._lastRangeBackward = !0) : (this._pushRange(new b(s, i)), this._lastRangeBackward = !1), this.fire("change:range", { directChange: !0 });
     }
     /**
      * Gets an attribute value for given key or `undefined` if that attribute is not set on the selection.
@@ -15235,7 +15235,7 @@ Read more: ${Iw}#error-${n}`;
      * if given range is intersecting with any range that is already stored in this selection.
      */
     _pushRange(e) {
-      this._checkRange(e), this._ranges.push(new _(e.start, e.end));
+      this._checkRange(e), this._ranges.push(new b(e.start, e.end));
     }
     /**
      * Checks if given range intersects with ranges that are already in the selection. Throws an error if it does.
@@ -15286,7 +15286,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function ml(n, e) {
     const t = Ak(n);
-    return t ? !e.containsRange(_._createOn(t), !0) : !0;
+    return t ? !e.containsRange(b._createOn(t), !0) : !0;
   }
   function Tk(n, e) {
     return n ? e.isCollapsed || n.isEmpty ? !0 : e.start.isTouching(y._createAt(n, n.maxOffset)) ? !1 : ml(n, e) : !1;
@@ -15307,7 +15307,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Pe extends G(_) {
+  class Pe extends G(b) {
     /**
      * Creates a live range.
      *
@@ -15328,7 +15328,7 @@ Read more: ${Iw}#error-${n}`;
      * Creates a {@link module:engine/model/range~Range range instance} that is equal to this live range.
      */
     toRange() {
-      return new _(this.start, this.end);
+      return new b(this.start, this.end);
     }
     /**
      * Creates a `LiveRange` instance that is equal to the given range.
@@ -15348,7 +15348,7 @@ Read more: ${Iw}#error-${n}`;
     }, { priority: "low" });
   }
   function Sk(n) {
-    const e = this.getTransformedByOperation(n), t = _._createFromRanges(e), i = !t.isEqual(this), s = Ik(this, n);
+    const e = this.getTransformedByOperation(n), t = b._createFromRanges(e), i = !t.isEqual(this), s = Ik(this, n);
     let o = null;
     if (i) {
       t.root.rootName == "$graveyard" && (n.type == "remove" ? o = n.sourcePosition : o = n.deletionPosition);
@@ -17011,7 +17011,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function Kk(n) {
     return (e, t, i) => {
-      if (!t.item || !(t.item instanceof W))
+      if (!t.item || !(t.item instanceof $))
         return;
       const s = gl(n, t, i);
       if (!s || !i.consumable.test(t.item, e.name))
@@ -17019,7 +17019,7 @@ Read more: ${Iw}#error-${n}`;
       const o = i.mapper.toViewElement(t.item);
       if (o && o.getCustomProperty("addHighlight")) {
         i.consumable.consume(t.item, e.name);
-        for (const a of _._createIn(t.item))
+        for (const a of b._createIn(t.item))
           i.consumable.consume(a.item, e.name);
         o.getCustomProperty("addHighlight")(o, s, i.writer), i.mapper.bindElementToMarker(o, t.markerName);
       }
@@ -17873,12 +17873,12 @@ Read more: ${Iw}#error-${n}`;
     const t = n.start, i = e.getNearestSelectionRange(t);
     if (!i) {
       const o = t.getAncestors().reverse().find((r) => e.isObject(r));
-      return o ? _._createOn(o) : null;
+      return o ? b._createOn(o) : null;
     }
     if (!i.isCollapsed)
       return i;
     const s = i.start;
-    return t.isEqual(s) ? null : new _(s);
+    return t.isEqual(s) ? null : new b(s);
   }
   function AT(n, e) {
     const { start: t, end: i } = n, s = e.checkChild(t, "$text"), o = e.checkChild(i, "$text"), r = e.getLimitElement(t), a = e.getLimitElement(i);
@@ -17887,14 +17887,14 @@ Read more: ${Iw}#error-${n}`;
         return null;
       if (xT(t, i, e)) {
         const d = t.nodeAfter && e.isSelectable(t.nodeAfter) ? null : e.getNearestSelectionRange(t, "forward"), f = i.nodeBefore && e.isSelectable(i.nodeBefore) ? null : e.getNearestSelectionRange(i, "backward"), m = d ? d.start : t, p = f ? f.end : i;
-        return new _(m, p);
+        return new b(m, p);
       }
     }
     const l = r && !r.is("rootElement"), c = a && !a.is("rootElement");
     if (l || c) {
       const u = t.nodeAfter && i.nodeBefore && t.nodeAfter.parent === i.nodeBefore.parent, d = l && (!u || !hu(t.nodeAfter, e)), h = c && (!u || !hu(i.nodeBefore, e));
       let f = t, m = i;
-      return d && (f = y._createBefore(du(r, e))), h && (m = y._createAfter(du(a, e))), new _(f, m);
+      return d && (f = y._createBefore(du(r, e))), h && (m = y._createAfter(du(a, e))), new b(f, m);
     }
     return null;
   }
@@ -17934,7 +17934,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class IT extends H() {
+  class IT extends W() {
     /**
      * Creates an editing controller instance.
      *
@@ -18409,7 +18409,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LT extends H() {
+  class LT extends W() {
     /**
      * Creates a schema instance.
      */
@@ -18690,9 +18690,9 @@ Read more: ${Iw}#error-${n}`;
     checkMerge(e, t) {
       if (e instanceof y) {
         const i = e.nodeBefore, s = e.nodeAfter;
-        if (!(i instanceof W))
+        if (!(i instanceof $))
           throw new g("schema-check-merge-no-element-before", this);
-        if (!(s instanceof W))
+        if (!(s instanceof $))
           throw new g("schema-check-merge-no-element-after", this);
         return this.checkMerge(i, s);
       }
@@ -18865,7 +18865,7 @@ Read more: ${Iw}#error-${n}`;
      */
     getLimitElement(e) {
       let t;
-      for (e instanceof y ? t = e.parent : t = (e instanceof _ ? [e] : Array.from(e.getRanges())).reduce((s, o) => {
+      for (e instanceof y ? t = e.parent : t = (e instanceof b ? [e] : Array.from(e.getRanges())).reduce((s, o) => {
         const r = o.getCommonAncestor();
         return s ? s.getCommonAncestor(r, { includeSelf: !0 }) : r;
       }, null); !this.isLimit(t) && t.parent; )
@@ -18934,23 +18934,23 @@ Read more: ${Iw}#error-${n}`;
       if (e.root.rootName == "$graveyard")
         return null;
       if (this.checkChild(e, "$text"))
-        return new _(e);
+        return new b(e);
       let i, s;
       const o = e.getAncestors().reverse().find((r) => this.isLimit(r)) || e.root;
       (t == "both" || t == "backward") && (i = new xt({
-        boundaries: _._createIn(o),
+        boundaries: b._createIn(o),
         startPosition: e,
         direction: "backward"
       })), (t == "both" || t == "forward") && (s = new xt({
-        boundaries: _._createIn(o),
+        boundaries: b._createIn(o),
         startPosition: e
       }));
       for (const r of jT(i, s)) {
         const a = r.walker == i ? "elementEnd" : "elementStart", l = r.value;
         if (l.type == a && this.isObject(l.item))
-          return _._createOn(l.item);
+          return b._createOn(l.item);
         if (this.checkChild(l.nextPosition, "$text"))
-          return new _(l.nextPosition);
+          return new b(l.nextPosition);
       }
       return null;
     }
@@ -18997,7 +18997,7 @@ Read more: ${Iw}#error-${n}`;
         if (i.is("$text"))
           fu(this, i, t);
         else {
-          const o = _._createIn(i).getPositions();
+          const o = b._createIn(i).getPositions();
           for (const r of o) {
             const a = r.nodeBefore || r.parent;
             fu(this, a, t);
@@ -19072,8 +19072,8 @@ Read more: ${Iw}#error-${n}`;
     *_getValidRangesForRange(e, t) {
       let i = e.start, s = e.start;
       for (const o of e.getItems({ shallow: !0 }))
-        o.is("element") && (yield* this._getValidRangesForRange(_._createIn(o), t)), this.checkAttribute(o, t) || (i.isEqual(s) || (yield new _(i, s)), i = y._createAfter(o)), s = y._createAfter(o);
-      i.isEqual(s) || (yield new _(i, s));
+        o.is("element") && (yield* this._getValidRangesForRange(b._createIn(o), t)), this.checkAttribute(o, t) || (i.isEqual(s) || (yield new b(i, s)), i = y._createAfter(o)), s = y._createAfter(o);
+      i.isEqual(s) || (yield new b(i, s));
     }
     /**
      * Returns a model range which is optimal (in terms of UX) for inserting a widget block.
@@ -19097,14 +19097,14 @@ Read more: ${Iw}#error-${n}`;
     findOptimalInsertionRange(e, t) {
       const i = e.getSelectedElement();
       if (i && this.isObject(i) && !this.isInline(i))
-        return t == "before" || t == "after" ? new _(y._createAt(i, t)) : _._createOn(i);
+        return t == "before" || t == "after" ? new b(y._createAt(i, t)) : b._createOn(i);
       const s = me(e.getSelectedBlocks());
       if (!s)
-        return new _(e.focus);
+        return new b(e.focus);
       if (s.isEmpty)
-        return new _(y._createAt(s, 0));
+        return new b(y._createAt(s, 0));
       const o = y._createAfter(s);
-      return e.focus.isTouching(o) ? new _(o) : new _(y._createBefore(s));
+      return e.focus.isTouching(o) ? new b(o) : new b(y._createBefore(s));
     }
   }
   class ai {
@@ -19411,7 +19411,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _convertItem(e, t) {
       const i = { viewItem: e, modelCursor: t, modelRange: null };
-      if (e.is("element") ? this.fire(`element:${e.name}`, i, this.conversionApi) : e.is("$text") ? this.fire("text", i, this.conversionApi) : this.fire("documentFragment", i, this.conversionApi), i.modelRange && !(i.modelRange instanceof _))
+      if (e.is("element") ? this.fire(`element:${e.name}`, i, this.conversionApi) : e.is("$text") ? this.fire("text", i, this.conversionApi) : this.fire("documentFragment", i, this.conversionApi), i.modelRange && !(i.modelRange instanceof b))
         throw new g("view-conversion-dispatcher-incorrect-result", this);
       return { modelRange: i.modelRange, modelCursor: i.modelCursor };
     }
@@ -19420,10 +19420,10 @@ Read more: ${Iw}#error-${n}`;
      */
     _convertChildren(e, t) {
       let i = t.is("position") ? t : y._createAt(t, 0);
-      const s = new _(i);
+      const s = new b(i);
       for (const o of Array.from(e.getChildren())) {
         const r = this._convertItem(o, i);
-        r.modelRange instanceof _ && (s.end = r.modelRange.end, i = r.modelCursor);
+        r.modelRange instanceof b && (s.end = r.modelRange.end, i = r.modelCursor);
       }
       return { modelRange: s, modelCursor: i };
     }
@@ -19509,12 +19509,12 @@ Read more: ${Iw}#error-${n}`;
     }
   }
   function JT(n, e) {
-    const t = /* @__PURE__ */ new Set(), i = /* @__PURE__ */ new Map(), s = _._createIn(n).getItems();
+    const t = /* @__PURE__ */ new Set(), i = /* @__PURE__ */ new Map(), s = b._createIn(n).getItems();
     for (const o of s)
       o.is("element", "$marker") && t.add(o);
     for (const o of t) {
       const r = o.getAttribute("data-name"), a = e.createPositionBefore(o);
-      i.has(r) ? i.get(r).end = a.clone() : i.set(r, new _(a.clone())), e.remove(o);
+      i.has(r) ? i.get(r).end = a.clone() : i.set(r, new b(a.clone())), e.remove(o);
     }
     return i;
   }
@@ -19630,7 +19630,7 @@ Read more: ${Iw}#error-${n}`;
         schema: e.schema
       }), this.downcastDispatcher.on("insert:$text", _m(), { priority: "lowest" }), this.downcastDispatcher.on("insert", vm(), { priority: "lowest" }), this.upcastDispatcher = new ZT({
         schema: e.schema
-      }), this.viewDocument = new Ko(t), this.stylesProcessor = t, this.htmlProcessor = new QT(this.viewDocument), this.processor = this.htmlProcessor, this._viewWriter = new om(this.viewDocument), this.upcastDispatcher.on("text", dT(), { priority: "lowest" }), this.upcastDispatcher.on("element", cu(), { priority: "lowest" }), this.upcastDispatcher.on("documentFragment", cu(), { priority: "lowest" }), H().prototype.decorate.call(this, "init"), H().prototype.decorate.call(this, "set"), H().prototype.decorate.call(this, "get"), H().prototype.decorate.call(this, "toView"), H().prototype.decorate.call(this, "toModel"), this.on("init", () => {
+      }), this.viewDocument = new Ko(t), this.stylesProcessor = t, this.htmlProcessor = new QT(this.viewDocument), this.processor = this.htmlProcessor, this._viewWriter = new om(this.viewDocument), this.upcastDispatcher.on("text", dT(), { priority: "lowest" }), this.upcastDispatcher.on("element", cu(), { priority: "lowest" }), this.upcastDispatcher.on("documentFragment", cu(), { priority: "lowest" }), W().prototype.decorate.call(this, "init"), W().prototype.decorate.call(this, "set"), W().prototype.decorate.call(this, "get"), W().prototype.decorate.call(this, "toView"), W().prototype.decorate.call(this, "toModel"), this.on("init", () => {
         this.fire("ready");
       }, { priority: "lowest" }), this.on("ready", () => {
         this.model.enqueueChange({ isUndoable: !1 }, xm);
@@ -19687,7 +19687,7 @@ Read more: ${Iw}#error-${n}`;
     toView(e, t = {}) {
       const i = this.viewDocument, s = this._viewWriter;
       this.mapper.clearBindings();
-      const o = _._createIn(e), r = new ri(i);
+      const o = b._createIn(e), r = new ri(i);
       this.mapper.bindElements(e, r);
       const a = e.is("documentFragment") ? e.markers : t2(e);
       return this.downcastDispatcher.convert(o, a, s, t), r;
@@ -19858,7 +19858,7 @@ Read more: ${Iw}#error-${n}`;
     const e = [], t = n.root.document;
     if (!t)
       return /* @__PURE__ */ new Map();
-    const i = _._createIn(n);
+    const i = b._createIn(n);
     for (const s of t.model.markers) {
       const o = s.getRange(), r = o.isCollapsed, a = o.start.isEqual(i.start) || o.end.isEqual(i.end);
       if (r && a)
@@ -20442,7 +20442,7 @@ Read more: ${Iw}#error-${n}`;
     const t = Bm(e), i = t.reduce((r, a) => r + a.offsetSize, 0), s = n.parent;
     ts(n);
     const o = n.index;
-    return s._insertChild(o, t), es(s, o + t.length), es(s, o), new _(n, n.getShiftedBy(i));
+    return s._insertChild(o, t), es(s, o + t.length), es(s, o), new b(n, n.getShiftedBy(i));
   }
   function Mm(n) {
     if (!n.isFlat)
@@ -20540,8 +20540,8 @@ Read more: ${Iw}#error-${n}`;
      */
     get affectedSelectable() {
       return [
-        _._createFromPositionAndShift(this.sourcePosition, this.howMany),
-        _._createFromPositionAndShift(this.targetPosition, 0)
+        b._createFromPositionAndShift(this.sourcePosition, this.howMany),
+        b._createFromPositionAndShift(this.targetPosition, 0)
       ];
     }
     /**
@@ -20595,7 +20595,7 @@ Read more: ${Iw}#error-${n}`;
      * @internal
      */
     _execute() {
-      Qn(_._createFromPositionAndShift(this.sourcePosition, this.howMany), this.targetPosition);
+      Qn(b._createFromPositionAndShift(this.sourcePosition, this.howMany), this.targetPosition);
     }
     /**
      * @inheritDoc
@@ -20708,7 +20708,7 @@ Read more: ${Iw}#error-${n}`;
     static fromJSON(e, t) {
       const i = [];
       for (const o of e.nodes)
-        o.name ? i.push(W.fromJSON(o)) : i.push(j.fromJSON(o));
+        o.name ? i.push($.fromJSON(o)) : i.push(j.fromJSON(o));
       const s = new be(y.fromJSON(e.position, t), i, e.baseVersion);
       return s.shouldReceiveAttributes = e.shouldReceiveAttributes, s;
     }
@@ -20753,17 +20753,17 @@ Read more: ${Iw}#error-${n}`;
      */
     get movedRange() {
       const e = this.splitPosition.getShiftedBy(Number.POSITIVE_INFINITY);
-      return new _(this.splitPosition, e);
+      return new b(this.splitPosition, e);
     }
     /**
      * @inheritDoc
      */
     get affectedSelectable() {
       const e = [
-        _._createFromPositionAndShift(this.splitPosition, 0),
-        _._createFromPositionAndShift(this.insertionPosition, 0)
+        b._createFromPositionAndShift(this.splitPosition, 0),
+        b._createFromPositionAndShift(this.insertionPosition, 0)
       ];
-      return this.graveyardPosition && e.push(_._createFromPositionAndShift(this.graveyardPosition, 0)), e;
+      return this.graveyardPosition && e.push(b._createFromPositionAndShift(this.graveyardPosition, 0)), e;
     }
     /**
      * Creates and returns an operation that has the same parameters as this operation.
@@ -20803,12 +20803,12 @@ Read more: ${Iw}#error-${n}`;
     _execute() {
       const e = this.splitPosition.parent;
       if (this.graveyardPosition)
-        Qn(_._createFromPositionAndShift(this.graveyardPosition, 1), this.insertionPosition);
+        Qn(b._createFromPositionAndShift(this.graveyardPosition, 1), this.insertionPosition);
       else {
         const i = e._clone();
         wl(this.insertionPosition, i);
       }
-      const t = new _(y._createAt(e, this.splitPosition.offset), y._createAt(e, e.maxOffset));
+      const t = new b(y._createAt(e, this.splitPosition.offset), y._createAt(e, e.maxOffset));
       Qn(t, this.moveTargetPosition);
     }
     /**
@@ -20880,7 +20880,7 @@ Read more: ${Iw}#error-${n}`;
      */
     get movedRange() {
       const e = this.sourcePosition.getShiftedBy(Number.POSITIVE_INFINITY);
-      return new _(this.sourcePosition, e);
+      return new b(this.sourcePosition, e);
     }
     /**
      * @inheritDoc
@@ -20888,10 +20888,10 @@ Read more: ${Iw}#error-${n}`;
     get affectedSelectable() {
       const e = this.sourcePosition.parent;
       return [
-        _._createOn(e),
+        b._createOn(e),
         // These could be positions but `Selectable` type only supports `Iterable<Range>`.
-        _._createFromPositionAndShift(this.targetPosition, 0),
-        _._createFromPositionAndShift(this.graveyardPosition, 0)
+        b._createFromPositionAndShift(this.targetPosition, 0),
+        b._createFromPositionAndShift(this.graveyardPosition, 0)
       ];
     }
     /**
@@ -20927,8 +20927,8 @@ Read more: ${Iw}#error-${n}`;
      * @internal
      */
     _execute() {
-      const e = this.sourcePosition.parent, t = _._createIn(e);
-      Qn(t, this.targetPosition), Qn(_._createOn(e), this.graveyardPosition);
+      const e = this.sourcePosition.parent, t = b._createIn(e);
+      Qn(t, this.targetPosition), Qn(b._createOn(e), this.graveyardPosition);
     }
     /**
      * @inheritDoc
@@ -21025,7 +21025,7 @@ Read more: ${Iw}#error-${n}`;
      * @param document Document on which this operation will be applied.
      */
     static fromJSON(e, t) {
-      return new Re(e.name, e.oldRange ? _.fromJSON(e.oldRange, t) : null, e.newRange ? _.fromJSON(e.newRange, t) : null, t.model.markers, e.affectsData, e.baseVersion);
+      return new Re(e.name, e.oldRange ? b.fromJSON(e.oldRange, t) : null, e.newRange ? b.fromJSON(e.newRange, t) : null, t.model.markers, e.affectsData, e.baseVersion);
     }
   }
   /**
@@ -21120,7 +21120,7 @@ Read more: ${Iw}#error-${n}`;
      * @param document Document on which this operation will be applied.
      */
     static fromJSON(e, t) {
-      return new ae(_.fromJSON(e.range, t), e.key, e.oldValue, e.newValue, e.baseVersion);
+      return new ae(b.fromJSON(e.range, t), e.key, e.oldValue, e.newValue, e.baseVersion);
     }
   }
   /**
@@ -21208,7 +21208,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _validate() {
       const e = this.position.nodeAfter;
-      if (e instanceof W) {
+      if (e instanceof $) {
         if (e.name !== this.oldName)
           throw new g("rename-operation-wrong-name", this);
       } else
@@ -21543,7 +21543,7 @@ Read more: ${Iw}#error-${n}`;
           if (e.splitPosition.isEqual(t.sourcePosition) || e.splitPosition.isBefore(t.sourcePosition))
             this._setRelation(e, t, "splitBefore");
           else {
-            const i = _._createFromPositionAndShift(t.sourcePosition, t.howMany);
+            const i = b._createFromPositionAndShift(t.sourcePosition, t.howMany);
             if (e.splitPosition.hasSameParentAs(t.sourcePosition) && i.containsPosition(e.splitPosition)) {
               const s = i.end.offset - e.splitPosition.offset, o = e.splitPosition.offset - i.start.offset;
               this._setRelation(e, t, { howMany: s, offset: o });
@@ -21556,7 +21556,7 @@ Read more: ${Iw}#error-${n}`;
         if (!i)
           return;
         if (t instanceof U) {
-          const s = _._createFromPositionAndShift(t.sourcePosition, t.howMany), o = s.containsPosition(i.start) || s.start.isEqual(i.start), r = s.containsPosition(i.end) || s.end.isEqual(i.end);
+          const s = b._createFromPositionAndShift(t.sourcePosition, t.howMany), o = s.containsPosition(i.start) || s.start.isEqual(i.start), r = s.containsPosition(i.end) || s.end.isEqual(i.end);
           (o || r) && !s.containsRange(i) && this._setRelation(e, t, {
             side: o ? "left" : "right",
             path: o ? i.start.path.slice() : i.end.path.slice()
@@ -21662,18 +21662,18 @@ Read more: ${Iw}#error-${n}`;
     const s = n.nodes.getNode(0).getAttribute(e);
     if (s == t)
       return null;
-    const o = new _(n.position, n.position.getShiftedBy(n.howMany));
+    const o = new b(n.position, n.position.getShiftedBy(n.howMany));
     return new ae(o, e, s, t, 0);
   }
   z(ae, oe, (n, e) => {
     const t = [];
-    n.range.start.hasSameParentAs(e.deletionPosition) && (n.range.containsPosition(e.deletionPosition) || n.range.start.isEqual(e.deletionPosition)) && t.push(_._createFromPositionAndShift(e.graveyardPosition, 1));
+    n.range.start.hasSameParentAs(e.deletionPosition) && (n.range.containsPosition(e.deletionPosition) || n.range.start.isEqual(e.deletionPosition)) && t.push(b._createFromPositionAndShift(e.graveyardPosition, 1));
     const i = n.range._getTransformedByMergeOperation(e);
     return i.isCollapsed || t.push(i), t.map((s) => new ae(s, n.key, n.oldValue, n.newValue, n.baseVersion));
   });
   z(ae, U, (n, e) => c2(n.range, e).map((i) => new ae(i, n.key, n.oldValue, n.newValue, n.baseVersion)));
   function c2(n, e) {
-    const t = _._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const t = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let i = null, s = [];
     t.containsRange(n, !0) ? i = n : n.start.hasSameParentAs(t.start) ? (s = n.getDifference(t), i = n.getIntersection(t)) : s = [n];
     const o = [];
@@ -21689,7 +21689,7 @@ Read more: ${Iw}#error-${n}`;
       return e.graveyardPosition || n.range.end.offset++, [n];
     if (n.range.start.hasSameParentAs(e.splitPosition) && n.range.containsPosition(e.splitPosition)) {
       const t = n.clone();
-      return t.range = new _(e.moveTargetPosition.clone(), n.range.end._getCombined(e.splitPosition, e.moveTargetPosition)), n.range.end = e.splitPosition.clone(), n.range.end.stickiness = "toPrevious", [n, t];
+      return t.range = new b(e.moveTargetPosition.clone(), n.range.end._getCombined(e.splitPosition, e.moveTargetPosition)), n.range.end = e.splitPosition.clone(), n.range.end.stickiness = "toPrevious", [n, t];
     }
     return n.range = n.range._getTransformedBySplitOperation(e), [n];
   });
@@ -21716,15 +21716,15 @@ Read more: ${Iw}#error-${n}`;
   });
   z(Re, oe, (n, e) => (n.oldRange && (n.oldRange = n.oldRange._getTransformedByMergeOperation(e)), n.newRange && (n.newRange = n.newRange._getTransformedByMergeOperation(e)), [n]));
   z(Re, U, (n, e, t) => {
-    if (n.oldRange && (n.oldRange = _._createFromRanges(n.oldRange._getTransformedByMoveOperation(e))), n.newRange) {
+    if (n.oldRange && (n.oldRange = b._createFromRanges(n.oldRange._getTransformedByMoveOperation(e))), n.newRange) {
       if (t.abRelation) {
-        const i = _._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
+        const i = b._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
         if (t.abRelation.side == "left" && e.targetPosition.isEqual(n.newRange.start))
           return n.newRange.end = i.end, n.newRange.start.path = t.abRelation.path, [n];
         if (t.abRelation.side == "right" && e.targetPosition.isEqual(n.newRange.end))
           return n.newRange.start = i.start, n.newRange.end.path = t.abRelation.path, [n];
       }
-      n.newRange = _._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
+      n.newRange = b._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
     }
     return [n];
   });
@@ -21757,7 +21757,7 @@ Read more: ${Iw}#error-${n}`;
     return n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition = n.sourcePosition._getTransformedByMergeOperation(e), n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), (!n.graveyardPosition.isEqual(e.graveyardPosition) || !t.aIsStrong) && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
   z(oe, U, (n, e, t) => {
-    const i = _._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const i = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     return e.type == "remove" && !t.bWasUndone && !t.forceWeakRemove && n.deletionPosition.hasSameParentAs(e.sourcePosition) && i.containsPosition(n.sourcePosition) ? [new ue(0)] : (e.sourcePosition.getShiftedBy(e.howMany).isEqual(n.sourcePosition) ? n.sourcePosition.stickiness = "toNone" : e.targetPosition.isEqual(n.sourcePosition) && t.abRelation == "mergeSourceAffected" ? n.sourcePosition.stickiness = "toNext" : e.sourcePosition.isEqual(n.targetPosition) ? (n.targetPosition.stickiness = "toNone", n.howMany -= e.howMany) : e.targetPosition.isEqual(n.targetPosition) && t.abRelation == "mergeTargetWasBefore" ? (n.targetPosition.stickiness = "toPrevious", n.howMany += e.howMany) : (n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition.hasSameParentAs(e.sourcePosition) && (n.howMany -= e.howMany)), n.sourcePosition = n.sourcePosition._getTransformedByMoveOperation(e), n.targetPosition = n.targetPosition._getTransformedByMoveOperation(e), n.sourcePosition.stickiness = "toPrevious", n.targetPosition.stickiness = "toNext", n.graveyardPosition.isEqual(e.targetPosition) || (n.graveyardPosition = n.graveyardPosition._getTransformedByMoveOperation(e)), [n]);
   });
   z(oe, K, (n, e, t) => {
@@ -21775,11 +21775,11 @@ Read more: ${Iw}#error-${n}`;
     return n.sourcePosition.hasSameParentAs(e.splitPosition) && (n.howMany = e.splitPosition.offset), n.sourcePosition = n.sourcePosition._getTransformedBySplitOperation(e), n.targetPosition = n.targetPosition._getTransformedBySplitOperation(e), [n];
   });
   z(U, be, (n, e) => {
-    const i = _._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByInsertOperation(e, !1)[0];
+    const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByInsertOperation(e, !1)[0];
     return n.sourcePosition = i.start, n.howMany = i.end.offset - i.start.offset, n.targetPosition.isEqual(e.position) || (n.targetPosition = n.targetPosition._getTransformedByInsertOperation(e)), [n];
   });
   z(U, U, (n, e, t) => {
-    const i = _._createFromPositionAndShift(n.sourcePosition, n.howMany), s = _._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany), s = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let o = t.aIsStrong, r = !t.aIsStrong;
     t.abRelation == "insertBefore" || t.baRelation == "insertAfter" ? r = !0 : (t.abRelation == "insertAfter" || t.baRelation == "insertBefore") && (r = !1);
     let a;
@@ -21796,8 +21796,8 @@ Read more: ${Iw}#error-${n}`;
     const d = [], h = i.getDifference(s);
     for (const m of h) {
       m.start = m.start._getTransformedByDeletion(e.sourcePosition, e.howMany), m.end = m.end._getTransformedByDeletion(e.sourcePosition, e.howMany);
-      const p = Ee(m.start.getParentPath(), e.getMovedRangeStart().getParentPath()) == "same", w = m._getTransformedByInsertion(e.getMovedRangeStart(), e.howMany, p);
-      d.push(...w);
+      const p = Ee(m.start.getParentPath(), e.getMovedRangeStart().getParentPath()) == "same", _ = m._getTransformedByInsertion(e.getMovedRangeStart(), e.howMany, p);
+      d.push(..._);
     }
     const f = i.getIntersection(s);
     return f !== null && o && (f.start = f.start._getCombined(e.sourcePosition, e.getMovedRangeStart()), f.end = f.end._getCombined(e.sourcePosition, e.getMovedRangeStart()), d.length === 0 ? d.push(f) : d.length == 1 ? s.start.isBefore(i.start) || s.start.isEqual(i.start) ? d.unshift(f) : d.push(f) : d.splice(1, 0, f)), d.length === 0 ? [new ue(n.baseVersion)] : $i(d, a);
@@ -21805,14 +21805,14 @@ Read more: ${Iw}#error-${n}`;
   z(U, K, (n, e, t) => {
     let i = n.targetPosition.clone();
     (!n.targetPosition.isEqual(e.insertionPosition) || !e.graveyardPosition || t.abRelation == "moveTargetAfter") && (i = n.targetPosition._getTransformedBySplitOperation(e));
-    const s = _._createFromPositionAndShift(n.sourcePosition, n.howMany);
+    const s = b._createFromPositionAndShift(n.sourcePosition, n.howMany);
     if (s.end.isEqual(e.insertionPosition))
       return e.graveyardPosition || n.howMany++, n.targetPosition = i, [n];
     if (s.start.hasSameParentAs(e.splitPosition) && s.containsPosition(e.splitPosition)) {
-      let a = new _(e.splitPosition, s.end);
+      let a = new b(e.splitPosition, s.end);
       a = a._getTransformedBySplitOperation(e);
       const l = [
-        new _(s.start, e.splitPosition),
+        new b(s.start, e.splitPosition),
         a
       ];
       return $i(l, i);
@@ -21821,12 +21821,12 @@ Read more: ${Iw}#error-${n}`;
     const r = [s._getTransformedBySplitOperation(e)];
     if (e.graveyardPosition) {
       const a = s.start.isEqual(e.graveyardPosition) || s.containsPosition(e.graveyardPosition);
-      n.howMany > 1 && a && !t.aWasUndone && r.push(_._createFromPositionAndShift(e.insertionPosition, 1));
+      n.howMany > 1 && a && !t.aWasUndone && r.push(b._createFromPositionAndShift(e.insertionPosition, 1));
     }
     return $i(r, i);
   });
   z(U, oe, (n, e, t) => {
-    const i = _._createFromPositionAndShift(n.sourcePosition, n.howMany);
+    const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany);
     if (e.deletionPosition.hasSameParentAs(n.sourcePosition) && i.containsPosition(e.sourcePosition)) {
       if (n.type == "remove" && !t.forceWeakRemove) {
         if (!t.aWasUndone) {
@@ -21843,7 +21843,7 @@ Read more: ${Iw}#error-${n}`;
       } else if (n.howMany == 1)
         return t.bWasUndone ? (n.sourcePosition = e.graveyardPosition.clone(), n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), [n]) : [new ue(0)];
     }
-    const o = _._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByMergeOperation(e);
+    const o = b._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByMergeOperation(e);
     return n.sourcePosition = o.start, n.howMany = o.end.offset - o.start.offset, n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), [n];
   });
   z(Le, be, (n, e) => (n.position = n.position._getTransformedByInsertOperation(e), [n]));
@@ -21885,7 +21885,7 @@ Read more: ${Iw}#error-${n}`;
     return n.splitPosition.hasSameParentAs(e.deletionPosition) && !n.splitPosition.isAfter(e.deletionPosition) && n.howMany--, n.splitPosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.splitPosition = n.splitPosition._getTransformedByMergeOperation(e), n.insertionPosition = K.getInsertionPosition(n.splitPosition), n.graveyardPosition && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
   z(K, U, (n, e, t) => {
-    const i = _._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const i = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     if (n.graveyardPosition) {
       const o = i.start.isEqual(n.graveyardPosition) || i.containsPosition(n.graveyardPosition);
       if (!t.bWasUndone && o) {
@@ -22109,7 +22109,7 @@ Read more: ${Iw}#error-${n}`;
           if (this._isInInsertedElement(t.position.parent))
             return;
           this._markRemove(t.position.parent, t.position.offset, 1), this._markInsert(t.position.parent, t.position.offset, 1);
-          const i = _._createFromPositionAndShift(t.position, 1);
+          const i = b._createFromPositionAndShift(t.position, 1);
           for (const s of this._markerCollection.getMarkersIntersectingRange(i)) {
             const o = s.getData();
             this.bufferMarkerChange(s.name, o, o);
@@ -22255,10 +22255,10 @@ Read more: ${Iw}#error-${n}`;
             const d = r[l].attributes, h = o[c].attributes;
             let f;
             if (r[l].name == "$text")
-              f = new _(y._createAt(i, l), y._createAt(i, l + 1));
+              f = new b(y._createAt(i, l), y._createAt(i, l + 1));
             else {
               const m = i.offsetToIndex(l);
-              f = new _(y._createAt(i, l), y._createAt(i.getChild(m), 0));
+              f = new b(y._createAt(i, l), y._createAt(i.getChild(m), 0));
             }
             t.push(...this._getAttributesDiff(f, h, d)), l++, c++;
           } else
@@ -22331,7 +22331,7 @@ Read more: ${Iw}#error-${n}`;
       if (this._isInInsertedElement(e.parent))
         return;
       this._markRemove(e.parent, e.startOffset, e.offsetSize), this._markInsert(e.parent, e.startOffset, e.offsetSize), this._refreshedItems.add(e);
-      const t = _._createOn(e);
+      const t = b._createOn(e);
       for (const i of this._markerCollection.getMarkersIntersectingRange(t)) {
         const s = i.getData();
         this.bufferMarkerChange(i.name, s, s);
@@ -22598,7 +22598,7 @@ Read more: ${Iw}#error-${n}`;
      * and `howMany`.
      */
     _removeAllNestedChanges(e, t, i) {
-      const s = new _(y._createAt(e, t), y._createAt(e, t + i));
+      const s = new b(y._createAt(e, t), y._createAt(e, t + i));
       for (const o of s.getItems({ shallow: !0 }))
         o.is("element") && (this._elementSnapshots.delete(o), this._changesInElement.delete(o), this._removeAllNestedChanges(o, 0, o.maxOffset));
     }
@@ -22777,7 +22777,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Co extends W {
+  class Co extends $ {
     /**
      * Creates root element.
      *
@@ -23337,7 +23337,7 @@ Read more: ${Iw}#error-${n}`;
      * @internal
      */
     _execute() {
-      Mm(_._createFromPositionAndShift(this.sourcePosition, this.howMany));
+      Mm(b._createFromPositionAndShift(this.sourcePosition, this.howMany));
     }
     /**
      * @inheritDoc
@@ -23534,7 +23534,7 @@ Read more: ${Iw}#error-${n}`;
     static fromJSON(e) {
       const t = [];
       for (const i of e)
-        i.name ? t.push(W.fromJSON(i)) : t.push(j.fromJSON(i));
+        i.name ? t.push($.fromJSON(i)) : t.push(j.fromJSON(i));
       return new Et(t);
     }
     /**
@@ -23626,7 +23626,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Created element.
      */
     createElement(e, t) {
-      return new W(e, t);
+      return new $(e, t);
     }
     /**
      * Creates a new {@link module:engine/model/documentfragment~DocumentFragment document fragment}.
@@ -23698,7 +23698,7 @@ Read more: ${Iw}#error-${n}`;
       const s = y._createAt(t, i);
       if (e.parent)
         if (Tu(e.root, s.root)) {
-          this.move(_._createOn(e), s);
+          this.move(b._createOn(e), s);
           return;
         } else {
           if (e.root.document)
@@ -23708,15 +23708,15 @@ Read more: ${Iw}#error-${n}`;
       const o = s.root.document ? s.root.document.version : null, r = new be(s, e, o);
       if (e instanceof j && (r.shouldReceiveAttributes = !0), this.batch.addOperation(r), this.model.applyOperation(r), e instanceof Et)
         for (const [a, l] of e.markers) {
-          const c = y._createAt(l.root, 0), d = { range: new _(l.start._getCombined(c, s), l.end._getCombined(c, s)), usingOperation: !0, affectsData: !0 };
+          const c = y._createAt(l.root, 0), d = { range: new b(l.start._getCombined(c, s), l.end._getCombined(c, s)), usingOperation: !0, affectsData: !0 };
           this.model.markers.has(a) ? this.updateMarker(a, d) : this.addMarker(a, d);
         }
     }
     insertText(e, t, i, s) {
-      t instanceof Et || t instanceof W || t instanceof y ? this.insert(this.createText(e), t, i) : this.insert(this.createText(e, t), i, s);
+      t instanceof Et || t instanceof $ || t instanceof y ? this.insert(this.createText(e), t, i) : this.insert(this.createText(e, t), i, s);
     }
     insertElement(e, t, i, s) {
-      t instanceof Et || t instanceof W || t instanceof y ? this.insert(this.createElement(e), t, i) : this.insert(this.createElement(e, t), i, s);
+      t instanceof Et || t instanceof $ || t instanceof y ? this.insert(this.createElement(e), t, i) : this.insert(this.createElement(e, t), i, s);
     }
     /**
      * Inserts item at the end of the given parent.
@@ -23737,10 +23737,10 @@ Read more: ${Iw}#error-${n}`;
       this.insert(e, t, "end");
     }
     appendText(e, t, i) {
-      t instanceof Et || t instanceof W ? this.insert(this.createText(e), t, "end") : this.insert(this.createText(e, t), i, "end");
+      t instanceof Et || t instanceof $ ? this.insert(this.createText(e), t, "end") : this.insert(this.createText(e, t), i, "end");
     }
     appendElement(e, t, i) {
-      t instanceof Et || t instanceof W ? this.insert(this.createElement(e), t, "end") : this.insert(this.createElement(e, t), i, "end");
+      t instanceof Et || t instanceof $ ? this.insert(this.createElement(e), t, "end") : this.insert(this.createElement(e, t), i, "end");
     }
     /**
      * Sets value of the attribute with given key on a {@link module:engine/model/item~Item model item}
@@ -23751,7 +23751,7 @@ Read more: ${Iw}#error-${n}`;
      * @param itemOrRange Model item or range on which the attribute will be set.
      */
     setAttribute(e, t, i) {
-      if (this._assertWriterUsedCorrectly(), i instanceof _) {
+      if (this._assertWriterUsedCorrectly(), i instanceof b) {
         const s = i.getMinimalFlatRanges();
         for (const o of s)
           Cu(this, e, t, o);
@@ -23784,7 +23784,7 @@ Read more: ${Iw}#error-${n}`;
      * @param itemOrRange Model item or range from which the attribute will be removed.
      */
     removeAttribute(e, t) {
-      if (this._assertWriterUsedCorrectly(), t instanceof _) {
+      if (this._assertWriterUsedCorrectly(), t instanceof b) {
         const i = t.getMinimalFlatRanges();
         for (const s of i)
           Cu(this, e, null, s);
@@ -23802,7 +23802,7 @@ Read more: ${Iw}#error-${n}`;
         for (const s of i.getAttributeKeys())
           this.removeAttribute(s, i);
       };
-      if (!(e instanceof _))
+      if (!(e instanceof b))
         t(e);
       else
         for (const i of e.getItems())
@@ -23838,7 +23838,7 @@ Read more: ${Iw}#error-${n}`;
      * @param offset Offset or one of the flags. Used only when second parameter is a {@link module:engine/model/item~Item model item}.
      */
     move(e, t, i) {
-      if (this._assertWriterUsedCorrectly(), !(e instanceof _))
+      if (this._assertWriterUsedCorrectly(), !(e instanceof b))
         throw new g("writer-move-invalid-range", this);
       if (!e.isFlat)
         throw new g("writer-move-range-not-flat", this);
@@ -23857,7 +23857,7 @@ Read more: ${Iw}#error-${n}`;
      */
     remove(e) {
       this._assertWriterUsedCorrectly();
-      const i = (e instanceof _ ? e : _._createOn(e)).getMinimalFlatRanges().reverse();
+      const i = (e instanceof b ? e : b._createOn(e)).getMinimalFlatRanges().reverse();
       for (const s of i)
         this._addOperationForAffectedMarkers("move", s), y2(s.start, s.end.offset - s.start.offset, this.batch, this.model);
     }
@@ -23872,9 +23872,9 @@ Read more: ${Iw}#error-${n}`;
     merge(e) {
       this._assertWriterUsedCorrectly();
       const t = e.nodeBefore, i = e.nodeAfter;
-      if (this._addOperationForAffectedMarkers("merge", e), !(t instanceof W))
+      if (this._addOperationForAffectedMarkers("merge", e), !(t instanceof $))
         throw new g("writer-merge-no-element-before", this);
-      if (!(i instanceof W))
+      if (!(i instanceof $))
         throw new g("writer-merge-no-element-after", this);
       e.root.document ? this._merge(e) : this._mergeDetached(e);
     }
@@ -23947,7 +23947,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _mergeDetached(e) {
       const t = e.nodeBefore, i = e.nodeAfter;
-      this.move(_._createIn(i), y._createAt(t, "end")), this.remove(i);
+      this.move(b._createIn(i), y._createAt(t, "end")), this.remove(i);
     }
     /**
      * Performs merge action in a non-detached tree.
@@ -23965,7 +23965,7 @@ Read more: ${Iw}#error-${n}`;
      * @param newName New element name.
      */
     rename(e, t) {
-      if (this._assertWriterUsedCorrectly(), !(e instanceof W))
+      if (this._assertWriterUsedCorrectly(), !(e instanceof $))
         throw new g("writer-rename-not-element-instance", this);
       const i = e.root.document ? e.root.document.version : null, s = new Le(y._createBefore(e), e.name, t, i);
       this.batch.addOperation(s), this.model.applyOperation(s);
@@ -23997,7 +23997,7 @@ Read more: ${Iw}#error-${n}`;
       } while (i !== t);
       return {
         position: e,
-        range: new _(y._createAt(s, "end"), y._createAt(o, 0))
+        range: new b(y._createAt(s, "end"), y._createAt(o, 0))
       };
     }
     /**
@@ -24012,13 +24012,13 @@ Read more: ${Iw}#error-${n}`;
     wrap(e, t) {
       if (this._assertWriterUsedCorrectly(), !e.isFlat)
         throw new g("writer-wrap-range-not-flat", this);
-      const i = t instanceof W ? t : new W(t);
+      const i = t instanceof $ ? t : new $(t);
       if (i.childCount > 0)
         throw new g("writer-wrap-element-not-empty", this);
       if (i.parent !== null)
         throw new g("writer-wrap-element-attached", this);
       this.insert(i, e.start);
-      const s = new _(e.start.getShiftedBy(1), e.end.getShiftedBy(1));
+      const s = new b(e.start.getShiftedBy(1), e.end.getShiftedBy(1));
       this.move(s, y._createAt(i, 0));
     }
     /**
@@ -24030,7 +24030,7 @@ Read more: ${Iw}#error-${n}`;
     unwrap(e) {
       if (this._assertWriterUsedCorrectly(), e.parent === null)
         throw new g("writer-unwrap-element-no-parent", this);
-      this.move(_._createIn(e), this.createPositionAfter(e)), this.remove(e);
+      this.move(b._createIn(e), this.createPositionAfter(e)), this.remove(e);
     }
     /**
      * Adds a {@link module:engine/model/markercollection~Marker marker}. Marker is a named range, which tracks
@@ -24371,7 +24371,7 @@ Read more: ${Iw}#error-${n}`;
       c = d.item.getAttribute(e), a && l != c && (l != t && u(), r = a), a = d.nextPosition, l = c;
     a instanceof y && a != r && l != t && u();
     function u() {
-      const d = new _(r, a), h = d.root.document ? o.version : null, f = new ae(d, e, l, t, h);
+      const d = new b(r, a), h = d.root.document ? o.version : null, f = new ae(d, e, l, t, h);
       n.batch.addOperation(f), s.applyOperation(f);
     }
   }
@@ -24383,7 +24383,7 @@ Read more: ${Iw}#error-${n}`;
         const u = i.document ? o.version : null;
         l = new It(i, e, r, t, u);
       } else {
-        a = new _(y._createBefore(i), n.createPositionAfter(i));
+        a = new b(y._createBefore(i), n.createPositionAfter(i));
         const u = a.root.document ? o.version : null;
         l = new ae(a, e, r, t, u);
       }
@@ -24504,7 +24504,7 @@ Read more: ${Iw}#error-${n}`;
     return !t && i;
   }
   function I2(n, e, t) {
-    const i = new _(n, e);
+    const i = new b(n, e);
     for (const s of i.getWalker())
       if (t.isLimit(s.item))
         return !1;
@@ -24582,8 +24582,8 @@ Read more: ${Iw}#error-${n}`;
           u.sort(({ position: d }, { position: h }) => d.isBefore(h) ? 1 : -1);
           for (const { position: d, name: h, isCollapsed: f } of u) {
             let m = null, p = null;
-            const w = d.parent === e && d.isAtStart, v = d.parent === e && d.isAtEnd;
-            !w && !v ? (m = i.createElement("$marker"), i.insert(m, d)) : f && (p = w ? "start" : "end"), r.push({
+            const _ = d.parent === e && d.isAtStart, v = d.parent === e && d.isAtEnd;
+            !_ && !v ? (m = i.createElement("$marker"), i.insert(m, d)) : f && (p = _ ? "start" : "end"), r.push({
               name: h,
               element: m,
               collapsed: p
@@ -24598,8 +24598,8 @@ Read more: ${Iw}#error-${n}`;
       if (e.is("documentFragment") && r.length) {
         const u = l ? Pe.fromRange(l) : null, d = {};
         for (let h = r.length - 1; h >= 0; h--) {
-          const { name: f, element: m, collapsed: p } = r[h], w = !d[f];
-          if (w && (d[f] = []), m) {
+          const { name: f, element: m, collapsed: p } = r[h], _ = !d[f];
+          if (_ && (d[f] = []), m) {
             const v = i.createPositionAt(m, "before");
             d[f].push(v), i.remove(m);
           } else {
@@ -24608,14 +24608,14 @@ Read more: ${Iw}#error-${n}`;
               p && d[f].push(o.position);
               continue;
             }
-            p ? d[f].push(v[p]) : d[f].push(w ? v.start : v.end);
+            p ? d[f].push(v[p]) : d[f].push(_ ? v.start : v.end);
           }
         }
         for (const [h, [f, m]] of Object.entries(d))
           f && m && f.root === m.root && f.root.document && !i.model.markers.has(h) && i.addMarker(h, {
             usingOperation: !0,
             affectsData: !0,
-            range: new _(f, m)
+            range: new b(f, m)
           });
         u && (l = u.toRange(), u.detach());
       }
@@ -24659,14 +24659,14 @@ Read more: ${Iw}#error-${n}`;
      * Returns `null` if there is no valid range to select after insertion.
      */
     getSelectionRange() {
-      return this._nodeToSelect ? _._createOn(this._nodeToSelect) : this.model.schema.getNearestSelectionRange(this.position);
+      return this._nodeToSelect ? b._createOn(this._nodeToSelect) : this.model.schema.getNearestSelectionRange(this.position);
     }
     /**
      * Returns a range which contains all the performed changes. This is a range that, if removed, would return the model to the state
      * before the insertion. Returns `null` if no changes were done.
      */
     getAffectedRange() {
-      return this._affectedStart ? new _(this._affectedStart, this._affectedEnd) : null;
+      return this._affectedStart ? new b(this._affectedStart, this._affectedEnd) : null;
     }
     /**
      * Destroys `Insertion` instance.
@@ -24739,7 +24739,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _mergeOnLeft() {
       const e = this._firstNode;
-      if (!(e instanceof W) || !this._canMergeLeft(e))
+      if (!(e instanceof $) || !this._canMergeLeft(e))
         return;
       const t = le._createBefore(e);
       t.stickiness = "toNext";
@@ -24754,7 +24754,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _mergeOnRight() {
       const e = this._lastNode;
-      if (!(e instanceof W) || !this._canMergeRight(e))
+      if (!(e instanceof $) || !this._canMergeRight(e))
         return;
       const t = le._createAfter(e);
       t.stickiness = "toNext";
@@ -24772,7 +24772,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _canMergeLeft(e) {
       const t = e.previousSibling;
-      return t instanceof W && this.canMergeWith.has(t) && this.model.schema.checkMerge(t, e);
+      return t instanceof $ && this.canMergeWith.has(t) && this.model.schema.checkMerge(t, e);
     }
     /**
      * Checks whether specified node can be merged with next sibling element.
@@ -24781,7 +24781,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _canMergeRight(e) {
       const t = e.nextSibling;
-      return t instanceof W && this.canMergeWith.has(t) && this.model.schema.checkMerge(e, t);
+      return t instanceof $ && this.canMergeWith.has(t) && this.model.schema.checkMerge(e, t);
     }
     /**
      * Tries wrapping the node in a new paragraph and inserting it this way.
@@ -24941,7 +24941,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function H2(n, e) {
     const t = n.root, i = y._createAt(t, e ? "end" : 0);
-    return e ? new _(n, i) : new _(i, n);
+    return e ? new b(n, i) : new b(i, n);
   }
   function W2(n, e, t) {
     const i = e + (t ? 0 : -1);
@@ -24954,7 +24954,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  let q2 = class extends H() {
+  let q2 = class extends W() {
     // @if CK_DEBUG_ENGINE // private _operationLogs: Array<string>;
     // @if CK_DEBUG_ENGINE // private _appliedOperations: Array<Operation>;
     constructor() {
@@ -25445,7 +25445,7 @@ Read more: ${Iw}#error-${n}`;
      * @param options.ignoreMarkers Whether markers should be ignored.
      */
     hasContent(e, t = {}) {
-      const i = e instanceof _ ? e : _._createIn(e);
+      const i = e instanceof b ? e : b._createIn(e);
       if (i.isCollapsed)
         return !1;
       const { ignoreWhitespaces: s = !1, ignoreMarkers: o = !1 } = t;
@@ -25557,7 +25557,7 @@ Read more: ${Iw}#error-${n}`;
      * @param end End position. If not set, the range will be collapsed to the `start` position.
      */
     createRange(e, t) {
-      return new _(e, t);
+      return new b(e, t);
     }
     /**
      * Creates a range inside the given element which starts before the first child of
@@ -25575,7 +25575,7 @@ Read more: ${Iw}#error-${n}`;
      * @param element Element which is a parent for the range.
      */
     createRangeIn(e) {
-      return _._createIn(e);
+      return b._createIn(e);
     }
     /**
      * Creates a range that starts before the given {@link module:engine/model/item~Item model item} and ends after it.
@@ -25592,7 +25592,7 @@ Read more: ${Iw}#error-${n}`;
      * @param item
      */
     createRangeOn(e) {
-      return _._createOn(e);
+      return b._createOn(e);
     }
     createSelection(...e) {
       return new Fe(...e);
@@ -26790,7 +26790,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class TE extends H() {
+  class TE extends W() {
     /**
      * Creates a new instance of the editor class.
      *
@@ -27100,7 +27100,7 @@ Read more: ${Iw}#error-${n}`;
     add(e) {
       if (typeof e != "string")
         throw new g("pendingactions-add-invalid-message", this);
-      const t = new (H())();
+      const t = new (W())();
       return t.set("message", e), this._actions.add(t), this.hasAny = !0, t;
     }
     /**
@@ -27967,7 +27967,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class T extends Me(H()) {
+  class T extends Me(W()) {
     /**
      * Creates an instance of the {@link module:ui/view~View} class.
      *
@@ -28354,7 +28354,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Z5 extends b {
+  class Z5 extends w {
     constructor() {
       super(...arguments), this.contentView = null;
     }
@@ -30784,7 +30784,7 @@ Read more: ${Iw}#error-${n}`;
     get _areItemsOverflowing() {
       if (!this.ungroupedItems.length)
         return !1;
-      const e = this.viewElement, t = this.viewLocale.uiLanguageDirection, i = new B(e.lastChild), s = new B(e);
+      const e = this.viewElement, t = this.viewLocale.uiLanguageDirection, i = new O(e.lastChild), s = new O(e);
       if (!this.cachedPadding) {
         const o = E.window.getComputedStyle(e), r = t === "ltr" ? "paddingRight" : "paddingLeft";
         this.cachedPadding = Number.parseInt(o[r]);
@@ -31647,7 +31647,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ix extends H(Ce) {
+  class ix extends W(Ce) {
     constructor(e) {
       super(e), this.set("isEmpty", !0), this.on("change", () => {
         this.set("isEmpty", this.length === 0);
@@ -32605,7 +32605,7 @@ Read more: ${Iw}#error-${n}`;
      * Calculates the visible DOM root part.
      */
     _getVisibleDomRootRect(e) {
-      let t = new B(this._getCurrentDomRoot()).getVisible();
+      let t = new O(this._getCurrentDomRoot()).getVisible();
       if (t) {
         if (t = e.getIntersection(t), !t)
           return null;
@@ -32617,7 +32617,7 @@ Read more: ${Iw}#error-${n}`;
      * Calculates the dialog element rect.
      */
     _getDialogRect() {
-      return new B(this.element.firstElementChild);
+      return new O(this.element.firstElementChild);
     }
     /**
      * Calculates the viewport rect.
@@ -32657,14 +32657,14 @@ Read more: ${Iw}#error-${n}`;
   tn.defaultOffset = 15;
   function dx(n) {
     n = Object.assign({ top: 0, bottom: 0, left: 0, right: 0 }, n);
-    const e = new B(E.window);
+    const e = new O(E.window);
     return e.top += n.top, e.height -= n.top, e.bottom -= n.bottom, e.height -= n.bottom, e.left += n.left, e.right -= n.right, e.width -= n.left + n.right, e;
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Tt extends b {
+  class Tt extends w {
     /**
      * @inheritDoc
      */
@@ -33607,7 +33607,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function _g(n, e, t) {
     return (i, s) => {
-      const o = new B(n);
+      const o = new O(n);
       if (o.width < bx || o.height < wx)
         return null;
       let r;
@@ -33713,7 +33713,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Sx extends H() {
+  class Sx extends W() {
     /**
      * Creates an instance of the editor UI class.
      *
@@ -34302,7 +34302,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class yi extends H() {
+  class yi extends W() {
     /**
      * Creates a new Model instance.
      *
@@ -34318,7 +34318,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ns = un("px");
-  class Wt extends b {
+  class Wt extends w {
     /**
      * @inheritDoc
      */
@@ -34627,7 +34627,7 @@ Read more: ${Iw}#error-${n}`;
      */
     updatePosition() {
       if (this.numberOfPanels) {
-        const { top: e, left: t } = this._balloonPanelView, { width: i, height: s } = new B(this._balloonPanelView.element);
+        const { top: e, left: t } = this._balloonPanelView, { width: i, height: s } = new O(this._balloonPanelView.element);
         Object.assign(this, { top: e, left: t, width: i, height: s });
       }
     }
@@ -34707,10 +34707,10 @@ Read more: ${Iw}#error-${n}`;
         this._unstick();
         return;
       }
-      const e = new B(this.limiterElement);
+      const e = new O(this.limiterElement);
       let t = e.getVisible();
       if (t) {
-        const i = new B(E.window);
+        const i = new O(E.window);
         i.top += this.viewportTopOffset, i.height -= this.viewportTopOffset, t = t.getIntersection(i);
       }
       if (t && e.top < t.top) {
@@ -34755,7 +34755,7 @@ Read more: ${Iw}#error-${n}`;
      * @private
      */
     get _contentPanelRect() {
-      return new B(this.contentPanelElement);
+      return new O(this.contentPanelElement);
     }
   }
   /**
@@ -35058,7 +35058,7 @@ Read more: ${Iw}#error-${n}`;
     _updateResultsViewWidthAndPosition() {
       if (!this.resultsView.isVisible)
         return;
-      this.resultsView._width = new B(this.queryView.fieldView.element).width;
+      this.resultsView._width = new O(this.queryView.fieldView.element).width;
       const e = rs._getOptimalPosition({
         element: this.resultsView.element,
         target: this.queryView.element,
@@ -36203,7 +36203,7 @@ Read more: ${Iw}#error-${n}`;
     _handleScrollToTheSelectionWithStickyPanel(e, t, i) {
       const s = this.view.stickyPanel;
       if (s.isSticky) {
-        const o = new B(s.element).height;
+        const o = new O(s.element).height;
         t.viewportOffset.top += o;
       } else {
         const o = () => {
@@ -36230,7 +36230,7 @@ Read more: ${Iw}#error-${n}`;
         i.on("moveTo", (s, o) => {
           if (!e.isSticky || i.wasMoved)
             return;
-          const r = new B(e.contentPanelElement);
+          const r = new O(e.contentPanelElement);
           o[1] < r.bottom + tn.defaultOffset && (o[1] = r.bottom + tn.defaultOffset);
         }, { priority: "high" });
       }, { priority: "low" });
@@ -37205,7 +37205,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Un extends b {
+  class Un extends w {
     constructor() {
       super(...arguments), this._markersToCopy = /* @__PURE__ */ new Map();
     }
@@ -37477,7 +37477,7 @@ Read more: ${Iw}#error-${n}`;
           [r.type]: a
         }), r.markerElement && e.remove(r.markerElement), o;
       }, {});
-      return yy(s, (o) => new _(o.start || e.createPositionFromPath(t, [0]), o.end || e.createPositionAt(t, "end")));
+      return yy(s, (o) => new b(o.start || e.createPositionFromPath(t, [0]), o.end || e.createPositionAt(t, "end")));
     }
     /**
      * Returns array that contains list of fake markers with corresponding `$marker` elements.
@@ -37533,7 +37533,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Xe extends b {
+  class Xe extends w {
     /**
      * @inheritDoc
      */
@@ -37806,7 +37806,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Rg extends b {
+  class Rg extends w {
     /**
      * @inheritDoc
      */
@@ -37825,7 +37825,7 @@ Read more: ${Iw}#error-${n}`;
         const { text: l, selection: c, resultRange: u } = a, d = Array.from(c.getRanges()).map((m) => e.editing.mapper.toModelRange(m));
         let h = l;
         if (M.isAndroid) {
-          const m = Array.from(d[0].getItems()).reduce((p, w) => p + (w.is("$textProxy") ? w.data : ""), "");
+          const m = Array.from(d[0].getItems()).reduce((p, _) => p + (_.is("$textProxy") ? _.data : ""), "");
           m && (m.length <= h.length ? h.startsWith(m) && (h = h.substring(m.length), d[0].start = d[0].start.getShiftedBy(m.length)) : m.startsWith(h) && (d[0].start = d[0].start.getShiftedBy(h.length), h = ""));
         }
         const f = {
@@ -38136,7 +38136,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class bt extends b {
+  class bt extends w {
     /**
      * @inheritDoc
      */
@@ -38178,7 +38178,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Vg extends b {
+  class Vg extends w {
     static get requires() {
       return [Rg, bt];
     }
@@ -38201,7 +38201,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Bg extends H() {
+  class Bg extends W() {
     /**
      * Creates a text watcher instance.
      *
@@ -38257,7 +38257,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Eo extends b {
+  class Eo extends w {
     /**
      * @inheritDoc
      */
@@ -38511,7 +38511,7 @@ Read more: ${Iw}#error-${n}`;
     "typography",
     "quotes"
   ];
-  class yS extends b {
+  class yS extends w {
     /**
      * @inheritDoc
      */
@@ -38558,14 +38558,14 @@ Read more: ${Iw}#error-${n}`;
         const { from: c, to: u } = l.normalizedTransformation, d = c.exec(l.text), h = u(d.slice(1)), f = l.range;
         let m = d.index;
         t.enqueueChange((p) => {
-          for (let w = 1; w < d.length; w++) {
-            const v = d[w], C = h[w - 1];
+          for (let _ = 1; _ < d.length; _++) {
+            const v = d[_], C = h[_ - 1];
             if (C == null) {
               m += v.length;
               continue;
             }
-            const L = f.start.getShiftedBy(m), O = t.createRange(L, L.getShiftedBy(v.length)), q = TS(L);
-            t.insertContent(p.createText(C, q), O), m += C.length;
+            const R = f.start.getShiftedBy(m), B = t.createRange(R, R.getShiftedBy(v.length)), H = TS(R);
+            t.insertContent(p.createText(C, H), B), m += C.length;
           }
           t.enqueueChange(() => {
             i.requestUndoOnBackspace();
@@ -38752,7 +38752,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class rr extends b {
+  class rr extends w {
     /**
      * @inheritDoc
      */
@@ -38825,7 +38825,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LS extends b {
+  class LS extends w {
     /**
      * @inheritDoc
      */
@@ -39018,7 +39018,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const zg = ["before", "after"], jS = new DOMParser().parseFromString(GS, "image/svg+xml").firstChild, pd = "ck-widget__type-around_disabled";
-  class KS extends b {
+  class KS extends w {
     constructor() {
       super(...arguments), this._currentFakeCaretModelElement = null;
     }
@@ -39542,7 +39542,7 @@ Read more: ${Iw}#error-${n}`;
       const c = i.createSelection(e.start);
       i.modifySelection(c), !c.focus.isAtEnd && !e.start.isEqual(c.focus) && (e = i.createRange(c.focus, e.end));
     }
-    const o = n.mapper.toViewRange(e), r = s.viewRangeToDom(o), a = B.getDomRangeRects(r);
+    const o = n.mapper.toViewRange(e), r = s.viewRangeToDom(o), a = O.getDomRangeRects(r);
     let l;
     for (const c of a) {
       if (l === void 0) {
@@ -39562,7 +39562,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class mn extends b {
+  class mn extends w {
     constructor() {
       super(...arguments), this._previouslySelected = /* @__PURE__ */ new Set();
     }
@@ -39685,8 +39685,8 @@ Read more: ${Iw}#error-${n}`;
       }
       if (!r.isCollapsed && !t.shiftKey) {
         const h = r.getFirstPosition(), f = r.getLastPosition(), m = h.nodeAfter, p = f.nodeBefore;
-        (m && o.isObject(m) || p && o.isObject(p)) && (s.change((w) => {
-          w.setSelection(c ? f : h);
+        (m && o.isObject(m) || p && o.isObject(p)) && (s.change((_) => {
+          _.setSelection(c ? f : h);
         }), t.preventDefault(), e.stop());
         return;
       }
@@ -39833,7 +39833,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class xo extends b {
+  class xo extends w {
     constructor() {
       super(...arguments), this._toolbarDefinitions = /* @__PURE__ */ new Map();
     }
@@ -39991,7 +39991,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class lI extends H() {
+  class lI extends W() {
     /**
      * @param options Resizer options.
      */
@@ -40027,7 +40027,7 @@ Read more: ${Iw}#error-${n}`;
      * @param domResizeHandle The handle used to calculate the reference point.
      */
     begin(e, t, i) {
-      const s = new B(t);
+      const s = new O(t);
       this.activeHandlePosition = hI(e), this._referenceCoordinates = uI(t, fI(this.activeHandlePosition)), this._originalWidth = s.width, this._originalHeight = s.height, this._aspectRatio = s.width / s.height;
       const o = i.style.width;
       o && o.match(/^\d+(\.\d*)?%$/) ? this._originalWidthPercents = parseFloat(o) : this._originalWidthPercents = cI(i, s);
@@ -40049,7 +40049,7 @@ Read more: ${Iw}#error-${n}`;
     return e.width / i * 100;
   }
   function uI(n, e) {
-    const t = new B(n), i = e.split("-"), s = {
+    const t = new O(n), i = e.split("-"), s = {
       x: i[1] == "right" ? t.right : t.left,
       y: i[0] == "bottom" ? t.bottom : t.top
     };
@@ -40130,7 +40130,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class vd extends H() {
+  class vd extends W() {
     /**
      * @param options Resizer options.
      */
@@ -40202,7 +40202,7 @@ Read more: ${Iw}#error-${n}`;
         const u = this._options.unit || "%", d = (u === "%" ? t.widthPercents : t.width) + u;
         c.setStyle("width", d, this._options.viewElement);
       });
-      const s = this._getHandleHost(), o = new B(s), r = Math.round(o.width), a = Math.round(o.height), l = new B(s);
+      const s = this._getHandleHost(), o = new O(s), r = Math.round(o.width), a = Math.round(o.height), l = new O(s);
       t.width = Math.round(l.width), t.height = Math.round(l.height), this.redraw(o), this.state.update({
         ...t,
         handleHostWidth: r,
@@ -40251,7 +40251,7 @@ Read more: ${Iw}#error-${n}`;
       ];
       let a;
       if (i.isSameNode(s)) {
-        const l = e || new B(s);
+        const l = e || new O(s);
         a = [
           l.width + "px",
           l.height + "px",
@@ -40374,7 +40374,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Nr extends b {
+  class Nr extends w {
     constructor() {
       super(...arguments), this._resizers = /* @__PURE__ */ new Map();
     }
@@ -40517,7 +40517,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class zs extends b {
+  class zs extends w {
     constructor() {
       super(...arguments), this.removeDropMarkerDelayed = rl(() => this.removeDropMarker(), 40), this._updateDropMarkerThrottled = Ki((e) => this._updateDropMarker(e), 40), this._reconvertMarkerThrottled = Ki(() => {
         this.editor.model.markers.has("drop-target") && this.editor.editing.reconvertMarker("drop-target");
@@ -40629,13 +40629,13 @@ Read more: ${Iw}#error-${n}`;
       const t = this.editor.editing, i = e.start.nodeBefore, s = e.start.nodeAfter, o = e.start.parent, r = i ? t.mapper.toViewElement(i) : null, a = r ? t.view.domConverter.mapViewToDom(r) : null, l = s ? t.mapper.toViewElement(s) : null, c = l ? t.view.domConverter.mapViewToDom(l) : null, u = t.mapper.toViewElement(o);
       if (!u)
         return;
-      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = E.window, p = a ? new B(a) : null, w = c ? new B(c) : null, v = new B(d).excludeScrollbarsAndBorders(), C = p ? p.bottom : v.top, L = w ? w.top : v.bottom, O = E.window.getComputedStyle(d), q = C <= L ? (C + L) / 2 : L;
-      if (h.top < q && q < h.bottom) {
-        const x = v.left + parseFloat(O.paddingLeft), R = v.right - parseFloat(O.paddingRight), I = Math.max(x + f, h.left), ee = Math.min(R + f, h.right);
+      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = E.window, p = a ? new O(a) : null, _ = c ? new O(c) : null, v = new O(d).excludeScrollbarsAndBorders(), C = p ? p.bottom : v.top, R = _ ? _.top : v.bottom, B = E.window.getComputedStyle(d), H = C <= R ? (C + R) / 2 : R;
+      if (h.top < H && H < h.bottom) {
+        const x = v.left + parseFloat(B.paddingLeft), L = v.right - parseFloat(B.paddingRight), I = Math.max(x + f, h.left), ee = Math.min(L + f, h.right);
         this._dropTargetLineView.set({
           isVisible: !0,
           left: I,
-          top: q + m,
+          top: H + m,
           width: ee - I
         });
       } else
@@ -40658,7 +40658,7 @@ Read more: ${Iw}#error-${n}`;
           resizeObserver: o
         });
       }
-      return new B(i).excludeScrollbarsAndBorders();
+      return new O(i).excludeScrollbarsAndBorders();
     }
   }
   function yd(n, e, t, i, s, o, r) {
@@ -40708,7 +40708,7 @@ Read more: ${Iw}#error-${n}`;
     return s.createRange(s.createPositionAt(e, Hg(n, e, t, i)));
   }
   function Hg(n, e, t, i) {
-    const s = n.editing.mapper, o = n.editing.view.domConverter, r = s.toViewElement(e), a = o.mapViewToDom(r), l = new B(a);
+    const s = n.editing.mapper, o = n.editing.view.domConverter, r = s.toViewElement(e), a = o.mapViewToDom(r), l = new O(a);
     return n.model.schema.isInline(e) ? t < (l.left + l.right) / 2 ? "before" : "after" : i < (l.top + l.bottom) / 2 ? "before" : "after";
   }
   function Cd(n, e) {
@@ -40732,7 +40732,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class yI extends b {
+  class yI extends w {
     constructor() {
       super(...arguments), this._isBlockDragging = !1, this._domEmitter = new (Me())();
     }
@@ -40800,7 +40800,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class CI extends b {
+  class CI extends w {
     constructor() {
       super(...arguments), this._clearDraggableAttributesDelayed = rl(() => this._clearDraggableAttributes(), 40), this._blockMode = !1, this._domEmitter = new (Me())();
     }
@@ -40984,7 +40984,7 @@ Read more: ${Iw}#error-${n}`;
       this._previewContainer ? this._previewContainer.firstElementChild && this._previewContainer.removeChild(this._previewContainer.firstElementChild) : (this._previewContainer = tt(E.document, "div", {
         style: "position: fixed; left: -999999px;"
       }), E.document.body.appendChild(this._previewContainer));
-      const l = new B(r);
+      const l = new O(r);
       if (r.contains(t))
         return;
       const c = parseFloat(a.paddingLeft), u = tt(E.document, "div");
@@ -41017,7 +41017,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class kI extends b {
+  class kI extends w {
     /**
      * @inheritDoc
      */
@@ -41059,7 +41059,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Rl extends b {
+  class Rl extends w {
     /**
      * @inheritDoc
      */
@@ -41130,7 +41130,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const AI = ms("Ctrl+A");
-  class xI extends b {
+  class xI extends w {
     /**
      * @inheritDoc
      */
@@ -41159,7 +41159,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class II extends b {
+  class II extends w {
     /**
      * @inheritDoc
      */
@@ -41196,7 +41196,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class PI extends b {
+  class PI extends w {
     /**
      * @inheritDoc
      */
@@ -41359,7 +41359,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class BI extends b {
+  class BI extends w {
     constructor() {
       super(...arguments), this._batchRegistry = /* @__PURE__ */ new WeakSet();
     }
@@ -41400,7 +41400,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class OI extends b {
+  class OI extends w {
     /**
      * @inheritDoc
      */
@@ -41449,7 +41449,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ll extends b {
+  class Ll extends w {
     /**
      * @inheritDoc
      */
@@ -41467,7 +41467,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class NI extends b {
+  class NI extends w {
     /**
      * @inheritDoc
      */
@@ -41561,7 +41561,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ws extends b {
+  class ws extends w {
     /**
      * @inheritDoc
      */
@@ -41675,7 +41675,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class WI extends b {
+  class WI extends w {
     /**
      * @inheritDoc
      */
@@ -41779,7 +41779,7 @@ Read more: ${Iw}#error-${n}`;
     ["center", A.alignCenter],
     ["justify", A.alignJustify]
   ]);
-  class KI extends b {
+  class KI extends w {
     /**
      * Returns the localized option titles provided by the plugin.
      *
@@ -41905,7 +41905,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ZI extends b {
+  class ZI extends w {
     /**
      * @inheritDoc
      */
@@ -42057,7 +42057,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class iP extends b {
+  class iP extends w {
     /**
      * @inheritDoc
      */
@@ -42140,7 +42140,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class nP extends b {
+  class nP extends w {
     /**
      * @inheritDoc
      */
@@ -42220,7 +42220,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Yg extends b {
+  class Yg extends w {
     /**
      * @inheritDoc
      */
@@ -42358,7 +42358,7 @@ Read more: ${Iw}#error-${n}`;
     "xx-large",
     "xxx-large"
   ];
-  class dP extends b {
+  class dP extends w {
     /**
      * @inheritDoc
      */
@@ -42453,7 +42453,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class hP extends b {
+  class hP extends w {
     /**
      * @inheritDoc
      */
@@ -42545,7 +42545,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class mP extends b {
+  class mP extends w {
     /**
      * @inheritDoc
      */
@@ -42584,7 +42584,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class pP extends b {
+  class pP extends w {
     /**
      * @inheritDoc
      */
@@ -42695,7 +42695,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Qg extends b {
+  class Qg extends w {
     /**
      * Creates a plugin which introduces a dropdown with a pre–configured
      * {@link module:ui/colorselector/colorselectorview~ColorSelectorView}.
@@ -42751,8 +42751,8 @@ Read more: ${Iw}#error-${n}`;
           this._undoStepBatch = e.model.createBatch();
         }), f.on("colorPicker:cancel", () => {
           this._undoStepBatch.operations.length && (d.isOpen = !1, e.execute("undo", this._undoStepBatch)), e.editing.view.focus();
-        }), d.on("change:isOpen", (m, p, w) => {
-          h || (h = !0, d.colorSelectorView.appendUI()), w && (l !== 0 && f.updateDocumentColors(e.model, this.componentName), f.updateSelectedColors(), f.showColorGridsFragment());
+        }), d.on("change:isOpen", (m, p, _) => {
+          h || (h = !0, d.colorSelectorView.appendUI()), _ && (l !== 0 && f.updateDocumentColors(e.model, this.componentName), f.updateSelectedColors(), f.showColorGridsFragment());
         }), Al(d, () => d.colorSelectorView.colorGridsFragmentView.staticColorsGrid.items.find((m) => m.isOn)), d;
       }), e.ui.componentFactory.add(`menuBar:${this.componentName}`, (u) => {
         const d = new Ke(u);
@@ -42781,8 +42781,8 @@ Read more: ${Iw}#error-${n}`;
             value: p.value,
             batch: this._undoStepBatch
           }), e.editing.view.focus();
-        }), d.on("change:isOpen", (m, p, w) => {
-          h || (h = !0, f.appendUI()), w && (l !== 0 && f.updateDocumentColors(e.model, this.componentName), f.updateSelectedColors(), f.showColorGridsFragment());
+        }), d.on("change:isOpen", (m, p, _) => {
+          h || (h = !0, f.appendUI()), _ && (l !== 0 && f.updateDocumentColors(e.model, this.componentName), f.updateSelectedColors(), f.showColorGridsFragment());
         }), d.panelView.children.add(f), d;
       });
     }
@@ -42816,7 +42816,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class _P extends b {
+  class _P extends w {
     /**
      * @inheritDoc
      */
@@ -42846,7 +42846,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class yP extends b {
+  class yP extends w {
     /**
      * @inheritDoc
      */
@@ -42971,7 +42971,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ep extends b {
+  class ep extends w {
     /**
      * @inheritDoc
      */
@@ -42989,7 +42989,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class TP extends b {
+  class TP extends w {
     /**
      * @inheritDoc
      */
@@ -43075,7 +43075,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Mi = "bold";
-  class EP extends b {
+  class EP extends w {
     /**
      * @inheritDoc
      */
@@ -43135,7 +43135,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Hs = "bold";
-  class AP extends b {
+  class AP extends w {
     /**
      * @inheritDoc
      */
@@ -43166,7 +43166,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class xP extends b {
+  class xP extends w {
     /**
      * @inheritDoc
      */
@@ -43185,7 +43185,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const ti = "code", SP = "ck-code_selected";
-  class IP extends b {
+  class IP extends w {
     /**
      * @inheritDoc
      */
@@ -43233,7 +43233,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ws = "code";
-  class RP extends b {
+  class RP extends w {
     /**
      * @inheritDoc
      */
@@ -43263,7 +43263,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LP extends b {
+  class LP extends w {
     /**
      * @inheritDoc
      */
@@ -43282,7 +43282,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Bi = "italic";
-  class VP extends b {
+  class VP extends w {
     /**
      * @inheritDoc
      */
@@ -43324,7 +43324,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const $s = "italic";
-  class BP extends b {
+  class BP extends w {
     /**
      * @inheritDoc
      */
@@ -43355,7 +43355,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class OP extends b {
+  class OP extends w {
     /**
      * @inheritDoc
      */
@@ -43374,7 +43374,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Tn = "strikethrough";
-  class NP extends b {
+  class NP extends w {
     /**
      * @inheritDoc
      */
@@ -43417,7 +43417,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const qs = "strikethrough";
-  class DP extends b {
+  class DP extends w {
     /**
      * @inheritDoc
      */
@@ -43448,7 +43448,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class zP extends b {
+  class zP extends w {
     /**
      * @inheritDoc
      */
@@ -43467,7 +43467,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const En = "subscript";
-  class UP extends b {
+  class UP extends w {
     /**
      * @inheritDoc
      */
@@ -43501,7 +43501,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Gs = "subscript";
-  class WP extends b {
+  class WP extends w {
     /**
      * @inheritDoc
      */
@@ -43531,7 +43531,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $P extends b {
+  class $P extends w {
     /**
      * @inheritDoc
      */
@@ -43550,7 +43550,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const An = "superscript";
-  class qP extends b {
+  class qP extends w {
     /**
      * @inheritDoc
      */
@@ -43584,7 +43584,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const js = "superscript";
-  class jP extends b {
+  class jP extends w {
     /**
      * @inheritDoc
      */
@@ -43614,7 +43614,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class KP extends b {
+  class KP extends w {
     /**
      * @inheritDoc
      */
@@ -43633,7 +43633,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const xn = "underline";
-  class ZP extends b {
+  class ZP extends w {
     /**
      * @inheritDoc
      */
@@ -43672,7 +43672,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ks = "underline";
-  class XP extends b {
+  class XP extends w {
     /**
      * @inheritDoc
      */
@@ -43703,7 +43703,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class YP extends b {
+  class YP extends w {
     /**
      * @inheritDoc
      */
@@ -43762,7 +43762,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ld = "paragraph";
-  class eR extends b {
+  class eR extends w {
     /**
      * @inheritDoc
      */
@@ -43847,7 +43847,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class iR extends b {
+  class iR extends w {
     /**
      * @inheritDoc
      */
@@ -43931,7 +43931,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class nR extends b {
+  class nR extends w {
     /**
      * @inheritDoc
      */
@@ -44571,7 +44571,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class dR extends b {
+  class dR extends w {
     /**
      * @inheritDoc
      */
@@ -44762,10 +44762,10 @@ Read more: ${Iw}#error-${n}`;
         if (u.has(h))
           continue;
         const m = h.getAttribute("listIndent");
-        f && m < f.getAttribute("listIndent") && (d.length = m + 1), d[m] = Object.fromEntries(Array.from(h.getAttributes()).filter(([w]) => t.includes(w)));
+        f && m < f.getAttribute("listIndent") && (d.length = m + 1), d[m] = Object.fromEntries(Array.from(h.getAttributes()).filter(([_]) => t.includes(_)));
         const p = $t(h, { direction: "forward" });
-        for (const w of p)
-          u.add(w), (o(w, p) || r(w, d, l)) && c.push(w);
+        for (const _ of p)
+          u.add(_), (o(_, p) || r(_, d, l)) && c.push(_);
       }
       return c;
     }
@@ -44928,7 +44928,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const ro = ["listType", "listIndent", "listItemId"];
-  class AR extends b {
+  class AR extends w {
     /**
      * @inheritDoc
      */
@@ -45236,7 +45236,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class IR extends b {
+  class IR extends w {
     /**
      * @inheritDoc
      */
@@ -45255,7 +45255,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class PR extends b {
+  class PR extends w {
     /**
      * @inheritDoc
      */
@@ -45337,7 +45337,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const VR = /^(image|image-inline)$/;
-  class Ae extends b {
+  class Ae extends w {
     constructor() {
       super(...arguments), this._domEmitter = new (Me())();
     }
@@ -45547,7 +45547,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const NR = new RegExp(String(/^(http(s)?:\/\/)?[\w-]+\.[\w.~:/[\]@!$&'()*+,;=%-]+/.source + /\.(jpg|jpeg|png|gif|ico|webp|JPG|JPEG|PNG|GIF|ICO|WEBP)/.source + /(\?[\w.~:/[\]@!$&'()*+,;=%-]*)?/.source + /(#[\w.~:/[\]@!$&'()*+,;=%-]*)?$/.source));
-  class FR extends b {
+  class FR extends w {
     /**
      * @inheritDoc
      */
@@ -45641,7 +45641,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class zR extends b {
+  class zR extends w {
     /**
      * @inheritDoc
      */
@@ -45775,7 +45775,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class WR extends b {
+  class WR extends w {
     /**
      * @inheritDoc
      */
@@ -45878,7 +45878,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class up extends b {
+  class up extends w {
     /**
      * @inheritDoc
      */
@@ -46058,7 +46058,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class hp extends b {
+  class hp extends w {
     /**
      * @inheritDoc
      */
@@ -46097,7 +46097,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class fp extends b {
+  class fp extends w {
     /**
      * @inheritDoc
      */
@@ -46173,8 +46173,8 @@ Read more: ${Iw}#error-${n}`;
           const f = h.writer, m = h.mapper.toViewElement(d.item), p = i.findViewImgElement(m);
           if (d.attributeNewValue !== null ? f.setAttribute(l, d.attributeNewValue, p) : f.removeAttribute(l, p), d.item.hasAttribute("sources"))
             return;
-          const w = d.item.hasAttribute("resizedWidth");
-          if (e === "imageInline" && !w && !c)
+          const _ = d.item.hasAttribute("resizedWidth");
+          if (e === "imageInline" && !_ && !c)
             return;
           const v = d.item.getAttribute("width"), C = d.item.getAttribute("height");
           v && C && f.setStyle("aspect-ratio", `${v}/${C}`, p);
@@ -46234,7 +46234,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class gp extends b {
+  class gp extends w {
     /**
      * @inheritDoc
      */
@@ -46302,7 +46302,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class pp extends b {
+  class pp extends w {
     /**
      * @inheritDoc
      */
@@ -46457,7 +46457,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class vs extends b {
+  class vs extends w {
     /**
      * @inheritDoc
      */
@@ -46546,7 +46546,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ZR extends b {
+  class ZR extends w {
     /**
      * @inheritDoc
      */
@@ -46564,7 +46564,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class JR extends b {
+  class JR extends w {
     /**
      * @inheritDoc
      */
@@ -46650,7 +46650,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class XR extends b {
+  class XR extends w {
     /**
      * @inheritDoc
      */
@@ -46668,7 +46668,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class YR extends b {
+  class YR extends w {
     /**
      * @inheritDoc
      */
@@ -46686,7 +46686,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class wp extends b {
+  class wp extends w {
     /**
      * @inheritDoc
      */
@@ -46796,7 +46796,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class eL extends b {
+  class eL extends w {
     /**
      * @inheritDoc
      */
@@ -46893,7 +46893,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _getSavedCaption(e) {
       const t = this._savedCaptionsMap.get(e);
-      return t ? W.fromJSON(t) : null;
+      return t ? $.fromJSON(t) : null;
     }
     /**
      * Saves a {@link module:engine/model/element~Element#toJSON JSONified} caption for
@@ -46942,7 +46942,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class tL extends b {
+  class tL extends w {
     /**
      * @inheritDoc
      */
@@ -46984,7 +46984,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class iL extends b {
+  class iL extends w {
     /**
      * @inheritDoc
      */
@@ -47040,7 +47040,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class aL extends b {
+  class aL extends w {
     /**
      * @inheritDoc
      */
@@ -47099,7 +47099,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class lL extends H() {
+  class lL extends W() {
     /**
      * Creates an instance of the FileReader.
      */
@@ -47154,7 +47154,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class li extends b {
+  class li extends w {
     constructor() {
       super(...arguments), this.loaders = new Ce(), this._loadersMap = /* @__PURE__ */ new Map(), this._pendingAction = null;
     }
@@ -47237,7 +47237,7 @@ Read more: ${Iw}#error-${n}`;
         e.remove(this._pendingAction), this._pendingAction = null;
     }
   }
-  class qd extends H() {
+  class qd extends W() {
     /**
      * Creates a new instance of `FileLoader`.
      *
@@ -47360,7 +47360,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class cL extends b {
+  class cL extends w {
     /**
      * @inheritDoc
      */
@@ -47419,7 +47419,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class dL extends b {
+  class dL extends w {
     /**
      * @inheritDoc
      */
@@ -47551,7 +47551,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class vL extends b {
+  class vL extends w {
     /**
      * @inheritDoc
      */
@@ -47610,8 +47610,8 @@ Read more: ${Iw}#error-${n}`;
               const p = m.getAttribute("uploadId");
               if (!p)
                 continue;
-              const w = s.loaders.get(p);
-              w && (f ? u.has(p) || w.abort() : (u.add(p), this._uploadImageElements.set(p, m), w.status == "idle" && this._readAndUpload(w)));
+              const _ = s.loaders.get(p);
+              _ && (f ? u.has(p) || _.abort() : (u.add(p), this._uploadImageElements.set(p, m), _.status == "idle" && this._readAndUpload(_)));
             }
           }
       }), this.on("uploadComplete", (c, { imageElement: u, data: d }) => {
@@ -47715,7 +47715,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Cp extends b {
+  class Cp extends w {
     /**
      * @inheritDoc
      */
@@ -47839,7 +47839,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class TL extends b {
+  class TL extends w {
     /**
      * @inheritDoc
      */
@@ -47898,7 +47898,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class EL extends b {
+  class EL extends w {
     /**
      * @inheritDoc
      */
@@ -47916,7 +47916,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class AL extends b {
+  class AL extends w {
     /**
      * @inheritDoc
      */
@@ -47974,7 +47974,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class kp extends b {
+  class kp extends w {
     /**
      * @inheritDoc
      */
@@ -48096,7 +48096,7 @@ Read more: ${Iw}#error-${n}`;
     large: A.objectSizeLarge,
     original: A.objectSizeFull
   };
-  class SL extends b {
+  class SL extends w {
     /**
      * @inheritDoc
      */
@@ -48223,7 +48223,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const IL = "figure.image.ck-widget > img,figure.image.ck-widget > picture > img,figure.image.ck-widget > a > img,figure.image.ck-widget > a > picture > img,span.image-inline.ck-widget > img,span.image-inline.ck-widget > picture > img", Ur = "image_resized";
-  class PL extends b {
+  class PL extends w {
     /**
      * @inheritDoc
      */
@@ -48293,7 +48293,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class RL extends b {
+  class RL extends w {
     /**
      * @inheritDoc
      */
@@ -48569,7 +48569,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Rp extends b {
+  class Rp extends w {
     /**
      * @inheritDoc
      */
@@ -48628,7 +48628,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class HL extends b {
+  class HL extends w {
     /**
      * @inheritDoc
      */
@@ -48749,7 +48749,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class WL extends b {
+  class WL extends w {
     /**
      * @inheritDoc
      */
@@ -48767,7 +48767,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $L extends b {
+  class $L extends w {
     /**
      * @inheritDoc
      */
@@ -49150,7 +49150,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class o3 extends H() {
+  class o3 extends W() {
     /**
      * Creates a new instance of {@link module:link/utils/manualdecorator~ManualDecorator}.
      *
@@ -49182,7 +49182,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const r3 = "ck-link_selected", nh = "automatic", a3 = "manual", l3 = /^(https?:)?\/\//;
-  class ur extends b {
+  class ur extends w {
     /**
      * @inheritDoc
      */
@@ -49614,7 +49614,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const ht = "link-ui";
-  class Bp extends b {
+  class Bp extends w {
     constructor() {
       super(...arguments), this.actionsView = null, this.formView = null;
     }
@@ -49963,7 +49963,7 @@ Read more: ${Iw}#error-${n}`;
     "(^|\\s)(((?:(?:(?:https?|ftp):)?\\/\\/)(?:\\S+(?::\\S*)?@)?(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(((?!www\\.)|(www\\.))(?![-_])(?:[-_a-z0-9\\u00a1-\\uffff]{1,63}\\.)+(?:[a-z\\u00a1-\\uffff]{2,63})))(?::\\d{2,5})?(?:[/?#]\\S*)?)|((www.|(\\S+@))((?![-_])(?:[-_a-z0-9\\u00a1-\\uffff]{1,63}\\.))+(?:[a-z\\u00a1-\\uffff]{2,63})))$",
     "i"
   ), g3 = 2;
-  class p3 extends b {
+  class p3 extends w {
     /**
      * @inheritDoc
      */
@@ -50119,7 +50119,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class v3 extends b {
+  class v3 extends w {
     /**
      * @inheritDoc
      */
@@ -50137,7 +50137,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class y3 extends b {
+  class y3 extends w {
     /**
      * @inheritDoc
      */
@@ -50252,7 +50252,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class A3 extends b {
+  class A3 extends w {
     /**
      * @inheritDoc
      */
@@ -50310,7 +50310,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class x3 extends b {
+  class x3 extends w {
     /**
      * @inheritDoc
      */
@@ -50328,7 +50328,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class S3 extends b {
+  class S3 extends w {
     /**
      * @inheritDoc
      */
@@ -50347,7 +50347,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class I3 extends b {
+  class I3 extends w {
     /**
      * @inheritDoc
      */
@@ -50390,7 +50390,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class P3 extends b {
+  class P3 extends w {
     /**
      * @inheritDoc
      */
@@ -50523,7 +50523,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const R3 = ["paragraph", "heading1", "heading2", "heading3", "heading4", "heading5", "heading6"];
-  class L3 extends b {
+  class L3 extends w {
     /**
      * @inheritDoc
      */
@@ -50653,7 +50653,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class O3 extends b {
+  class O3 extends w {
     /**
      * @inheritDoc
      */
@@ -50686,7 +50686,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class F3 extends b {
+  class F3 extends w {
     /**
      * @inheritDoc
      */
@@ -50722,7 +50722,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class D3 extends b {
+  class D3 extends w {
     /**
      * @inheritDoc
      */
@@ -50840,7 +50840,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class U3 extends b {
+  class U3 extends w {
     /**
      * @inheritDoc
      */
@@ -50901,7 +50901,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class H3 extends b {
+  class H3 extends w {
     /**
      * @inheritDoc
      */
@@ -50938,7 +50938,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class W3 extends b {
+  class W3 extends w {
     /**
      * @inheritDoc
      */
@@ -51186,7 +51186,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Lo extends b {
+  class Lo extends w {
     /**
      * @inheritDoc
      */
@@ -51336,7 +51336,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const X3 = /^(?:http(s)?:\/\/)?[\w-]+\.[\w-.~:/?#[\]@!$&'()*+,;=%]+$/;
-  class Y3 extends b {
+  class Y3 extends w {
     /**
      * @inheritDoc
      */
@@ -51542,7 +51542,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class t7 extends b {
+  class t7 extends w {
     /**
      * @inheritDoc
      */
@@ -51599,7 +51599,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class n7 extends b {
+  class n7 extends w {
     /**
      * @inheritDoc
      */
@@ -52150,7 +52150,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class G7 extends b {
+  class G7 extends w {
     /**
      * @inheritDoc
      */
@@ -52409,7 +52409,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $ {
+  class q {
     /**
      * Creates an instance of the table walker.
      *
@@ -52712,7 +52712,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function vh(n = {}) {
     return (e, { writer: t }) => {
-      const i = e.parent, s = i.parent, o = s.getChildIndex(i), r = new $(s, { row: o }), a = s.getAttribute("headingRows") || 0, l = s.getAttribute("headingColumns") || 0;
+      const i = e.parent, s = i.parent, o = s.getChildIndex(i), r = new q(s, { row: o }), a = s.getAttribute("headingRows") || 0, l = s.getAttribute("headingColumns") || 0;
       let c = null;
       for (const u of r)
         if (u.cell == e) {
@@ -52887,9 +52887,9 @@ Read more: ${Iw}#error-${n}`;
     const { startRow: i, startColumn: s, endRow: o, endColumn: r } = e, a = t.createElement("table"), l = o - i + 1;
     for (let u = 0; u < l; u++)
       t.insertElement("tableRow", a, "end");
-    const c = [...new $(n, { startRow: i, endRow: o, startColumn: s, endColumn: r, includeAllSlots: !0 })];
+    const c = [...new q(n, { startRow: i, endRow: o, startColumn: s, endColumn: r, includeAllSlots: !0 })];
     for (const { row: u, column: d, cell: h, isAnchor: f, cellAnchorRow: m, cellAnchorColumn: p } of c) {
-      const w = u - i, v = a.getChild(w);
+      const _ = u - i, v = a.getChild(_);
       if (!f)
         (m < i || p < s) && Ei(t, t.createPositionAt(v, "end"));
       else {
@@ -52900,7 +52900,7 @@ Read more: ${Iw}#error-${n}`;
     return o4(a, n, i, s, t), a;
   }
   function zp(n, e, t = 0) {
-    const i = [], s = new $(n, { startRow: t, endRow: e - 1 });
+    const i = [], s = new q(n, { startRow: t, endRow: e - 1 });
     for (const o of s) {
       const { row: r, cellHeight: a } = o, l = r + a - 1;
       r < e && e <= l && i.push(o);
@@ -52912,16 +52912,16 @@ Read more: ${Iw}#error-${n}`;
     c > 1 && (l.rowspan = c);
     const u = parseInt(n.getAttribute("colspan") || "1");
     u > 1 && (l.colspan = u);
-    const d = o, h = d + a, f = [...new $(s, { startRow: d, endRow: h, includeAllSlots: !0 })];
+    const d = o, h = d + a, f = [...new q(s, { startRow: d, endRow: h, includeAllSlots: !0 })];
     let m = null, p;
-    for (const w of f) {
-      const { row: v, column: C, cell: L } = w;
-      L === n && p === void 0 && (p = C), p !== void 0 && p === C && v === h && (m = Ei(t, w.getPositionBefore(), l));
+    for (const _ of f) {
+      const { row: v, column: C, cell: R } = _;
+      R === n && p === void 0 && (p = C), p !== void 0 && p === C && v === h && (m = Ei(t, _.getPositionBefore(), l));
     }
     return se("rowspan", a, n, t), m;
   }
   function Hp(n, e) {
-    const t = [], i = new $(n);
+    const t = [], i = new q(n);
     for (const s of i) {
       const { column: o, cellWidth: r } = s, a = o + r - 1;
       o < e && e <= a && t.push(s);
@@ -52961,7 +52961,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function Ra(n, e) {
     const t = e.getColumns(n), i = new Array(t).fill(0);
-    for (const { column: o } of new $(n))
+    for (const { column: o } of new q(n))
       i[o]++;
     const s = i.reduce((o, r, a) => r ? o : [...o, a], []);
     if (s.length > 0) {
@@ -52984,7 +52984,7 @@ Read more: ${Iw}#error-${n}`;
     Ra(n, e) || La(n, e);
   }
   function qp(n, e) {
-    const t = Array.from(new $(n, {
+    const t = Array.from(new q(n, {
       startColumn: e.firstColumn,
       endColumn: e.lastColumn,
       row: e.lastRow
@@ -52995,7 +52995,7 @@ Read more: ${Iw}#error-${n}`;
     return e.lastRow + s;
   }
   function Gp(n, e) {
-    const t = Array.from(new $(n, {
+    const t = Array.from(new q(n, {
       startRow: e.firstRow,
       endRow: e.lastRow,
       column: e.lastColumn
@@ -53041,8 +53041,8 @@ Read more: ${Iw}#error-${n}`;
         l4(u, c, a);
         const h = this.isHorizontal ? "colspan" : "rowspan", f = parseInt(s.getAttribute(h) || "1"), m = parseInt(o.getAttribute(h) || "1");
         a.setAttribute(h, f + m, c), a.setSelection(a.createRangeIn(c));
-        const p = this.editor.plugins.get("TableUtils"), w = d.findAncestor("table");
-        Hl(w, p);
+        const p = this.editor.plugins.get("TableUtils"), _ = d.findAncestor("table");
+        Hl(_, p);
       });
     }
     /**
@@ -53074,7 +53074,7 @@ Read more: ${Iw}#error-${n}`;
     const r = parseInt(n.getAttribute("rowspan") || "1"), a = s.getAttribute("headingRows") || 0, l = e == "down" && o + r === a, c = e == "up" && o === a;
     if (a && (l || c))
       return null;
-    const u = parseInt(n.getAttribute("rowspan") || "1"), d = e == "down" ? o + u : o, h = [...new $(s, { endRow: d })], m = h.find((w) => w.cell === n).column, p = h.find(({ row: w, cellHeight: v, column: C }) => C !== m ? !1 : e == "down" ? w === d : d === w + v);
+    const u = parseInt(n.getAttribute("rowspan") || "1"), d = e == "down" ? o + u : o, h = [...new q(s, { endRow: d })], m = h.find((_) => _.cell === n).column, p = h.find(({ row: _, cellHeight: v, column: C }) => C !== m ? !1 : e == "down" ? _ === d : d === _ + v);
     return p && p.cell ? p.cell : null;
   }
   function l4(n, e, t) {
@@ -53146,7 +53146,7 @@ Read more: ${Iw}#error-${n}`;
      * @inheritDoc
      */
     execute() {
-      const e = this.editor.plugins.get("TableUtils"), [t, i] = f4(this.editor.model.document.selection, e), s = t.parent.parent, o = [...new $(s)], r = {
+      const e = this.editor.plugins.get("TableUtils"), [t, i] = f4(this.editor.model.document.selection, e), s = t.parent.parent, o = [...new q(s)], r = {
         first: o.find((l) => l.cell === t).column,
         last: o.find((l) => l.cell === i).column
       }, a = h4(o, t, i, r);
@@ -53368,7 +53368,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class pe extends b {
+  class pe extends w {
     /**
      * @inheritDoc
      */
@@ -53410,7 +53410,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Returns a `{row, column}` object.
      */
     getCellLocation(e) {
-      const t = e.parent, i = t.parent, s = i.getChildIndex(t), o = new $(i, { row: s });
+      const t = e.parent, i = t.parent, s = i.getChildIndex(t), o = new q(i, { row: s });
       for (const { cell: r, row: a, column: l } of o)
         if (r === e)
           return { row: a, column: l };
@@ -53479,17 +53479,17 @@ Read more: ${Iw}#error-${n}`;
           Wr(u, e, s, o, c);
           return;
         }
-        const h = r ? Math.max(s, a) : s, f = new $(e, { endRow: h }), m = new Array(c).fill(1);
-        for (const { row: p, column: w, cellHeight: v, cellWidth: C, cell: L } of f) {
-          const O = p + v - 1, q = p < s && s <= O, x = p <= a && a <= O;
-          q ? (u.setAttribute("rowspan", v + o, L), m[w] = -C) : r && x && (m[w] = C);
+        const h = r ? Math.max(s, a) : s, f = new q(e, { endRow: h }), m = new Array(c).fill(1);
+        for (const { row: p, column: _, cellHeight: v, cellWidth: C, cell: R } of f) {
+          const B = p + v - 1, H = p < s && s <= B, x = p <= a && a <= B;
+          H ? (u.setAttribute("rowspan", v + o, R), m[_] = -C) : r && x && (m[_] = C);
         }
         for (let p = 0; p < o; p++) {
-          const w = u.createElement("tableRow");
-          u.insert(w, e, s);
+          const _ = u.createElement("tableRow");
+          u.insert(_, e, s);
           for (let v = 0; v < m.length; v++) {
-            const C = m[v], L = u.createPositionAt(w, "end");
-            C > 0 && Ei(u, L, C > 1 ? { colspan: C } : void 0), v += Math.abs(C) - 1;
+            const C = m[v], R = u.createPositionAt(_, "end");
+            C > 0 && Ei(u, R, C > 1 ? { colspan: C } : void 0), v += Math.abs(C) - 1;
           }
         }
       });
@@ -53532,12 +53532,12 @@ Read more: ${Iw}#error-${n}`;
             u.is("element", "tableRow") && Wi(o, r, r.createPositionAt(u, s ? "end" : 0));
           return;
         }
-        const c = new $(e, { column: s, includeAllSlots: !0 });
+        const c = new q(e, { column: s, includeAllSlots: !0 });
         for (const u of c) {
-          const { row: d, cell: h, cellAnchorColumn: f, cellAnchorRow: m, cellWidth: p, cellHeight: w } = u;
+          const { row: d, cell: h, cellAnchorColumn: f, cellAnchorRow: m, cellWidth: p, cellHeight: _ } = u;
           if (f < s) {
             r.setAttribute("colspan", p + o, h);
-            const v = m + w - 1;
+            const v = m + _ - 1;
             for (let C = d; C <= v; C++)
               c.skipRow(C);
           } else
@@ -53625,7 +53625,7 @@ Read more: ${Iw}#error-${n}`;
         x4(e, { first: s, last: r }, a);
         const l = Cs(e);
         for (let c = r; c >= s; c--) {
-          for (const { cell: u, column: d, cellWidth: h } of [...new $(e)])
+          for (const { cell: u, column: d, cellWidth: h } of [...new q(e)])
             d <= c && h > 1 && d + h > c ? se("colspan", h - 1, u, a) : d === c && a.remove(u);
           if (l[c]) {
             const u = c === 0 ? l[1] : l[c - 1], d = parseFloat(l[c].getAttribute("columnWidth")), h = parseFloat(u.getAttribute("columnWidth"));
@@ -53688,12 +53688,12 @@ Read more: ${Iw}#error-${n}`;
           Wi(h, l, l.createPositionAfter(e), d);
         }
         if (a < t) {
-          const c = t - a, u = [...new $(o)], { column: d } = u.find(({ cell: p }) => p === e), h = u.filter(({ cell: p, cellWidth: w, column: v }) => {
-            const C = p !== e && v === d, L = v < d && v + w > d;
-            return C || L;
+          const c = t - a, u = [...new q(o)], { column: d } = u.find(({ cell: p }) => p === e), h = u.filter(({ cell: p, cellWidth: _, column: v }) => {
+            const C = p !== e && v === d, R = v < d && v + _ > d;
+            return C || R;
           });
-          for (const { cell: p, cellWidth: w } of h)
-            l.setAttribute("colspan", w + c, p);
+          for (const { cell: p, cellWidth: _ } of h)
+            l.setAttribute("colspan", _ + c, p);
           const f = {};
           r > 1 && (f.rowspan = r), Wi(c, l, l.createPositionAfter(e), f);
           const m = o.getAttribute("headingColumns") || 0;
@@ -53758,7 +53758,7 @@ Read more: ${Iw}#error-${n}`;
       const i = this.editor.model, s = e.parent, o = s.parent, r = o.getChildIndex(s), a = parseInt(e.getAttribute("rowspan") || "1"), l = parseInt(e.getAttribute("colspan") || "1");
       i.change((c) => {
         if (a > 1) {
-          const u = [...new $(o, {
+          const u = [...new q(o, {
             startRow: r,
             endRow: r + a - 1,
             includeAllSlots: !0
@@ -53767,14 +53767,14 @@ Read more: ${Iw}#error-${n}`;
           const { column: f } = u.find(({ cell: p }) => p === e), m = {};
           d > 1 && (m.rowspan = d), l > 1 && (m.colspan = l);
           for (const p of u) {
-            const { column: w, row: v } = p, C = v >= r + h, L = w === f, O = (v + r + h) % d === 0;
-            C && L && O && Wi(1, c, p.getPositionBefore(), m);
+            const { column: _, row: v } = p, C = v >= r + h, R = _ === f, B = (v + r + h) % d === 0;
+            C && R && B && Wi(1, c, p.getPositionBefore(), m);
           }
         }
         if (a < t) {
-          const u = t - a, d = [...new $(o, { startRow: 0, endRow: r })];
-          for (const { cell: m, cellHeight: p, row: w } of d)
-            if (m !== e && w + p > r) {
+          const u = t - a, d = [...new q(o, { startRow: 0, endRow: r })];
+          for (const { cell: m, cellHeight: p, row: _ } of d)
+            if (m !== e && _ + p > r) {
               const v = p + u;
               c.setAttribute("rowspan", v, m);
             }
@@ -53825,7 +53825,7 @@ Read more: ${Iw}#error-${n}`;
      * @param options An object with configuration.
      */
     createTableWalker(e, t = {}) {
-      return new $(e, t);
+      return new q(e, t);
     }
     /**
      * Returns all model table cells that are fully selected (from the outside)
@@ -53900,7 +53900,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns Returns an object with the `first` and `last` table column indexes.
      */
     getColumnIndexes(e) {
-      const t = e[0].findAncestor("table"), s = [...new $(t)].filter((o) => e.includes(o.cell)).map((o) => o.column);
+      const t = e[0].findAncestor("table"), s = [...new q(t)].filter((o) => e.includes(o.cell)).map((o) => o.column);
       return this._getFirstLastIndexesObject(s);
     }
     /**
@@ -54013,7 +54013,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function I4(n, { first: e, last: t }) {
     const i = /* @__PURE__ */ new Map(), s = [];
-    for (const { row: o, column: r, cellHeight: a, cell: l } of new $(n, { endRow: t })) {
+    for (const { row: o, column: r, cellHeight: a, cell: l } of new q(n, { endRow: t })) {
       const c = o + a - 1;
       if (o >= e && o <= t && c > t) {
         const h = t - o + 1, f = a - h;
@@ -54033,7 +54033,7 @@ Read more: ${Iw}#error-${n}`;
     return { cellsToMove: i, cellsToTrim: s };
   }
   function P4(n, e, t, i) {
-    const o = [...new $(n, {
+    const o = [...new q(n, {
       includeAllSlots: !0,
       row: e
     })], r = n.getChild(e);
@@ -54156,7 +54156,7 @@ Read more: ${Iw}#error-${n}`;
      */
     execute() {
       const e = this.editor.plugins.get("TableUtils"), t = this.editor.model, i = e.getSelectionAffectedTableCells(t.document.selection), s = i[0], o = i.pop(), r = s.findAncestor("table"), a = e.getCellLocation(s), l = e.getCellLocation(o), c = Math.min(a.column, l.column), u = Math.max(a.column, l.column), d = [];
-      for (const h of new $(r, { startColumn: c, endColumn: u }))
+      for (const h of new q(r, { startColumn: c, endColumn: u }))
         d.push(t.createRangeOn(h.cell));
       t.change((h) => {
         h.setSelection(d);
@@ -54216,7 +54216,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function H4(n) {
     const e = parseInt(n.getAttribute("headingRows") || "0"), t = Array.from(n.getChildren()).reduce((s, o) => o.is("element", "tableRow") ? s + 1 : s, 0), i = [];
-    for (const { row: s, cell: o, cellHeight: r } of new $(n)) {
+    for (const { row: s, cell: o, cellHeight: r } of new q(n)) {
       if (r < 2)
         continue;
       const l = s < e ? e : t;
@@ -54229,7 +54229,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function W4(n) {
     const e = new Array(n.childCount).fill(0);
-    for (const { rowIndex: t } of new $(n, { includeAllSlots: !0 }))
+    for (const { rowIndex: t } of new q(n, { includeAllSlots: !0 }))
       e[t]++;
     return e;
   }
@@ -54293,7 +54293,7 @@ Read more: ${Iw}#error-${n}`;
         (i.name == "tableRow" || i.name == "tableCell") && (s = i.position.findAncestor("table"), o = i.name == "tableRow");
       if (!s)
         continue;
-      const r = s.getAttribute("headingRows") || 0, a = s.getAttribute("headingColumns") || 0, l = new $(s);
+      const r = s.getAttribute("headingRows") || 0, a = s.getAttribute("headingColumns") || 0, l = new q(s);
       for (const c of l) {
         const d = c.row < r || c.column < a ? "th" : "td", h = e.mapper.toViewElement(c.cell);
         h && h.is("element") && h.name != d && e.reconvertItem(o ? c.cell.parent : c.cell);
@@ -54326,7 +54326,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ks extends b {
+  class ks extends w {
     /**
      * @inheritDoc
      */
@@ -54563,7 +54563,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class tV extends b {
+  class tV extends w {
     /**
      * @inheritDoc
      */
@@ -54794,7 +54794,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ui extends b {
+  class ui extends w {
     /**
      * @inheritDoc
      */
@@ -54984,7 +54984,7 @@ Read more: ${Iw}#error-${n}`;
         startColumn: l,
         endColumn: c
       };
-      for (const { row: m, cell: p } of new $(e.findAncestor("table"), d))
+      for (const { row: m, cell: p } of new q(e.findAncestor("table"), d))
         u[m - r].push(p);
       const h = o.row < s.row, f = o.column < s.column;
       return h && u.reverse(), f && u.forEach((m) => m.reverse()), {
@@ -54997,7 +54997,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class nV extends b {
+  class nV extends w {
     /**
      * @inheritDoc
      */
@@ -55087,7 +55087,7 @@ Read more: ${Iw}#error-${n}`;
      * Replaces the part of selectedTable with pastedTable.
      */
     _replaceSelectedCellsWithPasted(e, t, i, s, o) {
-      const { width: r, height: a } = t, l = rV(e, r, a), c = [...new $(i, {
+      const { width: r, height: a } = t, l = rV(e, r, a), c = [...new q(i, {
         startRow: s.firstRow,
         endRow: s.lastRow,
         startColumn: s.firstColumn,
@@ -55095,19 +55095,19 @@ Read more: ${Iw}#error-${n}`;
         includeAllSlots: !0
       })], u = [];
       let d;
-      for (const w of c) {
-        const { row: v, column: C } = w;
-        C === s.firstColumn && (d = w.getPositionBefore());
-        const L = v - s.firstRow, O = C - s.firstColumn, q = l[L % a][O % r], x = q ? o.cloneElement(q) : null, R = this._replaceTableSlotCell(w, x, d, o);
-        R && ($p(R, v, C, s.lastRow, s.lastColumn, o), u.push(R), d = o.createPositionAfter(R));
+      for (const _ of c) {
+        const { row: v, column: C } = _;
+        C === s.firstColumn && (d = _.getPositionBefore());
+        const R = v - s.firstRow, B = C - s.firstColumn, H = l[R % a][B % r], x = H ? o.cloneElement(H) : null, L = this._replaceTableSlotCell(_, x, d, o);
+        L && ($p(L, v, C, s.lastRow, s.lastColumn, o), u.push(L), d = o.createPositionAfter(L));
       }
       const h = parseInt(i.getAttribute("headingRows") || "0"), f = parseInt(i.getAttribute("headingColumns") || "0"), m = s.firstRow < h && h <= s.lastRow, p = s.firstColumn < f && f <= s.lastColumn;
       if (m) {
-        const w = { first: s.firstColumn, last: s.lastColumn }, v = Oa(i, h, w, o, s.firstRow);
+        const _ = { first: s.firstColumn, last: s.lastColumn }, v = Oa(i, h, _, o, s.firstRow);
         u.push(...v);
       }
       if (p) {
-        const w = { first: s.firstRow, last: s.lastRow }, v = Na(i, f, w, o);
+        const _ = { first: s.firstRow, last: s.lastRow }, v = Na(i, f, _, o);
         u.push(...v);
       }
       return u;
@@ -55168,7 +55168,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function rV(n, e, t) {
     const i = new Array(t).fill(null).map(() => new Array(e).fill(null));
-    for (const { column: s, row: o, cell: r } of new $(n))
+    for (const { column: s, row: o, cell: r } of new q(n))
       i[o][s] = r;
     return i;
   }
@@ -55190,7 +55190,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class lV extends b {
+  class lV extends w {
     /**
      * @inheritDoc
      */
@@ -55265,16 +55265,16 @@ Read more: ${Iw}#error-${n}`;
         });
         return;
       }
-      let w;
+      let _;
       if (a && m)
-        w = u.getChild(d + 1).getChild(0);
+        _ = u.getChild(d + 1).getChild(0);
       else if (!a && f) {
         const v = u.getChild(d - 1);
-        w = v.getChild(v.childCount - 1);
+        _ = v.getChild(v.childCount - 1);
       } else
-        w = c.getChild(h + (a ? 1 : -1));
+        _ = c.getChild(h + (a ? 1 : -1));
       i.model.change((v) => {
-        v.setSelection(v.createRangeIn(w));
+        v.setSelection(v.createRangeIn(_));
       });
     }
     /**
@@ -55334,7 +55334,7 @@ Read more: ${Iw}#error-${n}`;
      * @param expandSelection If the current selection should be expanded. Default value is false.
      */
     _navigateFromCellInDirection(e, t, i = !1) {
-      const s = this.editor.model, o = e.findAncestor("table"), r = [...new $(o, { includeAllSlots: !0 })], { row: a, column: l } = r[r.length - 1], c = r.find(({ cell: C }) => C == e);
+      const s = this.editor.model, o = e.findAncestor("table"), r = [...new q(o, { includeAllSlots: !0 })], { row: a, column: l } = r[r.length - 1], c = r.find(({ cell: C }) => C == e);
       let { row: u, column: d } = c;
       switch (t) {
         case "left":
@@ -55358,14 +55358,14 @@ Read more: ${Iw}#error-${n}`;
         return;
       }
       d < 0 ? (d = i ? 0 : l, u--) : d > l && (d = i ? l : 0, u++);
-      const p = r.find((C) => C.row == u && C.column == d).cell, w = ["right", "down"].includes(t), v = this.editor.plugins.get("TableSelection");
+      const p = r.find((C) => C.row == u && C.column == d).cell, _ = ["right", "down"].includes(t), v = this.editor.plugins.get("TableSelection");
       if (i && v.isEnabled) {
         const C = v.getAnchorCell() || e;
         v.setCellSelection(C, p);
       } else {
-        const C = s.createPositionAt(p, w ? 0 : "end");
-        s.change((L) => {
-          L.setSelection(C);
+        const C = s.createPositionAt(p, _ ? 0 : "end");
+        s.change((R) => {
+          R.setSelection(C);
         });
       }
     }
@@ -55392,7 +55392,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class cV extends b {
+  class cV extends w {
     /**
      * @inheritDoc
      */
@@ -55476,7 +55476,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class uV extends b {
+  class uV extends w {
     /**
      * @inheritDoc
      */
@@ -55521,7 +55521,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class dV extends b {
+  class dV extends w {
     /**
      * @inheritDoc
      */
@@ -55940,8 +55940,8 @@ Read more: ${Iw}#error-${n}`;
       }), this.options = t;
       const { borderStyleDropdown: i, borderWidthInput: s, borderColorInput: o, borderRowLabel: r } = this._createBorderFields(), { backgroundRowLabel: a, backgroundInput: l } = this._createBackgroundFields(), { widthInput: c, operatorLabel: u, heightInput: d, dimensionsLabel: h } = this._createDimensionFields(), { horizontalAlignmentToolbar: f, verticalAlignmentToolbar: m, alignmentLabel: p } = this._createAlignmentFields();
       this.focusTracker = new Q(), this.keystrokes = new ne(), this.children = this.createCollection(), this.borderStyleDropdown = i, this.borderWidthInput = s, this.borderColorInput = o, this.backgroundInput = l, this.paddingInput = this._createPaddingField(), this.widthInput = c, this.heightInput = d, this.horizontalAlignmentToolbar = f, this.verticalAlignmentToolbar = m;
-      const { saveButtonView: w, cancelButtonView: v } = this._createActionButtons();
-      this.saveButtonView = w, this.cancelButtonView = v, this._focusables = new ke(), this._focusCycler = new _e({
+      const { saveButtonView: _, cancelButtonView: v } = this._createActionButtons();
+      this.saveButtonView = _, this.cancelButtonView = v, this._focusables = new ke(), this._focusCycler = new _e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -56337,9 +56337,9 @@ Read more: ${Iw}#error-${n}`;
   function gV(n, e) {
     const t = e.editing.mapper, i = e.editing.view.domConverter, s = Array.from(n).map((o) => {
       const r = cw(o.start), a = t.toViewElement(r);
-      return new B(i.mapViewToDom(a));
+      return new O(i.mapViewToDom(a));
     });
-    return B.getBoundingRect(s);
+    return O.getBoundingRect(s);
   }
   const pV = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.105 18-.17 1H2.5A1.5 1.5 0 0 1 1 17.5v-15A1.5 1.5 0 0 1 2.5 1h15A1.5 1.5 0 0 1 19 2.5v9.975l-.85-.124-.15-.302V8h-5v4h.021l-.172.351-1.916.28-.151.027c-.287.063-.54.182-.755.341L8 13v5h3.105zM2 12h5V8H2v4zm10-4H8v4h4V8zM2 2v5h5V2H2zm0 16h5v-5H2v5zM13 7h5V2h-5v5zM8 2v5h4V2H8z" opacity=".6"/><path d="m15.5 11.5 1.323 2.68 2.957.43-2.14 2.085.505 2.946L15.5 18.25l-2.645 1.39.505-2.945-2.14-2.086 2.957-.43L15.5 11.5zM13 6a1 1 0 0 1 1 1v3.172a2.047 2.047 0 0 0-.293.443l-.858 1.736-1.916.28-.151.027A1.976 1.976 0 0 0 9.315 14H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6zm-1 2H8v4h4V8z"/></svg>';
   /**
@@ -56384,7 +56384,7 @@ Read more: ${Iw}#error-${n}`;
     horizontalAlignment: "tableCellHorizontalAlignment",
     verticalAlignment: "tableCellVerticalAlignment"
   };
-  class bV extends b {
+  class bV extends w {
     /**
      * @inheritDoc
      */
@@ -56672,7 +56672,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class uw extends b {
+  class uw extends w {
     /**
      * @inheritDoc
      */
@@ -56886,7 +56886,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Oh = /^(top|middle|bottom)$/, Nh = /^(left|center|right|justify)$/;
-  class SV extends b {
+  class SV extends w {
     /**
      * @inheritDoc
      */
@@ -57033,7 +57033,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LV extends b {
+  class LV extends w {
     /**
      * @inheritDoc
      */
@@ -57264,7 +57264,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const zV = /^(left|center|right)$/, UV = /^(left|none|right)$/;
-  class HV extends b {
+  class HV extends w {
     /**
      * @inheritDoc
      */
@@ -57403,8 +57403,8 @@ Read more: ${Iw}#error-${n}`;
       }), this.options = t;
       const { borderStyleDropdown: i, borderWidthInput: s, borderColorInput: o, borderRowLabel: r } = this._createBorderFields(), { backgroundRowLabel: a, backgroundInput: l } = this._createBackgroundFields(), { widthInput: c, operatorLabel: u, heightInput: d, dimensionsLabel: h } = this._createDimensionFields(), { alignmentToolbar: f, alignmentLabel: m } = this._createAlignmentFields();
       this.focusTracker = new Q(), this.keystrokes = new ne(), this.children = this.createCollection(), this.borderStyleDropdown = i, this.borderWidthInput = s, this.borderColorInput = o, this.backgroundInput = l, this.widthInput = c, this.heightInput = d, this.alignmentToolbar = f;
-      const { saveButtonView: p, cancelButtonView: w } = this._createActionButtons();
-      this.saveButtonView = p, this.cancelButtonView = w, this._focusables = new ke(), this._focusCycler = new _e({
+      const { saveButtonView: p, cancelButtonView: _ } = this._createActionButtons();
+      this.saveButtonView = p, this.cancelButtonView = _, this._focusables = new ke(), this._focusCycler = new _e({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -57715,7 +57715,7 @@ Read more: ${Iw}#error-${n}`;
     height: "tableHeight",
     alignment: "tableAlignment"
   };
-  class JV extends b {
+  class JV extends w {
     /**
      * @inheritDoc
      */
@@ -57909,7 +57909,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class XV extends b {
+  class XV extends w {
     /**
      * @inheritDoc
      */
@@ -58024,7 +58024,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class nM extends b {
+  class nM extends w {
     /**
      * @inheritDoc
      */
@@ -58080,7 +58080,7 @@ Read more: ${Iw}#error-${n}`;
      */
     _getSavedCaption(e) {
       const t = this._savedCaptionsMap.get(e);
-      return t ? W.fromJSON(t) : null;
+      return t ? $.fromJSON(t) : null;
     }
     /**
      * Saves a {@link module:engine/model/element~Element#toJSON JSONified} caption for
@@ -58108,7 +58108,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class sM extends b {
+  class sM extends w {
     /**
      * @inheritDoc
      */
@@ -58144,7 +58144,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class oM extends b {
+  class oM extends w {
     /**
      * @inheritDoc
      */
@@ -58216,7 +58216,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class cM extends b {
+  class cM extends w {
     /**
      * @inheritDoc
      */
@@ -58331,11 +58331,11 @@ Read more: ${Iw}#error-${n}`;
             continue;
           const m = f > 0, p = a._tableUtilsPlugin.getCellLocation(h).column;
           if (m) {
-            const w = _4(r, a.editor), v = C4(f, w);
+            const _ = _4(r, a.editor), v = C4(f, _);
             u.splice(p, 0, ...v);
           } else {
-            const w = u.splice(p, Math.abs(f));
-            u[p] += us(w);
+            const _ = u.splice(p, Math.abs(f));
+            u[p] += us(_);
           }
         }
         return u.map((h) => h + "%");
@@ -58440,17 +58440,17 @@ Read more: ${Iw}#error-${n}`;
         u(h, r, a);
       }), this._isResizingActive = !0, this._resizingData = this._getResizingData(t, r), l.change((h) => d(h, a, this._resizingData));
       function c(h, f, m) {
-        const p = Array(f.getColumns(h)), w = new $(h);
-        for (const v of w) {
-          const C = m.editing.mapper.toViewElement(v.cell), L = m.editing.view.domConverter.mapViewToDom(C), O = T4(L);
-          (!p[v.column] || O < p[v.column]) && (p[v.column] = Ie(O));
+        const p = Array(f.getColumns(h)), _ = new q(h);
+        for (const v of _) {
+          const C = m.editing.mapper.toViewElement(v.cell), R = m.editing.view.domConverter.mapViewToDom(C), B = T4(R);
+          (!p[v.column] || B < p[v.column]) && (p[v.column] = Ie(B));
         }
         return p;
       }
       function u(h, f, m) {
         const p = h.createContainerElement("colgroup");
-        for (let w = 0; w < f.length; w++) {
-          const v = h.createEmptyElement("col"), C = `${Ie(f[w] / us(f) * 100)}%`;
+        for (let _ = 0; _ < f.length; _++) {
+          const v = h.createEmptyElement("col"), C = `${Ie(f[_] / us(f) * 100)}%`;
           h.setStyle("width", C, v), h.insert(h.createPositionAt(p, "end"), v);
         }
         h.insert(h.createPositionAt(m, 0), p);
@@ -58476,15 +58476,15 @@ Read more: ${Iw}#error-${n}`;
         this._onMouseUpHandler();
         return;
       }
-      const { columnPosition: i, flags: { isRightEdge: s, isTableCentered: o, isLtrContent: r }, elements: { viewFigure: a, viewLeftColumn: l, viewRightColumn: c }, widths: { viewFigureParentWidth: u, tableWidth: d, leftColumnWidth: h, rightColumnWidth: f } } = this._resizingData, m = -h + Va, p = s ? u - d : f - Va, w = (r ? 1 : -1) * (s && o ? 2 : 1), v = y4((t.clientX - i) * w, Math.min(m, 0), Math.max(p, 0));
+      const { columnPosition: i, flags: { isRightEdge: s, isTableCentered: o, isLtrContent: r }, elements: { viewFigure: a, viewLeftColumn: l, viewRightColumn: c }, widths: { viewFigureParentWidth: u, tableWidth: d, leftColumnWidth: h, rightColumnWidth: f } } = this._resizingData, m = -h + Va, p = s ? u - d : f - Va, _ = (r ? 1 : -1) * (s && o ? 2 : 1), v = y4((t.clientX - i) * _, Math.min(m, 0), Math.max(p, 0));
       v !== 0 && this.editor.editing.view.change((C) => {
-        const L = Ie((h + v) * 100 / d);
-        if (C.setStyle("width", `${L}%`, l), s) {
-          const O = Ie((d + v) * 100 / u);
-          C.setStyle("width", `${O}%`, a);
+        const R = Ie((h + v) * 100 / d);
+        if (C.setStyle("width", `${R}%`, l), s) {
+          const B = Ie((d + v) * 100 / u);
+          C.setStyle("width", `${B}%`, a);
         } else {
-          const O = Ie((f - v) * 100 / d);
-          C.setStyle("width", `${O}%`, c);
+          const B = Ie((f - v) * 100 / d);
+          C.setStyle("width", `${B}%`, c);
         }
       });
     }
@@ -58504,11 +58504,11 @@ Read more: ${Iw}#error-${n}`;
         columnWidths: u
       }) : r.change((p) => {
         if (c)
-          for (const w of l)
-            p.setStyle("width", c.shift(), w);
+          for (const _ of l)
+            p.setStyle("width", c.shift(), _);
         else
           p.remove(s);
-        m && (h ? p.setStyle("width", h, i) : p.removeStyle("width", i)), !c && !h && p.removeClass("ck-table-resized", [...i.getChildren()].find((w) => w.name === "table"));
+        m && (h ? p.setStyle("width", h, i) : p.removeStyle("width", i)), !c && !h && p.removeClass("ck-table-resized", [...i.getChildren()].find((_) => _.name === "table"));
       })), r.change((p) => {
         p.removeClass("ck-table-column-resizer__active", e);
       }), this._isResizingActive = !1, this._resizingData = null;
@@ -58521,7 +58521,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns The data needed for the resizing process.
      */
     _getResizingData(e, t) {
-      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = v4(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), p = m.findAncestor("figure"), w = [...m.getChildren()].find((I) => I.is("element", "colgroup")), v = w.getChild(c), C = d ? void 0 : w.getChild(c + 1), L = Ma(i.editing.view.domConverter.mapViewToDom(p.parent)), O = Ma(i.editing.view.domConverter.mapViewToDom(p)), q = jp(l, i), x = t[c], R = d ? void 0 : t[c + 1];
+      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = v4(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), p = m.findAncestor("figure"), _ = [...m.getChildren()].find((I) => I.is("element", "colgroup")), v = _.getChild(c), C = d ? void 0 : _.getChild(c + 1), R = Ma(i.editing.view.domConverter.mapViewToDom(p.parent)), B = Ma(i.editing.view.domConverter.mapViewToDom(p)), H = jp(l, i), x = t[c], L = d ? void 0 : t[c + 1];
       return {
         columnPosition: s,
         flags: {
@@ -58533,16 +58533,16 @@ Read more: ${Iw}#error-${n}`;
           viewResizer: o,
           modelTable: l,
           viewFigure: p,
-          viewColgroup: w,
+          viewColgroup: _,
           viewLeftColumn: v,
           viewRightColumn: C
         },
         widths: {
-          viewFigureParentWidth: L,
-          viewFigureWidth: O,
-          tableWidth: q,
+          viewFigureParentWidth: R,
+          viewFigureWidth: B,
+          tableWidth: H,
           leftColumnWidth: x,
-          rightColumnWidth: R
+          rightColumnWidth: L
         }
       };
     }
@@ -58562,7 +58562,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class uM extends b {
+  class uM extends w {
     /**
      * @inheritDoc
      */
@@ -58581,7 +58581,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const dM = { autoRefresh: !0 }, Uh = 36e5;
-  class Gl extends H() {
+  class Gl extends W() {
     /**
      * Creates `Token` instance.
      * Method `init` should be called after using the constructor or use `create` method instead.
@@ -58935,11 +58935,11 @@ Read more: ${Iw}#error-${n}`;
         return;
       const m = t.exec(h.data.substr(0, l.end.offset));
       m && n.model.enqueueChange((p) => {
-        const w = p.createPositionAt(d, 0), v = p.createPositionAt(d, m[0].length), C = new Pe(w, v);
+        const _ = p.createPositionAt(d, 0), v = p.createPositionAt(d, m[0].length), C = new Pe(_, v);
         if (s({ match: m }) !== !1) {
           p.remove(C);
-          const O = n.model.document.selection.getFirstRange(), q = p.createRangeIn(d);
-          d.isEmpty && !q.isEqual(O) && !q.containsRange(O, !0) && p.remove(d);
+          const B = n.model.document.selection.getFirstRange(), H = p.createRangeIn(d);
+          d.isEmpty && !H.isEqual(B) && !H.containsRange(B, !0) && p.remove(d);
         }
         C.detach(), n.model.enqueueChange(() => {
           n.plugins.get("Delete").requestUndoOnBackspace();
@@ -58963,11 +58963,11 @@ Read more: ${Iw}#error-${n}`;
         const p = [
           u,
           u + d.length
-        ], w = [
+        ], _ = [
           u + d.length + h.length,
           u + d.length + h.length + f.length
         ];
-        l.push(p), l.push(w), c.push([u + d.length, u + d.length + h.length]);
+        l.push(p), l.push(_), c.push([u + d.length, u + d.length + h.length]);
       }
       return {
         remove: l,
@@ -58982,11 +58982,11 @@ Read more: ${Iw}#error-${n}`;
       const u = Array.from(l.document.differ.getChanges()), d = u[0];
       if (u.length != 1 || d.type !== "insert" || d.name != "$text" || d.length != 1)
         return;
-      const h = c.focus, f = h.parent, { text: m, range: p } = _M(l.createRange(l.createPositionAt(f, 0), h), l), w = o(m), v = Hh(p.start, w.format, l), C = Hh(p.start, w.remove, l);
-      v.length && C.length && l.enqueueChange((L) => {
-        if (i(L, v) !== !1) {
-          for (const q of C.reverse())
-            L.remove(q);
+      const h = c.focus, f = h.parent, { text: m, range: p } = _M(l.createRange(l.createPositionAt(f, 0), h), l), _ = o(m), v = Hh(p.start, _.format, l), C = Hh(p.start, _.remove, l);
+      v.length && C.length && l.enqueueChange((R) => {
+        if (i(R, v) !== !1) {
+          for (const H of C.reverse())
+            R.remove(H);
           l.enqueueChange(() => {
             n.plugins.get("Delete").requestUndoOnBackspace();
           });
@@ -59005,7 +59005,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class vM extends b {
+  class vM extends w {
     /**
      * @inheritDoc
      */
@@ -59418,7 +59418,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const $r = "All";
-  class xM extends b {
+  class xM extends w {
     /**
      * @inheritDoc
      */
@@ -59557,7 +59557,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class dw extends b {
+  class dw extends w {
     /**
      * @inheritDoc
      */
@@ -59599,7 +59599,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class hw extends b {
+  class hw extends w {
     /**
      * @inheritDoc
      */
@@ -59646,7 +59646,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class fw extends b {
+  class fw extends w {
     /**
      * @inheritDoc
      */
@@ -59710,7 +59710,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class mw extends b {
+  class mw extends w {
     /**
      * @inheritDoc
      */
@@ -59858,7 +59858,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class gw extends b {
+  class gw extends w {
     /**
      * @inheritDoc
      */
@@ -59914,7 +59914,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class SM extends b {
+  class SM extends w {
     /**
      * @inheritDoc
      */
@@ -60085,28 +60085,32 @@ Read more: ${Iw}#error-${n}`;
     minHeight: e = 200,
     maxHeight: t = 700,
     gapHeight: i = 100,
-    sizingButtonPosition: s = "outer"
+    sizingButtonPosition: s = "outer",
+    scrollElement: o = window
   }) => {
-    const a = document.querySelector(".ck-editor"), l = document.querySelector(".ck-content"), c = h(s), u = c.querySelector(".Spendit-Sizing-Top"), d = c.querySelector(".Spendit-Sizing-Bottom");
-    n.editing.view.change((p) => {
-      p.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), p.setStyle("min-height", `${e}px`, n.editing.view.document.getRoot()), p.setStyle("max-height", `${t}px`, n.editing.view.document.getRoot());
-    }), u.onclick = () => m(-i), d.onclick = () => m(i);
-    function h(p) {
-      const w = document.createElement("div");
-      w.classList.add("Spendit-Editor-Sizing-Buttons"), w.classList.add(p === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
-      const v = f(["Spendit-Sizing-Top", "Spendit-Sizing-Top-Disabled"]), C = f(["Spendit-Sizing-Bottom"]);
-      return w.appendChild(v), w.appendChild(C), a.appendChild(w), w;
+    const l = document.querySelector(".ck-editor"), c = document.querySelector(".ck-content"), u = f(s), d = u.querySelector(".Spendit-Sizing-Top"), h = u.querySelector(".Spendit-Sizing-Bottom");
+    n.editing.view.change((v) => {
+      v.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), v.setStyle("min-height", `${e}px`, n.editing.view.document.getRoot()), v.setStyle("max-height", `${t}px`, n.editing.view.document.getRoot());
+    }), d.onclick = () => p(-i), h.onclick = () => p(i);
+    function f(v) {
+      const C = document.createElement("div");
+      C.classList.add("Spendit-Editor-Sizing-Buttons"), C.classList.add(v === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
+      const R = m(["Spendit-Sizing-Top", "Spendit-Sizing-Top-Disabled"]), B = m(["Spendit-Sizing-Bottom"]);
+      return C.appendChild(R), C.appendChild(B), l.appendChild(C), C;
     }
-    function f(p) {
-      const w = document.createElement("button");
-      return w.classList.add("Spendit-Editor-Sizing-Button"), p.forEach((v) => w.classList.add(v)), w;
+    function m(v) {
+      const C = document.createElement("button");
+      return C.classList.add("Spendit-Editor-Sizing-Button"), v.forEach((R) => C.classList.add(R)), C;
     }
-    function m(p) {
-      const w = l.offsetHeight - 2 + p;
-      n.editing.view.change((v) => {
-        const C = w >= t, L = w <= e, O = C ? t : L ? e : w;
-        v.setStyle("height", `${O}px`, n.editing.view.document.getRoot()), L ? (u.classList.add("Spendit-Sizing-Top-Disabled"), d.classList.remove("Spendit-Sizing-Bottom-Disabled")) : C ? (u.classList.remove("Spendit-Sizing-Top-Disabled"), d.classList.add("Spendit-Sizing-Bottom-Disabled")) : (u.classList.remove("Spendit-Sizing-Top-Disabled"), d.classList.remove("Spendit-Sizing-Bottom-Disabled"), window.scroll(0, window.scrollY + (p - 30)));
+    function p(v) {
+      const C = c.offsetHeight - 2 + v;
+      n.editing.view.change((R) => {
+        const B = C >= t, H = C <= e, x = B ? t : H ? e : C;
+        R.setStyle("height", `${x}px`, n.editing.view.document.getRoot()), H ? (d.classList.add("Spendit-Sizing-Top-Disabled"), h.classList.remove("Spendit-Sizing-Bottom-Disabled")) : B ? (d.classList.remove("Spendit-Sizing-Top-Disabled"), h.classList.add("Spendit-Sizing-Bottom-Disabled")) : (d.classList.remove("Spendit-Sizing-Top-Disabled"), h.classList.remove("Spendit-Sizing-Bottom-Disabled"), _(v));
       });
+    }
+    function _(v) {
+      o instanceof HTMLElement ? o.scroll(0, o.scrollTop + (v - 30)) : window.scroll(0, window.scrollY + (v - 30));
     }
   }, VM = async () => {
     const { editor: n } = await RM({
