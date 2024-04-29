@@ -225,7 +225,7 @@ export const initEditorSizingButton = ({
     function createSizingButton(position: string) {
         const sizingButton = document.createElement('div');
         sizingButton.classList.add('Spendit-Editor-Sizing-Buttons');
-        sizingButton.classList.add(position === 'inner' ? 'Spendit-Editor-Sizing-Buttons-Inner' : '');
+        sizingButton.classList.add(position === 'inner' ? 'Spendit-Editor-Sizing-Buttons-Inner' : 'Spendit-Editor-Sizing-Buttons-Outer');
 
         const arrowTopButton = createButton(['Spendit-Sizing-Top', 'Spendit-Sizing-Top-Disabled']);
         const arrowBottomButton = createButton(['Spendit-Sizing-Bottom']);
