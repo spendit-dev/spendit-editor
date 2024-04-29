@@ -220,7 +220,7 @@ export const initEditorSizingButton = ({
         writer.setStyle('max-height', `${maxHeight}px`, editor.editing.view.document.getRoot()!);
     });
 
-    arrowTopButton.onclick = () => resizeEditor(-gapHeight, gapScrollHeight);
+    arrowTopButton.onclick = () => resizeEditor(-gapHeight, -gapScrollHeight);
     arrowBottomButton.onclick = () => resizeEditor(gapHeight, -gapScrollHeight);
 
     function createSizingButton(position: string) {
