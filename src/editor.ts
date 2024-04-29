@@ -220,8 +220,8 @@ export const initEditorSizingButton = ({
         writer.setStyle('max-height', `${maxHeight}px`, editor.editing.view.document.getRoot()!);
     });
 
-    arrowTopButton.onclick = () => resizeEditor(-gapHeight);
-    arrowBottomButton.onclick = () => resizeEditor(gapHeight);
+    arrowTopButton.onclick = () => resizeEditor(-gapHeight, gapScrollHeight);
+    arrowBottomButton.onclick = () => resizeEditor(gapHeight, -gapScrollHeight);
 
     function createSizingButton(position: string) {
         const sizingButton = document.createElement('div');
@@ -245,7 +245,7 @@ export const initEditorSizingButton = ({
         return button;
     }
 
-    function resizeEditor(change: number) {
+    function resizeEditor(change: number, gapScrollHeight: number) {
         const newHeight = (ckContent.offsetHeight - borderHeight) + change;
         editor.editing.view.change(writer => {
             const isMaxHeight = newHeight >= maxHeight;
@@ -262,16 +262,16 @@ export const initEditorSizingButton = ({
             } else {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
-                scroll(change);
+                scroll(change + gapScrollHeight);
             }
         });
     }
 
-    function scroll(change: number) {
+    function scroll(scrollHeight: number) {
         if (scrollElement instanceof HTMLElement) {
-            scrollElement.scroll(0, scrollElement.scrollTop + (change - gapScrollHeight));
+            scrollElement.scroll(0, scrollElement.scrollTop + (scrollHeight));
         } else {
-            window.scroll(0, window.scrollY + (change - gapScrollHeight));
+            window.scroll(0, window.scrollY + (scrollHeight));
         }
     }
 }
