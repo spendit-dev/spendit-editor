@@ -43,7 +43,7 @@
     border: 1px solid #3C8EFF;
     border-radius: 6px;
     background: white;
-    z-index: 1000;
+    z-index: 100;
 }
 
 .Spendit-Editor-Sizing-Buttons.Spendit-Editor-Sizing-Buttons-Inner {
