@@ -13,6 +13,11 @@
     margin: 0;
 }
 
+.ck-content ol, .ck-content ul {
+    padding-left: 40px;
+    margin: 16px 0;
+}
+
 .ck .ck-toolbar__separator {
     height: 20px;
     margin-top: 10px !important;
