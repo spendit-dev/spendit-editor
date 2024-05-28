@@ -95,6 +95,15 @@ const defaultEditorOptions: EditorConfigForCK = {
         items: defaultToolbarItems,
         shouldNotGroupWhenFull: false
     },
+    image: {
+        toolbar: [
+            'imageStyle:inline', 'imageStyle:wrapText', 'imageStyle:breakText', '|',
+            'toggleImageCaption', 'imageTextAlternative'
+        ],
+    },
+    table: {
+        contentToolbar: [ 'tableRow', 'tableColumn', 'mergeTableCells' ]
+    },
     plugins: [
         Essentials,
         Paragraph,
