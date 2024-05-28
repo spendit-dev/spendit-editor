@@ -60020,7 +60020,7 @@ Read more: ${Iw}#error-${n}`;
       ]
     },
     table: {
-      contentToolbar: ["tableRow", "tableColumn", "mergeTableCells"]
+      contentToolbar: ["tableRow", "tableColumn", "tableProperties", "tableCellProperties", "mergeTableCells"]
     },
     plugins: [
       NI,
