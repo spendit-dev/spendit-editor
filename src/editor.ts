@@ -102,8 +102,9 @@ const defaultEditorOptions: EditorConfigForCK = {
         ],
     },
     table: {
-        contentToolbar: [ 'tableRow', 'tableColumn', 'mergeTableCells' ]
+        contentToolbar: [ 'tableRow', 'tableColumn', 'tableProperties', 'tableCellProperties', 'mergeTableCells',  ],
     },
+
     plugins: [
         Essentials,
         Paragraph,
