@@ -60009,6 +60009,19 @@ Read more: ${Iw}#error-${n}`;
       items: IM,
       shouldNotGroupWhenFull: !1
     },
+    image: {
+      toolbar: [
+        "imageStyle:inline",
+        "imageStyle:wrapText",
+        "imageStyle:breakText",
+        "|",
+        "toggleImageCaption",
+        "imageTextAlternative"
+      ]
+    },
+    table: {
+      contentToolbar: ["tableRow", "tableColumn", "mergeTableCells"]
+    },
     plugins: [
       NI,
       ws,
@@ -60091,7 +60104,7 @@ Read more: ${Iw}#error-${n}`;
     const l = document.querySelector(".ck-editor"), c = document.querySelector(".ck-content"), u = f(s), d = u.querySelector(".Spendit-Sizing-Top"), h = u.querySelector(".Spendit-Sizing-Bottom");
     n.editing.view.change((v) => {
       v.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), v.setStyle("min-height", `${e}px`, n.editing.view.document.getRoot()), v.setStyle("max-height", `${t}px`, n.editing.view.document.getRoot());
-    }), d.onclick = () => p(-i, -30), h.onclick = () => p(i, -30);
+    }), d.onclick = () => p(-i, 30), h.onclick = () => p(i, -30);
     function f(v) {
       const C = document.createElement("div");
       C.classList.add("Spendit-Editor-Sizing-Buttons"), C.classList.add(v === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
