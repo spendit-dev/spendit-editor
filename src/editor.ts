@@ -210,7 +210,8 @@ export const initEditorSizingButton = ({
                                            maxHeight = 700,
                                            gapHeight = 100,
                                            sizingButtonPosition = 'outer',
-                                           scrollElement = window
+                                           scrollElement = window,
+                                           resizeButtonCallback = () => {}
                                        }: EditorSizingButtonConfig) => {
     const borderHeight = 2; // editor의 border 두께(px)
     const gapScrollHeight = 30; // editor의 높이 조절 시 스크롤 이동 높이 마이너스 간격(px)
@@ -276,6 +277,7 @@ export const initEditorSizingButton = ({
                 scroll(change + gapScrollHeight);
             }
         });
+        resizeButtonCallback(newHeight);
     }
 
     function scroll(scrollHeight: number) {

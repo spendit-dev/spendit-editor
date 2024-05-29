@@ -16,6 +16,7 @@ export interface EditorSizingButtonConfig {
     gapHeight?: number;
     sizingButtonPosition?: 'inner' | 'outer';
     scrollElement?: HTMLElement | Window;
+    resizeButtonCallback?: (currentHeight: number) => void;
 }
 
 export interface InitEditorResponse {
