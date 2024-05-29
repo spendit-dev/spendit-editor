@@ -104,7 +104,7 @@ var MM = pw((Ue, He) => {
       return "";
     }
   }
-  const Jt = bw(), M = {
+  const Jt = bw(), B = {
     isMac: Wh(Jt),
     isWindows: _w(Jt),
     isGecko: vw(Jt),
@@ -212,10 +212,10 @@ var MM = pw((Ue, He) => {
     function h(p) {
       const _ = (d[p - 1] !== void 0 ? d[p - 1] : -1) + 1, v = d[p + 1] !== void 0 ? d[p + 1] : -1, C = _ > v ? -1 : 1;
       u[p + C] && (u[p] = u[p + C].slice(0)), u[p] || (u[p] = []), u[p].push(_ > v ? o : r);
-      let R = Math.max(_, v), O = R - p;
-      for (; O < a && R < l && t(n[O], e[R]); )
-        O++, R++, u[p].push("equal");
-      return R;
+      let P = Math.max(_, v), V = P - p;
+      for (; V < a && P < l && t(n[V], e[P]); )
+        V++, P++, u[p].push("equal");
+      return P;
     }
     let f = 0, m;
     do {
@@ -1473,16 +1473,16 @@ Read more: ${Iw}#error-${n}`;
       h = a[d];
       var v = n[h], C = e[h];
       if (i)
-        var R = r ? i(C, v, h, e, n, o) : i(v, C, h, n, e, o);
-      if (!(R === void 0 ? v === C || s(v, C, t, i, o) : R)) {
+        var P = r ? i(C, v, h, e, n, o) : i(v, C, h, n, e, o);
+      if (!(P === void 0 ? v === C || s(v, C, t, i, o) : P)) {
         p = !1;
         break;
       }
       _ || (_ = h == "constructor");
     }
     if (p && !_) {
-      var O = n.constructor, H = e.constructor;
-      O != H && "constructor" in n && "constructor" in e && !(typeof O == "function" && O instanceof O && typeof H == "function" && H instanceof H) && (p = !1);
+      var V = n.constructor, U = e.constructor;
+      V != U && "constructor" in n && "constructor" in e && !(typeof V == "function" && V instanceof V && typeof U == "function" && U instanceof U) && (p = !1);
     }
     return o.delete(n), o.delete(e), p;
   }
@@ -1619,19 +1619,19 @@ Read more: ${Iw}#error-${n}`;
       throw new TypeError(uy);
     e = ic(e) || 0, J(t) && (u = !!t.leading, d = "maxWait" in t, o = d ? dy(ic(t.maxWait) || 0, e) : o, h = "trailing" in t ? !!t.trailing : h);
     function f(x) {
-      var L = i, I = s;
-      return i = s = void 0, c = x, r = n.apply(I, L), r;
+      var L = i, S = s;
+      return i = s = void 0, c = x, r = n.apply(S, L), r;
     }
     function m(x) {
       return c = x, a = setTimeout(v, e), u ? f(x) : r;
     }
     function p(x) {
-      var L = x - l, I = x - c, ee = e - L;
-      return d ? hy(ee, o - I) : ee;
+      var L = x - l, S = x - c, ee = e - L;
+      return d ? hy(ee, o - S) : ee;
     }
     function _(x) {
-      var L = x - l, I = x - c;
-      return l === void 0 || L >= e || L < 0 || d && I >= o;
+      var L = x - l, S = x - c;
+      return l === void 0 || L >= e || L < 0 || d && S >= o;
     }
     function v() {
       var x = wr();
@@ -1642,13 +1642,13 @@ Read more: ${Iw}#error-${n}`;
     function C(x) {
       return a = void 0, h && i ? f(x) : (i = s = void 0, r);
     }
-    function R() {
+    function P() {
       a !== void 0 && clearTimeout(a), c = 0, i = l = s = a = void 0;
     }
-    function O() {
+    function V() {
       return a === void 0 ? r : C(wr());
     }
-    function H() {
+    function U() {
       var x = wr(), L = _(x);
       if (i = arguments, s = this, l = x, L) {
         if (a === void 0)
@@ -1658,7 +1658,7 @@ Read more: ${Iw}#error-${n}`;
       }
       return a === void 0 && (a = setTimeout(v, e)), r;
     }
-    return H.cancel = R, H.flush = O, H;
+    return U.cancel = P, U.flush = V, U;
   }
   function ea(n, e, t) {
     (t !== void 0 && !ds(n[e], t) || t === void 0 && !(e in n)) && Fo(n, e, t);
@@ -2397,7 +2397,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const $f = ["top", "right", "bottom", "left", "width", "height"];
-  class B {
+  class O {
     /**
      * Creates an instance of rect.
      *
@@ -2436,8 +2436,8 @@ Read more: ${Iw}#error-${n}`;
         enumerable: !1
       }), sa(e) || t)
         if (t) {
-          const i = B.getDomRangeRects(e);
-          As(this, B.getBoundingRect(i));
+          const i = O.getDomRangeRects(e);
+          As(this, O.getBoundingRect(i));
         } else
           As(this, e.getBoundingClientRect());
       else if (_o(e)) {
@@ -2459,7 +2459,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns A cloned rect.
      */
     clone() {
-      return new B(this);
+      return new O(this);
     }
     /**
      * Moves the rect so that its upper–left corner lands in desired `[ x, y ]` location.
@@ -2496,7 +2496,7 @@ Read more: ${Iw}#error-${n}`;
       if (t.width = t.right - t.left, t.height = t.bottom - t.top, t.width < 0 || t.height < 0)
         return null;
       {
-        const i = new B(t);
+        const i = new O(t);
         return i._source = this._source, i;
       }
     }
@@ -2546,7 +2546,7 @@ Read more: ${Iw}#error-${n}`;
           i = s, s = s.parentNode;
           continue;
         }
-        const l = new B(s), c = t.getIntersection(l);
+        const l = new O(s), c = t.getIntersection(l);
         if (c)
           c.getArea() < t.getArea() && (t = c);
         else
@@ -2619,11 +2619,11 @@ Read more: ${Iw}#error-${n}`;
       const t = [], i = Array.from(e.getClientRects());
       if (i.length)
         for (const s of i)
-          t.push(new B(s));
+          t.push(new O(s));
       else {
         let s = e.startContainer;
         ce(s) && (s = s.parentNode);
-        const o = new B(s.getBoundingClientRect());
+        const o = new O(s.getBoundingClientRect());
         o.right = o.left, o.width = 0, t.push(o);
       }
       return t;
@@ -2646,7 +2646,7 @@ Read more: ${Iw}#error-${n}`;
       let i = 0;
       for (const s of e)
         i++, t.left = Math.min(t.left, s.left), t.top = Math.min(t.top, s.top), t.right = Math.max(t.right, s.right), t.bottom = Math.max(t.bottom, s.bottom);
-      return i == 0 ? null : (t.width = t.right - t.left, t.height = t.bottom - t.top, new B(t));
+      return i == 0 ? null : (t.width = t.right - t.left, t.height = t.bottom - t.top, new O(t));
     }
   }
   function As(n, e) {
@@ -2666,7 +2666,7 @@ Read more: ${Iw}#error-${n}`;
     return n instanceof HTMLElement ? n.ownerDocument.defaultView.getComputedStyle(n).overflow : "visible";
   }
   function Uy(n, e) {
-    const t = new B(e), i = Hf(e);
+    const t = new O(e), i = Hf(e);
     let s = 0, o = 0;
     s -= t.left, o -= t.top, s += e.scrollLeft, o += e.scrollTop, s -= i.left, o -= i.top, n.moveBy(s, o);
   }
@@ -2800,7 +2800,7 @@ Read more: ${Iw}#error-${n}`;
    */
   function qo({ element: n, target: e, positions: t, limiter: i, fitInViewport: s, viewportOffsetConfig: o }) {
     di(e) && (e = e()), di(i) && (i = i());
-    const r = Wf(n), a = Wy(o), l = new B(n), c = Mc(e, a);
+    const r = Wf(n), a = Wy(o), l = new O(n), c = Mc(e, a);
     let u;
     if (!c || !a.getIntersection(c))
       return null;
@@ -2822,12 +2822,12 @@ Read more: ${Iw}#error-${n}`;
     return u;
   }
   function Mc(n, e) {
-    const t = new B(n).getVisible();
+    const t = new O(n).getVisible();
     return t ? t.getIntersection(e) : null;
   }
   function Wy(n) {
     n = Object.assign({ top: 0, bottom: 0, left: 0, right: 0 }, n);
-    const e = new B(E.window);
+    const e = new O(E.window);
     return e.top += n.top, e.height -= n.top, e.bottom -= n.bottom, e.height -= n.bottom, e;
   }
   function $y(n, e) {
@@ -2942,7 +2942,7 @@ Read more: ${Iw}#error-${n}`;
     }
   }
   function Gy({ window: n, rect: e, alignToTop: t, forceScroll: i, viewportOffset: s }) {
-    const o = e.clone().moveBy(0, s.bottom), r = e.clone().moveBy(0, -s.top), a = new B(n).excludeScrollbarsAndBorders(), l = [r, o], c = t && i, u = l.every((p) => a.contains(p));
+    const o = e.clone().moveBy(0, s.bottom), r = e.clone().moveBy(0, -s.top), a = new O(n).excludeScrollbarsAndBorders(), l = [r, o], c = t && i, u = l.every((p) => a.contains(p));
     let { scrollX: d, scrollY: h } = n;
     const f = d, m = h;
     c ? h -= a.top - e.top + s.top : u || (Kf(r, a) ? h -= a.top - e.top + s.top : jf(o, a) && (t ? h += e.top - a.top - s.top : h += e.bottom - a.bottom + s.bottom)), u || (Zf(e, a) ? d -= a.left - e.left + s.left : Jf(e, a) && (d += e.right - a.right + s.right)), (d != f || h !== m) && n.scrollTo(d, h);
@@ -2952,7 +2952,7 @@ Read more: ${Iw}#error-${n}`;
     let l, c, u;
     const d = o || r.document.body;
     for (; n != d; )
-      c = e(), l = new B(n).excludeScrollbarsAndBorders(), u = l.contains(c), a ? n.scrollTop -= l.top - c.top + s : u || (Kf(c, l) ? n.scrollTop -= l.top - c.top + s : jf(c, l) && (t ? n.scrollTop += c.top - l.top - s : n.scrollTop += c.bottom - l.bottom + s)), u || (Zf(c, l) ? n.scrollLeft -= l.left - c.left + s : Jf(c, l) && (n.scrollLeft += c.right - l.right + s)), n = n.parentNode;
+      c = e(), l = new O(n).excludeScrollbarsAndBorders(), u = l.contains(c), a ? n.scrollTop -= l.top - c.top + s : u || (Kf(c, l) ? n.scrollTop -= l.top - c.top + s : jf(c, l) && (t ? n.scrollTop += c.top - l.top - s : n.scrollTop += c.bottom - l.bottom + s)), u || (Zf(c, l) ? n.scrollLeft -= l.left - c.left + s : Jf(c, l) && (n.scrollLeft += c.right - l.right + s)), n = n.parentNode;
   }
   function jf(n, e) {
     return n.bottom > e.bottom;
@@ -2977,13 +2977,13 @@ Read more: ${Iw}#error-${n}`;
       return n.parentNode;
   }
   function Nc(n, e) {
-    const t = sl(n), i = new B(n);
+    const t = sl(n), i = new O(n);
     if (t === e)
       return i;
     {
       let s = t;
       for (; s != e; ) {
-        const o = s.frameElement, r = new B(o).excludeScrollbarsAndBorders();
+        const o = s.frameElement, r = new O(o).excludeScrollbarsAndBorders();
         i.moveBy(r.left, r.top), s = s.parent;
       }
     }
@@ -3036,7 +3036,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function vo(n) {
     let e = ms(n);
-    return Object.entries(M.isMac || M.isiOS ? Zy : Jy).reduce((s, [o, r]) => (e & F[o] && (e &= ~F[o], s += r), s), "") + (e ? Xy[e] : "");
+    return Object.entries(B.isMac || B.isiOS ? Zy : Jy).reduce((s, [o, r]) => (e & F[o] && (e &= ~F[o], s += r), s), "") + (e ? Xy[e] : "");
   }
   function Yy(n) {
     return n == F.arrowright || n == F.arrowleft || n == F.arrowup || n == F.arrowdown;
@@ -3058,7 +3058,7 @@ Read more: ${Iw}#error-${n}`;
     if (n.endsWith("!"))
       return Zi(n.slice(0, -1));
     const e = Zi(n);
-    return (M.isMac || M.isiOS) && e == F.ctrl ? F.cmd : e;
+    return (B.isMac || B.isiOS) && e == F.ctrl ? F.cmd : e;
   }
   function eC(n, e) {
     const t = ol(n, e);
@@ -3918,7 +3918,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class V extends W() {
+  class M extends W() {
     /**
      * Creates a new `Command` instance.
      *
@@ -4051,7 +4051,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Hc extends V {
+  class Hc extends M {
     constructor() {
       super(...arguments), this._childCommandsDefinitions = [];
     }
@@ -4191,9 +4191,9 @@ Read more: ${Iw}#error-${n}`;
       const s = this, o = this._context;
       f(e), p(e);
       const r = e.filter((x) => !d(x, t)), a = [...m(r)];
-      H(a, i);
-      const l = R(a);
-      return O(l, "init").then(() => O(l, "afterInit")).then(() => l);
+      U(a, i);
+      const l = P(a);
+      return V(l, "init").then(() => V(l, "afterInit")).then(() => l);
       function c(x) {
         return typeof x == "function";
       }
@@ -4201,22 +4201,22 @@ Read more: ${Iw}#error-${n}`;
         return c(x) && !!x.isContextPlugin;
       }
       function d(x, L) {
-        return L.some((I) => I === x || h(x) === I || h(I) === x);
+        return L.some((S) => S === x || h(x) === S || h(S) === x);
       }
       function h(x) {
         return c(x) ? x.pluginName || x.name : x;
       }
       function f(x, L = /* @__PURE__ */ new Set()) {
-        x.forEach((I) => {
-          c(I) && (L.has(I) || (L.add(I), I.pluginName && !s._availablePlugins.has(I.pluginName) && s._availablePlugins.set(I.pluginName, I), I.requires && f(I.requires, L)));
+        x.forEach((S) => {
+          c(S) && (L.has(S) || (L.add(S), S.pluginName && !s._availablePlugins.has(S.pluginName) && s._availablePlugins.set(S.pluginName, S), S.requires && f(S.requires, L)));
         });
       }
       function m(x, L = /* @__PURE__ */ new Set()) {
-        return x.map((I) => c(I) ? I : s._availablePlugins.get(I)).reduce((I, ee) => L.has(ee) ? I : (L.add(ee), ee.requires && (p(ee.requires, ee), m(ee.requires, L).forEach((Zt) => I.add(Zt))), I.add(ee)), /* @__PURE__ */ new Set());
+        return x.map((S) => c(S) ? S : s._availablePlugins.get(S)).reduce((S, ee) => L.has(ee) ? S : (L.add(ee), ee.requires && (p(ee.requires, ee), m(ee.requires, L).forEach((Zt) => S.add(Zt))), S.add(ee)), /* @__PURE__ */ new Set());
       }
       function p(x, L = null) {
-        x.map((I) => c(I) ? I : s._availablePlugins.get(I) || I).forEach((I) => {
-          _(I, L), v(I, L), C(I, L);
+        x.map((S) => c(S) ? S : s._availablePlugins.get(S) || S).forEach((S) => {
+          _(S, L), v(S, L), C(S, L);
         });
       }
       function _(x, L) {
@@ -4231,23 +4231,23 @@ Read more: ${Iw}#error-${n}`;
         if (L && d(x, t))
           throw new g("plugincollection-required", o, { plugin: h(x), requiredBy: h(L) });
       }
-      function R(x) {
+      function P(x) {
         return x.map((L) => {
-          let I = s._contextPlugins.get(L);
-          return I = I || new L(o), s._add(L, I), I;
+          let S = s._contextPlugins.get(L);
+          return S = S || new L(o), s._add(L, S), S;
         });
       }
-      function O(x, L) {
-        return x.reduce((I, ee) => !ee[L] || s._contextPlugins.has(ee) ? I : I.then(ee[L].bind(ee)), Promise.resolve());
+      function V(x, L) {
+        return x.reduce((S, ee) => !ee[L] || s._contextPlugins.has(ee) ? S : S.then(ee[L].bind(ee)), Promise.resolve());
       }
-      function H(x, L) {
-        for (const I of L) {
-          if (typeof I != "function")
-            throw new g("plugincollection-replace-plugin-invalid-type", null, { pluginItem: I });
-          const ee = I.pluginName;
+      function U(x, L) {
+        for (const S of L) {
+          if (typeof S != "function")
+            throw new g("plugincollection-replace-plugin-invalid-type", null, { pluginItem: S });
+          const ee = S.pluginName;
           if (!ee)
-            throw new g("plugincollection-replace-plugin-missing-name", null, { pluginItem: I });
-          if (I.requires && I.requires.length)
+            throw new g("plugincollection-replace-plugin-missing-name", null, { pluginItem: S });
+          if (S.requires && S.requires.length)
             throw new g("plugincollection-plugin-for-replacing-cannot-have-dependencies", null, { pluginName: ee });
           const Zt = s._availablePlugins.get(ee);
           if (!Zt)
@@ -4260,7 +4260,7 @@ Read more: ${Iw}#error-${n}`;
           }
           if (Zt.requires && Zt.requires.length)
             throw new g("plugincollection-replaced-plugin-cannot-have-dependencies", null, { pluginName: ee });
-          x.splice(jl, 1, I), s._availablePlugins.set(ee, I);
+          x.splice(jl, 1, S), s._availablePlugins.set(ee, S);
         }
       }
     }
@@ -9420,7 +9420,7 @@ Read more: ${Iw}#error-${n}`;
      * @param selection View selection.
      */
     constructor(e, t) {
-      super(), this.domDocuments = /* @__PURE__ */ new Set(), this.markedAttributes = /* @__PURE__ */ new Set(), this.markedChildren = /* @__PURE__ */ new Set(), this.markedTexts = /* @__PURE__ */ new Set(), this._inlineFiller = null, this._fakeSelectionContainer = null, this.domConverter = e, this.selection = t, this.set("isFocused", !1), this.set("isSelecting", !1), M.isBlink && !M.isAndroid && this.on("change:isSelecting", () => {
+      super(), this.domDocuments = /* @__PURE__ */ new Set(), this.markedAttributes = /* @__PURE__ */ new Set(), this.markedChildren = /* @__PURE__ */ new Set(), this.markedTexts = /* @__PURE__ */ new Set(), this._inlineFiller = null, this._fakeSelectionContainer = null, this.domConverter = e, this.selection = t, this.set("isFocused", !1), this.set("isSelecting", !1), B.isBlink && !B.isAndroid && this.on("change:isSelecting", () => {
         this.isSelecting || this.render();
       }), this.set("isComposing", !1), this.on("change:isComposing", () => {
         this.isComposing || this.render();
@@ -9464,10 +9464,10 @@ Read more: ${Iw}#error-${n}`;
      * removed as long as the selection is in the text node which needed it at first.
      */
     render() {
-      if (this.isComposing && !M.isAndroid)
+      if (this.isComposing && !B.isAndroid)
         return;
       let e = null;
-      const t = M.isBlink && !M.isAndroid ? !this.isSelecting : !0;
+      const t = B.isBlink && !B.isAndroid ? !this.isSelecting : !0;
       for (const i of this.markedChildren)
         this._updateChildrenMappings(i);
       t ? (this._inlineFiller && !this._isSelectionInInlineFiller() && this._removeInlineFiller(), this._inlineFiller ? e = this._getInlineFillerPosition() : this._needsInlineFillerAtSelection() && (e = this.selection.getFirstPosition(), this.markedChildren.add(e.parent))) : this._inlineFiller && this._inlineFiller.parentNode && (e = this.domConverter.domPositionToView(this._inlineFiller), e && e.parent.is("$text") && (e = k._createBefore(e.parent)));
@@ -9566,7 +9566,7 @@ Read more: ${Iw}#error-${n}`;
       if (!this.domConverter.mapViewToDom(t.root) || !t.is("element") || !JC(t) || i === t.getFillerOffset())
         return !1;
       const s = e.nodeBefore, o = e.nodeAfter;
-      return !(s instanceof ie || o instanceof ie || M.isAndroid && (s || o));
+      return !(s instanceof ie || o instanceof ie || B.isAndroid && (s || o));
     }
     /**
      * Checks if text needs to be updated and possibly updates it.
@@ -9608,7 +9608,7 @@ Read more: ${Iw}#error-${n}`;
       const i = this.domConverter.mapViewToDom(e);
       if (!i)
         return;
-      if (M.isAndroid) {
+      if (B.isAndroid) {
         let d = null;
         for (const h of Array.from(i.childNodes)) {
           if (d && ce(d) && ce(h)) {
@@ -9688,14 +9688,14 @@ Read more: ${Iw}#error-${n}`;
      * Checks if the selection needs to be updated and possibly updates it.
      */
     _updateSelection() {
-      if (M.isBlink && !M.isAndroid && this.isSelecting && !this.markedChildren.size)
+      if (B.isBlink && !B.isAndroid && this.isSelecting && !this.markedChildren.size)
         return;
       if (this.selection.rangeCount === 0) {
         this._removeDomSelection(), this._removeFakeSelection();
         return;
       }
       const e = this.domConverter.mapViewToDom(this.selection.editableElement);
-      !this.isFocused || !e || (this.selection.isFake ? this._updateFakeSelection(e) : this._fakeSelectionContainer && this._fakeSelectionContainer.isConnected ? (this._removeFakeSelection(), this._updateDomSelection(e)) : this.isComposing && M.isAndroid || this._updateDomSelection(e));
+      !this.isFocused || !e || (this.selection.isFake ? this._updateFakeSelection(e) : this._fakeSelectionContainer && this._fakeSelectionContainer.isConnected ? (this._removeFakeSelection(), this._updateDomSelection(e)) : this.isComposing && B.isAndroid || this._updateDomSelection(e));
     }
     /**
      * Updates the fake selection.
@@ -9722,7 +9722,7 @@ Read more: ${Iw}#error-${n}`;
       if (!this._domSelectionNeedsUpdate(t))
         return;
       const i = this.domConverter.viewPositionToDom(this.selection.anchor), s = this.domConverter.viewPositionToDom(this.selection.focus);
-      t.setBaseAndExtent(i.parent, i.offset, s.parent, s.offset), M.isGecko && ek(s, t);
+      t.setBaseAndExtent(i.parent, i.offset, s.parent, s.offset), B.isGecko && ek(s, t);
     }
     /**
      * Checks whether a given DOM selection needs to be updated.
@@ -10738,7 +10738,7 @@ Read more: ${Iw}#error-${n}`;
     n === "script" && D("domconverter-unsafe-script-element-detected"), n === "style" && D("domconverter-unsafe-style-element-detected");
   }
   function lk(n) {
-    if (!M.isGecko || !n.rangeCount)
+    if (!B.isGecko || !n.rangeCount)
       return !1;
     const e = n.getRangeAt(0).startContainer;
     try {
@@ -11122,7 +11122,7 @@ Read more: ${Iw}#error-${n}`;
         this.document.isSelecting && (this._handleSelectionChange(null, t), this.document.isSelecting = !1, this._documentIsSelectingInactivityTimeoutDebounced.cancel());
       };
       this.listenTo(e, "selectstart", i, { priority: "highest" }), this.listenTo(e, "keydown", s, { priority: "highest", useCapture: !0 }), this.listenTo(e, "keyup", s, { priority: "highest", useCapture: !0 }), !this._documents.has(t) && (this.listenTo(t, "mouseup", s, { priority: "highest", useCapture: !0 }), this.listenTo(t, "selectionchange", (o, r) => {
-        this.document.isComposing && !M.isAndroid || (this._handleSelectionChange(r, t), this._documentIsSelectingInactivityTimeoutDebounced());
+        this.document.isComposing && !B.isAndroid || (this._handleSelectionChange(r, t), this._documentIsSelectingInactivityTimeoutDebounced());
       }), this._documents.add(t));
     }
     /**
@@ -11313,11 +11313,11 @@ Read more: ${Iw}#error-${n}`;
           if (u)
             return i.createRange(u);
         }).filter((l) => !!l);
-      else if (M.isAndroid) {
+      else if (B.isAndroid) {
         const l = e.target.ownerDocument.defaultView.getSelection();
         a = Array.from(i.domConverter.domSelectionToView(l).getRanges());
       }
-      if (M.isAndroid && e.inputType == "insertCompositionText" && r && r.endsWith(`
+      if (B.isAndroid && e.inputType == "insertCompositionText" && r && r.endsWith(`
 `)) {
         this.fire(e.type, e, {
           inputType: "insertParagraph",
@@ -11424,7 +11424,7 @@ Read more: ${Iw}#error-${n}`;
         this._hasChangedSinceTheLastRendering = !0;
       }), this.listenTo(this.document, "change:isFocused", () => {
         this._hasChangedSinceTheLastRendering = !0;
-      }), M.isiOS && this.listenTo(this.document, "blur", (t, i) => {
+      }), B.isiOS && this.listenTo(this.document, "blur", (t, i) => {
         this.domConverter.mapDomToView(i.domEvent.relatedTarget) || this.domConverter._clearDomSelection();
       });
     }
@@ -18030,7 +18030,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function PT(n, e, t) {
     return (i, s) => {
-      if (!(t.document.isComposing && !M.isAndroid))
+      if (!(t.document.isComposing && !B.isAndroid))
         for (let o = 0; o < s.targetRanges.length; o++) {
           const r = s.targetRanges[o], a = n.toModelRange(r), l = Vm(a, e);
           !l || l.isEqual(a) || (s.targetRanges[o] = n.toViewRange(l));
@@ -20515,7 +20515,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class U extends qe {
+  class H extends qe {
     /**
      * Creates a move operation.
      *
@@ -20548,7 +20548,7 @@ Read more: ${Iw}#error-${n}`;
      * Creates and returns an operation that has the same parameters as this operation.
      */
     clone() {
-      return new U(this.sourcePosition, this.howMany, this.targetPosition, this.baseVersion);
+      return new H(this.sourcePosition, this.howMany, this.targetPosition, this.baseVersion);
     }
     /**
      * Returns the start position of the moved range after it got moved. This may be different than
@@ -20572,7 +20572,7 @@ Read more: ${Iw}#error-${n}`;
      */
     getReversed() {
       const e = this.sourcePosition._getTransformedByInsertion(this.targetPosition, this.howMany);
-      return new U(this.getMovedRangeStart(), this.howMany, e, this.baseVersion + 1);
+      return new H(this.getMovedRangeStart(), this.howMany, e, this.baseVersion + 1);
     }
     /**
      * @inheritDoc
@@ -20667,7 +20667,7 @@ Read more: ${Iw}#error-${n}`;
      */
     getReversed() {
       const e = this.position.root.document.graveyard, t = new y(e, [0]);
-      return new U(this.position, this.nodes.maxOffset, t, this.baseVersion + 1);
+      return new H(this.position, this.nodes.maxOffset, t, this.baseVersion + 1);
     }
     /**
      * @inheritDoc
@@ -21415,7 +21415,7 @@ Read more: ${Iw}#error-${n}`;
   Qe[ae.className] = ae;
   Qe[be.className] = be;
   Qe[Re.className] = Re;
-  Qe[U.className] = U;
+  Qe[H.className] = H;
   Qe[ue.className] = ue;
   Qe[qe.className] = qe;
   Qe[Le.className] = Le;
@@ -21534,12 +21534,12 @@ Read more: ${Iw}#error-${n}`;
      * Relations are then later used to help solve conflicts when operations are transformed.
      */
     updateRelation(e, t) {
-      if (e instanceof U)
-        t instanceof oe ? e.targetPosition.isEqual(t.sourcePosition) || t.movedRange.containsPosition(e.targetPosition) ? this._setRelation(e, t, "insertAtSource") : e.targetPosition.isEqual(t.deletionPosition) ? this._setRelation(e, t, "insertBetween") : e.targetPosition.isAfter(t.sourcePosition) && this._setRelation(e, t, "moveTargetAfter") : t instanceof U && (e.targetPosition.isEqual(t.sourcePosition) || e.targetPosition.isBefore(t.sourcePosition) ? this._setRelation(e, t, "insertBefore") : this._setRelation(e, t, "insertAfter"));
+      if (e instanceof H)
+        t instanceof oe ? e.targetPosition.isEqual(t.sourcePosition) || t.movedRange.containsPosition(e.targetPosition) ? this._setRelation(e, t, "insertAtSource") : e.targetPosition.isEqual(t.deletionPosition) ? this._setRelation(e, t, "insertBetween") : e.targetPosition.isAfter(t.sourcePosition) && this._setRelation(e, t, "moveTargetAfter") : t instanceof H && (e.targetPosition.isEqual(t.sourcePosition) || e.targetPosition.isBefore(t.sourcePosition) ? this._setRelation(e, t, "insertBefore") : this._setRelation(e, t, "insertAfter"));
       else if (e instanceof K) {
         if (t instanceof oe)
           e.splitPosition.isBefore(t.sourcePosition) && this._setRelation(e, t, "splitBefore");
-        else if (t instanceof U)
+        else if (t instanceof H)
           if (e.splitPosition.isEqual(t.sourcePosition) || e.splitPosition.isBefore(t.sourcePosition))
             this._setRelation(e, t, "splitBefore");
           else {
@@ -21550,12 +21550,12 @@ Read more: ${Iw}#error-${n}`;
             }
           }
       } else if (e instanceof oe)
-        t instanceof oe ? (e.targetPosition.isEqual(t.sourcePosition) || this._setRelation(e, t, "mergeTargetNotMoved"), e.sourcePosition.isEqual(t.targetPosition) && this._setRelation(e, t, "mergeSourceNotMoved"), e.sourcePosition.isEqual(t.sourcePosition) && this._setRelation(e, t, "mergeSameElement")) : t instanceof K ? e.sourcePosition.isEqual(t.splitPosition) && this._setRelation(e, t, "splitAtSource") : t instanceof U && t.howMany > 0 && (e.sourcePosition.isEqual(t.sourcePosition.getShiftedBy(t.howMany)) && this._setRelation(e, t, "mergeSourceAffected"), e.targetPosition.isEqual(t.sourcePosition) && this._setRelation(e, t, "mergeTargetWasBefore"));
+        t instanceof oe ? (e.targetPosition.isEqual(t.sourcePosition) || this._setRelation(e, t, "mergeTargetNotMoved"), e.sourcePosition.isEqual(t.targetPosition) && this._setRelation(e, t, "mergeSourceNotMoved"), e.sourcePosition.isEqual(t.sourcePosition) && this._setRelation(e, t, "mergeSameElement")) : t instanceof K ? e.sourcePosition.isEqual(t.splitPosition) && this._setRelation(e, t, "splitAtSource") : t instanceof H && t.howMany > 0 && (e.sourcePosition.isEqual(t.sourcePosition.getShiftedBy(t.howMany)) && this._setRelation(e, t, "mergeSourceAffected"), e.targetPosition.isEqual(t.sourcePosition) && this._setRelation(e, t, "mergeTargetWasBefore"));
       else if (e instanceof Re) {
         const i = e.newRange;
         if (!i)
           return;
-        if (t instanceof U) {
+        if (t instanceof H) {
           const s = b._createFromPositionAndShift(t.sourcePosition, t.howMany), o = s.containsPosition(i.start) || s.start.isEqual(i.start), r = s.containsPosition(i.end) || s.end.isEqual(i.end);
           (o || r) && !s.containsRange(i) && this._setRelation(e, t, {
             side: o ? "left" : "right",
@@ -21671,7 +21671,7 @@ Read more: ${Iw}#error-${n}`;
     const i = n.range._getTransformedByMergeOperation(e);
     return i.isCollapsed || t.push(i), t.map((s) => new ae(s, n.key, n.oldValue, n.newValue, n.baseVersion));
   });
-  z(ae, U, (n, e) => c2(n.range, e).map((i) => new ae(i, n.key, n.oldValue, n.newValue, n.baseVersion)));
+  z(ae, H, (n, e) => c2(n.range, e).map((i) => new ae(i, n.key, n.oldValue, n.newValue, n.baseVersion)));
   function c2(n, e) {
     const t = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let i = null, s = [];
@@ -21702,7 +21702,7 @@ Read more: ${Iw}#error-${n}`;
     return t;
   });
   z(be, be, (n, e, t) => n.position.isEqual(e.position) && t.aIsStrong ? [n] : (n.position = n.position._getTransformedByInsertOperation(e), [n]));
-  z(be, U, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
+  z(be, H, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
   z(be, K, (n, e) => (n.position = n.position._getTransformedBySplitOperation(e), [n]));
   z(be, oe, (n, e) => (n.position = n.position._getTransformedByMergeOperation(e), [n]));
   z(Re, be, (n, e) => (n.oldRange && (n.oldRange = n.oldRange._getTransformedByInsertOperation(e)[0]), n.newRange && (n.newRange = n.newRange._getTransformedByInsertOperation(e)[0]), [n]));
@@ -21715,7 +21715,7 @@ Read more: ${Iw}#error-${n}`;
     return [n];
   });
   z(Re, oe, (n, e) => (n.oldRange && (n.oldRange = n.oldRange._getTransformedByMergeOperation(e)), n.newRange && (n.newRange = n.newRange._getTransformedByMergeOperation(e)), [n]));
-  z(Re, U, (n, e, t) => {
+  z(Re, H, (n, e, t) => {
     if (n.oldRange && (n.oldRange = b._createFromRanges(n.oldRange._getTransformedByMoveOperation(e))), n.newRange) {
       if (t.abRelation) {
         const i = b._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
@@ -21750,13 +21750,13 @@ Read more: ${Iw}#error-${n}`;
       const i = n.targetPosition.root.rootName == "$graveyard", s = e.targetPosition.root.rootName == "$graveyard";
       if (s && !i || !(i && !s) && t.aIsStrong) {
         const l = e.targetPosition._getTransformedByMergeOperation(e), c = n.targetPosition._getTransformedByMergeOperation(e);
-        return [new U(l, n.howMany, c, 0)];
+        return [new H(l, n.howMany, c, 0)];
       } else
         return [new ue(0)];
     }
     return n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition = n.sourcePosition._getTransformedByMergeOperation(e), n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), (!n.graveyardPosition.isEqual(e.graveyardPosition) || !t.aIsStrong) && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
-  z(oe, U, (n, e, t) => {
+  z(oe, H, (n, e, t) => {
     const i = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     return e.type == "remove" && !t.bWasUndone && !t.forceWeakRemove && n.deletionPosition.hasSameParentAs(e.sourcePosition) && i.containsPosition(n.sourcePosition) ? [new ue(0)] : (e.sourcePosition.getShiftedBy(e.howMany).isEqual(n.sourcePosition) ? n.sourcePosition.stickiness = "toNone" : e.targetPosition.isEqual(n.sourcePosition) && t.abRelation == "mergeSourceAffected" ? n.sourcePosition.stickiness = "toNext" : e.sourcePosition.isEqual(n.targetPosition) ? (n.targetPosition.stickiness = "toNone", n.howMany -= e.howMany) : e.targetPosition.isEqual(n.targetPosition) && t.abRelation == "mergeTargetWasBefore" ? (n.targetPosition.stickiness = "toPrevious", n.howMany += e.howMany) : (n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition.hasSameParentAs(e.sourcePosition) && (n.howMany -= e.howMany)), n.sourcePosition = n.sourcePosition._getTransformedByMoveOperation(e), n.targetPosition = n.targetPosition._getTransformedByMoveOperation(e), n.sourcePosition.stickiness = "toPrevious", n.targetPosition.stickiness = "toNext", n.graveyardPosition.isEqual(e.targetPosition) || (n.graveyardPosition = n.graveyardPosition._getTransformedByMoveOperation(e)), [n]);
   });
@@ -21774,11 +21774,11 @@ Read more: ${Iw}#error-${n}`;
     }
     return n.sourcePosition.hasSameParentAs(e.splitPosition) && (n.howMany = e.splitPosition.offset), n.sourcePosition = n.sourcePosition._getTransformedBySplitOperation(e), n.targetPosition = n.targetPosition._getTransformedBySplitOperation(e), [n];
   });
-  z(U, be, (n, e) => {
+  z(H, be, (n, e) => {
     const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByInsertOperation(e, !1)[0];
     return n.sourcePosition = i.start, n.howMany = i.end.offset - i.start.offset, n.targetPosition.isEqual(e.position) || (n.targetPosition = n.targetPosition._getTransformedByInsertOperation(e)), [n];
   });
-  z(U, U, (n, e, t) => {
+  z(H, H, (n, e, t) => {
     const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany), s = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let o = t.aIsStrong, r = !t.aIsStrong;
     t.abRelation == "insertBefore" || t.baRelation == "insertAfter" ? r = !0 : (t.abRelation == "insertAfter" || t.baRelation == "insertBefore") && (r = !1);
@@ -21802,7 +21802,7 @@ Read more: ${Iw}#error-${n}`;
     const f = i.getIntersection(s);
     return f !== null && o && (f.start = f.start._getCombined(e.sourcePosition, e.getMovedRangeStart()), f.end = f.end._getCombined(e.sourcePosition, e.getMovedRangeStart()), d.length === 0 ? d.push(f) : d.length == 1 ? s.start.isBefore(i.start) || s.start.isEqual(i.start) ? d.unshift(f) : d.push(f) : d.splice(1, 0, f)), d.length === 0 ? [new ue(n.baseVersion)] : $i(d, a);
   });
-  z(U, K, (n, e, t) => {
+  z(H, K, (n, e, t) => {
     let i = n.targetPosition.clone();
     (!n.targetPosition.isEqual(e.insertionPosition) || !e.graveyardPosition || t.abRelation == "moveTargetAfter") && (i = n.targetPosition._getTransformedBySplitOperation(e));
     const s = b._createFromPositionAndShift(n.sourcePosition, n.howMany);
@@ -21825,19 +21825,19 @@ Read more: ${Iw}#error-${n}`;
     }
     return $i(r, i);
   });
-  z(U, oe, (n, e, t) => {
+  z(H, oe, (n, e, t) => {
     const i = b._createFromPositionAndShift(n.sourcePosition, n.howMany);
     if (e.deletionPosition.hasSameParentAs(n.sourcePosition) && i.containsPosition(e.sourcePosition)) {
       if (n.type == "remove" && !t.forceWeakRemove) {
         if (!t.aWasUndone) {
           const r = [];
           let a = e.graveyardPosition.clone(), l = e.targetPosition._getTransformedByMergeOperation(e);
-          n.howMany > 1 && (r.push(new U(n.sourcePosition, n.howMany - 1, n.targetPosition, 0)), a = a._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1), l = l._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1));
-          const c = e.deletionPosition._getCombined(n.sourcePosition, n.targetPosition), u = new U(a, 1, c, 0), d = u.getMovedRangeStart().path.slice();
+          n.howMany > 1 && (r.push(new H(n.sourcePosition, n.howMany - 1, n.targetPosition, 0)), a = a._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1), l = l._getTransformedByMove(n.sourcePosition, n.targetPosition, n.howMany - 1));
+          const c = e.deletionPosition._getCombined(n.sourcePosition, n.targetPosition), u = new H(a, 1, c, 0), d = u.getMovedRangeStart().path.slice();
           d.push(0);
           const h = new y(u.targetPosition.root, d);
           l = l._getTransformedByMove(a, c, 1);
-          const f = new U(l, e.howMany, h, 0);
+          const f = new H(l, e.howMany, h, 0);
           return r.push(u), r.push(f), r;
         }
       } else if (n.howMany == 1)
@@ -21848,7 +21848,7 @@ Read more: ${Iw}#error-${n}`;
   });
   z(Le, be, (n, e) => (n.position = n.position._getTransformedByInsertOperation(e), [n]));
   z(Le, oe, (n, e) => n.position.isEqual(e.deletionPosition) ? (n.position = e.graveyardPosition.clone(), n.position.stickiness = "toNext", [n]) : (n.position = n.position._getTransformedByMergeOperation(e), [n]));
-  z(Le, U, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
+  z(Le, H, (n, e) => (n.position = n.position._getTransformedByMoveOperation(e), [n]));
   z(Le, Le, (n, e, t) => {
     if (n.position.isEqual(e.position))
       if (t.aIsStrong)
@@ -21884,7 +21884,7 @@ Read more: ${Iw}#error-${n}`;
     }
     return n.splitPosition.hasSameParentAs(e.deletionPosition) && !n.splitPosition.isAfter(e.deletionPosition) && n.howMany--, n.splitPosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.splitPosition = n.splitPosition._getTransformedByMergeOperation(e), n.insertionPosition = K.getInsertionPosition(n.splitPosition), n.graveyardPosition && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
-  z(K, U, (n, e, t) => {
+  z(K, H, (n, e, t) => {
     const i = b._createFromPositionAndShift(e.sourcePosition, e.howMany);
     if (n.graveyardPosition) {
       const o = i.start.isEqual(n.graveyardPosition) || i.containsPosition(n.graveyardPosition);
@@ -21892,7 +21892,7 @@ Read more: ${Iw}#error-${n}`;
         const r = n.splitPosition._getTransformedByMoveOperation(e), a = n.graveyardPosition._getTransformedByMoveOperation(e), l = a.path.slice();
         l.push(0);
         const c = new y(a.root, l);
-        return [new U(r, n.howMany, c, 0)];
+        return [new H(r, n.howMany, c, 0)];
       }
       n.graveyardPosition = n.graveyardPosition._getTransformedByMoveOperation(e);
     }
@@ -21922,7 +21922,7 @@ Read more: ${Iw}#error-${n}`;
       const i = n.splitPosition.root.rootName == "$graveyard", s = e.splitPosition.root.rootName == "$graveyard";
       if (s && !i || !(i && !s) && t.aIsStrong) {
         const l = [];
-        return e.howMany && l.push(new U(e.moveTargetPosition, e.howMany, e.splitPosition, 0)), n.howMany && l.push(new U(n.splitPosition, n.howMany, n.moveTargetPosition, 0)), l;
+        return e.howMany && l.push(new H(e.moveTargetPosition, e.howMany, e.splitPosition, 0)), n.howMany && l.push(new H(n.splitPosition, n.howMany, n.moveTargetPosition, 0)), l;
       } else
         return [new ue(0)];
     }
@@ -21931,7 +21931,7 @@ Read more: ${Iw}#error-${n}`;
     if (e.splitPosition.isEqual(n.insertionPosition) && t.baRelation == "splitBefore") {
       const i = e.insertionPosition.path.slice();
       i.push(0);
-      const s = new y(e.insertionPosition.root, i), o = new U(n.insertionPosition, 1, s, 0);
+      const s = new y(e.insertionPosition.root, i), o = new H(n.insertionPosition, 1, s, 0);
       return [n, o];
     }
     return n.splitPosition.hasSameParentAs(e.splitPosition) && n.splitPosition.offset < e.splitPosition.offset && (n.howMany -= e.howMany), n.splitPosition = n.splitPosition._getTransformedBySplitOperation(e), n.insertionPosition = K.getInsertionPosition(n.splitPosition), [n];
@@ -21942,7 +21942,7 @@ Read more: ${Iw}#error-${n}`;
   function $i(n, e) {
     const t = [];
     for (let i = 0; i < n.length; i++) {
-      const s = n[i], o = new U(s.start, s.end.offset - s.start.offset, e, 0);
+      const s = n[i], o = new H(s.start, s.end.offset - s.start.offset, e, 0);
       t.push(o);
       for (let r = i + 1; r < n.length; r++)
         n[r] = n[r]._getTransformedByMove(o.sourcePosition, o.targetPosition, o.howMany)[0];
@@ -23847,7 +23847,7 @@ Read more: ${Iw}#error-${n}`;
         return;
       if (this._addOperationForAffectedMarkers("move", e), !Tu(e.root, s.root))
         throw new g("writer-move-different-document", this);
-      const o = e.root.document ? e.root.document.version : null, r = new U(e.start, e.end.offset - e.start.offset, s, o);
+      const o = e.root.document ? e.root.document.version : null, r = new H(e.start, e.end.offset - e.start.offset, s, o);
       this.batch.addOperation(r), this.model.applyOperation(r);
     }
     /**
@@ -24398,7 +24398,7 @@ Read more: ${Iw}#error-${n}`;
     let s;
     if (n.root.document) {
       const o = i.document, r = new y(o.graveyard, [0]);
-      s = new U(n, e, r, o.version);
+      s = new H(n, e, r, o.version);
     } else
       s = new b2(n, e);
     t.addOperation(s), i.applyOperation(s);
@@ -28340,7 +28340,7 @@ Read more: ${Iw}#error-${n}`;
       const t = this.locale.t, i = tt(document, "dt"), s = tt(document, "dd"), o = K5(e.keystroke), r = [];
       for (const a of o)
         r.push(a.map(j5).join(""));
-      return i.innerHTML = e.label, s.innerHTML = r.join(", ") + (e.mayRequireFn && M.isMac ? ` ${t("(may require <kbd>Fn</kbd>)")}` : ""), [i, s];
+      return i.innerHTML = e.label, s.innerHTML = r.join(", ") + (e.mayRequireFn && B.isMac ? ` ${t("(may require <kbd>Fn</kbd>)")}` : ""), [i, s];
     }
   }
   function j5(n) {
@@ -28376,7 +28376,7 @@ Read more: ${Iw}#error-${n}`;
     init() {
       const e = this.editor, t = e.locale.t;
       e.ui.componentFactory.add("accessibilityHelp", () => {
-        const i = this._createButton(P);
+        const i = this._createButton(R);
         return i.set({
           tooltip: !0,
           withText: !1,
@@ -28646,7 +28646,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class P extends T {
+  class R extends T {
     /**
      * Creates an instance of the button view class.
      *
@@ -28693,7 +28693,7 @@ Read more: ${Iw}#error-${n}`;
           })
         }
       };
-      M.isSafari && (this._focusDelayed || (this._focusDelayed = rl(() => this.focus(), 0)), o.on.mousedown = i.to(() => {
+      B.isSafari && (this._focusDelayed || (this._focusDelayed = rl(() => this.focus(), 0)), o.on.mousedown = i.to(() => {
         this._focusDelayed();
       }), o.on.mouseup = i.to(() => {
         this._focusDelayed.cancel();
@@ -28762,7 +28762,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Qo extends P {
+  class Qo extends R {
     /**
      * @inheritDoc
      */
@@ -28810,7 +28810,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ym extends P {
+  class Ym extends R {
     /**
      * @inheritDoc
      */
@@ -28924,7 +28924,7 @@ Read more: ${Iw}#error-${n}`;
      * Creates the main {@link #buttonView} of the collapsible.
      */
     _createButtonView() {
-      const e = new P(this.locale), t = e.bindTemplate;
+      const e = new R(this.locale), t = e.bindTemplate;
       return e.set({
         withText: !0,
         icon: er
@@ -28995,7 +28995,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class eg extends P {
+  class eg extends R {
     constructor(e) {
       super(e);
       const t = this.bindTemplate;
@@ -29328,7 +29328,7 @@ Read more: ${Iw}#error-${n}`;
   const ss = ig, ng = {};
   for (const n of Object.keys(ss))
     ng[ss[n]] = n;
-  const S = {
+  const I = {
     rgb: { channels: 3, labels: "rgb" },
     hsl: { channels: 3, labels: "hsl" },
     hsv: { channels: 3, labels: "hsv" },
@@ -29345,25 +29345,25 @@ Read more: ${Iw}#error-${n}`;
     apple: { channels: 3, labels: ["r16", "g16", "b16"] },
     gray: { channels: 1, labels: ["gray"] }
   };
-  var sg = S;
-  for (const n of Object.keys(S)) {
-    if (!("channels" in S[n]))
+  var sg = I;
+  for (const n of Object.keys(I)) {
+    if (!("channels" in I[n]))
       throw new Error("missing channels property: " + n);
-    if (!("labels" in S[n]))
+    if (!("labels" in I[n]))
       throw new Error("missing channel labels property: " + n);
-    if (S[n].labels.length !== S[n].channels)
+    if (I[n].labels.length !== I[n].channels)
       throw new Error("channel and label counts mismatch: " + n);
-    const { channels: e, labels: t } = S[n];
-    delete S[n].channels, delete S[n].labels, Object.defineProperty(S[n], "channels", { value: e }), Object.defineProperty(S[n], "labels", { value: t });
+    const { channels: e, labels: t } = I[n];
+    delete I[n].channels, delete I[n].labels, Object.defineProperty(I[n], "channels", { value: e }), Object.defineProperty(I[n], "labels", { value: t });
   }
-  S.rgb.hsl = function(n) {
+  I.rgb.hsl = function(n) {
     const e = n[0] / 255, t = n[1] / 255, i = n[2] / 255, s = Math.min(e, t, i), o = Math.max(e, t, i), r = o - s;
     let a, l;
     o === s ? a = 0 : e === o ? a = (t - i) / r : t === o ? a = 2 + (i - e) / r : i === o && (a = 4 + (e - t) / r), a = Math.min(a * 60, 360), a < 0 && (a += 360);
     const c = (s + o) / 2;
     return o === s ? l = 0 : c <= 0.5 ? l = r / (o + s) : l = r / (2 - o - s), [a, l * 100, c * 100];
   };
-  S.rgb.hsv = function(n) {
+  I.rgb.hsv = function(n) {
     let e, t, i, s, o;
     const r = n[0] / 255, a = n[1] / 255, l = n[2] / 255, c = Math.max(r, a, l), u = c - Math.min(r, a, l), d = function(h) {
       return (c - h) / 6 / u + 1 / 2;
@@ -29374,20 +29374,20 @@ Read more: ${Iw}#error-${n}`;
       c * 100
     ];
   };
-  S.rgb.hwb = function(n) {
+  I.rgb.hwb = function(n) {
     const e = n[0], t = n[1];
     let i = n[2];
-    const s = S.rgb.hsl(n)[0], o = 1 / 255 * Math.min(e, Math.min(t, i));
+    const s = I.rgb.hsl(n)[0], o = 1 / 255 * Math.min(e, Math.min(t, i));
     return i = 1 - 1 / 255 * Math.max(e, Math.max(t, i)), [s, o * 100, i * 100];
   };
-  S.rgb.cmyk = function(n) {
+  I.rgb.cmyk = function(n) {
     const e = n[0] / 255, t = n[1] / 255, i = n[2] / 255, s = Math.min(1 - e, 1 - t, 1 - i), o = (1 - e - s) / (1 - s) || 0, r = (1 - t - s) / (1 - s) || 0, a = (1 - i - s) / (1 - s) || 0;
     return [o * 100, r * 100, a * 100, s * 100];
   };
   function tA(n, e) {
     return (n[0] - e[0]) ** 2 + (n[1] - e[1]) ** 2 + (n[2] - e[2]) ** 2;
   }
-  S.rgb.keyword = function(n) {
+  I.rgb.keyword = function(n) {
     const e = ng[n];
     if (e)
       return e;
@@ -29398,23 +29398,23 @@ Read more: ${Iw}#error-${n}`;
     }
     return i;
   };
-  S.keyword.rgb = function(n) {
+  I.keyword.rgb = function(n) {
     return ss[n];
   };
-  S.rgb.xyz = function(n) {
+  I.rgb.xyz = function(n) {
     let e = n[0] / 255, t = n[1] / 255, i = n[2] / 255;
     e = e > 0.04045 ? ((e + 0.055) / 1.055) ** 2.4 : e / 12.92, t = t > 0.04045 ? ((t + 0.055) / 1.055) ** 2.4 : t / 12.92, i = i > 0.04045 ? ((i + 0.055) / 1.055) ** 2.4 : i / 12.92;
     const s = e * 0.4124 + t * 0.3576 + i * 0.1805, o = e * 0.2126 + t * 0.7152 + i * 0.0722, r = e * 0.0193 + t * 0.1192 + i * 0.9505;
     return [s * 100, o * 100, r * 100];
   };
-  S.rgb.lab = function(n) {
-    const e = S.rgb.xyz(n);
+  I.rgb.lab = function(n) {
+    const e = I.rgb.xyz(n);
     let t = e[0], i = e[1], s = e[2];
     t /= 95.047, i /= 100, s /= 108.883, t = t > 8856e-6 ? t ** (1 / 3) : 7.787 * t + 16 / 116, i = i > 8856e-6 ? i ** (1 / 3) : 7.787 * i + 16 / 116, s = s > 8856e-6 ? s ** (1 / 3) : 7.787 * s + 16 / 116;
     const o = 116 * i - 16, r = 500 * (t - i), a = 200 * (i - s);
     return [o, r, a];
   };
-  S.hsl.rgb = function(n) {
+  I.hsl.rgb = function(n) {
     const e = n[0] / 360, t = n[1] / 100, i = n[2] / 100;
     let s, o, r;
     if (t === 0)
@@ -29425,7 +29425,7 @@ Read more: ${Iw}#error-${n}`;
       o = e + 1 / 3 * -(c - 1), o < 0 && o++, o > 1 && o--, 6 * o < 1 ? r = a + (s - a) * 6 * o : 2 * o < 1 ? r = s : 3 * o < 2 ? r = a + (s - a) * (2 / 3 - o) * 6 : r = a, l[c] = r * 255;
     return l;
   };
-  S.hsl.hsv = function(n) {
+  I.hsl.hsv = function(n) {
     const e = n[0];
     let t = n[1] / 100, i = n[2] / 100, s = t;
     const o = Math.max(i, 0.01);
@@ -29433,7 +29433,7 @@ Read more: ${Iw}#error-${n}`;
     const r = (i + t) / 2, a = i === 0 ? 2 * s / (o + s) : 2 * t / (i + t);
     return [e, a * 100, r * 100];
   };
-  S.hsv.rgb = function(n) {
+  I.hsv.rgb = function(n) {
     const e = n[0] / 60, t = n[1] / 100;
     let i = n[2] / 100;
     const s = Math.floor(e) % 6, o = e - Math.floor(e), r = 255 * i * (1 - t), a = 255 * i * (1 - t * o), l = 255 * i * (1 - t * (1 - o));
@@ -29452,14 +29452,14 @@ Read more: ${Iw}#error-${n}`;
         return [i, r, a];
     }
   };
-  S.hsv.hsl = function(n) {
+  I.hsv.hsl = function(n) {
     const e = n[0], t = n[1] / 100, i = n[2] / 100, s = Math.max(i, 0.01);
     let o, r;
     r = (2 - t) * i;
     const a = (2 - t) * s;
     return o = t * s, o /= a <= 1 ? a : 2 - a, o = o || 0, r /= 2, [e, o * 100, r * 100];
   };
-  S.hwb.rgb = function(n) {
+  I.hwb.rgb = function(n) {
     const e = n[0] / 360;
     let t = n[1] / 100, i = n[2] / 100;
     const s = t + i;
@@ -29493,62 +29493,62 @@ Read more: ${Iw}#error-${n}`;
     }
     return [c * 255, u * 255, d * 255];
   };
-  S.cmyk.rgb = function(n) {
+  I.cmyk.rgb = function(n) {
     const e = n[0] / 100, t = n[1] / 100, i = n[2] / 100, s = n[3] / 100, o = 1 - Math.min(1, e * (1 - s) + s), r = 1 - Math.min(1, t * (1 - s) + s), a = 1 - Math.min(1, i * (1 - s) + s);
     return [o * 255, r * 255, a * 255];
   };
-  S.xyz.rgb = function(n) {
+  I.xyz.rgb = function(n) {
     const e = n[0] / 100, t = n[1] / 100, i = n[2] / 100;
     let s, o, r;
     return s = e * 3.2406 + t * -1.5372 + i * -0.4986, o = e * -0.9689 + t * 1.8758 + i * 0.0415, r = e * 0.0557 + t * -0.204 + i * 1.057, s = s > 31308e-7 ? 1.055 * s ** (1 / 2.4) - 0.055 : s * 12.92, o = o > 31308e-7 ? 1.055 * o ** (1 / 2.4) - 0.055 : o * 12.92, r = r > 31308e-7 ? 1.055 * r ** (1 / 2.4) - 0.055 : r * 12.92, s = Math.min(Math.max(0, s), 1), o = Math.min(Math.max(0, o), 1), r = Math.min(Math.max(0, r), 1), [s * 255, o * 255, r * 255];
   };
-  S.xyz.lab = function(n) {
+  I.xyz.lab = function(n) {
     let e = n[0], t = n[1], i = n[2];
     e /= 95.047, t /= 100, i /= 108.883, e = e > 8856e-6 ? e ** (1 / 3) : 7.787 * e + 16 / 116, t = t > 8856e-6 ? t ** (1 / 3) : 7.787 * t + 16 / 116, i = i > 8856e-6 ? i ** (1 / 3) : 7.787 * i + 16 / 116;
     const s = 116 * t - 16, o = 500 * (e - t), r = 200 * (t - i);
     return [s, o, r];
   };
-  S.lab.xyz = function(n) {
+  I.lab.xyz = function(n) {
     const e = n[0], t = n[1], i = n[2];
     let s, o, r;
     o = (e + 16) / 116, s = t / 500 + o, r = o - i / 200;
     const a = o ** 3, l = s ** 3, c = r ** 3;
     return o = a > 8856e-6 ? a : (o - 16 / 116) / 7.787, s = l > 8856e-6 ? l : (s - 16 / 116) / 7.787, r = c > 8856e-6 ? c : (r - 16 / 116) / 7.787, s *= 95.047, o *= 100, r *= 108.883, [s, o, r];
   };
-  S.lab.lch = function(n) {
+  I.lab.lch = function(n) {
     const e = n[0], t = n[1], i = n[2];
     let s;
     s = Math.atan2(i, t) * 360 / 2 / Math.PI, s < 0 && (s += 360);
     const r = Math.sqrt(t * t + i * i);
     return [e, r, s];
   };
-  S.lch.lab = function(n) {
+  I.lch.lab = function(n) {
     const e = n[0], t = n[1], s = n[2] / 360 * 2 * Math.PI, o = t * Math.cos(s), r = t * Math.sin(s);
     return [e, o, r];
   };
-  S.rgb.ansi16 = function(n, e = null) {
+  I.rgb.ansi16 = function(n, e = null) {
     const [t, i, s] = n;
-    let o = e === null ? S.rgb.hsv(n)[2] : e;
+    let o = e === null ? I.rgb.hsv(n)[2] : e;
     if (o = Math.round(o / 50), o === 0)
       return 30;
     let r = 30 + (Math.round(s / 255) << 2 | Math.round(i / 255) << 1 | Math.round(t / 255));
     return o === 2 && (r += 60), r;
   };
-  S.hsv.ansi16 = function(n) {
-    return S.rgb.ansi16(S.hsv.rgb(n), n[2]);
+  I.hsv.ansi16 = function(n) {
+    return I.rgb.ansi16(I.hsv.rgb(n), n[2]);
   };
-  S.rgb.ansi256 = function(n) {
+  I.rgb.ansi256 = function(n) {
     const e = n[0], t = n[1], i = n[2];
     return e === t && t === i ? e < 8 ? 16 : e > 248 ? 231 : Math.round((e - 8) / 247 * 24) + 232 : 16 + 36 * Math.round(e / 255 * 5) + 6 * Math.round(t / 255 * 5) + Math.round(i / 255 * 5);
   };
-  S.ansi16.rgb = function(n) {
+  I.ansi16.rgb = function(n) {
     let e = n % 10;
     if (e === 0 || e === 7)
       return n > 50 && (e += 3.5), e = e / 10.5 * 255, [e, e, e];
     const t = (~~(n > 50) + 1) * 0.5, i = (e & 1) * t * 255, s = (e >> 1 & 1) * t * 255, o = (e >> 2 & 1) * t * 255;
     return [i, s, o];
   };
-  S.ansi256.rgb = function(n) {
+  I.ansi256.rgb = function(n) {
     if (n >= 232) {
       const o = (n - 232) * 10 + 8;
       return [o, o, o];
@@ -29558,11 +29558,11 @@ Read more: ${Iw}#error-${n}`;
     const t = Math.floor(n / 36) / 5 * 255, i = Math.floor((e = n % 36) / 6) / 5 * 255, s = e % 6 / 5 * 255;
     return [t, i, s];
   };
-  S.rgb.hex = function(n) {
+  I.rgb.hex = function(n) {
     const t = (((Math.round(n[0]) & 255) << 16) + ((Math.round(n[1]) & 255) << 8) + (Math.round(n[2]) & 255)).toString(16).toUpperCase();
     return "000000".substring(t.length) + t;
   };
-  S.hex.rgb = function(n) {
+  I.hex.rgb = function(n) {
     const e = n.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
     if (!e)
       return [0, 0, 0];
@@ -29571,22 +29571,22 @@ Read more: ${Iw}#error-${n}`;
     const i = parseInt(t, 16), s = i >> 16 & 255, o = i >> 8 & 255, r = i & 255;
     return [s, o, r];
   };
-  S.rgb.hcg = function(n) {
+  I.rgb.hcg = function(n) {
     const e = n[0] / 255, t = n[1] / 255, i = n[2] / 255, s = Math.max(Math.max(e, t), i), o = Math.min(Math.min(e, t), i), r = s - o;
     let a, l;
     return r < 1 ? a = o / (1 - r) : a = 0, r <= 0 ? l = 0 : s === e ? l = (t - i) / r % 6 : s === t ? l = 2 + (i - e) / r : l = 4 + (e - t) / r, l /= 6, l %= 1, [l * 360, r * 100, a * 100];
   };
-  S.hsl.hcg = function(n) {
+  I.hsl.hcg = function(n) {
     const e = n[1] / 100, t = n[2] / 100, i = t < 0.5 ? 2 * e * t : 2 * e * (1 - t);
     let s = 0;
     return i < 1 && (s = (t - 0.5 * i) / (1 - i)), [n[0], i * 100, s * 100];
   };
-  S.hsv.hcg = function(n) {
+  I.hsv.hcg = function(n) {
     const e = n[1] / 100, t = n[2] / 100, i = e * t;
     let s = 0;
     return i < 1 && (s = (t - i) / (1 - i)), [n[0], i * 100, s * 100];
   };
-  S.hcg.rgb = function(n) {
+  I.hcg.rgb = function(n) {
     const e = n[0] / 360, t = n[1] / 100, i = n[2] / 100;
     if (t === 0)
       return [i * 255, i * 255, i * 255];
@@ -29617,52 +29617,52 @@ Read more: ${Iw}#error-${n}`;
       (t * s[2] + l) * 255
     ];
   };
-  S.hcg.hsv = function(n) {
+  I.hcg.hsv = function(n) {
     const e = n[1] / 100, t = n[2] / 100, i = e + t * (1 - e);
     let s = 0;
     return i > 0 && (s = e / i), [n[0], s * 100, i * 100];
   };
-  S.hcg.hsl = function(n) {
+  I.hcg.hsl = function(n) {
     const e = n[1] / 100, i = n[2] / 100 * (1 - e) + 0.5 * e;
     let s = 0;
     return i > 0 && i < 0.5 ? s = e / (2 * i) : i >= 0.5 && i < 1 && (s = e / (2 * (1 - i))), [n[0], s * 100, i * 100];
   };
-  S.hcg.hwb = function(n) {
+  I.hcg.hwb = function(n) {
     const e = n[1] / 100, t = n[2] / 100, i = e + t * (1 - e);
     return [n[0], (i - e) * 100, (1 - i) * 100];
   };
-  S.hwb.hcg = function(n) {
+  I.hwb.hcg = function(n) {
     const e = n[1] / 100, i = 1 - n[2] / 100, s = i - e;
     let o = 0;
     return s < 1 && (o = (i - s) / (1 - s)), [n[0], s * 100, o * 100];
   };
-  S.apple.rgb = function(n) {
+  I.apple.rgb = function(n) {
     return [n[0] / 65535 * 255, n[1] / 65535 * 255, n[2] / 65535 * 255];
   };
-  S.rgb.apple = function(n) {
+  I.rgb.apple = function(n) {
     return [n[0] / 255 * 65535, n[1] / 255 * 65535, n[2] / 255 * 65535];
   };
-  S.gray.rgb = function(n) {
+  I.gray.rgb = function(n) {
     return [n[0] / 100 * 255, n[0] / 100 * 255, n[0] / 100 * 255];
   };
-  S.gray.hsl = function(n) {
+  I.gray.hsl = function(n) {
     return [0, 0, n[0]];
   };
-  S.gray.hsv = S.gray.hsl;
-  S.gray.hwb = function(n) {
+  I.gray.hsv = I.gray.hsl;
+  I.gray.hwb = function(n) {
     return [0, 100, n[0]];
   };
-  S.gray.cmyk = function(n) {
+  I.gray.cmyk = function(n) {
     return [0, 0, 0, n[0]];
   };
-  S.gray.lab = function(n) {
+  I.gray.lab = function(n) {
     return [n[0], 0, 0];
   };
-  S.gray.hex = function(n) {
+  I.gray.hex = function(n) {
     const e = Math.round(n[0] / 100 * 255) & 255, i = ((e << 16) + (e << 8) + e).toString(16).toUpperCase();
     return "000000".substring(i.length) + i;
   };
-  S.rgb.gray = function(n) {
+  I.rgb.gray = function(n) {
     return [(n[0] + n[1] + n[2]) / 3 / 255 * 100];
   };
   const To = sg;
@@ -30242,7 +30242,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class kl extends P {
+  class kl extends R {
     /**
      * @inheritDoc
      */
@@ -30784,7 +30784,7 @@ Read more: ${Iw}#error-${n}`;
     get _areItemsOverflowing() {
       if (!this.ungroupedItems.length)
         return !1;
-      const e = this.viewElement, t = this.viewLocale.uiLanguageDirection, i = new B(e.lastChild), s = new B(e);
+      const e = this.viewElement, t = this.viewLocale.uiLanguageDirection, i = new O(e.lastChild), s = new O(e);
       if (!this.cachedPadding) {
         const o = E.window.getComputedStyle(e), r = t === "ltr" ? "paddingRight" : "paddingLeft";
         this.cachedPadding = Number.parseInt(o[r]);
@@ -31141,7 +31141,7 @@ Read more: ${Iw}#error-${n}`;
      * attributes.
      */
     _createActionView(e) {
-      const t = e || new P();
+      const t = e || new R();
       return e || t.bind("icon", "isEnabled", "isOn", "isToggleable", "keystroke", "label", "tabindex", "tooltip", "tooltipPosition", "type", "withText").to(this), t.extendTemplate({
         attributes: {
           class: "ck-splitbutton__action"
@@ -31153,7 +31153,7 @@ Read more: ${Iw}#error-${n}`;
      * attributes.
      */
     _createArrowView() {
-      const e = new P(), t = e.bindTemplate;
+      const e = new R(), t = e.bindTemplate;
       return e.icon = er, e.extendTemplate({
         attributes: {
           class: [
@@ -31258,7 +31258,7 @@ Read more: ${Iw}#error-${n}`;
       } else if (s.type === "button" || s.type === "switchbutton") {
         const o = new en(i);
         let r;
-        return s.type === "button" ? (r = new P(i), r.bind("ariaChecked").to(r, "isOn")) : r = new Qo(i), r.bind(...Object.keys(s.model)).to(s.model), r.delegate("execute").to(o), o.children.add(r), o;
+        return s.type === "button" ? (r = new R(i), r.bind("ariaChecked").to(r, "isOn")) : r = new Qo(i), r.bind(...Object.keys(s.model)).to(s.model), r.delegate("execute").to(o), o.children.add(r), o;
       }
       return null;
     });
@@ -31551,7 +31551,7 @@ Read more: ${Iw}#error-${n}`;
      */
     focus() {
       /* istanbul ignore next -- @preserve */
-      !this._config.hideInput && (M.isGecko || M.isiOS || M.isSafari) && this.hexInputRow.children.get(1).focus(), this.slidersView.first.focus();
+      !this._config.hideInput && (B.isGecko || B.isiOS || B.isSafari) && this.hexInputRow.children.get(1).focus(), this.slidersView.first.focus();
     }
     /**
      * Creates collection of sliders in color picker.
@@ -31782,7 +31782,7 @@ Read more: ${Iw}#error-${n}`;
      * Creates the button responsible for displaying the color picker component.
      */
     _createColorPickerButton() {
-      this.colorPickerButtonView = new P(), this.colorPickerButtonView.set({
+      this.colorPickerButtonView = new R(), this.colorPickerButtonView.set({
         label: this._colorPickerLabel,
         withText: !0,
         icon: sx,
@@ -31795,7 +31795,7 @@ Read more: ${Iw}#error-${n}`;
      * Adds the remove color button as a child of the current view.
      */
     _createRemoveColorButton() {
-      const e = new P();
+      const e = new R();
       return e.set({
         withText: !0,
         icon: nx,
@@ -31967,7 +31967,7 @@ Read more: ${Iw}#error-${n}`;
      * Creates "Save" and "Cancel" buttons.
      */
     _createActionButtons() {
-      const e = this.locale, t = e.t, i = new P(e), s = new P(e);
+      const e = this.locale, t = e.t, i = new R(e), s = new R(e);
       return i.set({
         icon: A.check,
         class: "ck-button-save",
@@ -32369,7 +32369,7 @@ Read more: ${Iw}#error-${n}`;
      */
     setButtons(e) {
       for (const t of e) {
-        const i = new P(this.locale);
+        const i = new R(this.locale);
         let s;
         i.on("execute", () => t.onExecute()), t.onCreate && t.onCreate(i);
         for (s in t)
@@ -32605,7 +32605,7 @@ Read more: ${Iw}#error-${n}`;
      * Calculates the visible DOM root part.
      */
     _getVisibleDomRootRect(e) {
-      let t = new B(this._getCurrentDomRoot()).getVisible();
+      let t = new O(this._getCurrentDomRoot()).getVisible();
       if (t) {
         if (t = e.getIntersection(t), !t)
           return null;
@@ -32617,7 +32617,7 @@ Read more: ${Iw}#error-${n}`;
      * Calculates the dialog element rect.
      */
     _getDialogRect() {
-      return new B(this.element.firstElementChild);
+      return new O(this.element.firstElementChild);
     }
     /**
      * Calculates the viewport rect.
@@ -32646,7 +32646,7 @@ Read more: ${Iw}#error-${n}`;
      * Creates the close button view that is displayed in the header view corner.
      */
     _createCloseButton() {
-      const e = new P(this.locale), t = this.locale.t;
+      const e = new R(this.locale), t = this.locale.t;
       return e.set({
         label: t("Close"),
         tooltip: !0,
@@ -32657,7 +32657,7 @@ Read more: ${Iw}#error-${n}`;
   tn.defaultOffset = 15;
   function dx(n) {
     n = Object.assign({ top: 0, bottom: 0, left: 0, right: 0 }, n);
-    const e = new B(E.window);
+    const e = new O(E.window);
     return e.top += n.top, e.height -= n.top, e.bottom -= n.bottom, e.height -= n.bottom, e.left += n.left, e.right -= n.right, e.width -= n.left + n.right, e;
   }
   /**
@@ -33607,7 +33607,7 @@ Read more: ${Iw}#error-${n}`;
   }
   function _g(n, e, t) {
     return (i, s) => {
-      const o = new B(n);
+      const o = new O(n);
       if (o.width < bx || o.height < wx)
         return null;
       let r;
@@ -34576,7 +34576,7 @@ Read more: ${Iw}#error-${n}`;
      * @param icon The button icon.
      */
     _createButtonView(e, t) {
-      const i = new P(this.locale);
+      const i = new R(this.locale);
       return i.set({
         label: e,
         icon: t,
@@ -34627,7 +34627,7 @@ Read more: ${Iw}#error-${n}`;
      */
     updatePosition() {
       if (this.numberOfPanels) {
-        const { top: e, left: t } = this._balloonPanelView, { width: i, height: s } = new B(this._balloonPanelView.element);
+        const { top: e, left: t } = this._balloonPanelView, { width: i, height: s } = new O(this._balloonPanelView.element);
         Object.assign(this, { top: e, left: t, width: i, height: s });
       }
     }
@@ -34707,10 +34707,10 @@ Read more: ${Iw}#error-${n}`;
         this._unstick();
         return;
       }
-      const e = new B(this.limiterElement);
+      const e = new O(this.limiterElement);
       let t = e.getVisible();
       if (t) {
-        const i = new B(E.window);
+        const i = new O(E.window);
         i.top += this.viewportTopOffset, i.height -= this.viewportTopOffset, t = t.getIntersection(i);
       }
       if (t && e.top < t.top) {
@@ -34755,7 +34755,7 @@ Read more: ${Iw}#error-${n}`;
      * @private
      */
     get _contentPanelRect() {
-      return new B(this.contentPanelElement);
+      return new O(this.contentPanelElement);
     }
   }
   /**
@@ -34776,7 +34776,7 @@ Read more: ${Iw}#error-${n}`;
         attributes: {
           class: "ck-search__query_with-icon"
         }
-      })), this._viewConfig.showResetButton && (this.resetButtonView = new P(e), this.resetButtonView.set({
+      })), this._viewConfig.showResetButton && (this.resetButtonView = new R(e), this.resetButtonView.set({
         label: i("Clear"),
         icon: A.cancel,
         class: "ck-search__reset",
@@ -35058,7 +35058,7 @@ Read more: ${Iw}#error-${n}`;
     _updateResultsViewWidthAndPosition() {
       if (!this.resultsView.isVisible)
         return;
-      this.resultsView._width = new B(this.queryView.fieldView.element).width;
+      this.resultsView._width = new O(this.queryView.fieldView.element).width;
       const e = rs._getOptimalPosition({
         element: this.resultsView.element,
         target: this.queryView.element,
@@ -35092,7 +35092,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class zx extends P {
+  class zx extends R {
     /**
      * Creates an instance of the menu bar button view.
      *
@@ -35919,7 +35919,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class de extends P {
+  class de extends R {
     /**
      * Creates an instance of the menu bar list button view.
      *
@@ -36203,7 +36203,7 @@ Read more: ${Iw}#error-${n}`;
     _handleScrollToTheSelectionWithStickyPanel(e, t, i) {
       const s = this.view.stickyPanel;
       if (s.isSticky) {
-        const o = new B(s.element).height;
+        const o = new O(s.element).height;
         t.viewportOffset.top += o;
       } else {
         const o = () => {
@@ -36230,7 +36230,7 @@ Read more: ${Iw}#error-${n}`;
         i.on("moveTo", (s, o) => {
           if (!e.isSticky || i.wasMoved)
             return;
-          const r = new B(e.contentPanelElement);
+          const r = new O(e.contentPanelElement);
           o[1] < r.bottom + tn.defaultOffset && (o[1] = r.bottom + tn.defaultOffset);
         }, { priority: "high" });
       }, { priority: "low" });
@@ -37706,7 +37706,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class fS extends V {
+  class fS extends M {
     /**
      * Creates an instance of the command.
      *
@@ -37770,7 +37770,7 @@ Read more: ${Iw}#error-${n}`;
      * @inheritDoc
      */
     constructor(e) {
-      super(e), this.focusObserver = e.getObserver(yo), M.isAndroid && od.push("insertCompositionText");
+      super(e), this.focusObserver = e.getObserver(yo), B.isAndroid && od.push("insertCompositionText");
       const t = e.document;
       t.on("beforeinput", (i, s) => {
         if (!this.isEnabled)
@@ -37785,7 +37785,7 @@ Read more: ${Iw}#error-${n}`;
           selection: e.createSelection(r)
         })), c.stop.called && i.stop();
       }), t.on("compositionend", (i, { data: s, domEvent: o }) => {
-        !this.isEnabled || M.isAndroid || s && t.fire("insertText", new Ji(e, o, {
+        !this.isEnabled || B.isAndroid || s && t.fire("insertText", new Ji(e, o, {
           text: s,
           selection: t.selection
         }));
@@ -37824,7 +37824,7 @@ Read more: ${Iw}#error-${n}`;
         i.document.isComposing || a.preventDefault();
         const { text: l, selection: c, resultRange: u } = a, d = Array.from(c.getRanges()).map((m) => e.editing.mapper.toModelRange(m));
         let h = l;
-        if (M.isAndroid) {
+        if (B.isAndroid) {
           const m = Array.from(d[0].getItems()).reduce((p, _) => p + (_.is("$textProxy") ? _.data : ""), "");
           m && (m.length <= h.length ? h.startsWith(m) && (h = h.substring(m.length), d[0].start = d[0].start.getShiftedBy(m.length)) : m.startsWith(h) && (d[0].start = d[0].start.getShiftedBy(h.length), h = ""));
         }
@@ -37833,7 +37833,7 @@ Read more: ${Iw}#error-${n}`;
           selection: t.createSelection(d)
         };
         u && (f.resultRange = e.editing.mapper.toModelRange(u)), e.execute("insertText", f), i.scrollToTheSelection();
-      }), M.isAndroid ? this.listenTo(i.document, "keydown", (r, a) => {
+      }), B.isAndroid ? this.listenTo(i.document, "keydown", (r, a) => {
         s.isCollapsed || a.keyCode != 229 || !i.document.isComposing || rd(t, o);
       }) : this.listenTo(i.document, "compositionstart", () => {
         s.isCollapsed || rd(t, o);
@@ -37852,7 +37852,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ad extends V {
+  class ad extends M {
     /**
      * Creates an instance of the command.
      *
@@ -38065,10 +38065,10 @@ Read more: ${Iw}#error-${n}`;
           unit: c.unit,
           sequence: i
         };
-        u.unit == zt && (u.selectionToRemove = e.createSelection(r[0])), l === "deleteContentBackward" && (M.isAndroid && (u.sequence = 1), _S(r) && (u.unit = zt, u.selectionToRemove = e.createSelection(r)));
+        u.unit == zt && (u.selectionToRemove = e.createSelection(r[0])), l === "deleteContentBackward" && (B.isAndroid && (u.sequence = 1), _S(r) && (u.unit = zt, u.selectionToRemove = e.createSelection(r)));
         const d = new dn(t, "delete", r[0]);
         t.fire(d, new Ji(e, a, u)), d.stop.called && s.stop();
-      }), M.isBlink && bS(this);
+      }), B.isBlink && bS(this);
     }
     /**
      * @inheritDoc
@@ -38564,8 +38564,8 @@ Read more: ${Iw}#error-${n}`;
               m += v.length;
               continue;
             }
-            const R = f.start.getShiftedBy(m), O = t.createRange(R, R.getShiftedBy(v.length)), H = TS(R);
-            t.insertContent(p.createText(C, H), O), m += C.length;
+            const P = f.start.getShiftedBy(m), V = t.createRange(P, P.getShiftedBy(v.length)), U = TS(P);
+            t.insertContent(p.createText(C, U), V), m += C.length;
           }
           t.enqueueChange(() => {
             i.requestUndoOnBackspace();
@@ -38653,7 +38653,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class xS extends V {
+  class xS extends M {
     /**
      * @inheritDoc
      */
@@ -38727,7 +38727,7 @@ Read more: ${Iw}#error-${n}`;
         if (!this.isEnabled)
           return;
         let r = o.inputType;
-        M.isSafari && i && r == "insertParagraph" && (r = "insertLineBreak");
+        B.isSafari && i && r == "insertParagraph" && (r = "insertLineBreak");
         const a = o.domEvent, l = SS[r];
         if (!l)
           return;
@@ -38777,7 +38777,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class IS extends V {
+  class IS extends M {
     /**
      * @inheritDoc
      */
@@ -39315,7 +39315,7 @@ Read more: ${Iw}#error-${n}`;
       const t = this.editor.editing.view.document;
       this._listenToIfEnabled(t, "insertText", (i, s) => {
         this._insertParagraphAccordingToFakeCaretPosition() && (s.selection = t.selection);
-      }, { priority: "high" }), M.isAndroid ? this._listenToIfEnabled(t, "keydown", (i, s) => {
+      }, { priority: "high" }), B.isAndroid ? this._listenToIfEnabled(t, "keydown", (i, s) => {
         s.keyCode == 229 && this._insertParagraphAccordingToFakeCaretPosition();
       }) : this._listenToIfEnabled(t, "compositionstart", () => {
         this._insertParagraphAccordingToFakeCaretPosition();
@@ -39542,7 +39542,7 @@ Read more: ${Iw}#error-${n}`;
       const c = i.createSelection(e.start);
       i.modifySelection(c), !c.focus.isAtEnd && !e.start.isEqual(c.focus) && (e = i.createRange(c.focus, e.end));
     }
-    const o = n.mapper.toViewRange(e), r = s.viewRangeToDom(o), a = B.getDomRangeRects(r);
+    const o = n.mapper.toViewRange(e), r = s.viewRangeToDom(o), a = O.getDomRangeRects(r);
     let l;
     for (const c of a) {
       if (l === void 0) {
@@ -39651,7 +39651,7 @@ Read more: ${Iw}#error-${n}`;
       }
       if (nI(r) || !re(r) && (r = r.findAncestor(re), !r))
         return;
-      M.isAndroid && t.preventDefault(), o.isFocused || s.focus();
+      B.isAndroid && t.preventDefault(), o.isFocused || s.focus();
       const a = i.editing.mapper.toModelElement(r);
       this._setSelectionOverElement(a);
     }
@@ -40027,7 +40027,7 @@ Read more: ${Iw}#error-${n}`;
      * @param domResizeHandle The handle used to calculate the reference point.
      */
     begin(e, t, i) {
-      const s = new B(t);
+      const s = new O(t);
       this.activeHandlePosition = hI(e), this._referenceCoordinates = uI(t, fI(this.activeHandlePosition)), this._originalWidth = s.width, this._originalHeight = s.height, this._aspectRatio = s.width / s.height;
       const o = i.style.width;
       o && o.match(/^\d+(\.\d*)?%$/) ? this._originalWidthPercents = parseFloat(o) : this._originalWidthPercents = cI(i, s);
@@ -40049,7 +40049,7 @@ Read more: ${Iw}#error-${n}`;
     return e.width / i * 100;
   }
   function uI(n, e) {
-    const t = new B(n), i = e.split("-"), s = {
+    const t = new O(n), i = e.split("-"), s = {
       x: i[1] == "right" ? t.right : t.left,
       y: i[0] == "bottom" ? t.bottom : t.top
     };
@@ -40202,7 +40202,7 @@ Read more: ${Iw}#error-${n}`;
         const u = this._options.unit || "%", d = (u === "%" ? t.widthPercents : t.width) + u;
         c.setStyle("width", d, this._options.viewElement);
       });
-      const s = this._getHandleHost(), o = new B(s), r = Math.round(o.width), a = Math.round(o.height), l = new B(s);
+      const s = this._getHandleHost(), o = new O(s), r = Math.round(o.width), a = Math.round(o.height), l = new O(s);
       t.width = Math.round(l.width), t.height = Math.round(l.height), this.redraw(o), this.state.update({
         ...t,
         handleHostWidth: r,
@@ -40251,7 +40251,7 @@ Read more: ${Iw}#error-${n}`;
       ];
       let a;
       if (i.isSameNode(s)) {
-        const l = e || new B(s);
+        const l = e || new O(s);
         a = [
           l.width + "px",
           l.height + "px",
@@ -40629,14 +40629,14 @@ Read more: ${Iw}#error-${n}`;
       const t = this.editor.editing, i = e.start.nodeBefore, s = e.start.nodeAfter, o = e.start.parent, r = i ? t.mapper.toViewElement(i) : null, a = r ? t.view.domConverter.mapViewToDom(r) : null, l = s ? t.mapper.toViewElement(s) : null, c = l ? t.view.domConverter.mapViewToDom(l) : null, u = t.mapper.toViewElement(o);
       if (!u)
         return;
-      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = E.window, p = a ? new B(a) : null, _ = c ? new B(c) : null, v = new B(d).excludeScrollbarsAndBorders(), C = p ? p.bottom : v.top, R = _ ? _.top : v.bottom, O = E.window.getComputedStyle(d), H = C <= R ? (C + R) / 2 : R;
-      if (h.top < H && H < h.bottom) {
-        const x = v.left + parseFloat(O.paddingLeft), L = v.right - parseFloat(O.paddingRight), I = Math.max(x + f, h.left), ee = Math.min(L + f, h.right);
+      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = E.window, p = a ? new O(a) : null, _ = c ? new O(c) : null, v = new O(d).excludeScrollbarsAndBorders(), C = p ? p.bottom : v.top, P = _ ? _.top : v.bottom, V = E.window.getComputedStyle(d), U = C <= P ? (C + P) / 2 : P;
+      if (h.top < U && U < h.bottom) {
+        const x = v.left + parseFloat(V.paddingLeft), L = v.right - parseFloat(V.paddingRight), S = Math.max(x + f, h.left), ee = Math.min(L + f, h.right);
         this._dropTargetLineView.set({
           isVisible: !0,
-          left: I,
-          top: H + m,
-          width: ee - I
+          left: S,
+          top: U + m,
+          width: ee - S
         });
       } else
         this._dropTargetLineView.isVisible = !1;
@@ -40658,7 +40658,7 @@ Read more: ${Iw}#error-${n}`;
           resizeObserver: o
         });
       }
-      return new B(i).excludeScrollbarsAndBorders();
+      return new O(i).excludeScrollbarsAndBorders();
     }
   }
   function yd(n, e, t, i, s, o, r) {
@@ -40708,7 +40708,7 @@ Read more: ${Iw}#error-${n}`;
     return s.createRange(s.createPositionAt(e, Hg(n, e, t, i)));
   }
   function Hg(n, e, t, i) {
-    const s = n.editing.mapper, o = n.editing.view.domConverter, r = s.toViewElement(e), a = o.mapViewToDom(r), l = new B(a);
+    const s = n.editing.mapper, o = n.editing.view.domConverter, r = s.toViewElement(e), a = o.mapViewToDom(r), l = new O(a);
     return n.model.schema.isInline(e) ? t < (l.left + l.right) / 2 ? "before" : "after" : i < (l.top + l.bottom) / 2 ? "before" : "after";
   }
   function Cd(n, e) {
@@ -40749,7 +40749,7 @@ Read more: ${Iw}#error-${n}`;
       const e = this.editor;
       if (this.listenTo(e, "change:isReadOnly", (t, i, s) => {
         s ? (this.forceDisabled("readOnlyMode"), this._isBlockDragging = !1) : this.clearForceDisabled("readOnlyMode");
-      }), M.isAndroid && this.forceDisabled("noAndroidSupport"), e.plugins.has("BlockToolbar")) {
+      }), B.isAndroid && this.forceDisabled("noAndroidSupport"), e.plugins.has("BlockToolbar")) {
         const i = e.plugins.get("BlockToolbar").buttonView.element;
         this._domEmitter.listenTo(i, "dragstart", (s, o) => this._handleBlockDragStart(o)), this._domEmitter.listenTo(E.document, "dragover", (s, o) => this._handleBlockDragging(o)), this._domEmitter.listenTo(E.document, "drop", (s, o) => this._handleBlockDragging(o)), this._domEmitter.listenTo(E.document, "dragend", () => this._handleBlockDragEnd(), { useCapture: !0 }), this.isEnabled && i.setAttribute("draggable", "true"), this.on("change:isEnabled", (s, o, r) => {
           i.setAttribute("draggable", r ? "true" : "false");
@@ -40825,7 +40825,7 @@ Read more: ${Iw}#error-${n}`;
         o ? this.forceDisabled("readOnlyMode") : this.clearForceDisabled("readOnlyMode");
       }), this.on("change:isEnabled", (i, s, o) => {
         o || this._finalizeDragging(!1);
-      }), M.isAndroid && this.forceDisabled("noAndroidSupport");
+      }), B.isAndroid && this.forceDisabled("noAndroidSupport");
     }
     /**
      * @inheritDoc
@@ -40866,7 +40866,7 @@ Read more: ${Iw}#error-${n}`;
           return;
         }
         const { clientX: l, clientY: c } = a.domEvent;
-        o.updateDropMarker(a.target, a.targetRanges, l, c, this._blockMode, this._draggedRange), this._draggedRange || (a.dataTransfer.dropEffect = "copy"), M.isGecko || (a.dataTransfer.effectAllowed == "copy" ? a.dataTransfer.dropEffect = "copy" : ["all", "copyMove"].includes(a.dataTransfer.effectAllowed) && (a.dataTransfer.dropEffect = "move")), r.stop();
+        o.updateDropMarker(a.target, a.targetRanges, l, c, this._blockMode, this._draggedRange), this._draggedRange || (a.dataTransfer.dropEffect = "copy"), B.isGecko || (a.dataTransfer.effectAllowed == "copy" ? a.dataTransfer.dropEffect = "copy" : ["all", "copyMove"].includes(a.dataTransfer.effectAllowed) && (a.dataTransfer.dropEffect = "move")), r.stop();
       }, { priority: "low" });
     }
     /**
@@ -40912,11 +40912,11 @@ Read more: ${Iw}#error-${n}`;
     _setupDraggableAttributeHandling() {
       const e = this.editor, t = e.editing.view, i = t.document;
       this.listenTo(i, "mousedown", (s, o) => {
-        if (M.isAndroid || !o)
+        if (B.isAndroid || !o)
           return;
         this._clearDraggableAttributesDelayed.cancel();
         let r = Td(o.target);
-        if (M.isBlink && !e.isReadOnly && !r && !i.selection.isCollapsed) {
+        if (B.isBlink && !e.isReadOnly && !r && !i.selection.isCollapsed) {
           const a = i.selection.getSelectedElement();
           (!a || !re(a)) && (r = i.selection.editableElement);
         }
@@ -40924,7 +40924,7 @@ Read more: ${Iw}#error-${n}`;
           a.setAttribute("draggable", "true", r);
         }), this._draggableElement = e.editing.mapper.toModelElement(r));
       }), this.listenTo(i, "mouseup", () => {
-        M.isAndroid || this._clearDraggableAttributesDelayed();
+        B.isAndroid || this._clearDraggableAttributesDelayed();
       });
     }
     /**
@@ -40984,15 +40984,15 @@ Read more: ${Iw}#error-${n}`;
       this._previewContainer ? this._previewContainer.firstElementChild && this._previewContainer.removeChild(this._previewContainer.firstElementChild) : (this._previewContainer = tt(E.document, "div", {
         style: "position: fixed; left: -999999px;"
       }), E.document.body.appendChild(this._previewContainer));
-      const l = new B(r);
+      const l = new O(r);
       if (r.contains(t))
         return;
       const c = parseFloat(a.paddingLeft), u = tt(E.document, "div");
-      u.className = "ck ck-content", u.style.width = a.width, u.style.paddingLeft = `${l.left - i + c}px`, M.isiOS && (u.style.backgroundColor = "white"), u.innerHTML = e.getData("text/html"), e.setDragImage(u, 0, 0), this._previewContainer.appendChild(u);
+      u.className = "ck ck-content", u.style.width = a.width, u.style.paddingLeft = `${l.left - i + c}px`, B.isiOS && (u.style.backgroundColor = "white"), u.innerHTML = e.getData("text/html"), e.setDragImage(u, 0, 0), this._previewContainer.appendChild(u);
     }
   }
   function kd(n) {
-    return M.isGecko ? n.dropEffect : ["all", "copyMove"].includes(n.effectAllowed) ? "move" : "copy";
+    return B.isGecko ? n.dropEffect : ["all", "copyMove"].includes(n.effectAllowed) ? "move" : "copy";
   }
   function Td(n) {
     if (n.is("editableElement"))
@@ -41099,7 +41099,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class EI extends V {
+  class EI extends M {
     /**
      * @inheritDoc
      */
@@ -41172,7 +41172,7 @@ Read more: ${Iw}#error-${n}`;
     init() {
       const e = this.editor;
       e.ui.componentFactory.add("selectAll", () => {
-        const t = this._createButton(P);
+        const t = this._createButton(R);
         return t.set({
           tooltip: !0
         }), t;
@@ -41214,7 +41214,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $g extends V {
+  class $g extends M {
     /**
      * @inheritDoc
      */
@@ -41425,7 +41425,7 @@ Read more: ${Iw}#error-${n}`;
     _addButtonsToFactory(e, t, i, s) {
       const o = this.editor;
       o.ui.componentFactory.add(e, () => {
-        const r = this._createButton(P, e, t, i, s);
+        const r = this._createButton(R, e, t, i, s);
         return r.set({
           tooltip: !0
         }), r;
@@ -41485,7 +41485,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class FI extends V {
+  class FI extends M {
     constructor(e) {
       super(e), this._isEnabledBasedOnSelection = !1;
     }
@@ -41521,7 +41521,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class DI extends V {
+  class DI extends M {
     constructor(e) {
       super(e), this._isEnabledBasedOnSelection = !1;
     }
@@ -41630,7 +41630,7 @@ Read more: ${Iw}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ml = "alignment";
-  class zI extends V {
+  class zI extends M {
     /**
      * @inheritDoc
      */
@@ -41831,7 +41831,7 @@ Read more: ${Iw}#error-${n}`;
      * @param buttonAttrs Optional parameters passed to button view instance.
      */
     _createButton(e, t, i = {}) {
-      const s = this.editor, o = s.commands.get("alignment"), r = new P(e);
+      const s = this.editor, o = s.commands.get("alignment"), r = new R(e);
       return r.set({
         label: this.localizedOptionTitles[t],
         icon: kn.get(t),
@@ -41923,7 +41923,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class lr extends V {
+  class lr extends M {
     /**
      * Creates an instance of the command.
      *
@@ -43007,7 +43007,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ci extends V {
+  class Ci extends M {
     /**
      * @param attributeKey Attribute that will be set by the command.
      */
@@ -43155,7 +43155,7 @@ Read more: ${Iw}#error-${n}`;
         keystroke: "CTRL+B"
       });
       e.ui.componentFactory.add(Hs, () => {
-        const o = s(P);
+        const o = s(R);
         return o.set({
           tooltip: !0
         }), o.bind("isOn").to(i, "value"), o;
@@ -43252,7 +43252,7 @@ Read more: ${Iw}#error-${n}`;
         label: t("Code")
       });
       e.ui.componentFactory.add(Ws, () => {
-        const s = i(P), o = e.commands.get(Ws);
+        const s = i(R), o = e.commands.get(Ws);
         return s.set({
           tooltip: !0
         }), s.bind("isOn").to(o, "value"), s;
@@ -43344,7 +43344,7 @@ Read more: ${Iw}#error-${n}`;
         label: i("Italic")
       });
       e.ui.componentFactory.add($s, () => {
-        const o = s(P);
+        const o = s(R);
         return o.set({
           tooltip: !0
         }), o.bind("isOn").to(t, "value"), o;
@@ -43437,7 +43437,7 @@ Read more: ${Iw}#error-${n}`;
         label: t("Strikethrough")
       });
       e.ui.componentFactory.add(qs, () => {
-        const s = i(P), o = e.commands.get(qs);
+        const s = i(R), o = e.commands.get(qs);
         return s.set({
           tooltip: !0
         }), s.bind("isOn").to(o, "value"), s;
@@ -43520,7 +43520,7 @@ Read more: ${Iw}#error-${n}`;
         label: t("Subscript")
       });
       e.ui.componentFactory.add(Gs, () => {
-        const s = i(P), o = e.commands.get(Gs);
+        const s = i(R), o = e.commands.get(Gs);
         return s.set({
           tooltip: !0
         }), s.bind("isOn").to(o, "value"), s;
@@ -43603,7 +43603,7 @@ Read more: ${Iw}#error-${n}`;
         label: t("Superscript")
       });
       e.ui.componentFactory.add(js, () => {
-        const s = i(P), o = e.commands.get(js);
+        const s = i(R), o = e.commands.get(js);
         return s.set({
           tooltip: !0
         }), s.bind("isOn").to(o, "value"), s;
@@ -43692,7 +43692,7 @@ Read more: ${Iw}#error-${n}`;
         keystroke: "CTRL+U"
       });
       e.ui.componentFactory.add(Ks, () => {
-        const o = s(P);
+        const o = s(R);
         return o.set({
           tooltip: !0
         }), o.bind("isOn").to(t, "value"), o;
@@ -43721,7 +43721,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class QP extends V {
+  class QP extends M {
     /**
      * Creates an instance of the command.
      *
@@ -44234,7 +44234,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Md extends V {
+  class Md extends M {
     /**
      * Creates an instance of the command.
      *
@@ -44303,7 +44303,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Zs extends V {
+  class Zs extends M {
     /**
      * Creates an instance of the command.
      *
@@ -44411,7 +44411,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Od extends V {
+  class Od extends M {
     /**
      * Creates an instance of the command.
      *
@@ -44514,7 +44514,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Nd extends V {
+  class Nd extends M {
     /**
      * Creates an instance of the command.
      *
@@ -45216,7 +45216,7 @@ Read more: ${Iw}#error-${n}`;
    */
   function Hd(n, e, t, i) {
     n.ui.componentFactory.add(e, () => {
-      const s = Wd(P, n, e, t, i);
+      const s = Wd(R, n, e, t, i);
       return s.set({
         tooltip: !0,
         isToggleable: !0
@@ -45615,7 +45615,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class DR extends V {
+  class DR extends M {
     /**
      * @inheritDoc
      */
@@ -45724,7 +45724,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns The button view instance.
      */
     _createButton(e, t, i, s) {
-      const o = new P(this.locale);
+      const o = new R(this.locale);
       return o.set({
         label: e,
         icon: t,
@@ -45807,7 +45807,7 @@ Read more: ${Iw}#error-${n}`;
     _createButton() {
       const e = this.editor, t = e.t;
       e.ui.componentFactory.add("imageTextAlternative", (i) => {
-        const s = e.commands.get("imageTextAlternative"), o = new P(i);
+        const s = e.commands.get("imageTextAlternative"), o = new R(i);
         return o.set({
           label: t("Change image text alternative"),
           icon: A.textAlternative,
@@ -45972,7 +45972,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class qR extends V {
+  class qR extends M {
     /**
      * @inheritDoc
      */
@@ -46012,7 +46012,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class GR extends V {
+  class GR extends M {
     constructor(e) {
       super(e), this.decorate("cleanupImage");
     }
@@ -46186,7 +46186,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class mp extends V {
+  class mp extends M {
     /**
      * @inheritDoc
      *
@@ -46730,7 +46730,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class QR extends V {
+  class QR extends M {
     /**
      * @inheritDoc
      */
@@ -46961,7 +46961,7 @@ Read more: ${Iw}#error-${n}`;
     init() {
       const e = this.editor, t = e.editing.view, i = e.plugins.get("ImageCaptionUtils"), s = e.t;
       e.ui.componentFactory.add("toggleImageCaption", (o) => {
-        const r = e.commands.get("toggleImageCaption"), a = new P(o);
+        const r = e.commands.get("toggleImageCaption"), a = new R(o);
         return a.set({
           icon: A.caption,
           tooltip: !0,
@@ -47513,7 +47513,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class _L extends V {
+  class _L extends M {
     /**
      * @inheritDoc
      */
@@ -47646,7 +47646,7 @@ Read more: ${Iw}#error-${n}`;
       }), e.read().then(() => {
         const u = e.upload(), d = l.get(e.id);
         /* istanbul ignore next -- @preserve */
-        if (M.isSafari) {
+        if (B.isSafari) {
           const h = t.editing.mapper.toViewElement(d), f = a.findViewImgElement(h);
           t.editing.view.once("render", () => {
             if (!f.parent)
@@ -47808,7 +47808,7 @@ Read more: ${Iw}#error-${n}`;
      * Creates the {@link #insertButtonView}.
      */
     _createInsertButton() {
-      const e = this.locale, t = e.t, i = new P(e);
+      const e = this.locale, t = e.t, i = new R(e);
       return i.set({
         icon: A.check,
         class: "ck-button-save",
@@ -47820,7 +47820,7 @@ Read more: ${Iw}#error-${n}`;
      * Creates the {@link #cancelButtonView}.
      */
     _createCancelButton() {
-      const e = this.locale, t = e.t, i = new P(e);
+      const e = this.locale, t = e.t, i = new R(e);
       return i.set({
         label: t("Cancel"),
         icon: A.cancel,
@@ -47881,7 +47881,7 @@ Read more: ${Iw}#error-${n}`;
      * Creates the toolbar button.
      */
     _createInsertUrlButton(e) {
-      const t = e ? kl : P, i = this.editor, s = new t(i.locale), o = i.locale.t;
+      const t = e ? kl : R, i = this.editor, s = new t(i.locale), o = i.locale.t;
       return s.set({
         icon: A.imageUrl,
         tooltip: !0
@@ -47934,7 +47934,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class xL extends V {
+  class xL extends M {
     /**
      * @inheritDoc
      */
@@ -48133,7 +48133,7 @@ Read more: ${Iw}#error-${n}`;
     _registerImageResizeButton(e) {
       const t = this.editor, { name: i, value: s, icon: o } = e, r = s ? s + this._resizeUnit : null;
       t.ui.componentFactory.add(i, (a) => {
-        const l = new P(a), c = t.commands.get("resizeImage"), u = this._getOptionLabelValue(e, !0);
+        const l = new R(a), c = t.commands.get("resizeImage"), u = this._getOptionLabelValue(e, !0);
         if (!zr[o])
           throw new g("imageresizebuttons-missing-icon", t, e);
         return l.set({
@@ -48311,7 +48311,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LL extends V {
+  class LL extends M {
     /**
      * Creates an instance of the image style command. When executed, the command applies one of
      * {@link module:image/imageconfig~ImageStyleConfig#options style options} to the currently selected image.
@@ -48721,7 +48721,7 @@ Read more: ${Iw}#error-${n}`;
     _createButton(e) {
       const t = e.name;
       this.editor.ui.componentFactory.add(Yd(t), (i) => {
-        const s = this.editor.commands.get("imageStyle"), o = new P(i);
+        const s = this.editor.commands.get("imageStyle"), o = new R(i);
         return o.set({
           label: e.title,
           icon: e.icon,
@@ -48930,7 +48930,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class n3 extends V {
+  class n3 extends M {
     constructor() {
       super(...arguments), this.manualDecorators = new Ce(), this.automaticDecorators = new GL();
     }
@@ -49114,7 +49114,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class s3 extends V {
+  class s3 extends M {
     /**
      * @inheritDoc
      */
@@ -49290,7 +49290,7 @@ Read more: ${Iw}#error-${n}`;
     _enableLinkOpen() {
       const e = this.editor, i = e.editing.view.document;
       this.listenTo(i, "click", (s, o) => {
-        if (!(M.isMac ? o.domEvent.metaKey : o.domEvent.ctrlKey))
+        if (!(B.isMac ? o.domEvent.metaKey : o.domEvent.ctrlKey))
           return;
         let a = o.domTarget;
         if (a.tagName.toLowerCase() != "a" && (a = a.closest("a")), !a)
@@ -49434,7 +49434,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns The button view instance.
      */
     _createButton(e, t, i, s) {
-      const o = new P(this.locale);
+      const o = new R(this.locale);
       return o.set({
         label: e,
         icon: t,
@@ -49578,7 +49578,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns The button view instance.
      */
     _createButton(e, t, i) {
-      const s = new P(this.locale);
+      const s = new R(this.locale);
       return s.set({
         label: e,
         icon: t,
@@ -49591,7 +49591,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns The button view instance.
      */
     _createPreviewButton() {
-      const e = new P(this.locale), t = this.bindTemplate, i = this.t;
+      const e = new R(this.locale), t = this.bindTemplate, i = this.t;
       return e.set({
         withText: !0,
         tooltip: i("Open link in new tab")
@@ -49710,7 +49710,7 @@ Read more: ${Iw}#error-${n}`;
     _createToolbarLinkButton() {
       const e = this.editor, t = e.commands.get("link");
       e.ui.componentFactory.add("link", () => {
-        const i = this._createButton(P);
+        const i = this._createButton(R);
         return i.set({
           tooltip: !0,
           isToggleable: !0
@@ -50284,7 +50284,7 @@ Read more: ${Iw}#error-${n}`;
     _createToolbarLinkImageButton() {
       const e = this.editor, t = e.t;
       e.ui.componentFactory.add("linkImage", (i) => {
-        const s = new P(i), o = e.plugins.get("LinkUI"), r = e.commands.get("link");
+        const s = new R(i), o = e.plugins.get("LinkUI"), r = e.commands.get("link");
         return s.set({
           isEnabled: !0,
           label: t("Link image"),
@@ -50367,7 +50367,7 @@ Read more: ${Iw}#error-${n}`;
     _defineButton(e, t, i) {
       const s = this.editor;
       s.ui.componentFactory.add(e, () => {
-        const o = this._createButton(P, e, t, i);
+        const o = this._createButton(R, e, t, i);
         return o.set({
           tooltip: !0
         }), o;
@@ -50408,7 +50408,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Js extends V {
+  class Js extends M {
     /**
      * Creates an instance of the command.
      */
@@ -50620,7 +50620,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class V3 extends V {
+  class V3 extends M {
     /**
      * @inheritDoc
      */
@@ -50699,7 +50699,7 @@ Read more: ${Iw}#error-${n}`;
     init() {
       const e = this.editor;
       e.ui.componentFactory.add("horizontalLine", () => {
-        const t = this._createButton(P);
+        const t = this._createButton(R);
         return t.set({
           tooltip: !0
         }), t;
@@ -50740,7 +50740,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class z3 extends V {
+  class z3 extends M {
     /**
      * @inheritDoc
      */
@@ -50914,7 +50914,7 @@ Read more: ${Iw}#error-${n}`;
     init() {
       const e = this.editor, t = e.commands.get("blockQuote");
       e.ui.componentFactory.add("blockQuote", () => {
-        const i = this._createButton(P);
+        const i = this._createButton(R);
         return i.set({
           tooltip: !0
         }), i.bind("isOn").to(t, "value"), i;
@@ -50999,7 +50999,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class q3 extends V {
+  class q3 extends M {
     /**
      * @inheritDoc
      */
@@ -51525,7 +51525,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns The button view instance.
      */
     _createButton(e, t, i, s) {
-      const o = new P(this.locale);
+      const o = new R(this.locale);
       return o.set({
         label: e,
         icon: t,
@@ -52748,7 +52748,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class n4 extends V {
+  class n4 extends M {
     /**
      * @inheritDoc
      */
@@ -52785,7 +52785,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ch extends V {
+  class Ch extends M {
     /**
      * Creates a new `InsertRowCommand` instance.
      *
@@ -52819,7 +52819,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class kh extends V {
+  class kh extends M {
     /**
      * Creates a new `InsertColumnCommand` instance.
      *
@@ -52854,7 +52854,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Th extends V {
+  class Th extends M {
     /**
      * Creates a new `SplitCellCommand` instance.
      *
@@ -52915,8 +52915,8 @@ Read more: ${Iw}#error-${n}`;
     const d = o, h = d + a, f = [...new q(s, { startRow: d, endRow: h, includeAllSlots: !0 })];
     let m = null, p;
     for (const _ of f) {
-      const { row: v, column: C, cell: R } = _;
-      R === n && p === void 0 && (p = C), p !== void 0 && p === C && v === h && (m = Ei(t, _.getPositionBefore(), l));
+      const { row: v, column: C, cell: P } = _;
+      P === n && p === void 0 && (p = C), p !== void 0 && p === C && v === h && (m = Ei(t, _.getPositionBefore(), l));
     }
     return se("rowspan", a, n, t), m;
   }
@@ -53009,7 +53009,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ys extends V {
+  class Ys extends M {
     /**
      * Creates a new `MergeCellCommand` instance.
      *
@@ -53088,7 +53088,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class c4 extends V {
+  class c4 extends M {
     /**
      * @inheritDoc
      */
@@ -53130,7 +53130,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class d4 extends V {
+  class d4 extends M {
     /**
      * @inheritDoc
      */
@@ -53170,7 +53170,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class m4 extends V {
+  class m4 extends M {
     /**
      * @inheritDoc
      */
@@ -53214,7 +53214,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class g4 extends V {
+  class g4 extends M {
     /**
      * @inheritDoc
      */
@@ -53480,16 +53480,16 @@ Read more: ${Iw}#error-${n}`;
           return;
         }
         const h = r ? Math.max(s, a) : s, f = new q(e, { endRow: h }), m = new Array(c).fill(1);
-        for (const { row: p, column: _, cellHeight: v, cellWidth: C, cell: R } of f) {
-          const O = p + v - 1, H = p < s && s <= O, x = p <= a && a <= O;
-          H ? (u.setAttribute("rowspan", v + o, R), m[_] = -C) : r && x && (m[_] = C);
+        for (const { row: p, column: _, cellHeight: v, cellWidth: C, cell: P } of f) {
+          const V = p + v - 1, U = p < s && s <= V, x = p <= a && a <= V;
+          U ? (u.setAttribute("rowspan", v + o, P), m[_] = -C) : r && x && (m[_] = C);
         }
         for (let p = 0; p < o; p++) {
           const _ = u.createElement("tableRow");
           u.insert(_, e, s);
           for (let v = 0; v < m.length; v++) {
-            const C = m[v], R = u.createPositionAt(_, "end");
-            C > 0 && Ei(u, R, C > 1 ? { colspan: C } : void 0), v += Math.abs(C) - 1;
+            const C = m[v], P = u.createPositionAt(_, "end");
+            C > 0 && Ei(u, P, C > 1 ? { colspan: C } : void 0), v += Math.abs(C) - 1;
           }
         }
       });
@@ -53689,8 +53689,8 @@ Read more: ${Iw}#error-${n}`;
         }
         if (a < t) {
           const c = t - a, u = [...new q(o)], { column: d } = u.find(({ cell: p }) => p === e), h = u.filter(({ cell: p, cellWidth: _, column: v }) => {
-            const C = p !== e && v === d, R = v < d && v + _ > d;
-            return C || R;
+            const C = p !== e && v === d, P = v < d && v + _ > d;
+            return C || P;
           });
           for (const { cell: p, cellWidth: _ } of h)
             l.setAttribute("colspan", _ + c, p);
@@ -53767,8 +53767,8 @@ Read more: ${Iw}#error-${n}`;
           const { column: f } = u.find(({ cell: p }) => p === e), m = {};
           d > 1 && (m.rowspan = d), l > 1 && (m.colspan = l);
           for (const p of u) {
-            const { column: _, row: v } = p, C = v >= r + h, R = _ === f, O = (v + r + h) % d === 0;
-            C && R && O && Wi(1, c, p.getPositionBefore(), m);
+            const { column: _, row: v } = p, C = v >= r + h, P = _ === f, V = (v + r + h) % d === 0;
+            C && P && V && Wi(1, c, p.getPositionBefore(), m);
           }
         }
         if (a < t) {
@@ -54057,7 +54057,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class V4 extends V {
+  class V4 extends M {
     /**
      * @inheritDoc
      */
@@ -54106,7 +54106,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class O4 extends V {
+  class O4 extends M {
     /**
      * @inheritDoc
      */
@@ -54137,7 +54137,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class N4 extends V {
+  class N4 extends M {
     /**
      * @inheritDoc
      */
@@ -54535,7 +54535,7 @@ Read more: ${Iw}#error-${n}`;
      * @param label The grid button label.
      */
     _createGridButton(e, t, i, s) {
-      const o = new P(e);
+      const o = new R(e);
       return o.set({
         label: s,
         class: "ck-insert-table-dropdown-grid-box"
@@ -55098,7 +55098,7 @@ Read more: ${Iw}#error-${n}`;
       for (const _ of c) {
         const { row: v, column: C } = _;
         C === s.firstColumn && (d = _.getPositionBefore());
-        const R = v - s.firstRow, O = C - s.firstColumn, H = l[R % a][O % r], x = H ? o.cloneElement(H) : null, L = this._replaceTableSlotCell(_, x, d, o);
+        const P = v - s.firstRow, V = C - s.firstColumn, U = l[P % a][V % r], x = U ? o.cloneElement(U) : null, L = this._replaceTableSlotCell(_, x, d, o);
         L && ($p(L, v, C, s.lastRow, s.lastColumn, o), u.push(L), d = o.createPositionAfter(L));
       }
       const h = parseInt(i.getAttribute("headingRows") || "0"), f = parseInt(i.getAttribute("headingColumns") || "0"), m = s.firstRow < h && h <= s.lastRow, p = s.firstColumn < f && f <= s.lastColumn;
@@ -55364,8 +55364,8 @@ Read more: ${Iw}#error-${n}`;
         v.setCellSelection(C, p);
       } else {
         const C = s.createPositionAt(p, _ ? 0 : "end");
-        s.change((R) => {
-          R.setSelection(C);
+        s.change((P) => {
+          P.setSelection(C);
         });
       }
     }
@@ -55763,7 +55763,7 @@ Read more: ${Iw}#error-${n}`;
   function Fa(n) {
     const { view: e, icons: t, toolbar: i, labels: s, propertyName: o, nameToValue: r, defaultValue: a } = n;
     for (const l in s) {
-      const c = new P(e.locale);
+      const c = new R(e.locale);
       c.set({
         label: s[l],
         icon: t[l],
@@ -56249,7 +56249,7 @@ Read more: ${Iw}#error-${n}`;
      * * {@link #cancelButtonView}.
      */
     _createActionButtons() {
-      const e = this.locale, t = this.t, i = new P(e), s = new P(e), o = [
+      const e = this.locale, t = this.t, i = new R(e), s = new R(e), o = [
         this.borderWidthInput,
         this.borderColorInput,
         this.backgroundInput,
@@ -56337,9 +56337,9 @@ Read more: ${Iw}#error-${n}`;
   function gV(n, e) {
     const t = e.editing.mapper, i = e.editing.view.domConverter, s = Array.from(n).map((o) => {
       const r = cw(o.start), a = t.toViewElement(r);
-      return new B(i.mapViewToDom(a));
+      return new O(i.mapViewToDom(a));
     });
-    return B.getBoundingRect(s);
+    return O.getBoundingRect(s);
   }
   const pV = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.105 18-.17 1H2.5A1.5 1.5 0 0 1 1 17.5v-15A1.5 1.5 0 0 1 2.5 1h15A1.5 1.5 0 0 1 19 2.5v9.975l-.85-.124-.15-.302V8h-5v4h.021l-.172.351-1.916.28-.151.027c-.287.063-.54.182-.755.341L8 13v5h3.105zM2 12h5V8H2v4zm10-4H8v4h4V8zM2 2v5h5V2H2zm0 16h5v-5H2v5zM13 7h5V2h-5v5zM8 2v5h4V2H8z" opacity=".6"/><path d="m15.5 11.5 1.323 2.68 2.957.43-2.14 2.085.505 2.946L15.5 18.25l-2.645 1.39.505-2.945-2.14-2.086 2.957-.43L15.5 11.5zM13 6a1 1 0 0 1 1 1v3.172a2.047 2.047 0 0 0-.293.443l-.858 1.736-1.916.28-.151.027A1.976 1.976 0 0 0 9.315 14H7a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6zm-1 2H8v4h4V8z"/></svg>';
   /**
@@ -56417,7 +56417,7 @@ Read more: ${Iw}#error-${n}`;
         includePaddingProperty: !0,
         isRightToLeftContent: e.locale.contentLanguageDirection === "rtl"
       }), this._balloon = e.plugins.get(Wt), this.view = null, this._isReady = !1, e.ui.componentFactory.add("tableCellProperties", (i) => {
-        const s = new P(i);
+        const s = new R(i);
         s.set({
           label: t("Cell properties"),
           icon: pV,
@@ -56587,7 +56587,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Bt extends V {
+  class Bt extends M {
     /**
      * Creates a new `TableCellPropertyCommand` instance.
      *
@@ -57051,7 +57051,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Si extends V {
+  class Si extends M {
     /**
      * Creates a new `TablePropertyCommand` instance.
      *
@@ -57667,7 +57667,7 @@ Read more: ${Iw}#error-${n}`;
      * * {@link #cancelButtonView}.
      */
     _createActionButtons() {
-      const e = this.locale, t = this.t, i = new P(e), s = new P(e), o = [
+      const e = this.locale, t = this.t, i = new R(e), s = new R(e), o = [
         this.borderWidthInput,
         this.borderColorInput,
         this.backgroundInput,
@@ -57745,7 +57745,7 @@ Read more: ${Iw}#error-${n}`;
       this._defaultTableProperties = Ts(e.config.get("table.tableProperties.defaultProperties"), {
         includeAlignmentProperty: !0
       }), this._balloon = e.plugins.get(Wt), e.ui.componentFactory.add("tableProperties", (i) => {
-        const s = new P(i);
+        const s = new R(i);
         s.set({
           label: t("Table properties"),
           icon: KV,
@@ -57973,7 +57973,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class iM extends V {
+  class iM extends M {
     /**
      * @inheritDoc
      */
@@ -58121,7 +58121,7 @@ Read more: ${Iw}#error-${n}`;
     init() {
       const e = this.editor, t = e.editing.view, i = e.t;
       e.ui.componentFactory.add("toggleTableCaption", (s) => {
-        const o = e.commands.get("toggleTableCaption"), r = new P(s);
+        const o = e.commands.get("toggleTableCaption"), r = new R(s);
         return r.set({
           icon: A.caption,
           tooltip: !0,
@@ -58162,7 +58162,7 @@ Read more: ${Iw}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class rM extends V {
+  class rM extends M {
     /**
      * @inheritDoc
      */
@@ -58442,8 +58442,8 @@ Read more: ${Iw}#error-${n}`;
       function c(h, f, m) {
         const p = Array(f.getColumns(h)), _ = new q(h);
         for (const v of _) {
-          const C = m.editing.mapper.toViewElement(v.cell), R = m.editing.view.domConverter.mapViewToDom(C), O = T4(R);
-          (!p[v.column] || O < p[v.column]) && (p[v.column] = Ie(O));
+          const C = m.editing.mapper.toViewElement(v.cell), P = m.editing.view.domConverter.mapViewToDom(C), V = T4(P);
+          (!p[v.column] || V < p[v.column]) && (p[v.column] = Ie(V));
         }
         return p;
       }
@@ -58478,13 +58478,13 @@ Read more: ${Iw}#error-${n}`;
       }
       const { columnPosition: i, flags: { isRightEdge: s, isTableCentered: o, isLtrContent: r }, elements: { viewFigure: a, viewLeftColumn: l, viewRightColumn: c }, widths: { viewFigureParentWidth: u, tableWidth: d, leftColumnWidth: h, rightColumnWidth: f } } = this._resizingData, m = -h + Va, p = s ? u - d : f - Va, _ = (r ? 1 : -1) * (s && o ? 2 : 1), v = y4((t.clientX - i) * _, Math.min(m, 0), Math.max(p, 0));
       v !== 0 && this.editor.editing.view.change((C) => {
-        const R = Ie((h + v) * 100 / d);
-        if (C.setStyle("width", `${R}%`, l), s) {
-          const O = Ie((d + v) * 100 / u);
-          C.setStyle("width", `${O}%`, a);
+        const P = Ie((h + v) * 100 / d);
+        if (C.setStyle("width", `${P}%`, l), s) {
+          const V = Ie((d + v) * 100 / u);
+          C.setStyle("width", `${V}%`, a);
         } else {
-          const O = Ie((f - v) * 100 / d);
-          C.setStyle("width", `${O}%`, c);
+          const V = Ie((f - v) * 100 / d);
+          C.setStyle("width", `${V}%`, c);
         }
       });
     }
@@ -58521,7 +58521,7 @@ Read more: ${Iw}#error-${n}`;
      * @returns The data needed for the resizing process.
      */
     _getResizingData(e, t) {
-      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = v4(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), p = m.findAncestor("figure"), _ = [...m.getChildren()].find((I) => I.is("element", "colgroup")), v = _.getChild(c), C = d ? void 0 : _.getChild(c + 1), R = Ma(i.editing.view.domConverter.mapViewToDom(p.parent)), O = Ma(i.editing.view.domConverter.mapViewToDom(p)), H = jp(l, i), x = t[c], L = d ? void 0 : t[c + 1];
+      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = v4(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), p = m.findAncestor("figure"), _ = [...m.getChildren()].find((S) => S.is("element", "colgroup")), v = _.getChild(c), C = d ? void 0 : _.getChild(c + 1), P = Ma(i.editing.view.domConverter.mapViewToDom(p.parent)), V = Ma(i.editing.view.domConverter.mapViewToDom(p)), U = jp(l, i), x = t[c], L = d ? void 0 : t[c + 1];
       return {
         columnPosition: s,
         flags: {
@@ -58538,9 +58538,9 @@ Read more: ${Iw}#error-${n}`;
           viewRightColumn: C
         },
         widths: {
-          viewFigureParentWidth: R,
-          viewFigureWidth: O,
-          tableWidth: H,
+          viewFigureParentWidth: P,
+          viewFigureWidth: V,
+          tableWidth: U,
           leftColumnWidth: x,
           rightColumnWidth: L
         }
@@ -58938,8 +58938,8 @@ Read more: ${Iw}#error-${n}`;
         const _ = p.createPositionAt(d, 0), v = p.createPositionAt(d, m[0].length), C = new Pe(_, v);
         if (s({ match: m }) !== !1) {
           p.remove(C);
-          const O = n.model.document.selection.getFirstRange(), H = p.createRangeIn(d);
-          d.isEmpty && !H.isEqual(O) && !H.containsRange(O, !0) && p.remove(d);
+          const V = n.model.document.selection.getFirstRange(), U = p.createRangeIn(d);
+          d.isEmpty && !U.isEqual(V) && !U.containsRange(V, !0) && p.remove(d);
         }
         C.detach(), n.model.enqueueChange(() => {
           n.plugins.get("Delete").requestUndoOnBackspace();
@@ -58983,10 +58983,10 @@ Read more: ${Iw}#error-${n}`;
       if (u.length != 1 || d.type !== "insert" || d.name != "$text" || d.length != 1)
         return;
       const h = c.focus, f = h.parent, { text: m, range: p } = _M(l.createRange(l.createPositionAt(f, 0), h), l), _ = o(m), v = Hh(p.start, _.format, l), C = Hh(p.start, _.remove, l);
-      v.length && C.length && l.enqueueChange((R) => {
-        if (i(R, v) !== !1) {
-          for (const H of C.reverse())
-            R.remove(H);
+      v.length && C.length && l.enqueueChange((P) => {
+        if (i(P, v) !== !1) {
+          for (const U of C.reverse())
+            P.remove(U);
           l.enqueueChange(() => {
             n.plugins.get("Delete").requestUndoOnBackspace();
           });
@@ -59261,7 +59261,7 @@ Read more: ${Iw}#error-${n}`;
      * @param name The name of the character (e.g. "greek small letter epsilon").
      */
     createTile(e, t) {
-      const i = new P(this.locale);
+      const i = new R(this.locale);
       return i.set({
         label: e,
         withText: !0,
@@ -60095,35 +60095,36 @@ Read more: ${Iw}#error-${n}`;
     }), l)).catch((l) => (console.error("[CKEditor 에러] 에디터를 초기화하는 중 오류가 발생했습니다.", l), null)) };
   }, LM = ({
     editor: n,
-    minHeight: e = 200,
-    maxHeight: t = 700,
-    gapHeight: i = 100,
-    sizingButtonPosition: s = "outer",
-    scrollElement: o = window
+    initialHeight: e = 200,
+    minHeight: t = 200,
+    maxHeight: i = 700,
+    gapHeight: s = 100,
+    sizingButtonPosition: o = "outer",
+    scrollElement: r = window
   }) => {
-    const l = document.querySelector(".ck-editor"), c = document.querySelector(".ck-content"), u = f(s), d = u.querySelector(".Spendit-Sizing-Top"), h = u.querySelector(".Spendit-Sizing-Bottom");
-    n.editing.view.change((v) => {
-      v.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), v.setStyle("min-height", `${e}px`, n.editing.view.document.getRoot()), v.setStyle("max-height", `${t}px`, n.editing.view.document.getRoot());
-    }), d.onclick = () => p(-i, 30), h.onclick = () => p(i, -30);
-    function f(v) {
-      const C = document.createElement("div");
-      C.classList.add("Spendit-Editor-Sizing-Buttons"), C.classList.add(v === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
-      const R = m(["Spendit-Sizing-Top", "Spendit-Sizing-Top-Disabled"]), O = m(["Spendit-Sizing-Bottom"]);
-      return C.appendChild(R), C.appendChild(O), l.appendChild(C), C;
+    const c = document.querySelector(".ck-editor"), u = document.querySelector(".ck-content"), d = m(o), h = d.querySelector(".Spendit-Sizing-Top"), f = d.querySelector(".Spendit-Sizing-Bottom");
+    n.editing.view.change((C) => {
+      C.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), C.setStyle("min-height", `${t}px`, n.editing.view.document.getRoot()), C.setStyle("max-height", `${i}px`, n.editing.view.document.getRoot());
+    }), h.onclick = () => _(-s, 30), f.onclick = () => _(s, -30);
+    function m(C) {
+      const P = document.createElement("div");
+      P.classList.add("Spendit-Editor-Sizing-Buttons"), P.classList.add(C === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
+      const V = p(["Spendit-Sizing-Top", ...t === e ? ["Spendit-Sizing-Top-Disabled"] : []]), U = p(["Spendit-Sizing-Bottom"]);
+      return P.appendChild(V), P.appendChild(U), c.appendChild(P), P;
     }
-    function m(v) {
-      const C = document.createElement("button");
-      return C.classList.add("Spendit-Editor-Sizing-Button"), v.forEach((R) => C.classList.add(R)), C;
+    function p(C) {
+      const P = document.createElement("button");
+      return P.classList.add("Spendit-Editor-Sizing-Button"), C.forEach((V) => P.classList.add(V)), P;
     }
-    function p(v, C) {
-      const R = c.offsetHeight - 2 + v;
-      n.editing.view.change((O) => {
-        const H = R >= t, x = R <= e, L = H ? t : x ? e : R;
-        O.setStyle("height", `${L}px`, n.editing.view.document.getRoot()), x ? (d.classList.add("Spendit-Sizing-Top-Disabled"), h.classList.remove("Spendit-Sizing-Bottom-Disabled")) : H ? (d.classList.remove("Spendit-Sizing-Top-Disabled"), h.classList.add("Spendit-Sizing-Bottom-Disabled")) : (d.classList.remove("Spendit-Sizing-Top-Disabled"), h.classList.remove("Spendit-Sizing-Bottom-Disabled"), _(v + C));
+    function _(C, P) {
+      const V = u.offsetHeight - 2 + C;
+      n.editing.view.change((U) => {
+        const x = V >= i, L = V <= t, S = x ? i : L ? t : V;
+        U.setStyle("height", `${S}px`, n.editing.view.document.getRoot()), L ? (h.classList.add("Spendit-Sizing-Top-Disabled"), f.classList.remove("Spendit-Sizing-Bottom-Disabled")) : x ? (h.classList.remove("Spendit-Sizing-Top-Disabled"), f.classList.add("Spendit-Sizing-Bottom-Disabled")) : (h.classList.remove("Spendit-Sizing-Top-Disabled"), f.classList.remove("Spendit-Sizing-Bottom-Disabled"), v(C + P));
       });
     }
-    function _(v) {
-      o instanceof HTMLElement ? o.scroll(0, o.scrollTop + v) : window.scroll(0, window.scrollY + v);
+    function v(C) {
+      r instanceof HTMLElement ? r.scroll(0, r.scrollTop + C) : window.scroll(0, window.scrollY + C);
     }
   }, VM = async () => {
     const { editor: n } = await RM({
