@@ -10,6 +10,7 @@ export interface EditorConfig {
 
 export interface EditorSizingButtonConfig {
     editor: ClassicEditor;
+    initialHeight?: number;
     minHeight?: number;
     maxHeight?: number;
     gapHeight?: number;

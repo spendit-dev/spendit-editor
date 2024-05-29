@@ -205,11 +205,12 @@ export const initEditor = async ({
 
 export const initEditorSizingButton = ({
                                            editor,
+                                           initialHeight = 200,
                                            minHeight = 200,
                                            maxHeight = 700,
                                            gapHeight = 100,
                                            sizingButtonPosition = 'outer',
-    scrollElement = window
+                                           scrollElement = window
                                        }: EditorSizingButtonConfig) => {
     const borderHeight = 2; // editor의 border 두께(px)
     const gapScrollHeight = 30; // editor의 높이 조절 시 스크롤 이동 높이 마이너스 간격(px)
@@ -225,7 +226,7 @@ export const initEditorSizingButton = ({
     const arrowBottomButton = sizingButton.querySelector('.Spendit-Sizing-Bottom') as HTMLButtonElement;
 
     editor.editing.view.change(writer => {
-        writer.setStyle('height', `${minHeight}px`, editor.editing.view.document.getRoot()!);
+        writer.setStyle('height', `${initialHeight}px`, editor.editing.view.document.getRoot()!);
         writer.setStyle('min-height', `${minHeight}px`, editor.editing.view.document.getRoot()!);
         writer.setStyle('max-height', `${maxHeight}px`, editor.editing.view.document.getRoot()!);
     });
@@ -238,7 +239,7 @@ export const initEditorSizingButton = ({
         sizingButton.classList.add('Spendit-Editor-Sizing-Buttons');
         sizingButton.classList.add(position === 'inner' ? 'Spendit-Editor-Sizing-Buttons-Inner' : 'Spendit-Editor-Sizing-Buttons-Outer');
 
-        const arrowTopButton = createButton(['Spendit-Sizing-Top', 'Spendit-Sizing-Top-Disabled']);
+        const arrowTopButton = createButton(['Spendit-Sizing-Top', ...(minHeight === initialHeight ? ['Spendit-Sizing-Top-Disabled'] : [])]);
         const arrowBottomButton = createButton(['Spendit-Sizing-Bottom']);
 
         sizingButton.appendChild(arrowTopButton);
