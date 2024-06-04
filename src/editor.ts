@@ -265,19 +265,24 @@ export const initEditorSizingButton = ({
             const height = isMaxHeight ? maxHeight : isMinHeight ? minHeight : newHeight;
             writer.setStyle('height', `${height}px`, editor.editing.view.document.getRoot()!);
 
+            // 이미 최소크기이거나, 이미 최대크기라면 return
+            const hasTopDisabled = arrowTopButton.classList.contains('Spendit-Sizing-Top-Disabled');
+            const hasBottomDisabled = arrowBottomButton.classList.contains('Spendit-Sizing-Bottom-Disabled');
+            if ((isMinHeight && hasTopDisabled) || (isMaxHeight && hasBottomDisabled)) {
+                return;
+            }
+
             if (isMinHeight) {
                 arrowTopButton.classList.add('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
-                scroll(change + gapScrollHeight);
             } else if (isMaxHeight) {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.add('Spendit-Sizing-Bottom-Disabled');
-                scroll(change + gapScrollHeight);
             } else {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
-                scroll(change + gapScrollHeight);
             }
+            scroll(change + gapScrollHeight);
         });
         resizeButtonCallback(newHeight);
     }
