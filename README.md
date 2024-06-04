@@ -48,13 +48,16 @@ const {editor} = await initEditor({
     },
     onBlur: (content:string) => {
         console.log('blur', content);
-    }
+    },
 });
 
 // if you want to use manual editor heignt sizing button
 initEditorSizingButton({
     editor,
     sizingButtonPosition: 'inner',
+    resizeButtonCallback: (currentHeight: number) => {
+        console.log('currentHeight', currentHeight);
+    },
 });
 
 // html
@@ -142,6 +145,7 @@ you can find more API in the [CKEditor documentation](https://ckeditor.com/docs/
 | maxHeight| Maximum height of the editor  | number | false |
 | gapHeight| Height to adjust at once      | number | false |
 | sizingButtonPosition | Position of the sizing button | 'inner' \| 'outer' | false |
+| resizeButtonCallback | Callback function when the editor height is changed | (currentHeight: number) => void | false |
 
 <br/><br/>
 

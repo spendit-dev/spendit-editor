@@ -268,9 +268,11 @@ export const initEditorSizingButton = ({
             if (isMinHeight) {
                 arrowTopButton.classList.add('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
+                scroll(change + gapScrollHeight);
             } else if (isMaxHeight) {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.add('Spendit-Sizing-Bottom-Disabled');
+                scroll(change + gapScrollHeight);
             } else {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
