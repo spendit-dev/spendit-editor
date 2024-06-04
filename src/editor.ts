@@ -28,7 +28,7 @@ import {TextTransformation} from '@ckeditor/ckeditor5-typing';
 import {CloudServices} from '@ckeditor/ckeditor5-cloud-services';
 import {Autoformat} from '@ckeditor/ckeditor5-autoformat';
 import {AutoImage} from '@ckeditor/ckeditor5-image';
-import {Base64UploadAdapter} from '@ckeditor/ckeditor5-upload';
+import Base64UploadAdapter from './module/Base64UploadAdapter';
 import {
     SpecialCharacters,
     SpecialCharactersArrows,
