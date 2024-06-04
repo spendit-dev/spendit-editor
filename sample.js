@@ -60122,7 +60122,7 @@ Read more: ${Iw}#error-${n}`;
       const F = d.offsetHeight - 2 + P;
       n.editing.view.change((A) => {
         const V = F >= i, S = F <= t, Z = V ? i : S ? t : F;
-        A.setStyle("height", `${Z}px`, n.editing.view.document.getRoot()), S ? (f.classList.add("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled")) : V ? (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.add("Spendit-Sizing-Bottom-Disabled")) : (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled"), C(P + L));
+        A.setStyle("height", `${Z}px`, n.editing.view.document.getRoot()), S ? (f.classList.add("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled"), C(P + L)) : V ? (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.add("Spendit-Sizing-Bottom-Disabled"), C(P + L)) : (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled"), C(P + L));
       }), a(F);
     }
     function C(P) {
