@@ -8,11 +8,16 @@ export default class ImageHelper {
             useWebWorker: true, // optional, use multi-thread web worker, fallback to run in main-thread (default: true)
             maxIteration: 10 // optional, max number of iteration to compress the image (default: 10)
         };
-        const fileImage = await imageCompression.getFilefromDataUrl( base64Image, '' );
+        let result = '';
+        try {
+            const fileImage = await imageCompression.getFilefromDataUrl( base64Image, '' );
+            const compressImage = await imageCompression( fileImage, options );
+            result = await imageCompression.getDataUrlFromFile( compressImage );
 
-        const compressImage = await imageCompression( fileImage, options );
-        const base64 = await imageCompression.getDataUrlFromFile( compressImage );
-
-        return base64;
+        } catch ( error ) {
+            console.error( error );
+            result = base64Image;
+        }
+        return result;
     }
 }
