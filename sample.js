@@ -61053,8 +61053,15 @@ self.addEventListener('message', async (e) => {
         // optional, use multi-thread web worker, fallback to run in main-thread (default: true)
         maxIteration: 10
         // optional, max number of iteration to compress the image (default: 10)
-      }, i = await $e.getFilefromDataUrl(e, ""), s = await $e(i, t);
-      return await $e.getDataUrlFromFile(s);
+      };
+      let i = "";
+      try {
+        const s = await $e.getFilefromDataUrl(e, ""), o = await $e(s, t);
+        i = await $e.getDataUrlFromFile(o);
+      } catch (s) {
+        console.error(s), i = e;
+      }
+      return i;
     }
   }
   /**
