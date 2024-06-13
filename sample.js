@@ -62060,23 +62060,24 @@ self.addEventListener('message', async (e) => {
     targetId: n,
     lang: e = "en",
     initialData: t = "",
-    onContentChange: i,
-    onBlur: s
+    placeholder: i = "",
+    onContentChange: s,
+    onBlur: o
   }) => {
-    const o = document.getElementById(n);
-    if (!o)
+    const r = document.getElementById(n);
+    if (!r)
       return console.error("[CKEditor 경고] targetId에 해당하는 요소가 없습니다. targetId를 확인해주세요."), null;
-    const r = {
+    const a = {
       ...g8,
       initialData: t,
-      language: e === "ko" ? "ko" : "en",
-      placeholder: e === "ko" ? "내용을 입력해주세요" : "Please enter content"
+      language: e,
+      placeholder: i
     };
-    return { editor: await fa.create(o, r).then((l) => (i && l.model.document.on("change:data", () => {
-      i(l.getData());
-    }), s && l.ui.focusTracker.on("change:isFocused", (c, u, d) => {
-      d || s(l.getData());
-    }), l)).catch((l) => (console.error("[CKEditor 에러] 에디터를 초기화하는 중 오류가 발생했습니다.", l), null)) };
+    return { editor: await fa.create(r, a).then((c) => (s && c.model.document.on("change", () => {
+      s(c.getData());
+    }), o && c.ui.focusTracker.on("change:isFocused", (u, d, h) => {
+      h || o(c.getData());
+    }), c)).catch((c) => (console.error("[CKEditor 에러] 에디터를 초기화하는 중 오류가 발생했습니다.", c), null)) };
   }, w8 = ({
     editor: n,
     initialHeight: e = 200,
@@ -62119,6 +62120,8 @@ self.addEventListener('message', async (e) => {
       targetId: "sample-editor",
       lang: "en",
       initialData: "<p>test</p>",
+      maxContentSize: 10,
+      placeholder: "Please enter content",
       onContentChange: (e) => {
         console.log("change", e);
       },
