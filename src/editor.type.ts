@@ -4,6 +4,7 @@ export interface EditorConfig {
     targetId: string;
     lang?: 'ko' | 'en';
     initialData?: string;
+    placeholder?: string;
     onContentChange?: (content: string) => void;
     onBlur?: (content: string) => void;
 }

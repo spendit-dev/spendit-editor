@@ -161,6 +161,7 @@ export const initEditor = async ({
                                      targetId,
                                      lang = 'en',
                                      initialData = '',
+                                     placeholder = '',
                                      onContentChange,
                                      onBlur
                                  }: EditorConfig): Promise<InitEditorResponse | null> => {
@@ -174,15 +175,15 @@ export const initEditor = async ({
     const editorOptions: EditorConfigForCK = {
         ...defaultEditorOptions,
         initialData,
-        language: lang === 'ko' ? 'ko' : 'en',
-        placeholder: lang === 'ko' ? '내용을 입력해주세요' : 'Please enter content',
+        language: lang,
+        placeholder,
     };
 
     const editor = await ClassicEditor
         .create(element, editorOptions)
         .then(editor => {
             if (onContentChange) {
-                editor.model.document.on('change:data', () => {
+                editor.model.document.on('change', () => {
                     onContentChange(editor.getData());
                 });
             }

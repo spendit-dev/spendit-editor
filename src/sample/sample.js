@@ -4,6 +4,8 @@ const initialize= async () => {
         targetId: 'sample-editor',
         lang: 'en',
         initialData: '<p>test</p>',
+        maxContentSize: 10,
+        placeholder: 'Please enter content',
         onContentChange: (content) => {
             console.log('change', content);
         },
