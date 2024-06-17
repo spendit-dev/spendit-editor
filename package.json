@@ -1,6 +1,6 @@
 {
   "name": "@spendit-dev/editor",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "homepage": "https://github.com/spendit-dev/spendit-editor#readme",
   "repository": {
     "type": "git",
@@ -23,6 +23,10 @@
     "./editor.css": {
       "import": "./dist/editor.css",
       "require": "./dist/editor.css"
+    },
+    "./editor.type.ts": {
+      "import": "./dist/editor.type.d.ts",
+      "require": "./dist/editor.type.d.ts"
     }
   },
   "types": "dist/editor.d.ts",
