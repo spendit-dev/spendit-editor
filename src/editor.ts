@@ -183,7 +183,7 @@ export const initEditor = async ({
         .create(element, editorOptions)
         .then(editor => {
             if (onContentChange) {
-                editor.model.document.on('change', () => {
+                editor.model.document.on('change:data', () => {
                     onContentChange(editor.getData());
                 });
             }
@@ -244,9 +244,9 @@ export const initEditorSizingButton = ({
         const arrowTopButton = createButton(['Spendit-Sizing-Top', ...(minHeight === initialHeight ? ['Spendit-Sizing-Top-Disabled'] : [])]);
         const arrowBottomButton = createButton(['Spendit-Sizing-Bottom']);
 
-        sizingButton.appendChild(arrowTopButton);
-        sizingButton.appendChild(arrowBottomButton);
-        ckEditor.appendChild(sizingButton);
+        sizingButton?.appendChild(arrowTopButton);
+        sizingButton?.appendChild(arrowBottomButton);
+        ckEditor?.appendChild(sizingButton);
 
         return sizingButton;
     }
