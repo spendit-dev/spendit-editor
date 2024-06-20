@@ -6,7 +6,9 @@ export interface EditorConfig {
     initialData?: string;
     placeholder?: string;
     onContentChange?: (content: string) => void;
+    debounceDelay?: number;
     onBlur?: (content: string) => void;
+    onFocus?: (bool: boolean) => void;
 }
 export interface EditorSizingButtonConfig {
     editor: ClassicEditor;
