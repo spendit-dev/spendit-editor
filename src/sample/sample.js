@@ -9,6 +9,7 @@ const initialize= async () => {
         onContentChange: (content) => {
             console.log('change', content);
         },
+        debounceDelay: 2000,
         onBlur: (content) => {
             console.log('blur', content);
         }

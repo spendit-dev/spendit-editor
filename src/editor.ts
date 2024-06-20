@@ -42,6 +42,7 @@ import {EditorConfig, EditorSizingButtonConfig, InitEditorResponse} from "./edit
 import {EditorConfig as EditorConfigForCK} from 'ckeditor5/src/core.js';
 import './lang/ko';
 import './lang/en';
+import {debounce} from "./module/debounde.ts";
 
 const defaultToolbarItems = [
     'undo',
@@ -163,6 +164,7 @@ export const initEditor = async ({
                                      initialData = '',
                                      placeholder = '',
                                      onContentChange,
+                                     debounceDelay = 3000,
                                      onBlur
                                  }: EditorConfig): Promise<InitEditorResponse | null> => {
     const element = document.getElementById(targetId);
@@ -178,13 +180,14 @@ export const initEditor = async ({
         language: lang,
         placeholder,
     };
+    const debounceUpdateEditorContent = debounce(() => onContentChange(editor.getData()), debounceDelay);
 
     const editor = await ClassicEditor
         .create(element, editorOptions)
         .then(editor => {
             if (onContentChange) {
                 editor.model.document.on('change:data', () => {
-                    onContentChange(editor.getData());
+                    debounceUpdateEditorContent();
                 });
             }
             if (onBlur) {

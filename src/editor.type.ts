@@ -6,6 +6,7 @@ export interface EditorConfig {
     initialData?: string;
     placeholder?: string;
     onContentChange?: (content: string) => void;
+    debounceDelay?: number;
     onBlur?: (content: string) => void;
 }
 
