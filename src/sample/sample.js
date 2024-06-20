@@ -12,10 +12,7 @@ const initialize= async () => {
         debounceDelay: 2000,
         onBlur: (content) => {
             console.log('blur', content);
-        },
-        onFocus: (bool) => {
-            console.log('focus', bool);
-        },
+        }
     });
 
     initEditorSizingButton({

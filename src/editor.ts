@@ -166,7 +166,6 @@ export const initEditor = async ({
                                      onContentChange,
                                      debounceDelay = 3000,
                                      onBlur,
-                                     onFocus
                                  }: EditorConfig): Promise<InitEditorResponse | null> => {
     const element = document.getElementById(targetId);
 
@@ -195,15 +194,6 @@ export const initEditor = async ({
                 editor.ui.focusTracker.on('change:isFocused', (_event, _name, isFocused) => {
                     if (!isFocused) {
                         onBlur(editor.getData());
-                    }
-                });
-            }
-            if (onFocus) {
-                editor.ui.focusTracker.on('change:isFocused', (_event, _name, isFocused) => {
-                    if (isFocused) {
-                        onFocus(true);
-                    } else {
-                        onFocus(false);
                     }
                 });
             }
@@ -255,7 +245,7 @@ export const initEditorSizingButton = ({
         sizingButton.classList.add(position === 'inner' ? 'Spendit-Editor-Sizing-Buttons-Inner' : 'Spendit-Editor-Sizing-Buttons-Outer');
 
         const arrowTopButton = createButton(['Spendit-Sizing-Top', ...(minHeight === initialHeight ? ['Spendit-Sizing-Top-Disabled'] : [])]);
-        const arrowBottomButton = createButton(['Spendit-Sizing-Bottom']);
+        const arrowBottomButton = createButton(['Spendit-Sizing-Bottom', ...(maxHeight === initialHeight ? ['Spendit-Sizing-Bottom-Disabled'] : [])]);
 
         sizingButton?.appendChild(arrowTopButton);
         sizingButton?.appendChild(arrowBottomButton);
