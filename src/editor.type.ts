@@ -8,6 +8,7 @@ export interface EditorConfig {
     onContentChange?: (content: string) => void;
     debounceDelay?: number;
     onBlur?: (content: string) => void;
+    onFocus?: (bool: boolean) => void;
 }
 
 export interface EditorSizingButtonConfig {

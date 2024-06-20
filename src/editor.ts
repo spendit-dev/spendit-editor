@@ -165,7 +165,8 @@ export const initEditor = async ({
                                      placeholder = '',
                                      onContentChange,
                                      debounceDelay = 3000,
-                                     onBlur
+                                     onBlur,
+                                     onFocus
                                  }: EditorConfig): Promise<InitEditorResponse | null> => {
     const element = document.getElementById(targetId);
 
@@ -194,6 +195,15 @@ export const initEditor = async ({
                 editor.ui.focusTracker.on('change:isFocused', (_event, _name, isFocused) => {
                     if (!isFocused) {
                         onBlur(editor.getData());
+                    }
+                });
+            }
+            if (onFocus) {
+                editor.ui.focusTracker.on('change:isFocused', (_event, _name, isFocused) => {
+                    if (isFocused) {
+                        onFocus(true);
+                    } else {
+                        onFocus(false);
                     }
                 });
             }
