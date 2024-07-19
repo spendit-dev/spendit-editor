@@ -62101,7 +62101,7 @@ self.addEventListener('message', async (e) => {
     const u = document.querySelector(".ck-editor"), d = document.querySelector(".ck-content"), h = g(o), f = h.querySelector(".Spendit-Sizing-Top"), m = h.querySelector(".Spendit-Sizing-Bottom");
     n.editing.view.change((P) => {
       P.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), P.setStyle("min-height", `${t}px`, n.editing.view.document.getRoot()), P.setStyle("max-height", `${i}px`, n.editing.view.document.getRoot());
-    }), f.onclick = () => w(-s, 30), m.onclick = () => w(s, -30);
+    }), f.onclick = () => w(-s, 25), m.onclick = () => w(s, -25);
     function g(P) {
       const T = document.createElement("div");
       T.classList.add("Spendit-Editor-Sizing-Buttons"), T.classList.add(P === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
