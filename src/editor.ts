@@ -218,7 +218,7 @@ export const initEditorSizingButton = ({
                                            resizeButtonCallback = () => {}
                                        }: EditorSizingButtonConfig) => {
     const borderHeight = 2; // editor의 border 두께(px)
-    const gapScrollHeight = 30; // editor의 높이 조절 시 스크롤 이동 높이 마이너스 간격(px)
+    const gapScrollHeight = 25; // editor의 높이 조절 시 스크롤 이동 높이 마이너스 간격(px)
 
     // sizing button을 추가할 컨테이너
     const ckEditor = document.querySelector('.ck-editor') as HTMLElement;

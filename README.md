@@ -46,8 +46,12 @@ const {editor} = await initEditor({
     onContentChange: (content: string) => {
         console.log('change', content);
     },
+    debounceDelay: 500,
     onBlur: (content:string) => {
         console.log('blur', content);
+    },
+    onFocus: (bool:boolean) => {
+        console.log('focus', bool);
     },
 });
 
@@ -119,13 +123,15 @@ you can find more API in the [CKEditor documentation](https://ckeditor.com/docs/
 <br/>
 
 ### Func: initEditor()
-| Property Name | Description                                  | Type   | Required |
-|---------------|----------------------------------------------|--------|----------|
-| targetId | HTML element id to attaching editor instance | string | true     |
-| lang | Language of the editor | 'ko' \| 'en' | false |
-| initialData | Initial data of the editor | string | false |
-| onContentChange | Callback function when content is changed | (content: string) => void | false |
-| onBlur | Callback function when editor is blurred | (content: string) => void | false |
+| Property Name   | Description                                                                                                                 | Type                      | Required |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------|---------------------------|----------|
+| targetId        | HTML element id to attaching editor instance                                                                                | string                    | true     |
+| lang            | Language of the editor                                                                                                      | 'ko' \| 'en'              | false |
+| initialData     | Initial data of the editor                                                                                                  | string                    | false |
+| onContentChange | Callback function when content is changed                                                                                   | (content: string) => void | false |
+| debounceDelay?  | To debounce the onContentChange function, specify the delay in seconds. The default value is 3000 milliseconds (3 seconds). | number                    | false |
+| onBlur?         | Callback function when editor is blurred                                                                                    | (content: string) => void | false |
+| onFocus?        | Callback function when editor is focused                                                                                    | (bool: boolean) => void   | false |
 
 <br/><br/>
 
