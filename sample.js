@@ -212,10 +212,10 @@ var v8 = Gb((Et, At) => {
     function h(g) {
       const _ = (d[g - 1] !== void 0 ? d[g - 1] : -1) + 1, w = d[g + 1] !== void 0 ? d[g + 1] : -1, A = _ > w ? -1 : 1;
       u[g + A] && (u[g] = u[g + A].slice(0)), u[g] || (u[g] = []), u[g].push(_ > w ? o : r);
-      let L = Math.max(_, w), T = L - g;
-      for (; T < a && L < l && t(n[T], e[L]); )
-        T++, L++, u[g].push("equal");
-      return L;
+      let I = Math.max(_, w), T = I - g;
+      for (; T < a && I < l && t(n[T], e[I]); )
+        T++, I++, u[g].push("equal");
+      return I;
     }
     let f = 0, m;
     do {
@@ -1473,16 +1473,16 @@ Read more: ${o0}#error-${n}`;
       h = a[d];
       var w = n[h], A = e[h];
       if (i)
-        var L = r ? i(A, w, h, e, n, o) : i(w, A, h, n, e, o);
-      if (!(L === void 0 ? w === A || s(w, A, t, i, o) : L)) {
+        var I = r ? i(A, w, h, e, n, o) : i(w, A, h, n, e, o);
+      if (!(I === void 0 ? w === A || s(w, A, t, i, o) : I)) {
         g = !1;
         break;
       }
       _ || (_ = h == "constructor");
     }
     if (g && !_) {
-      var T = n.constructor, M = e.constructor;
-      T != M && "constructor" in n && "constructor" in e && !(typeof T == "function" && T instanceof T && typeof M == "function" && M instanceof M) && (g = !1);
+      var T = n.constructor, F = e.constructor;
+      T != F && "constructor" in n && "constructor" in e && !(typeof T == "function" && T instanceof T && typeof F == "function" && F instanceof F) && (g = !1);
     }
     return o.delete(n), o.delete(e), g;
   }
@@ -1619,19 +1619,19 @@ Read more: ${o0}#error-${n}`;
       throw new TypeError(zC);
     e = bu(e) || 0, pe(t) && (u = !!t.leading, d = "maxWait" in t, o = d ? UC(bu(t.maxWait) || 0, e) : o, h = "trailing" in t ? !!t.trailing : h);
     function f(y) {
-      var P = i, p = s;
-      return i = s = void 0, c = y, r = n.apply(p, P), r;
+      var R = i, p = s;
+      return i = s = void 0, c = y, r = n.apply(p, R), r;
     }
     function m(y) {
       return c = y, a = setTimeout(w, e), u ? f(y) : r;
     }
     function g(y) {
-      var P = y - l, p = y - c, b = e - P;
+      var R = y - l, p = y - c, b = e - R;
       return d ? HC(b, o - p) : b;
     }
     function _(y) {
-      var P = y - l, p = y - c;
-      return l === void 0 || P >= e || P < 0 || d && p >= o;
+      var R = y - l, p = y - c;
+      return l === void 0 || R >= e || R < 0 || d && p >= o;
     }
     function w() {
       var y = Ia();
@@ -1642,15 +1642,15 @@ Read more: ${o0}#error-${n}`;
     function A(y) {
       return a = void 0, h && i ? f(y) : (i = s = void 0, r);
     }
-    function L() {
+    function I() {
       a !== void 0 && clearTimeout(a), c = 0, i = l = s = a = void 0;
     }
     function T() {
       return a === void 0 ? r : A(Ia());
     }
-    function M() {
-      var y = Ia(), P = _(y);
-      if (i = arguments, s = this, l = y, P) {
+    function F() {
+      var y = Ia(), R = _(y);
+      if (i = arguments, s = this, l = y, R) {
         if (a === void 0)
           return m(l);
         if (d)
@@ -1658,7 +1658,7 @@ Read more: ${o0}#error-${n}`;
       }
       return a === void 0 && (a = setTimeout(w, e)), r;
     }
-    return M.cancel = L, M.flush = T, M;
+    return F.cancel = I, F.flush = T, F;
   }
   function fl(n, e, t) {
     (t !== void 0 && !go(n[e], t) || t === void 0 && !(e in n)) && jr(n, e, t);
@@ -3838,7 +3838,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class R extends ae() {
+  class L extends ae() {
     /**
      * @inheritDoc
      */
@@ -4191,8 +4191,8 @@ Read more: ${o0}#error-${n}`;
       const s = this, o = this._context;
       f(e), g(e);
       const r = e.filter((y) => !d(y, t)), a = [...m(r)];
-      M(a, i);
-      const l = L(a);
+      F(a, i);
+      const l = I(a);
       return T(l, "init").then(() => T(l, "afterInit")).then(() => l);
       function c(y) {
         return typeof y == "function";
@@ -4200,48 +4200,48 @@ Read more: ${o0}#error-${n}`;
       function u(y) {
         return c(y) && !!y.isContextPlugin;
       }
-      function d(y, P) {
-        return P.some((p) => p === y || h(y) === p || h(p) === y);
+      function d(y, R) {
+        return R.some((p) => p === y || h(y) === p || h(p) === y);
       }
       function h(y) {
         return c(y) ? y.pluginName || y.name : y;
       }
-      function f(y, P = /* @__PURE__ */ new Set()) {
+      function f(y, R = /* @__PURE__ */ new Set()) {
         y.forEach((p) => {
-          c(p) && (P.has(p) || (P.add(p), p.pluginName && !s._availablePlugins.has(p.pluginName) && s._availablePlugins.set(p.pluginName, p), p.requires && f(p.requires, P)));
+          c(p) && (R.has(p) || (R.add(p), p.pluginName && !s._availablePlugins.has(p.pluginName) && s._availablePlugins.set(p.pluginName, p), p.requires && f(p.requires, R)));
         });
       }
-      function m(y, P = /* @__PURE__ */ new Set()) {
-        return y.map((p) => c(p) ? p : s._availablePlugins.get(p)).reduce((p, b) => P.has(b) ? p : (P.add(b), b.requires && (g(b.requires, b), m(b.requires, P).forEach((E) => p.add(E))), p.add(b)), /* @__PURE__ */ new Set());
+      function m(y, R = /* @__PURE__ */ new Set()) {
+        return y.map((p) => c(p) ? p : s._availablePlugins.get(p)).reduce((p, b) => R.has(b) ? p : (R.add(b), b.requires && (g(b.requires, b), m(b.requires, R).forEach((E) => p.add(E))), p.add(b)), /* @__PURE__ */ new Set());
       }
-      function g(y, P = null) {
+      function g(y, R = null) {
         y.map((p) => c(p) ? p : s._availablePlugins.get(p) || p).forEach((p) => {
-          _(p, P), w(p, P), A(p, P);
+          _(p, R), w(p, R), A(p, R);
         });
       }
-      function _(y, P) {
+      function _(y, R) {
         if (!c(y))
-          throw P ? new k("plugincollection-soft-required", o, { missingPlugin: y, requiredBy: h(P) }) : new k("plugincollection-plugin-not-found", o, { plugin: y });
+          throw R ? new k("plugincollection-soft-required", o, { missingPlugin: y, requiredBy: h(R) }) : new k("plugincollection-plugin-not-found", o, { plugin: y });
       }
-      function w(y, P) {
-        if (u(P) && !u(y))
-          throw new k("plugincollection-context-required", o, { plugin: h(y), requiredBy: h(P) });
+      function w(y, R) {
+        if (u(R) && !u(y))
+          throw new k("plugincollection-context-required", o, { plugin: h(y), requiredBy: h(R) });
       }
-      function A(y, P) {
-        if (P && d(y, t))
-          throw new k("plugincollection-required", o, { plugin: h(y), requiredBy: h(P) });
+      function A(y, R) {
+        if (R && d(y, t))
+          throw new k("plugincollection-required", o, { plugin: h(y), requiredBy: h(R) });
       }
-      function L(y) {
-        return y.map((P) => {
-          let p = s._contextPlugins.get(P);
-          return p = p || new P(o), s._add(P, p), p;
+      function I(y) {
+        return y.map((R) => {
+          let p = s._contextPlugins.get(R);
+          return p = p || new R(o), s._add(R, p), p;
         });
       }
-      function T(y, P) {
-        return y.reduce((p, b) => !b[P] || s._contextPlugins.has(b) ? p : p.then(b[P].bind(b)), Promise.resolve());
+      function T(y, R) {
+        return y.reduce((p, b) => !b[R] || s._contextPlugins.has(b) ? p : p.then(b[R].bind(b)), Promise.resolve());
       }
-      function M(y, P) {
-        for (const p of P) {
+      function F(y, R) {
+        for (const p of R) {
           if (typeof p != "function")
             throw new k("plugincollection-replace-plugin-invalid-type", null, { pluginItem: p });
           const b = p.pluginName;
@@ -13293,7 +13293,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class B extends Ui {
+  class M extends Ui {
     /**
      * Creates a range spanning from `start` position to `end` position.
      *
@@ -13417,7 +13417,7 @@ Read more: ${o0}#error-${n}`;
      */
     getDifference(e) {
       const t = [];
-      return this.isIntersecting(e) ? (this.containsPosition(e.start) && t.push(new B(this.start, e.start)), this.containsPosition(e.end) && t.push(new B(e.end, this.end))) : t.push(new B(this.start, this.end)), t;
+      return this.isIntersecting(e) ? (this.containsPosition(e.start) && t.push(new M(this.start, e.start)), this.containsPosition(e.end) && t.push(new M(e.end, this.end))) : t.push(new M(this.start, this.end)), t;
     }
     /**
      * Returns an intersection of this {@link ~Range range} and given {@link ~Range range}.
@@ -13443,7 +13443,7 @@ Read more: ${o0}#error-${n}`;
     getIntersection(e) {
       if (this.isIntersecting(e)) {
         let t = this.start, i = this.end;
-        return this.containsPosition(e.start) && (t = e.start), this.containsPosition(e.end) && (i = e.end), new B(t, i);
+        return this.containsPosition(e.start) && (t = e.start), this.containsPosition(e.end) && (i = e.end), new M(t, i);
       }
       return null;
     }
@@ -13482,7 +13482,7 @@ Read more: ${o0}#error-${n}`;
       if (i || (this.start.isBefore(e.start) ? i = t ? this.end.isTouching(e.start) : this.end.isEqual(e.start) : i = t ? e.end.isTouching(this.start) : e.end.isEqual(this.start)), !i)
         return null;
       let s = this.start, o = this.end;
-      return e.start.isBefore(s) && (s = e.start), e.end.isAfter(o) && (o = e.end), new B(s, o);
+      return e.start.isBefore(s) && (s = e.start), e.end.isAfter(o) && (o = e.end), new M(s, o);
     }
     /**
      * Computes and returns the smallest set of {@link #isFlat flat} ranges, that covers this range in whole.
@@ -13532,11 +13532,11 @@ Read more: ${o0}#error-${n}`;
       let s = i.parent;
       for (; i.path.length > t + 1; ) {
         const o = s.maxOffset - i.offset;
-        o !== 0 && e.push(new B(i, i.getShiftedBy(o))), i.path = i.path.slice(0, -1), i.offset++, s = s.parent;
+        o !== 0 && e.push(new M(i, i.getShiftedBy(o))), i.path = i.path.slice(0, -1), i.offset++, s = s.parent;
       }
       for (; i.path.length <= this.end.path.length; ) {
         const o = this.end.path[i.path.length - 1], r = o - i.offset;
-        r !== 0 && e.push(new B(i, i.getShiftedBy(r))), i.offset = o, i.path.push(0);
+        r !== 0 && e.push(new M(i, i.getShiftedBy(r))), i.offset = o, i.path.push(0);
       }
       return e;
     }
@@ -13621,7 +13621,7 @@ Read more: ${o0}#error-${n}`;
         case "merge":
           return [this._getTransformedByMergeOperation(e)];
       }
-      return [new B(this.start, this.end)];
+      return [new M(this.start, this.end)];
     }
     /**
      * Returns a range that is a result of transforming this range by multiple `operations`.
@@ -13631,7 +13631,7 @@ Read more: ${o0}#error-${n}`;
      * @returns Range which is the result of transformation.
      */
     getTransformedByOperations(e) {
-      const t = [new B(this.start, this.end)];
+      const t = [new M(this.start, this.end)];
       for (const i of e)
         for (let s = 0; s < t.length; s++) {
           const o = t[s].getTransformedByOperation(i);
@@ -13712,7 +13712,7 @@ Read more: ${o0}#error-${n}`;
     _getTransformedBySplitOperation(e) {
       const t = this.start._getTransformedBySplitOperation(e);
       let i = this.end._getTransformedBySplitOperation(e);
-      return this.end.isEqual(e.insertionPosition) && (i = this.end.getShiftedBy(1)), t.root != i.root && (i = this.end.getShiftedBy(-1)), new B(t, i);
+      return this.end.isEqual(e.insertionPosition) && (i = this.end.getShiftedBy(1)), t.root != i.root && (i = this.end.getShiftedBy(-1)), new M(t, i);
     }
     /**
      * Returns a result of transforming a copy of this range by merge operation.
@@ -13723,9 +13723,9 @@ Read more: ${o0}#error-${n}`;
      */
     _getTransformedByMergeOperation(e) {
       if (this.start.isEqual(e.targetPosition) && this.end.isEqual(e.deletionPosition))
-        return new B(this.start);
+        return new M(this.start);
       let t = this.start._getTransformedByMergeOperation(e), i = this.end._getTransformedByMergeOperation(e);
-      return t.root != i.root && (i = this.end.getShiftedBy(-1)), t.isAfter(i) ? (e.sourcePosition.isBefore(e.targetPosition) ? (t = z._createAt(i), t.offset = 0) : (e.deletionPosition.isEqual(t) || (i = e.deletionPosition), t = e.targetPosition), new B(t, i)) : new B(t, i);
+      return t.root != i.root && (i = this.end.getShiftedBy(-1)), t.isAfter(i) ? (e.sourcePosition.isBefore(e.targetPosition) ? (t = z._createAt(i), t.offset = 0) : (e.deletionPosition.isEqual(t) || (i = e.deletionPosition), t = e.targetPosition), new M(t, i)) : new M(t, i);
     }
     /**
      * Returns an array containing one or two {@link ~Range ranges} that are a result of transforming this
@@ -13762,11 +13762,11 @@ Read more: ${o0}#error-${n}`;
     _getTransformedByInsertion(e, t, i = !1) {
       if (i && this.containsPosition(e))
         return [
-          new B(this.start, e),
-          new B(e.getShiftedBy(t), this.end._getTransformedByInsertion(e, t))
+          new M(this.start, e),
+          new M(e.getShiftedBy(t), this.end._getTransformedByInsertion(e, t))
         ];
       {
-        const s = new B(this.start, this.end);
+        const s = new M(this.start, this.end);
         return s.start = s.start._getTransformedByInsertion(e, t), s.end = s.end._getTransformedByInsertion(e, t), [s];
       }
     }
@@ -13784,19 +13784,19 @@ Read more: ${o0}#error-${n}`;
     _getTransformedByMove(e, t, i, s = !1) {
       if (this.isCollapsed) {
         const d = this.start._getTransformedByMove(e, t, i);
-        return [new B(d)];
+        return [new M(d)];
       }
-      const o = B._createFromPositionAndShift(e, i), r = t._getTransformedByDeletion(e, i);
+      const o = M._createFromPositionAndShift(e, i), r = t._getTransformedByDeletion(e, i);
       if (this.containsPosition(t) && !s && (o.containsPosition(this.start) || o.containsPosition(this.end))) {
         const d = this.start._getTransformedByMove(e, t, i), h = this.end._getTransformedByMove(e, t, i);
-        return [new B(d, h)];
+        return [new M(d, h)];
       }
       let a;
       const l = this.getDifference(o);
       let c = null;
       const u = this.getIntersection(o);
-      if (l.length == 1 ? c = new B(l[0].start._getTransformedByDeletion(e, i), l[0].end._getTransformedByDeletion(e, i)) : l.length == 2 && (c = new B(this.start, this.end._getTransformedByDeletion(e, i))), c ? a = c._getTransformedByInsertion(r, i, u !== null || s) : a = [], u) {
-        const d = new B(u.start._getCombined(o.start, r), u.end._getCombined(o.start, r));
+      if (l.length == 1 ? c = new M(l[0].start._getTransformedByDeletion(e, i), l[0].end._getTransformedByDeletion(e, i)) : l.length == 2 && (c = new M(this.start, this.end._getTransformedByDeletion(e, i))), c ? a = c._getTransformedByInsertion(r, i, u !== null || s) : a = [], u) {
+        const d = new M(u.start._getCombined(o.start, r), u.end._getCombined(o.start, r));
         a.length == 2 ? a.splice(1, 0, d) : a.push(d);
       }
       return a;
@@ -13815,7 +13815,7 @@ Read more: ${o0}#error-${n}`;
      */
     _getTransformedByDeletion(e, t) {
       let i = this.start._getTransformedByDeletion(e, t), s = this.end._getTransformedByDeletion(e, t);
-      return i == null && s == null ? null : (i == null && (i = e), s == null && (s = e), new B(i, s));
+      return i == null && s == null ? null : (i == null && (i = e), s == null && (s = e), new M(i, s));
     }
     /**
      * Creates a new range, spreading from specified {@link module:engine/model/position~Position position} to a position moved by
@@ -13891,7 +13891,7 @@ Read more: ${o0}#error-${n}`;
       return new this(z.fromJSON(e.start, t), z.fromJSON(e.end, t));
     }
   }
-  B.prototype.is = function(n) {
+  M.prototype.is = function(n) {
     return n === "range" || n === "model:range";
   };
   /**
@@ -14027,7 +14027,7 @@ Read more: ${o0}#error-${n}`;
      * @returns Corresponding model range.
      */
     toModelRange(e) {
-      return new B(this.toModelPosition(e.start), this.toModelPosition(e.end));
+      return new M(this.toModelPosition(e.start), this.toModelPosition(e.end));
     }
     /**
      * Gets the corresponding view range.
@@ -14443,7 +14443,7 @@ Read more: ${o0}#error-${n}`;
         this._convertMarkerRemove(r.name, r.range, s);
       const o = this._reduceChanges(e.getChanges());
       for (const r of o)
-        r.type === "insert" ? this._convertInsert(B._createFromPositionAndShift(r.position, r.length), s) : r.type === "reinsert" ? this._convertReinsert(B._createFromPositionAndShift(r.position, r.length), s) : r.type === "remove" ? this._convertRemove(r.position, r.length, r.name, s) : this._convertAttribute(r.range, r.attributeKey, r.attributeOldValue, r.attributeNewValue, s);
+        r.type === "insert" ? this._convertInsert(M._createFromPositionAndShift(r.position, r.length), s) : r.type === "reinsert" ? this._convertReinsert(M._createFromPositionAndShift(r.position, r.length), s) : r.type === "remove" ? this._convertRemove(r.position, r.length, r.name, s) : this._convertAttribute(r.range, r.attributeKey, r.attributeOldValue, r.attributeNewValue, s);
       s.mapper.flushDeferredBindings();
       for (const r of s.mapper.flushUnboundMarkerNames()) {
         const a = t.get(r).getRange();
@@ -14562,7 +14562,7 @@ Read more: ${o0}#error-${n}`;
       for (const r of e) {
         const a = {
           item: r.item,
-          range: B._createFromPositionAndShift(r.previousPosition, r.length),
+          range: M._createFromPositionAndShift(r.previousPosition, r.length),
           attributeKey: t,
           attributeOldValue: i,
           attributeNewValue: s
@@ -14606,7 +14606,7 @@ Read more: ${o0}#error-${n}`;
         for (const o of t.getItems()) {
           if (!i.consumable.test(o, s))
             continue;
-          const r = { item: o, range: B._createOn(o), markerName: e, markerRange: t };
+          const r = { item: o, range: M._createOn(o), markerName: e, markerRange: t };
           this.fire(s, r, i);
         }
       }
@@ -14711,7 +14711,7 @@ Read more: ${o0}#error-${n}`;
     _testAndFireAddAttributes(e, t) {
       const i = {
         item: e,
-        range: B._createOn(e)
+        range: M._createOn(e)
       };
       for (const s of i.item.getAttributeKeys())
         i.attributeKey = s, i.attributeOldValue = null, i.attributeNewValue = i.item.getAttribute(s), this._testAndFire(`attribute:${s}`, i, t);
@@ -14732,8 +14732,8 @@ Read more: ${o0}#error-${n}`;
         consumable: new J2(),
         writer: e,
         options: i,
-        convertItem: (o) => this._convertInsert(B._createOn(o), s),
-        convertChildren: (o) => this._convertInsert(B._createIn(o), s, { doNotAddConsumables: !0 }),
+        convertItem: (o) => this._convertInsert(M._createOn(o), s),
+        convertChildren: (o) => this._convertInsert(M._createIn(o), s, { doNotAddConsumables: !0 }),
         convertAttributes: (o) => this._testAndFireAddAttributes(o, s),
         canReuseView: (o) => !t.has(s.mapper.toModelElement(o))
       };
@@ -14752,7 +14752,7 @@ Read more: ${o0}#error-${n}`;
     return `${n}:${t}`;
   }
   function yd(n) {
-    const e = n.item, t = B._createFromPositionAndShift(n.previousPosition, n.length);
+    const e = n.item, t = M._createFromPositionAndShift(n.previousPosition, n.length);
     return {
       item: e,
       range: t
@@ -14905,7 +14905,7 @@ Read more: ${o0}#error-${n}`;
      */
     *getRanges() {
       for (const e of this._ranges)
-        yield new B(e.start, e.end);
+        yield new M(e.start, e.end);
     }
     /**
      * Returns a copy of the first range in the selection.
@@ -14919,7 +14919,7 @@ Read more: ${o0}#error-${n}`;
       let e = null;
       for (const t of this._ranges)
         (!e || t.start.isBefore(e.start)) && (e = t);
-      return e ? new B(e.start, e.end) : null;
+      return e ? new M(e.start, e.end) : null;
     }
     /**
      * Returns a copy of the last range in the selection.
@@ -14933,7 +14933,7 @@ Read more: ${o0}#error-${n}`;
       let e = null;
       for (const t of this._ranges)
         (!e || t.end.isAfter(e.end)) && (e = t);
-      return e ? new B(e.start, e.end) : null;
+      return e ? new M(e.start, e.end) : null;
     }
     /**
      * Returns the first position in the selection.
@@ -15019,19 +15019,19 @@ Read more: ${o0}#error-${n}`;
         this._setRanges(t.getRanges(), t.isBackward);
       else if (t && typeof t.getRanges == "function")
         this._setRanges(t.getRanges(), t.isBackward);
-      else if (t instanceof B)
+      else if (t instanceof M)
         this._setRanges([t], !!s && !!s.backward);
       else if (t instanceof z)
-        this._setRanges([new B(t)]);
+        this._setRanges([new M(t)]);
       else if (t instanceof vn) {
         const o = !!s && !!s.backward;
         let r;
         if (i == "in")
-          r = B._createIn(t);
+          r = M._createIn(t);
         else if (i == "on")
-          r = B._createOn(t);
+          r = M._createOn(t);
         else if (i !== void 0)
-          r = new B(z._createAt(t, i));
+          r = new M(z._createAt(t, i));
         else
           throw new k("model-selection-setto-required-second-parameter", [this, t]);
         this._setRanges([r], o);
@@ -15052,7 +15052,7 @@ Read more: ${o0}#error-${n}`;
      */
     _setRanges(e, t = !1) {
       const i = Array.from(e), s = i.some((o) => {
-        if (!(o instanceof B))
+        if (!(o instanceof M))
           throw new k("model-selection-set-ranges-not-range", [this, e]);
         return this._ranges.every((r) => !r.isEqual(o));
       });
@@ -15074,7 +15074,7 @@ Read more: ${o0}#error-${n}`;
       if (i.compareWith(this.focus) == "same")
         return;
       const s = this.anchor;
-      this._ranges.length && this._popRange(), i.compareWith(s) == "before" ? (this._pushRange(new B(i, s)), this._lastRangeBackward = !0) : (this._pushRange(new B(s, i)), this._lastRangeBackward = !1), this.fire("change:range", { directChange: !0 });
+      this._ranges.length && this._popRange(), i.compareWith(s) == "before" ? (this._pushRange(new M(i, s)), this._lastRangeBackward = !0) : (this._pushRange(new M(s, i)), this._lastRangeBackward = !1), this.fire("change:range", { directChange: !0 });
     }
     /**
      * Gets an attribute value for given key or `undefined` if that attribute is not set on the selection.
@@ -15235,7 +15235,7 @@ Read more: ${o0}#error-${n}`;
      * if given range is intersecting with any range that is already stored in this selection.
      */
     _pushRange(e) {
-      this._checkRange(e), this._ranges.push(new B(e.start, e.end));
+      this._checkRange(e), this._ranges.push(new M(e.start, e.end));
     }
     /**
      * Checks if given range intersects with ranges that are already in the selection. Throws an error if it does.
@@ -15286,7 +15286,7 @@ Read more: ${o0}#error-${n}`;
   }
   function xc(n, e) {
     const t = iT(n);
-    return t ? !e.containsRange(B._createOn(t), !0) : !0;
+    return t ? !e.containsRange(M._createOn(t), !0) : !0;
   }
   function eT(n, e) {
     return n ? e.isCollapsed || n.isEmpty ? !0 : e.start.isTouching(z._createAt(n, n.maxOffset)) ? !1 : xc(n, e) : !1;
@@ -15307,7 +15307,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ht extends de(B) {
+  class ht extends de(M) {
     /**
      * Creates a live range.
      *
@@ -15328,7 +15328,7 @@ Read more: ${o0}#error-${n}`;
      * Creates a {@link module:engine/model/range~Range range instance} that is equal to this live range.
      */
     toRange() {
-      return new B(this.start, this.end);
+      return new M(this.start, this.end);
     }
     /**
      * Creates a `LiveRange` instance that is equal to the given range.
@@ -15348,7 +15348,7 @@ Read more: ${o0}#error-${n}`;
     }, { priority: "low" });
   }
   function sT(n) {
-    const e = this.getTransformedByOperation(n), t = B._createFromRanges(e), i = !t.isEqual(this), s = oT(this, n);
+    const e = this.getTransformedByOperation(n), t = M._createFromRanges(e), i = !t.isEqual(this), s = oT(this, n);
     let o = null;
     if (i) {
       t.root.rootName == "$graveyard" && (n.type == "remove" ? o = n.sourcePosition : o = n.deletionPosition);
@@ -17019,7 +17019,7 @@ Read more: ${o0}#error-${n}`;
       const o = i.mapper.toViewElement(t.item);
       if (o && o.getCustomProperty("addHighlight")) {
         i.consumable.consume(t.item, e.name);
-        for (const a of B._createIn(t.item))
+        for (const a of M._createIn(t.item))
           i.consumable.consume(a.item, e.name);
         o.getCustomProperty("addHighlight")(o, s, i.writer), i.mapper.bindElementToMarker(o, t.markerName);
       }
@@ -17873,12 +17873,12 @@ Read more: ${o0}#error-${n}`;
     const t = n.start, i = e.getNearestSelectionRange(t);
     if (!i) {
       const o = t.getAncestors().reverse().find((r) => e.isObject(r));
-      return o ? B._createOn(o) : null;
+      return o ? M._createOn(o) : null;
     }
     if (!i.isCollapsed)
       return i;
     const s = i.start;
-    return t.isEqual(s) ? null : new B(s);
+    return t.isEqual(s) ? null : new M(s);
   }
   function i5(n, e) {
     const { start: t, end: i } = n, s = e.checkChild(t, "$text"), o = e.checkChild(i, "$text"), r = e.getLimitElement(t), a = e.getLimitElement(i);
@@ -17887,14 +17887,14 @@ Read more: ${o0}#error-${n}`;
         return null;
       if (n5(t, i, e)) {
         const d = t.nodeAfter && e.isSelectable(t.nodeAfter) ? null : e.getNearestSelectionRange(t, "forward"), f = i.nodeBefore && e.isSelectable(i.nodeBefore) ? null : e.getNearestSelectionRange(i, "backward"), m = d ? d.start : t, g = f ? f.end : i;
-        return new B(m, g);
+        return new M(m, g);
       }
     }
     const l = r && !r.is("rootElement"), c = a && !a.is("rootElement");
     if (l || c) {
       const u = t.nodeAfter && i.nodeBefore && t.nodeAfter.parent === i.nodeBefore.parent, d = l && (!u || !Sd(t.nodeAfter, e)), h = c && (!u || !Sd(i.nodeBefore, e));
       let f = t, m = i;
-      return d && (f = z._createBefore(xd(r, e))), h && (m = z._createAfter(xd(a, e))), new B(f, m);
+      return d && (f = z._createBefore(xd(r, e))), h && (m = z._createAfter(xd(a, e))), new M(f, m);
     }
     return null;
   }
@@ -18865,7 +18865,7 @@ Read more: ${o0}#error-${n}`;
      */
     getLimitElement(e) {
       let t;
-      for (e instanceof z ? t = e.parent : t = (e instanceof B ? [e] : Array.from(e.getRanges())).reduce((s, o) => {
+      for (e instanceof z ? t = e.parent : t = (e instanceof M ? [e] : Array.from(e.getRanges())).reduce((s, o) => {
         const r = o.getCommonAncestor();
         return s ? s.getCommonAncestor(r, { includeSelf: !0 }) : r;
       }, null); !this.isLimit(t) && t.parent; )
@@ -18934,23 +18934,23 @@ Read more: ${o0}#error-${n}`;
       if (e.root.rootName == "$graveyard")
         return null;
       if (this.checkChild(e, "$text"))
-        return new B(e);
+        return new M(e);
       let i, s;
       const o = e.getAncestors().reverse().find((r) => this.isLimit(r)) || e.root;
       (t == "both" || t == "backward") && (i = new bi({
-        boundaries: B._createIn(o),
+        boundaries: M._createIn(o),
         startPosition: e,
         direction: "backward"
       })), (t == "both" || t == "forward") && (s = new bi({
-        boundaries: B._createIn(o),
+        boundaries: M._createIn(o),
         startPosition: e
       }));
       for (const r of k5(i, s)) {
         const a = r.walker == i ? "elementEnd" : "elementStart", l = r.value;
         if (l.type == a && this.isObject(l.item))
-          return B._createOn(l.item);
+          return M._createOn(l.item);
         if (this.checkChild(l.nextPosition, "$text"))
-          return new B(l.nextPosition);
+          return new M(l.nextPosition);
       }
       return null;
     }
@@ -18997,7 +18997,7 @@ Read more: ${o0}#error-${n}`;
         if (i.is("$text"))
           Id(this, i, t);
         else {
-          const o = B._createIn(i).getPositions();
+          const o = M._createIn(i).getPositions();
           for (const r of o) {
             const a = r.nodeBefore || r.parent;
             Id(this, a, t);
@@ -19072,8 +19072,8 @@ Read more: ${o0}#error-${n}`;
     *_getValidRangesForRange(e, t) {
       let i = e.start, s = e.start;
       for (const o of e.getItems({ shallow: !0 }))
-        o.is("element") && (yield* this._getValidRangesForRange(B._createIn(o), t)), this.checkAttribute(o, t) || (i.isEqual(s) || (yield new B(i, s)), i = z._createAfter(o)), s = z._createAfter(o);
-      i.isEqual(s) || (yield new B(i, s));
+        o.is("element") && (yield* this._getValidRangesForRange(M._createIn(o), t)), this.checkAttribute(o, t) || (i.isEqual(s) || (yield new M(i, s)), i = z._createAfter(o)), s = z._createAfter(o);
+      i.isEqual(s) || (yield new M(i, s));
     }
     /**
      * Returns a model range which is optimal (in terms of UX) for inserting a widget block.
@@ -19097,14 +19097,14 @@ Read more: ${o0}#error-${n}`;
     findOptimalInsertionRange(e, t) {
       const i = e.getSelectedElement();
       if (i && this.isObject(i) && !this.isInline(i))
-        return t == "before" || t == "after" ? new B(z._createAt(i, t)) : B._createOn(i);
+        return t == "before" || t == "after" ? new M(z._createAt(i, t)) : M._createOn(i);
       const s = We(e.getSelectedBlocks());
       if (!s)
-        return new B(e.focus);
+        return new M(e.focus);
       if (s.isEmpty)
-        return new B(z._createAt(s, 0));
+        return new M(z._createAt(s, 0));
       const o = z._createAfter(s);
-      return e.focus.isTouching(o) ? new B(o) : new B(z._createBefore(s));
+      return e.focus.isTouching(o) ? new M(o) : new M(z._createBefore(s));
     }
   }
   class an {
@@ -19411,7 +19411,7 @@ Read more: ${o0}#error-${n}`;
      */
     _convertItem(e, t) {
       const i = { viewItem: e, modelCursor: t, modelRange: null };
-      if (e.is("element") ? this.fire(`element:${e.name}`, i, this.conversionApi) : e.is("$text") ? this.fire("text", i, this.conversionApi) : this.fire("documentFragment", i, this.conversionApi), i.modelRange && !(i.modelRange instanceof B))
+      if (e.is("element") ? this.fire(`element:${e.name}`, i, this.conversionApi) : e.is("$text") ? this.fire("text", i, this.conversionApi) : this.fire("documentFragment", i, this.conversionApi), i.modelRange && !(i.modelRange instanceof M))
         throw new k("view-conversion-dispatcher-incorrect-result", this);
       return { modelRange: i.modelRange, modelCursor: i.modelCursor };
     }
@@ -19420,10 +19420,10 @@ Read more: ${o0}#error-${n}`;
      */
     _convertChildren(e, t) {
       let i = t.is("position") ? t : z._createAt(t, 0);
-      const s = new B(i);
+      const s = new M(i);
       for (const o of Array.from(e.getChildren())) {
         const r = this._convertItem(o, i);
-        r.modelRange instanceof B && (s.end = r.modelRange.end, i = r.modelCursor);
+        r.modelRange instanceof M && (s.end = r.modelRange.end, i = r.modelCursor);
       }
       return { modelRange: s, modelCursor: i };
     }
@@ -19509,12 +19509,12 @@ Read more: ${o0}#error-${n}`;
     }
   }
   function A5(n, e) {
-    const t = /* @__PURE__ */ new Set(), i = /* @__PURE__ */ new Map(), s = B._createIn(n).getItems();
+    const t = /* @__PURE__ */ new Set(), i = /* @__PURE__ */ new Map(), s = M._createIn(n).getItems();
     for (const o of s)
       o.is("element", "$marker") && t.add(o);
     for (const o of t) {
       const r = o.getAttribute("data-name"), a = e.createPositionBefore(o);
-      i.has(r) ? i.get(r).end = a.clone() : i.set(r, new B(a.clone())), e.remove(o);
+      i.has(r) ? i.get(r).end = a.clone() : i.set(r, new M(a.clone())), e.remove(o);
     }
     return i;
   }
@@ -19687,7 +19687,7 @@ Read more: ${o0}#error-${n}`;
     toView(e, t = {}) {
       const i = this.viewDocument, s = this._viewWriter;
       this.mapper.clearBindings();
-      const o = B._createIn(e), r = new rn(i);
+      const o = M._createIn(e), r = new rn(i);
       this.mapper.bindElements(e, r);
       const a = e.is("documentFragment") ? e.markers : R5(e);
       return this.downcastDispatcher.convert(o, a, s, t), r;
@@ -19858,7 +19858,7 @@ Read more: ${o0}#error-${n}`;
     const e = [], t = n.root.document;
     if (!t)
       return /* @__PURE__ */ new Map();
-    const i = B._createIn(n);
+    const i = M._createIn(n);
     for (const s of t.model.markers) {
       const o = s.getRange(), r = o.isCollapsed, a = o.start.isEqual(i.start) || o.end.isEqual(i.end);
       if (r && a)
@@ -20442,7 +20442,7 @@ Read more: ${o0}#error-${n}`;
     const t = Xg(e), i = t.reduce((r, a) => r + a.offsetSize, 0), s = n.parent;
     so(n);
     const o = n.index;
-    return s._insertChild(o, t), no(s, o + t.length), no(s, o), new B(n, n.getShiftedBy(i));
+    return s._insertChild(o, t), no(s, o + t.length), no(s, o), new M(n, n.getShiftedBy(i));
   }
   function Qg(n) {
     if (!n.isFlat)
@@ -20540,8 +20540,8 @@ Read more: ${o0}#error-${n}`;
      */
     get affectedSelectable() {
       return [
-        B._createFromPositionAndShift(this.sourcePosition, this.howMany),
-        B._createFromPositionAndShift(this.targetPosition, 0)
+        M._createFromPositionAndShift(this.sourcePosition, this.howMany),
+        M._createFromPositionAndShift(this.targetPosition, 0)
       ];
     }
     /**
@@ -20595,7 +20595,7 @@ Read more: ${o0}#error-${n}`;
      * @internal
      */
     _execute() {
-      io(B._createFromPositionAndShift(this.sourcePosition, this.howMany), this.targetPosition);
+      io(M._createFromPositionAndShift(this.sourcePosition, this.howMany), this.targetPosition);
     }
     /**
      * @inheritDoc
@@ -20753,17 +20753,17 @@ Read more: ${o0}#error-${n}`;
      */
     get movedRange() {
       const e = this.splitPosition.getShiftedBy(Number.POSITIVE_INFINITY);
-      return new B(this.splitPosition, e);
+      return new M(this.splitPosition, e);
     }
     /**
      * @inheritDoc
      */
     get affectedSelectable() {
       const e = [
-        B._createFromPositionAndShift(this.splitPosition, 0),
-        B._createFromPositionAndShift(this.insertionPosition, 0)
+        M._createFromPositionAndShift(this.splitPosition, 0),
+        M._createFromPositionAndShift(this.insertionPosition, 0)
       ];
-      return this.graveyardPosition && e.push(B._createFromPositionAndShift(this.graveyardPosition, 0)), e;
+      return this.graveyardPosition && e.push(M._createFromPositionAndShift(this.graveyardPosition, 0)), e;
     }
     /**
      * Creates and returns an operation that has the same parameters as this operation.
@@ -20803,12 +20803,12 @@ Read more: ${o0}#error-${n}`;
     _execute() {
       const e = this.splitPosition.parent;
       if (this.graveyardPosition)
-        io(B._createFromPositionAndShift(this.graveyardPosition, 1), this.insertionPosition);
+        io(M._createFromPositionAndShift(this.graveyardPosition, 1), this.insertionPosition);
       else {
         const i = e._clone();
         Pc(this.insertionPosition, i);
       }
-      const t = new B(z._createAt(e, this.splitPosition.offset), z._createAt(e, e.maxOffset));
+      const t = new M(z._createAt(e, this.splitPosition.offset), z._createAt(e, e.maxOffset));
       io(t, this.moveTargetPosition);
     }
     /**
@@ -20880,7 +20880,7 @@ Read more: ${o0}#error-${n}`;
      */
     get movedRange() {
       const e = this.sourcePosition.getShiftedBy(Number.POSITIVE_INFINITY);
-      return new B(this.sourcePosition, e);
+      return new M(this.sourcePosition, e);
     }
     /**
      * @inheritDoc
@@ -20888,10 +20888,10 @@ Read more: ${o0}#error-${n}`;
     get affectedSelectable() {
       const e = this.sourcePosition.parent;
       return [
-        B._createOn(e),
+        M._createOn(e),
         // These could be positions but `Selectable` type only supports `Iterable<Range>`.
-        B._createFromPositionAndShift(this.targetPosition, 0),
-        B._createFromPositionAndShift(this.graveyardPosition, 0)
+        M._createFromPositionAndShift(this.targetPosition, 0),
+        M._createFromPositionAndShift(this.graveyardPosition, 0)
       ];
     }
     /**
@@ -20927,8 +20927,8 @@ Read more: ${o0}#error-${n}`;
      * @internal
      */
     _execute() {
-      const e = this.sourcePosition.parent, t = B._createIn(e);
-      io(t, this.targetPosition), io(B._createOn(e), this.graveyardPosition);
+      const e = this.sourcePosition.parent, t = M._createIn(e);
+      io(t, this.targetPosition), io(M._createOn(e), this.graveyardPosition);
     }
     /**
      * @inheritDoc
@@ -21025,7 +21025,7 @@ Read more: ${o0}#error-${n}`;
      * @param document Document on which this operation will be applied.
      */
     static fromJSON(e, t) {
-      return new ft(e.name, e.oldRange ? B.fromJSON(e.oldRange, t) : null, e.newRange ? B.fromJSON(e.newRange, t) : null, t.model.markers, e.affectsData, e.baseVersion);
+      return new ft(e.name, e.oldRange ? M.fromJSON(e.oldRange, t) : null, e.newRange ? M.fromJSON(e.newRange, t) : null, t.model.markers, e.affectsData, e.baseVersion);
     }
   }
   /**
@@ -21120,7 +21120,7 @@ Read more: ${o0}#error-${n}`;
      * @param document Document on which this operation will be applied.
      */
     static fromJSON(e, t) {
-      return new Ve(B.fromJSON(e.range, t), e.key, e.oldValue, e.newValue, e.baseVersion);
+      return new Ve(M.fromJSON(e.range, t), e.key, e.oldValue, e.newValue, e.baseVersion);
     }
   }
   /**
@@ -21543,7 +21543,7 @@ Read more: ${o0}#error-${n}`;
           if (e.splitPosition.isEqual(t.sourcePosition) || e.splitPosition.isBefore(t.sourcePosition))
             this._setRelation(e, t, "splitBefore");
           else {
-            const i = B._createFromPositionAndShift(t.sourcePosition, t.howMany);
+            const i = M._createFromPositionAndShift(t.sourcePosition, t.howMany);
             if (e.splitPosition.hasSameParentAs(t.sourcePosition) && i.containsPosition(e.splitPosition)) {
               const s = i.end.offset - e.splitPosition.offset, o = e.splitPosition.offset - i.start.offset;
               this._setRelation(e, t, { howMany: s, offset: o });
@@ -21556,7 +21556,7 @@ Read more: ${o0}#error-${n}`;
         if (!i)
           return;
         if (t instanceof re) {
-          const s = B._createFromPositionAndShift(t.sourcePosition, t.howMany), o = s.containsPosition(i.start) || s.start.isEqual(i.start), r = s.containsPosition(i.end) || s.end.isEqual(i.end);
+          const s = M._createFromPositionAndShift(t.sourcePosition, t.howMany), o = s.containsPosition(i.start) || s.start.isEqual(i.start), r = s.containsPosition(i.end) || s.end.isEqual(i.end);
           (o || r) && !s.containsRange(i) && this._setRelation(e, t, {
             side: o ? "left" : "right",
             path: o ? i.start.path.slice() : i.end.path.slice()
@@ -21662,18 +21662,18 @@ Read more: ${o0}#error-${n}`;
     const s = n.nodes.getNode(0).getAttribute(e);
     if (s == t)
       return null;
-    const o = new B(n.position, n.position.getShiftedBy(n.howMany));
+    const o = new M(n.position, n.position.getShiftedBy(n.howMany));
     return new Ve(o, e, s, t, 0);
   }
   oe(Ve, Pe, (n, e) => {
     const t = [];
-    n.range.start.hasSameParentAs(e.deletionPosition) && (n.range.containsPosition(e.deletionPosition) || n.range.start.isEqual(e.deletionPosition)) && t.push(B._createFromPositionAndShift(e.graveyardPosition, 1));
+    n.range.start.hasSameParentAs(e.deletionPosition) && (n.range.containsPosition(e.deletionPosition) || n.range.start.isEqual(e.deletionPosition)) && t.push(M._createFromPositionAndShift(e.graveyardPosition, 1));
     const i = n.range._getTransformedByMergeOperation(e);
     return i.isCollapsed || t.push(i), t.map((s) => new Ve(s, n.key, n.oldValue, n.newValue, n.baseVersion));
   });
   oe(Ve, re, (n, e) => D5(n.range, e).map((i) => new Ve(i, n.key, n.oldValue, n.newValue, n.baseVersion)));
   function D5(n, e) {
-    const t = B._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const t = M._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let i = null, s = [];
     t.containsRange(n, !0) ? i = n : n.start.hasSameParentAs(t.start) ? (s = n.getDifference(t), i = n.getIntersection(t)) : s = [n];
     const o = [];
@@ -21689,7 +21689,7 @@ Read more: ${o0}#error-${n}`;
       return e.graveyardPosition || n.range.end.offset++, [n];
     if (n.range.start.hasSameParentAs(e.splitPosition) && n.range.containsPosition(e.splitPosition)) {
       const t = n.clone();
-      return t.range = new B(e.moveTargetPosition.clone(), n.range.end._getCombined(e.splitPosition, e.moveTargetPosition)), n.range.end = e.splitPosition.clone(), n.range.end.stickiness = "toPrevious", [n, t];
+      return t.range = new M(e.moveTargetPosition.clone(), n.range.end._getCombined(e.splitPosition, e.moveTargetPosition)), n.range.end = e.splitPosition.clone(), n.range.end.stickiness = "toPrevious", [n, t];
     }
     return n.range = n.range._getTransformedBySplitOperation(e), [n];
   });
@@ -21716,15 +21716,15 @@ Read more: ${o0}#error-${n}`;
   });
   oe(ft, Pe, (n, e) => (n.oldRange && (n.oldRange = n.oldRange._getTransformedByMergeOperation(e)), n.newRange && (n.newRange = n.newRange._getTransformedByMergeOperation(e)), [n]));
   oe(ft, re, (n, e, t) => {
-    if (n.oldRange && (n.oldRange = B._createFromRanges(n.oldRange._getTransformedByMoveOperation(e))), n.newRange) {
+    if (n.oldRange && (n.oldRange = M._createFromRanges(n.oldRange._getTransformedByMoveOperation(e))), n.newRange) {
       if (t.abRelation) {
-        const i = B._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
+        const i = M._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
         if (t.abRelation.side == "left" && e.targetPosition.isEqual(n.newRange.start))
           return n.newRange.end = i.end, n.newRange.start.path = t.abRelation.path, [n];
         if (t.abRelation.side == "right" && e.targetPosition.isEqual(n.newRange.end))
           return n.newRange.start = i.start, n.newRange.end.path = t.abRelation.path, [n];
       }
-      n.newRange = B._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
+      n.newRange = M._createFromRanges(n.newRange._getTransformedByMoveOperation(e));
     }
     return [n];
   });
@@ -21757,7 +21757,7 @@ Read more: ${o0}#error-${n}`;
     return n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition = n.sourcePosition._getTransformedByMergeOperation(e), n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), (!n.graveyardPosition.isEqual(e.graveyardPosition) || !t.aIsStrong) && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
   oe(Pe, re, (n, e, t) => {
-    const i = B._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const i = M._createFromPositionAndShift(e.sourcePosition, e.howMany);
     return e.type == "remove" && !t.bWasUndone && !t.forceWeakRemove && n.deletionPosition.hasSameParentAs(e.sourcePosition) && i.containsPosition(n.sourcePosition) ? [new Ne(0)] : (e.sourcePosition.getShiftedBy(e.howMany).isEqual(n.sourcePosition) ? n.sourcePosition.stickiness = "toNone" : e.targetPosition.isEqual(n.sourcePosition) && t.abRelation == "mergeSourceAffected" ? n.sourcePosition.stickiness = "toNext" : e.sourcePosition.isEqual(n.targetPosition) ? (n.targetPosition.stickiness = "toNone", n.howMany -= e.howMany) : e.targetPosition.isEqual(n.targetPosition) && t.abRelation == "mergeTargetWasBefore" ? (n.targetPosition.stickiness = "toPrevious", n.howMany += e.howMany) : (n.sourcePosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.sourcePosition.hasSameParentAs(e.sourcePosition) && (n.howMany -= e.howMany)), n.sourcePosition = n.sourcePosition._getTransformedByMoveOperation(e), n.targetPosition = n.targetPosition._getTransformedByMoveOperation(e), n.sourcePosition.stickiness = "toPrevious", n.targetPosition.stickiness = "toNext", n.graveyardPosition.isEqual(e.targetPosition) || (n.graveyardPosition = n.graveyardPosition._getTransformedByMoveOperation(e)), [n]);
   });
   oe(Pe, fe, (n, e, t) => {
@@ -21775,11 +21775,11 @@ Read more: ${o0}#error-${n}`;
     return n.sourcePosition.hasSameParentAs(e.splitPosition) && (n.howMany = e.splitPosition.offset), n.sourcePosition = n.sourcePosition._getTransformedBySplitOperation(e), n.targetPosition = n.targetPosition._getTransformedBySplitOperation(e), [n];
   });
   oe(re, Ke, (n, e) => {
-    const i = B._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByInsertOperation(e, !1)[0];
+    const i = M._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByInsertOperation(e, !1)[0];
     return n.sourcePosition = i.start, n.howMany = i.end.offset - i.start.offset, n.targetPosition.isEqual(e.position) || (n.targetPosition = n.targetPosition._getTransformedByInsertOperation(e)), [n];
   });
   oe(re, re, (n, e, t) => {
-    const i = B._createFromPositionAndShift(n.sourcePosition, n.howMany), s = B._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const i = M._createFromPositionAndShift(n.sourcePosition, n.howMany), s = M._createFromPositionAndShift(e.sourcePosition, e.howMany);
     let o = t.aIsStrong, r = !t.aIsStrong;
     t.abRelation == "insertBefore" || t.baRelation == "insertAfter" ? r = !0 : (t.abRelation == "insertAfter" || t.baRelation == "insertBefore") && (r = !1);
     let a;
@@ -21805,14 +21805,14 @@ Read more: ${o0}#error-${n}`;
   oe(re, fe, (n, e, t) => {
     let i = n.targetPosition.clone();
     (!n.targetPosition.isEqual(e.insertionPosition) || !e.graveyardPosition || t.abRelation == "moveTargetAfter") && (i = n.targetPosition._getTransformedBySplitOperation(e));
-    const s = B._createFromPositionAndShift(n.sourcePosition, n.howMany);
+    const s = M._createFromPositionAndShift(n.sourcePosition, n.howMany);
     if (s.end.isEqual(e.insertionPosition))
       return e.graveyardPosition || n.howMany++, n.targetPosition = i, [n];
     if (s.start.hasSameParentAs(e.splitPosition) && s.containsPosition(e.splitPosition)) {
-      let a = new B(e.splitPosition, s.end);
+      let a = new M(e.splitPosition, s.end);
       a = a._getTransformedBySplitOperation(e);
       const l = [
-        new B(s.start, e.splitPosition),
+        new M(s.start, e.splitPosition),
         a
       ];
       return qn(l, i);
@@ -21821,12 +21821,12 @@ Read more: ${o0}#error-${n}`;
     const r = [s._getTransformedBySplitOperation(e)];
     if (e.graveyardPosition) {
       const a = s.start.isEqual(e.graveyardPosition) || s.containsPosition(e.graveyardPosition);
-      n.howMany > 1 && a && !t.aWasUndone && r.push(B._createFromPositionAndShift(e.insertionPosition, 1));
+      n.howMany > 1 && a && !t.aWasUndone && r.push(M._createFromPositionAndShift(e.insertionPosition, 1));
     }
     return qn(r, i);
   });
   oe(re, Pe, (n, e, t) => {
-    const i = B._createFromPositionAndShift(n.sourcePosition, n.howMany);
+    const i = M._createFromPositionAndShift(n.sourcePosition, n.howMany);
     if (e.deletionPosition.hasSameParentAs(n.sourcePosition) && i.containsPosition(e.sourcePosition)) {
       if (n.type == "remove" && !t.forceWeakRemove) {
         if (!t.aWasUndone) {
@@ -21843,7 +21843,7 @@ Read more: ${o0}#error-${n}`;
       } else if (n.howMany == 1)
         return t.bWasUndone ? (n.sourcePosition = e.graveyardPosition.clone(), n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), [n]) : [new Ne(0)];
     }
-    const o = B._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByMergeOperation(e);
+    const o = M._createFromPositionAndShift(n.sourcePosition, n.howMany)._getTransformedByMergeOperation(e);
     return n.sourcePosition = o.start, n.howMany = o.end.offset - o.start.offset, n.targetPosition = n.targetPosition._getTransformedByMergeOperation(e), [n];
   });
   oe(mt, Ke, (n, e) => (n.position = n.position._getTransformedByInsertOperation(e), [n]));
@@ -21885,7 +21885,7 @@ Read more: ${o0}#error-${n}`;
     return n.splitPosition.hasSameParentAs(e.deletionPosition) && !n.splitPosition.isAfter(e.deletionPosition) && n.howMany--, n.splitPosition.hasSameParentAs(e.targetPosition) && (n.howMany += e.howMany), n.splitPosition = n.splitPosition._getTransformedByMergeOperation(e), n.insertionPosition = fe.getInsertionPosition(n.splitPosition), n.graveyardPosition && (n.graveyardPosition = n.graveyardPosition._getTransformedByMergeOperation(e)), [n];
   });
   oe(fe, re, (n, e, t) => {
-    const i = B._createFromPositionAndShift(e.sourcePosition, e.howMany);
+    const i = M._createFromPositionAndShift(e.sourcePosition, e.howMany);
     if (n.graveyardPosition) {
       const o = i.start.isEqual(n.graveyardPosition) || i.containsPosition(n.graveyardPosition);
       if (!t.bWasUndone && o) {
@@ -22109,7 +22109,7 @@ Read more: ${o0}#error-${n}`;
           if (this._isInInsertedElement(t.position.parent))
             return;
           this._markRemove(t.position.parent, t.position.offset, 1), this._markInsert(t.position.parent, t.position.offset, 1);
-          const i = B._createFromPositionAndShift(t.position, 1);
+          const i = M._createFromPositionAndShift(t.position, 1);
           for (const s of this._markerCollection.getMarkersIntersectingRange(i)) {
             const o = s.getData();
             this.bufferMarkerChange(s.name, o, o);
@@ -22255,10 +22255,10 @@ Read more: ${o0}#error-${n}`;
             const d = r[l].attributes, h = o[c].attributes;
             let f;
             if (r[l].name == "$text")
-              f = new B(z._createAt(i, l), z._createAt(i, l + 1));
+              f = new M(z._createAt(i, l), z._createAt(i, l + 1));
             else {
               const m = i.offsetToIndex(l);
-              f = new B(z._createAt(i, l), z._createAt(i.getChild(m), 0));
+              f = new M(z._createAt(i, l), z._createAt(i.getChild(m), 0));
             }
             t.push(...this._getAttributesDiff(f, h, d)), l++, c++;
           } else
@@ -22331,7 +22331,7 @@ Read more: ${o0}#error-${n}`;
       if (this._isInInsertedElement(e.parent))
         return;
       this._markRemove(e.parent, e.startOffset, e.offsetSize), this._markInsert(e.parent, e.startOffset, e.offsetSize), this._refreshedItems.add(e);
-      const t = B._createOn(e);
+      const t = M._createOn(e);
       for (const i of this._markerCollection.getMarkersIntersectingRange(t)) {
         const s = i.getData();
         this.bufferMarkerChange(i.name, s, s);
@@ -22598,7 +22598,7 @@ Read more: ${o0}#error-${n}`;
      * and `howMany`.
      */
     _removeAllNestedChanges(e, t, i) {
-      const s = new B(z._createAt(e, t), z._createAt(e, t + i));
+      const s = new M(z._createAt(e, t), z._createAt(e, t + i));
       for (const o of s.getItems({ shallow: !0 }))
         o.is("element") && (this._elementSnapshots.delete(o), this._changesInElement.delete(o), this._removeAllNestedChanges(o, 0, o.maxOffset));
     }
@@ -23337,7 +23337,7 @@ Read more: ${o0}#error-${n}`;
      * @internal
      */
     _execute() {
-      Qg(B._createFromPositionAndShift(this.sourcePosition, this.howMany));
+      Qg(M._createFromPositionAndShift(this.sourcePosition, this.howMany));
     }
     /**
      * @inheritDoc
@@ -23698,7 +23698,7 @@ Read more: ${o0}#error-${n}`;
       const s = z._createAt(t, i);
       if (e.parent)
         if (zd(e.root, s.root)) {
-          this.move(B._createOn(e), s);
+          this.move(M._createOn(e), s);
           return;
         } else {
           if (e.root.document)
@@ -23708,7 +23708,7 @@ Read more: ${o0}#error-${n}`;
       const o = s.root.document ? s.root.document.version : null, r = new Ke(s, e, o);
       if (e instanceof he && (r.shouldReceiveAttributes = !0), this.batch.addOperation(r), this.model.applyOperation(r), e instanceof pi)
         for (const [a, l] of e.markers) {
-          const c = z._createAt(l.root, 0), d = { range: new B(l.start._getCombined(c, s), l.end._getCombined(c, s)), usingOperation: !0, affectsData: !0 };
+          const c = z._createAt(l.root, 0), d = { range: new M(l.start._getCombined(c, s), l.end._getCombined(c, s)), usingOperation: !0, affectsData: !0 };
           this.model.markers.has(a) ? this.updateMarker(a, d) : this.addMarker(a, d);
         }
     }
@@ -23751,7 +23751,7 @@ Read more: ${o0}#error-${n}`;
      * @param itemOrRange Model item or range on which the attribute will be set.
      */
     setAttribute(e, t, i) {
-      if (this._assertWriterUsedCorrectly(), i instanceof B) {
+      if (this._assertWriterUsedCorrectly(), i instanceof M) {
         const s = i.getMinimalFlatRanges();
         for (const o of s)
           Nd(this, e, t, o);
@@ -23784,7 +23784,7 @@ Read more: ${o0}#error-${n}`;
      * @param itemOrRange Model item or range from which the attribute will be removed.
      */
     removeAttribute(e, t) {
-      if (this._assertWriterUsedCorrectly(), t instanceof B) {
+      if (this._assertWriterUsedCorrectly(), t instanceof M) {
         const i = t.getMinimalFlatRanges();
         for (const s of i)
           Nd(this, e, null, s);
@@ -23802,7 +23802,7 @@ Read more: ${o0}#error-${n}`;
         for (const s of i.getAttributeKeys())
           this.removeAttribute(s, i);
       };
-      if (!(e instanceof B))
+      if (!(e instanceof M))
         t(e);
       else
         for (const i of e.getItems())
@@ -23838,7 +23838,7 @@ Read more: ${o0}#error-${n}`;
      * @param offset Offset or one of the flags. Used only when second parameter is a {@link module:engine/model/item~Item model item}.
      */
     move(e, t, i) {
-      if (this._assertWriterUsedCorrectly(), !(e instanceof B))
+      if (this._assertWriterUsedCorrectly(), !(e instanceof M))
         throw new k("writer-move-invalid-range", this);
       if (!e.isFlat)
         throw new k("writer-move-range-not-flat", this);
@@ -23857,7 +23857,7 @@ Read more: ${o0}#error-${n}`;
      */
     remove(e) {
       this._assertWriterUsedCorrectly();
-      const i = (e instanceof B ? e : B._createOn(e)).getMinimalFlatRanges().reverse();
+      const i = (e instanceof M ? e : M._createOn(e)).getMinimalFlatRanges().reverse();
       for (const s of i)
         this._addOperationForAffectedMarkers("move", s), Q5(s.start, s.end.offset - s.start.offset, this.batch, this.model);
     }
@@ -23947,7 +23947,7 @@ Read more: ${o0}#error-${n}`;
      */
     _mergeDetached(e) {
       const t = e.nodeBefore, i = e.nodeAfter;
-      this.move(B._createIn(i), z._createAt(t, "end")), this.remove(i);
+      this.move(M._createIn(i), z._createAt(t, "end")), this.remove(i);
     }
     /**
      * Performs merge action in a non-detached tree.
@@ -23997,7 +23997,7 @@ Read more: ${o0}#error-${n}`;
       } while (i !== t);
       return {
         position: e,
-        range: new B(z._createAt(s, "end"), z._createAt(o, 0))
+        range: new M(z._createAt(s, "end"), z._createAt(o, 0))
       };
     }
     /**
@@ -24018,7 +24018,7 @@ Read more: ${o0}#error-${n}`;
       if (i.parent !== null)
         throw new k("writer-wrap-element-attached", this);
       this.insert(i, e.start);
-      const s = new B(e.start.getShiftedBy(1), e.end.getShiftedBy(1));
+      const s = new M(e.start.getShiftedBy(1), e.end.getShiftedBy(1));
       this.move(s, z._createAt(i, 0));
     }
     /**
@@ -24030,7 +24030,7 @@ Read more: ${o0}#error-${n}`;
     unwrap(e) {
       if (this._assertWriterUsedCorrectly(), e.parent === null)
         throw new k("writer-unwrap-element-no-parent", this);
-      this.move(B._createIn(e), this.createPositionAfter(e)), this.remove(e);
+      this.move(M._createIn(e), this.createPositionAfter(e)), this.remove(e);
     }
     /**
      * Adds a {@link module:engine/model/markercollection~Marker marker}. Marker is a named range, which tracks
@@ -24371,7 +24371,7 @@ Read more: ${o0}#error-${n}`;
       c = d.item.getAttribute(e), a && l != c && (l != t && u(), r = a), a = d.nextPosition, l = c;
     a instanceof z && a != r && l != t && u();
     function u() {
-      const d = new B(r, a), h = d.root.document ? o.version : null, f = new Ve(d, e, l, t, h);
+      const d = new M(r, a), h = d.root.document ? o.version : null, f = new Ve(d, e, l, t, h);
       n.batch.addOperation(f), s.applyOperation(f);
     }
   }
@@ -24383,7 +24383,7 @@ Read more: ${o0}#error-${n}`;
         const u = i.document ? o.version : null;
         l = new vi(i, e, r, t, u);
       } else {
-        a = new B(z._createBefore(i), n.createPositionAfter(i));
+        a = new M(z._createBefore(i), n.createPositionAfter(i));
         const u = a.root.document ? o.version : null;
         l = new Ve(a, e, r, t, u);
       }
@@ -24504,7 +24504,7 @@ Read more: ${o0}#error-${n}`;
     return !t && i;
   }
   function oE(n, e, t) {
-    const i = new B(n, e);
+    const i = new M(n, e);
     for (const s of i.getWalker())
       if (t.isLimit(s.item))
         return !1;
@@ -24615,7 +24615,7 @@ Read more: ${o0}#error-${n}`;
           f && m && f.root === m.root && f.root.document && !i.model.markers.has(h) && i.addMarker(h, {
             usingOperation: !0,
             affectsData: !0,
-            range: new B(f, m)
+            range: new M(f, m)
           });
         u && (l = u.toRange(), u.detach());
       }
@@ -24659,14 +24659,14 @@ Read more: ${o0}#error-${n}`;
      * Returns `null` if there is no valid range to select after insertion.
      */
     getSelectionRange() {
-      return this._nodeToSelect ? B._createOn(this._nodeToSelect) : this.model.schema.getNearestSelectionRange(this.position);
+      return this._nodeToSelect ? M._createOn(this._nodeToSelect) : this.model.schema.getNearestSelectionRange(this.position);
     }
     /**
      * Returns a range which contains all the performed changes. This is a range that, if removed, would return the model to the state
      * before the insertion. Returns `null` if no changes were done.
      */
     getAffectedRange() {
-      return this._affectedStart ? new B(this._affectedStart, this._affectedEnd) : null;
+      return this._affectedStart ? new M(this._affectedStart, this._affectedEnd) : null;
     }
     /**
      * Destroys `Insertion` instance.
@@ -24941,7 +24941,7 @@ Read more: ${o0}#error-${n}`;
   }
   function bE(n, e) {
     const t = n.root, i = z._createAt(t, e ? "end" : 0);
-    return e ? new B(n, i) : new B(i, n);
+    return e ? new M(n, i) : new M(i, n);
   }
   function _E(n, e, t) {
     const i = e + (t ? 0 : -1);
@@ -25445,7 +25445,7 @@ Read more: ${o0}#error-${n}`;
      * @param options.ignoreMarkers Whether markers should be ignored.
      */
     hasContent(e, t = {}) {
-      const i = e instanceof B ? e : B._createIn(e);
+      const i = e instanceof M ? e : M._createIn(e);
       if (i.isCollapsed)
         return !1;
       const { ignoreWhitespaces: s = !1, ignoreMarkers: o = !1 } = t;
@@ -25557,7 +25557,7 @@ Read more: ${o0}#error-${n}`;
      * @param end End position. If not set, the range will be collapsed to the `start` position.
      */
     createRange(e, t) {
-      return new B(e, t);
+      return new M(e, t);
     }
     /**
      * Creates a range inside the given element which starts before the first child of
@@ -25575,7 +25575,7 @@ Read more: ${o0}#error-${n}`;
      * @param element Element which is a parent for the range.
      */
     createRangeIn(e) {
-      return B._createIn(e);
+      return M._createIn(e);
     }
     /**
      * Creates a range that starts before the given {@link module:engine/model/item~Item model item} and ends after it.
@@ -25592,7 +25592,7 @@ Read more: ${o0}#error-${n}`;
      * @param item
      */
     createRangeOn(e) {
-      return B._createOn(e);
+      return M._createOn(e);
     }
     createSelection(...e) {
       return new Ct(...e);
@@ -28354,7 +28354,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ex extends R {
+  class Ex extends L {
     constructor() {
       super(...arguments), this.contentView = null;
     }
@@ -32664,7 +32664,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class gi extends R {
+  class gi extends L {
     /**
      * @inheritDoc
      */
@@ -34318,7 +34318,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ho = ds("px");
-  class Fi extends R {
+  class Fi extends L {
     /**
      * @inheritDoc
      */
@@ -37205,7 +37205,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $s extends R {
+  class $s extends L {
     constructor() {
       super(...arguments), this._markersToCopy = /* @__PURE__ */ new Map();
     }
@@ -37477,7 +37477,7 @@ Read more: ${o0}#error-${n}`;
           [r.type]: a
         }), r.markerElement && e.remove(r.markerElement), o;
       }, {});
-      return QC(s, (o) => new B(o.start || e.createPositionFromPath(t, [0]), o.end || e.createPositionAt(t, "end")));
+      return QC(s, (o) => new M(o.start || e.createPositionFromPath(t, [0]), o.end || e.createPositionAt(t, "end")));
     }
     /**
      * Returns array that contains list of fake markers with corresponding `$marker` elements.
@@ -37533,7 +37533,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ot extends R {
+  class Ot extends L {
     /**
      * @inheritDoc
      */
@@ -37806,7 +37806,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Kp extends R {
+  class Kp extends L {
     /**
      * @inheritDoc
      */
@@ -38136,7 +38136,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class li extends R {
+  class li extends L {
     /**
      * @inheritDoc
      */
@@ -38178,7 +38178,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Jp extends R {
+  class Jp extends L {
     static get requires() {
       return [Kp, li];
     }
@@ -38257,7 +38257,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Pr extends R {
+  class Pr extends L {
     /**
      * @inheritDoc
      */
@@ -38511,7 +38511,7 @@ Read more: ${o0}#error-${n}`;
     "typography",
     "quotes"
   ];
-  class QI extends R {
+  class QI extends L {
     /**
      * @inheritDoc
      */
@@ -38564,8 +38564,8 @@ Read more: ${o0}#error-${n}`;
               m += w.length;
               continue;
             }
-            const L = f.start.getShiftedBy(m), T = t.createRange(L, L.getShiftedBy(w.length)), M = eP(L);
-            t.insertContent(g.createText(A, M), T), m += A.length;
+            const I = f.start.getShiftedBy(m), T = t.createRange(I, I.getShiftedBy(w.length)), F = eP(I);
+            t.insertContent(g.createText(A, F), T), m += A.length;
           }
           t.enqueueChange(() => {
             i.requestUndoOnBackspace();
@@ -38752,7 +38752,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ga extends R {
+  class ga extends L {
     /**
      * @inheritDoc
      */
@@ -38825,7 +38825,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class lP extends R {
+  class lP extends L {
     /**
      * @inheritDoc
      */
@@ -39018,7 +39018,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const nw = ["before", "after"], kP = new DOMParser().parseFromString(CP, "image/svg+xml").firstChild, Lh = "ck-widget__type-around_disabled";
-  class TP extends R {
+  class TP extends L {
     constructor() {
       super(...arguments), this._currentFakeCaretModelElement = null;
     }
@@ -39562,7 +39562,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class gs extends R {
+  class gs extends L {
     constructor() {
       super(...arguments), this._previouslySelected = /* @__PURE__ */ new Set();
     }
@@ -39833,7 +39833,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Lr extends R {
+  class Lr extends L {
     constructor() {
       super(...arguments), this._toolbarDefinitions = /* @__PURE__ */ new Map();
     }
@@ -40374,7 +40374,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Za extends R {
+  class Za extends L {
     constructor() {
       super(...arguments), this._resizers = /* @__PURE__ */ new Map();
     }
@@ -40517,7 +40517,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class qo extends R {
+  class qo extends L {
     constructor() {
       super(...arguments), this.removeDropMarkerDelayed = _c(() => this.removeDropMarker(), 40), this._updateDropMarkerThrottled = Jn((e) => this._updateDropMarker(e), 40), this._reconvertMarkerThrottled = Jn(() => {
         this.editor.model.markers.has("drop-target") && this.editor.editing.reconvertMarker("drop-target");
@@ -40629,13 +40629,13 @@ Read more: ${o0}#error-${n}`;
       const t = this.editor.editing, i = e.start.nodeBefore, s = e.start.nodeAfter, o = e.start.parent, r = i ? t.mapper.toViewElement(i) : null, a = r ? t.view.domConverter.mapViewToDom(r) : null, l = s ? t.mapper.toViewElement(s) : null, c = l ? t.view.domConverter.mapViewToDom(l) : null, u = t.mapper.toViewElement(o);
       if (!u)
         return;
-      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = G.window, g = a ? new te(a) : null, _ = c ? new te(c) : null, w = new te(d).excludeScrollbarsAndBorders(), A = g ? g.bottom : w.top, L = _ ? _.top : w.bottom, T = G.window.getComputedStyle(d), M = A <= L ? (A + L) / 2 : L;
-      if (h.top < M && M < h.bottom) {
-        const y = w.left + parseFloat(T.paddingLeft), P = w.right - parseFloat(T.paddingRight), p = Math.max(y + f, h.left), b = Math.min(P + f, h.right);
+      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = G.window, g = a ? new te(a) : null, _ = c ? new te(c) : null, w = new te(d).excludeScrollbarsAndBorders(), A = g ? g.bottom : w.top, I = _ ? _.top : w.bottom, T = G.window.getComputedStyle(d), F = A <= I ? (A + I) / 2 : I;
+      if (h.top < F && F < h.bottom) {
+        const y = w.left + parseFloat(T.paddingLeft), R = w.right - parseFloat(T.paddingRight), p = Math.max(y + f, h.left), b = Math.min(R + f, h.right);
         this._dropTargetLineView.set({
           isVisible: !0,
           left: p,
-          top: M + m,
+          top: F + m,
           width: b - p
         });
       } else
@@ -40732,7 +40732,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class QP extends R {
+  class QP extends L {
     constructor() {
       super(...arguments), this._isBlockDragging = !1, this._domEmitter = new (pt())();
     }
@@ -40800,7 +40800,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class XP extends R {
+  class XP extends L {
     constructor() {
       super(...arguments), this._clearDraggableAttributesDelayed = _c(() => this._clearDraggableAttributes(), 40), this._blockMode = !1, this._domEmitter = new (pt())();
     }
@@ -41017,7 +41017,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class YP extends R {
+  class YP extends L {
     /**
      * @inheritDoc
      */
@@ -41059,7 +41059,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $c extends R {
+  class $c extends L {
     /**
      * @inheritDoc
      */
@@ -41130,7 +41130,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const i3 = bo("Ctrl+A");
-  class n3 extends R {
+  class n3 extends L {
     /**
      * @inheritDoc
      */
@@ -41159,7 +41159,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class o3 extends R {
+  class o3 extends L {
     /**
      * @inheritDoc
      */
@@ -41196,7 +41196,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class r3 extends R {
+  class r3 extends L {
     /**
      * @inheritDoc
      */
@@ -41359,7 +41359,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class d3 extends R {
+  class d3 extends L {
     constructor() {
       super(...arguments), this._batchRegistry = /* @__PURE__ */ new WeakSet();
     }
@@ -41400,7 +41400,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class h3 extends R {
+  class h3 extends L {
     /**
      * @inheritDoc
      */
@@ -41449,7 +41449,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class qc extends R {
+  class qc extends L {
     /**
      * @inheritDoc
      */
@@ -41467,7 +41467,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class f3 extends R {
+  class f3 extends L {
     /**
      * @inheritDoc
      */
@@ -41561,7 +41561,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class yo extends R {
+  class yo extends L {
     /**
      * @inheritDoc
      */
@@ -41675,7 +41675,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class _3 extends R {
+  class _3 extends L {
     /**
      * @inheritDoc
      */
@@ -41779,7 +41779,7 @@ Read more: ${o0}#error-${n}`;
     ["center", j.alignCenter],
     ["justify", j.alignJustify]
   ]);
-  class T3 extends R {
+  class T3 extends L {
     /**
      * Returns the localized option titles provided by the plugin.
      *
@@ -41905,7 +41905,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class E3 extends R {
+  class E3 extends L {
     /**
      * @inheritDoc
      */
@@ -42057,7 +42057,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class L3 extends R {
+  class L3 extends L {
     /**
      * @inheritDoc
      */
@@ -42140,7 +42140,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class V3 extends R {
+  class V3 extends L {
     /**
      * @inheritDoc
      */
@@ -42220,7 +42220,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class gw extends R {
+  class gw extends L {
     /**
      * @inheritDoc
      */
@@ -42358,7 +42358,7 @@ Read more: ${o0}#error-${n}`;
     "xx-large",
     "xxx-large"
   ];
-  class U3 extends R {
+  class U3 extends L {
     /**
      * @inheritDoc
      */
@@ -42453,7 +42453,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class H3 extends R {
+  class H3 extends L {
     /**
      * @inheritDoc
      */
@@ -42545,7 +42545,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class $3 extends R {
+  class $3 extends L {
     /**
      * @inheritDoc
      */
@@ -42584,7 +42584,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class G3 extends R {
+  class G3 extends L {
     /**
      * @inheritDoc
      */
@@ -42695,7 +42695,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class pw extends R {
+  class pw extends L {
     /**
      * Creates a plugin which introduces a dropdown with a pre–configured
      * {@link module:ui/colorselector/colorselectorview~ColorSelectorView}.
@@ -42816,7 +42816,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Z3 extends R {
+  class Z3 extends L {
     /**
      * @inheritDoc
      */
@@ -42846,7 +42846,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Q3 extends R {
+  class Q3 extends L {
     /**
      * @inheritDoc
      */
@@ -42971,7 +42971,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ww extends R {
+  class ww extends L {
     /**
      * @inheritDoc
      */
@@ -42989,7 +42989,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class eR extends R {
+  class eR extends L {
     /**
      * @inheritDoc
      */
@@ -43075,7 +43075,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Bn = "bold";
-  class tR extends R {
+  class tR extends L {
     /**
      * @inheritDoc
      */
@@ -43135,7 +43135,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const jo = "bold";
-  class iR extends R {
+  class iR extends L {
     /**
      * @inheritDoc
      */
@@ -43166,7 +43166,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class nR extends R {
+  class nR extends L {
     /**
      * @inheritDoc
      */
@@ -43185,7 +43185,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Yi = "code", sR = "ck-code_selected";
-  class oR extends R {
+  class oR extends L {
     /**
      * @inheritDoc
      */
@@ -43233,7 +43233,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ko = "code";
-  class aR extends R {
+  class aR extends L {
     /**
      * @inheritDoc
      */
@@ -43263,7 +43263,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class lR extends R {
+  class lR extends L {
     /**
      * @inheritDoc
      */
@@ -43282,7 +43282,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const On = "italic";
-  class cR extends R {
+  class cR extends L {
     /**
      * @inheritDoc
      */
@@ -43324,7 +43324,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Zo = "italic";
-  class dR extends R {
+  class dR extends L {
     /**
      * @inheritDoc
      */
@@ -43355,7 +43355,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class hR extends R {
+  class hR extends L {
     /**
      * @inheritDoc
      */
@@ -43374,7 +43374,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const xs = "strikethrough";
-  class fR extends R {
+  class fR extends L {
     /**
      * @inheritDoc
      */
@@ -43417,7 +43417,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Jo = "strikethrough";
-  class gR extends R {
+  class gR extends L {
     /**
      * @inheritDoc
      */
@@ -43448,7 +43448,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class pR extends R {
+  class pR extends L {
     /**
      * @inheritDoc
      */
@@ -43467,7 +43467,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ss = "subscript";
-  class wR extends R {
+  class wR extends L {
     /**
      * @inheritDoc
      */
@@ -43501,7 +43501,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Qo = "subscript";
-  class _R extends R {
+  class _R extends L {
     /**
      * @inheritDoc
      */
@@ -43531,7 +43531,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class vR extends R {
+  class vR extends L {
     /**
      * @inheritDoc
      */
@@ -43550,7 +43550,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Is = "superscript";
-  class yR extends R {
+  class yR extends L {
     /**
      * @inheritDoc
      */
@@ -43584,7 +43584,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Xo = "superscript";
-  class kR extends R {
+  class kR extends L {
     /**
      * @inheritDoc
      */
@@ -43614,7 +43614,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class TR extends R {
+  class TR extends L {
     /**
      * @inheritDoc
      */
@@ -43633,7 +43633,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Ps = "underline";
-  class ER extends R {
+  class ER extends L {
     /**
      * @inheritDoc
      */
@@ -43672,7 +43672,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Yo = "underline";
-  class xR extends R {
+  class xR extends L {
     /**
      * @inheritDoc
      */
@@ -43703,7 +43703,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class SR extends R {
+  class SR extends L {
     /**
      * @inheritDoc
      */
@@ -43762,7 +43762,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Kh = "paragraph";
-  class PR extends R {
+  class PR extends L {
     /**
      * @inheritDoc
      */
@@ -43847,7 +43847,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LR extends R {
+  class LR extends L {
     /**
      * @inheritDoc
      */
@@ -43931,7 +43931,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class VR extends R {
+  class VR extends L {
     /**
      * @inheritDoc
      */
@@ -44571,7 +44571,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class UR extends R {
+  class UR extends L {
     /**
      * @inheritDoc
      */
@@ -44928,7 +44928,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const dr = ["listType", "listIndent", "listItemId"];
-  class i4 extends R {
+  class i4 extends L {
     /**
      * @inheritDoc
      */
@@ -45236,7 +45236,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class o4 extends R {
+  class o4 extends L {
     /**
      * @inheritDoc
      */
@@ -45255,7 +45255,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class r4 extends R {
+  class r4 extends L {
     /**
      * @inheritDoc
      */
@@ -45337,7 +45337,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const c4 = /^(image|image-inline)$/;
-  class ot extends R {
+  class ot extends L {
     constructor() {
       super(...arguments), this._domEmitter = new (pt())();
     }
@@ -45547,7 +45547,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const f4 = new RegExp(String(/^(http(s)?:\/\/)?[\w-]+\.[\w.~:/[\]@!$&'()*+,;=%-]+/.source + /\.(jpg|jpeg|png|gif|ico|webp|JPG|JPEG|PNG|GIF|ICO|WEBP)/.source + /(\?[\w.~:/[\]@!$&'()*+,;=%-]*)?/.source + /(#[\w.~:/[\]@!$&'()*+,;=%-]*)?$/.source));
-  class m4 extends R {
+  class m4 extends L {
     /**
      * @inheritDoc
      */
@@ -45641,7 +45641,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class p4 extends R {
+  class p4 extends L {
     /**
      * @inheritDoc
      */
@@ -45775,7 +45775,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class _4 extends R {
+  class _4 extends L {
     /**
      * @inheritDoc
      */
@@ -45878,7 +45878,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class xw extends R {
+  class xw extends L {
     /**
      * @inheritDoc
      */
@@ -46058,7 +46058,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Iw extends R {
+  class Iw extends L {
     /**
      * @inheritDoc
      */
@@ -46097,7 +46097,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Pw extends R {
+  class Pw extends L {
     /**
      * @inheritDoc
      */
@@ -46234,7 +46234,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Lw extends R {
+  class Lw extends L {
     /**
      * @inheritDoc
      */
@@ -46302,7 +46302,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Vw extends R {
+  class Vw extends L {
     /**
      * @inheritDoc
      */
@@ -46457,7 +46457,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class To extends R {
+  class To extends L {
     /**
      * @inheritDoc
      */
@@ -46546,7 +46546,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class E4 extends R {
+  class E4 extends L {
     /**
      * @inheritDoc
      */
@@ -46564,7 +46564,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class A4 extends R {
+  class A4 extends L {
     /**
      * @inheritDoc
      */
@@ -46650,7 +46650,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class x4 extends R {
+  class x4 extends L {
     /**
      * @inheritDoc
      */
@@ -46668,7 +46668,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  let S4 = class extends R {
+  let S4 = class extends L {
     /**
      * @inheritDoc
      */
@@ -46686,7 +46686,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Mw extends R {
+  class Mw extends L {
     /**
      * @inheritDoc
      */
@@ -46796,7 +46796,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class P4 extends R {
+  class P4 extends L {
     /**
      * @inheritDoc
      */
@@ -46942,7 +46942,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class R4 extends R {
+  class R4 extends L {
     /**
      * @inheritDoc
      */
@@ -46984,7 +46984,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class L4 extends R {
+  class L4 extends L {
     /**
      * @inheritDoc
      */
@@ -47040,7 +47040,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class F4 extends R {
+  class F4 extends L {
     /**
      * @inheritDoc
      */
@@ -47154,7 +47154,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ln extends R {
+  class ln extends L {
     constructor() {
       super(...arguments), this.loaders = new Ye(), this._loadersMap = /* @__PURE__ */ new Map(), this._pendingAction = null;
     }
@@ -47360,7 +47360,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class D4 extends R {
+  class D4 extends L {
     /**
      * @inheritDoc
      */
@@ -47492,7 +47492,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class K4 extends R {
+  class K4 extends L {
     /**
      * @inheritDoc
      */
@@ -47656,7 +47656,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Dw extends R {
+  class Dw extends L {
     /**
      * @inheritDoc
      */
@@ -47780,7 +47780,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class X4 extends R {
+  class X4 extends L {
     /**
      * @inheritDoc
      */
@@ -47839,7 +47839,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Y4 extends R {
+  class Y4 extends L {
     /**
      * @inheritDoc
      */
@@ -47857,7 +47857,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class eL extends R {
+  class e7 extends L {
     /**
      * @inheritDoc
      */
@@ -47875,7 +47875,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class tL extends X {
+  class t7 extends X {
     /**
      * @inheritDoc
      */
@@ -47915,7 +47915,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class zw extends R {
+  class zw extends L {
     /**
      * @inheritDoc
      */
@@ -47962,7 +47962,7 @@ Read more: ${o0}#error-${n}`;
      * @inheritDoc
      */
     init() {
-      const e = this.editor, t = new tL(e);
+      const e = this.editor, t = new t7(e);
       this._registerConverters("imageBlock"), this._registerConverters("imageInline"), e.commands.add("resizeImage", t), e.commands.add("imageResize", t);
     }
     /**
@@ -48037,7 +48037,7 @@ Read more: ${o0}#error-${n}`;
     large: j.objectSizeLarge,
     original: j.objectSizeFull
   };
-  class iL extends R {
+  class i7 extends L {
     /**
      * @inheritDoc
      */
@@ -48163,8 +48163,8 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const nL = "figure.image.ck-widget > img,figure.image.ck-widget > picture > img,figure.image.ck-widget > a > img,figure.image.ck-widget > a > picture > img,span.image-inline.ck-widget > img,span.image-inline.ck-widget > picture > img", Ya = "image_resized";
-  class sL extends R {
+  const n7 = "figure.image.ck-widget > img,figure.image.ck-widget > picture > img,figure.image.ck-widget > a > img,figure.image.ck-widget > a > picture > img,span.image-inline.ck-widget > img,span.image-inline.ck-widget > picture > img", Ya = "image_resized";
+  class s7 extends L {
     /**
      * @inheritDoc
      */
@@ -48190,7 +48190,7 @@ Read more: ${o0}#error-${n}`;
     _setupResizerCreator() {
       const e = this.editor, t = e.editing.view, i = e.plugins.get("ImageUtils");
       t.addObserver(Xc), this.listenTo(t.document, "imageLoaded", (s, o) => {
-        if (!o.target.matches(nL))
+        if (!o.target.matches(n7))
           return;
         const r = e.editing.view.domConverter, a = r.domToView(o.target), l = i.getImageWidgetFromImageView(a);
         let c = this.editor.plugins.get(Za).getResizerByViewElement(l);
@@ -48234,12 +48234,12 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class oL extends R {
+  class o7 extends L {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [zw, sL, iL];
+      return [zw, s7, i7];
     }
     /**
      * @inheritDoc
@@ -48252,7 +48252,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class rL extends X {
+  class r7 extends X {
     /**
      * Creates an instance of the image style command. When executed, the command applies one of
      * {@link module:image/imageconfig~ImageStyleConfig#options style options} to the currently selected image.
@@ -48316,7 +48316,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const { objectFullWidth: aL, objectInline: Uw, objectLeft: Hw, objectRight: Nl, objectCenter: Dl, objectBlockLeft: Ww, objectBlockRight: $w } = j, hr = {
+  const { objectFullWidth: a7, objectInline: Uw, objectLeft: Hw, objectRight: Nl, objectCenter: Dl, objectBlockLeft: Ww, objectBlockRight: $w } = j, hr = {
     // This style represents an image placed in the line of text.
     get inline() {
       return {
@@ -48398,7 +48398,7 @@ Read more: ${o0}#error-${n}`;
       };
     }
   }, qw = {
-    full: aL,
+    full: a7,
     left: Ww,
     right: $w,
     center: Dl,
@@ -48416,10 +48416,10 @@ Read more: ${o0}#error-${n}`;
     defaultItem: "imageStyle:block",
     items: ["imageStyle:alignBlockLeft", "imageStyle:block", "imageStyle:alignBlockRight"]
   }];
-  function lL(n) {
-    return (n.configuredStyles.options || []).map((i) => dL(i)).filter((i) => hL(i, n));
+  function l7(n) {
+    return (n.configuredStyles.options || []).map((i) => d7(i)).filter((i) => h7(i, n));
   }
-  function cL(n, e) {
+  function c7(n, e) {
     return n && e ? {
       options: [
         "inline",
@@ -48437,13 +48437,13 @@ Read more: ${o0}#error-${n}`;
       options: ["inline", "alignLeft", "alignRight"]
     } : {};
   }
-  function uL(n) {
+  function u7(n) {
     return n.has("ImageBlockEditing") && n.has("ImageInlineEditing") ? [...Gw] : [];
   }
-  function dL(n) {
-    return typeof n == "string" ? hr[n] ? n = { ...hr[n] } : n = { name: n } : n = fL(hr[n.name], n), typeof n.icon == "string" && (n.icon = qw[n.icon] || n.icon), n;
+  function d7(n) {
+    return typeof n == "string" ? hr[n] ? n = { ...hr[n] } : n = { name: n } : n = f7(hr[n.name], n), typeof n.icon == "string" && (n.icon = qw[n.icon] || n.icon), n;
   }
-  function hL(n, { isBlockPluginLoaded: e, isInlinePluginLoaded: t }) {
+  function h7(n, { isBlockPluginLoaded: e, isInlinePluginLoaded: t }) {
     const { modelElements: i, name: s } = n;
     if (!i || !i.length || !s)
       return jw({ style: n }), !1;
@@ -48457,7 +48457,7 @@ Read more: ${o0}#error-${n}`;
     }
     return !0;
   }
-  function fL(n, e) {
+  function f7(n, e) {
     const t = { ...e };
     for (const i in n)
       Object.prototype.hasOwnProperty.call(e, i) || (t[i] = n[i]);
@@ -48467,9 +48467,9 @@ Read more: ${o0}#error-${n}`;
     se("image-style-configuration-definition-invalid", n);
   }
   const zl = {
-    normalizeStyles: lL,
-    getDefaultStylesConfiguration: cL,
-    getDefaultDropdownDefinitions: uL,
+    normalizeStyles: l7,
+    getDefaultStylesConfiguration: c7,
+    getDefaultDropdownDefinitions: u7,
     warnInvalidStyle: jw,
     DEFAULT_OPTIONS: hr,
     DEFAULT_ICONS: qw,
@@ -48479,7 +48479,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function mL(n) {
+  function m7(n) {
     return (e, t, i) => {
       if (!i.consumable.consume(t.item, e.name))
         return;
@@ -48487,7 +48487,7 @@ Read more: ${o0}#error-${n}`;
       o && a.removeClass(o.className, r), s && a.addClass(s.className, r);
     };
   }
-  function gL(n) {
+  function g7(n) {
     const e = {
       imageInline: n.filter((t) => !t.isDefault && t.modelElements.includes("imageInline")),
       imageBlock: n.filter((t) => !t.isDefault && t.modelElements.includes("imageBlock"))
@@ -48510,7 +48510,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Kw extends R {
+  class Kw extends L {
     /**
      * @inheritDoc
      */
@@ -48532,7 +48532,7 @@ Read more: ${o0}#error-${n}`;
         configuredStyles: i.config.get("image.styles"),
         isBlockPluginLoaded: s,
         isInlinePluginLoaded: o
-      }), this._setupConversion(s, o), this._setupPostFixer(), i.commands.add("imageStyle", new rL(i, this.normalizedStyles));
+      }), this._setupConversion(s, o), this._setupPostFixer(), i.commands.add("imageStyle", new r7(i, this.normalizedStyles));
     }
     /**
      * Sets the editor conversion taking the presence of
@@ -48540,7 +48540,7 @@ Read more: ${o0}#error-${n}`;
      * and {@link module:image/image/imageblockediting~ImageBlockEditing `ImageBlockEditing`} plugins into consideration.
      */
     _setupConversion(e, t) {
-      const i = this.editor, s = i.model.schema, o = mL(this.normalizedStyles), r = gL(this.normalizedStyles);
+      const i = this.editor, s = i.model.schema, o = m7(this.normalizedStyles), r = g7(this.normalizedStyles);
       i.editing.downcastDispatcher.on("attribute:imageStyle", o), i.data.downcastDispatcher.on("attribute:imageStyle", o), e && (s.extend("imageBlock", { allowAttributes: "imageStyle" }), i.data.upcastDispatcher.on("element:figure", r, { priority: "low" })), t && (s.extend("imageInline", { allowAttributes: "imageStyle" }), i.data.upcastDispatcher.on("element:img", r, { priority: "low" }));
     }
     /**
@@ -48569,7 +48569,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class pL extends R {
+  class p7 extends L {
     /**
      * @inheritDoc
      */
@@ -48690,12 +48690,12 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class wL extends R {
+  class w7 extends L {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [Kw, pL];
+      return [Kw, p7];
     }
     /**
      * @inheritDoc
@@ -48708,7 +48708,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class bL extends R {
+  class b7 extends L {
     /**
      * @inheritDoc
      */
@@ -48728,19 +48728,19 @@ Read more: ${o0}#error-${n}`;
       const e = this.editor, t = e.t, i = e.plugins.get(Lr), s = e.plugins.get("ImageUtils");
       i.register("image", {
         ariaLabel: t("Image toolbar"),
-        items: _L(e.config.get("image.toolbar") || []),
+        items: _7(e.config.get("image.toolbar") || []),
         getRelatedElement: (o) => s.getClosestSelectedImageWidget(o)
       });
     }
   }
-  function _L(n) {
+  function _7(n) {
     return n.map((e) => pe(e) ? e.name : e);
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class vL {
+  class v7 {
     constructor() {
       this._definitions = /* @__PURE__ */ new Set();
     }
@@ -48816,33 +48816,33 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const yL = /[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205f\u3000]/g, CL = "^(?:(?:<protocols>):|[^a-z]|[a-z+.-]+(?:[^a-z+.:-]|$))", kL = /^[\S]+@((?![-_])(?:[-\w\u00a1-\uffff]{0,63}[^-_]\.))+(?:[a-z\u00a1-\uffff]{2,})$/i, TL = /^((\w+:(\/{2,})?)|(\W))/i, EL = [
+  const y7 = /[\u0000-\u0020\u00A0\u1680\u180E\u2000-\u2029\u205f\u3000]/g, C7 = "^(?:(?:<protocols>):|[^a-z]|[a-z+.-]+(?:[^a-z+.:-]|$))", k7 = /^[\S]+@((?![-_])(?:[-\w\u00a1-\uffff]{0,63}[^-_]\.))+(?:[a-z\u00a1-\uffff]{2,})$/i, T7 = /^((\w+:(\/{2,})?)|(\W))/i, E7 = [
     "https?",
     "ftps?",
     "mailto"
   ], Ms = "Ctrl+K";
-  function AL(n) {
+  function A7(n) {
     return n.is("attributeElement") && !!n.getCustomProperty("link");
   }
   function wf(n, { writer: e }) {
     const t = e.createAttributeElement("a", { href: n }, { priority: 5 });
     return e.setCustomProperty("link", !0, t), t;
   }
-  function Zw(n, e = EL) {
-    const t = String(n), i = e.join("|"), s = new RegExp(`${CL.replace("<protocols>", i)}`, "i");
-    return xL(t, s) ? t : "#";
+  function Zw(n, e = E7) {
+    const t = String(n), i = e.join("|"), s = new RegExp(`${C7.replace("<protocols>", i)}`, "i");
+    return x7(t, s) ? t : "#";
   }
-  function xL(n, e) {
-    return !!n.replace(yL, "").match(e);
+  function x7(n, e) {
+    return !!n.replace(y7, "").match(e);
   }
-  function SL(n, e) {
+  function S7(n, e) {
     const t = {
       "Open in a new tab": n("Open in a new tab"),
       Downloadable: n("Downloadable")
     };
     return e.forEach((i) => ("label" in i && t[i.label] && (i.label = t[i.label]), i)), e;
   }
-  function IL(n) {
+  function I7(n) {
     const e = [];
     if (n)
       for (const [t, i] of Object.entries(n)) {
@@ -48854,15 +48854,15 @@ Read more: ${o0}#error-${n}`;
   function Ul(n, e) {
     return n ? e.checkAttribute(n.name, "linkHref") : !1;
   }
-  function PL(n) {
-    return kL.test(n);
+  function P7(n) {
+    return k7.test(n);
   }
   function Yc(n, e) {
-    const t = PL(n) ? "mailto:" : e, i = !!t && !Jw(n);
+    const t = P7(n) ? "mailto:" : e, i = !!t && !Jw(n);
     return n && i ? t + n : n;
   }
   function Jw(n) {
-    return TL.test(n);
+    return T7.test(n);
   }
   function bf(n) {
     window.open(n, "_blank", "noopener");
@@ -48871,9 +48871,9 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class RL extends X {
+  class R7 extends X {
     constructor() {
-      super(...arguments), this.manualDecorators = new Ye(), this.automaticDecorators = new vL();
+      super(...arguments), this.manualDecorators = new Ye(), this.automaticDecorators = new v7();
     }
     /**
      * Synchronizes the state of {@link #manualDecorators} with the currently present elements in the model.
@@ -49055,7 +49055,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LL extends X {
+  class L7 extends X {
     /**
      * @inheritDoc
      */
@@ -49091,7 +49091,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class VL extends ae() {
+  class V7 extends ae() {
     /**
      * Creates a new instance of {@link module:link/utils/manualdecorator~ManualDecorator}.
      *
@@ -49122,8 +49122,8 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const ML = "ck-link_selected", vf = "automatic", BL = "manual", OL = /^(https?:)?\/\//;
-  class _a extends R {
+  const M7 = "ck-link_selected", vf = "automatic", B7 = "manual", O7 = /^(https?:)?\/\//;
+  class _a extends L {
     /**
      * @inheritDoc
      */
@@ -49161,9 +49161,9 @@ Read more: ${o0}#error-${n}`;
           key: "linkHref",
           value: (o) => o.getAttribute("href")
         }
-      }), e.commands.add("link", new RL(e)), e.commands.add("unlink", new LL(e));
-      const i = SL(e.t, IL(e.config.get("link.decorators")));
-      this._enableAutomaticDecorators(i.filter((o) => o.mode === vf)), this._enableManualDecorators(i.filter((o) => o.mode === BL)), e.plugins.get(Pr).registerAttribute("linkHref"), Yp(e, "linkHref", "a", ML), this._enableLinkOpen(), this._enableSelectionAttributesFixer(), this._enableClipboardIntegration();
+      }), e.commands.add("link", new R7(e)), e.commands.add("unlink", new L7(e));
+      const i = S7(e.t, I7(e.config.get("link.decorators")));
+      this._enableAutomaticDecorators(i.filter((o) => o.mode === vf)), this._enableManualDecorators(i.filter((o) => o.mode === B7)), e.plugins.get(Pr).registerAttribute("linkHref"), Yp(e, "linkHref", "a", M7), this._enableLinkOpen(), this._enableSelectionAttributesFixer(), this._enableClipboardIntegration();
     }
     /**
      * Processes an array of configured {@link module:link/linkconfig~LinkDecoratorAutomaticDefinition automatic decorators}
@@ -49179,7 +49179,7 @@ Read more: ${o0}#error-${n}`;
       t.config.get("link.addTargetToExternalLinks") && s.add({
         id: "linkIsExternal",
         mode: vf,
-        callback: (o) => !!o && OL.test(o),
+        callback: (o) => !!o && O7.test(o),
         attributes: {
           target: "_blank",
           rel: "noopener noreferrer"
@@ -49201,7 +49201,7 @@ Read more: ${o0}#error-${n}`;
       const t = this.editor, s = t.commands.get("link").manualDecorators;
       e.forEach((o) => {
         t.model.schema.extend("$text", { allowAttributes: o.id });
-        const r = new VL(o);
+        const r = new V7(o);
         s.add(r), t.conversion.for("downcast").attributeToElement({
           model: r.id,
           view: (a, { writer: l, schema: c }, { item: u }) => {
@@ -49252,7 +49252,7 @@ Read more: ${o0}#error-${n}`;
       const t = this.editor.model, i = t.document.selection;
       this.listenTo(i, "change:attribute", (s, { attributeKeys: o }) => {
         !o.includes("linkHref") || i.hasAttribute("linkHref") || t.change((r) => {
-          FL(r, NL(t.schema));
+          F7(r, N7(t.schema));
         });
       });
     }
@@ -49273,19 +49273,19 @@ Read more: ${o0}#error-${n}`;
       });
     }
   }
-  function FL(n, e) {
+  function F7(n, e) {
     n.removeSelectionAttribute("linkHref");
     for (const t of e)
       n.removeSelectionAttribute(t);
   }
-  function NL(n) {
+  function N7(n) {
     return n.getDefinition("$text").allowAttributes.filter((t) => t.startsWith("link"));
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class DL extends q {
+  class D7 extends q {
     /**
      * Creates an instance of the {@link module:link/ui/linkformview~LinkFormView} class.
      *
@@ -49446,19 +49446,19 @@ Read more: ${o0}#error-${n}`;
       return t.add(this.saveButtonView), t.add(this.cancelButtonView), t;
     }
   }
-  const zL = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.077 15 .991-1.416a.75.75 0 1 1 1.229.86l-1.148 1.64a.748.748 0 0 1-.217.206 5.251 5.251 0 0 1-8.503-5.955.741.741 0 0 1 .12-.274l1.147-1.639a.75.75 0 1 1 1.228.86L4.933 10.7l.006.003a3.75 3.75 0 0 0 6.132 4.294l.006.004zm5.494-5.335a.748.748 0 0 1-.12.274l-1.147 1.639a.75.75 0 1 1-1.228-.86l.86-1.23a3.75 3.75 0 0 0-6.144-4.301l-.86 1.229a.75.75 0 0 1-1.229-.86l1.148-1.64a.748.748 0 0 1 .217-.206 5.251 5.251 0 0 1 8.503 5.955zm-4.563-2.532a.75.75 0 0 1 .184 1.045l-3.155 4.505a.75.75 0 1 1-1.229-.86l3.155-4.506a.75.75 0 0 1 1.045-.184zm4.919 10.562-1.414 1.414a.75.75 0 1 1-1.06-1.06l1.414-1.415-1.415-1.414a.75.75 0 0 1 1.061-1.06l1.414 1.414 1.414-1.415a.75.75 0 0 1 1.061 1.061l-1.414 1.414 1.414 1.415a.75.75 0 0 1-1.06 1.06l-1.415-1.414z"/></svg>';
+  const z7 = '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m11.077 15 .991-1.416a.75.75 0 1 1 1.229.86l-1.148 1.64a.748.748 0 0 1-.217.206 5.251 5.251 0 0 1-8.503-5.955.741.741 0 0 1 .12-.274l1.147-1.639a.75.75 0 1 1 1.228.86L4.933 10.7l.006.003a3.75 3.75 0 0 0 6.132 4.294l.006.004zm5.494-5.335a.748.748 0 0 1-.12.274l-1.147 1.639a.75.75 0 1 1-1.228-.86l.86-1.23a3.75 3.75 0 0 0-6.144-4.301l-.86 1.229a.75.75 0 0 1-1.229-.86l1.148-1.64a.748.748 0 0 1 .217-.206 5.251 5.251 0 0 1 8.503 5.955zm-4.563-2.532a.75.75 0 0 1 .184 1.045l-3.155 4.505a.75.75 0 1 1-1.229-.86l3.155-4.506a.75.75 0 0 1 1.045-.184zm4.919 10.562-1.414 1.414a.75.75 0 1 1-1.06-1.06l1.414-1.415-1.415-1.414a.75.75 0 0 1 1.061-1.06l1.414 1.414 1.414-1.415a.75.75 0 0 1 1.061 1.061l-1.414 1.414 1.414 1.415a.75.75 0 0 1-1.06 1.06l-1.415-1.414z"/></svg>';
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class UL extends q {
+  class U7 extends q {
     /**
      * @inheritDoc
      */
     constructor(e, t = {}) {
       super(e), this.focusTracker = new _e(), this.keystrokes = new xe(), this._focusables = new et();
       const i = e.t;
-      this.previewButtonView = this._createPreviewButton(), this.unlinkButtonView = this._createButton(i("Unlink"), zL, "unlink"), this.editButtonView = this._createButton(i("Edit link"), j.pencil, "edit"), this.set("href", void 0), this._linkConfig = t, this._focusCycler = new Ze({
+      this.previewButtonView = this._createPreviewButton(), this.unlinkButtonView = this._createButton(i("Unlink"), z7, "unlink"), this.editButtonView = this._createButton(i("Edit link"), j.pencil, "edit"), this.set("href", void 0), this._linkConfig = t, this._focusCycler = new Ze({
         focusables: this._focusables,
         focusTracker: this.focusTracker,
         keystrokeHandler: this.keystrokes,
@@ -49555,7 +49555,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const ti = "link-ui";
-  class Xw extends R {
+  class Xw extends L {
     constructor() {
       super(...arguments), this.actionsView = null, this.formView = null;
     }
@@ -49619,7 +49619,7 @@ Read more: ${o0}#error-${n}`;
      * Creates the {@link module:link/ui/linkactionsview~LinkActionsView} instance.
      */
     _createActionsView() {
-      const e = this.editor, t = new UL(e.locale, e.config.get("link")), i = e.commands.get("link"), s = e.commands.get("unlink");
+      const e = this.editor, t = new U7(e.locale, e.config.get("link")), i = e.commands.get("link"), s = e.commands.get("unlink");
       return t.bind("href").to(i, "value"), t.editButtonView.bind("isEnabled").to(i), t.unlinkButtonView.bind("isEnabled").to(s), this.listenTo(t, "edit", () => {
         this._addFormView();
       }), this.listenTo(t, "unlink", () => {
@@ -49634,7 +49634,7 @@ Read more: ${o0}#error-${n}`;
      * Creates the {@link module:link/ui/linkformview~LinkFormView} instance.
      */
     _createFormView() {
-      const e = this.editor, t = e.commands.get("link"), i = e.config.get("link.defaultProtocol"), s = e.config.get("link.allowCreatingEmptyLinks"), o = new (tc(DL))(e.locale, t);
+      const e = this.editor, t = e.commands.get("link"), i = e.config.get("link.defaultProtocol"), s = e.config.get("link.allowCreatingEmptyLinks"), o = new (tc(D7))(e.locale, t);
       return o.urlInputView.fieldView.bind("value").to(t, "value"), o.urlInputView.bind("isEnabled").to(t, "isEnabled"), o.saveButtonView.bind("isEnabled").to(t, "isEnabled", o.urlInputView, "isEmpty", (r, a) => r && (s || !a)), this.listenTo(o, "submit", () => {
         const { value: r } = o.urlInputView.fieldView.element, a = Yc(r, i);
         e.execute("link", a, o.getDecoratorSwitchesState()), this._closeFormView();
@@ -49893,18 +49893,18 @@ Read more: ${o0}#error-${n}`;
     }
   }
   function el(n) {
-    return n.getAncestors().find((e) => AL(e)) || null;
+    return n.getAncestors().find((e) => A7(e)) || null;
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const HL = 4, Yw = new RegExp(
+  const H7 = 4, Yw = new RegExp(
     // Group 1: Line start or after a space.
     "(^|\\s)(((?:(?:(?:https?|ftp):)?\\/\\/)(?:\\S+(?::\\S*)?@)?(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[1-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(((?!www\\.)|(www\\.))(?![-_])(?:[-_a-z0-9\\u00a1-\\uffff]{1,63}\\.)+(?:[a-z\\u00a1-\\uffff]{2,63})))(?::\\d{2,5})?(?:[/?#]\\S*)?)|((www.|(\\S+@))((?![-_])(?:[-_a-z0-9\\u00a1-\\uffff]{1,63}\\.))+(?:[a-z\\u00a1-\\uffff]{2,63})))$",
     "i"
-  ), WL = 2;
-  class $L extends R {
+  ), W7 = 2;
+  class $7 extends L {
     /**
      * @inheritDoc
      */
@@ -49970,7 +49970,7 @@ Read more: ${o0}#error-${n}`;
      */
     _enableTypingHandling() {
       const e = this.editor, t = new Xp(e.model, (i) => {
-        if (!qL(i))
+        if (!q7(i))
           return;
         const s = yf(i.substr(0, i.length - 1));
         if (s)
@@ -50025,7 +50025,7 @@ Read more: ${o0}#error-${n}`;
      */
     _applyAutoLink(e, t) {
       const i = this.editor.model, s = this.editor.config.get("link.defaultProtocol"), o = Yc(e, s);
-      !this.isEnabled || !GL(t, i) || !Jw(o) || jL(t) || this._persistAutoLink(o, t);
+      !this.isEnabled || !G7(t, i) || !Jw(o) || j7(t) || this._persistAutoLink(o, t);
     }
     /**
      * Enqueues autolink changes in the model.
@@ -50042,17 +50042,17 @@ Read more: ${o0}#error-${n}`;
       });
     }
   }
-  function qL(n) {
-    return n.length > HL && n[n.length - 1] === " " && n[n.length - 2] !== " ";
+  function q7(n) {
+    return n.length > H7 && n[n.length - 1] === " " && n[n.length - 2] !== " ";
   }
   function yf(n) {
     const e = Yw.exec(n);
-    return e ? e[WL] : null;
+    return e ? e[W7] : null;
   }
-  function GL(n, e) {
+  function G7(n, e) {
     return e.schema.checkAttributeInSelection(e.createSelection(n), "linkHref");
   }
-  function jL(n) {
+  function j7(n) {
     const e = n.start.nodeAfter;
     return !!e && e.hasAttribute("linkHref");
   }
@@ -50060,12 +50060,12 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class KL extends R {
+  class K7 extends L {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [_a, Xw, $L];
+      return [_a, Xw, $7];
     }
     /**
      * @inheritDoc
@@ -50078,7 +50078,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class ZL extends R {
+  class Z7 extends L {
     /**
      * @inheritDoc
      */
@@ -50096,7 +50096,7 @@ Read more: ${o0}#error-${n}`;
      */
     afterInit() {
       const e = this.editor, t = e.model.schema;
-      e.plugins.has("ImageBlockEditing") && t.extend("imageBlock", { allowAttributes: ["linkHref"] }), e.conversion.for("upcast").add(JL(e)), e.conversion.for("downcast").add(QL(e)), this._enableAutomaticDecorators(), this._enableManualDecorators();
+      e.plugins.has("ImageBlockEditing") && t.extend("imageBlock", { allowAttributes: ["linkHref"] }), e.conversion.for("upcast").add(J7(e)), e.conversion.for("downcast").add(Q7(e)), this._enableAutomaticDecorators(), this._enableManualDecorators();
     }
     /**
      * Processes {@link module:link/linkconfig~LinkDecoratorAutomaticDefinition automatic decorators} definitions and
@@ -50113,10 +50113,10 @@ Read more: ${o0}#error-${n}`;
     _enableManualDecorators() {
       const e = this.editor, t = e.commands.get("link");
       for (const i of t.manualDecorators)
-        e.plugins.has("ImageBlockEditing") && e.model.schema.extend("imageBlock", { allowAttributes: i.id }), e.plugins.has("ImageInlineEditing") && e.model.schema.extend("imageInline", { allowAttributes: i.id }), e.conversion.for("downcast").add(XL(i)), e.conversion.for("upcast").add(YL(e, i));
+        e.plugins.has("ImageBlockEditing") && e.model.schema.extend("imageBlock", { allowAttributes: i.id }), e.plugins.has("ImageInlineEditing") && e.model.schema.extend("imageInline", { allowAttributes: i.id }), e.conversion.for("downcast").add(X7(i)), e.conversion.for("upcast").add(Y7(e, i));
     }
   }
-  function JL(n) {
+  function J7(n) {
     const e = n.plugins.has("ImageInlineEditing"), t = n.plugins.get("ImageUtils");
     return (i) => {
       i.on("element:a", (s, o, r) => {
@@ -50141,7 +50141,7 @@ Read more: ${o0}#error-${n}`;
       }, { priority: "high" });
     };
   }
-  function QL(n) {
+  function Q7(n) {
     const e = n.plugins.get("ImageUtils");
     return (t) => {
       t.on("attribute:linkHref:imageBlock", (i, s, o) => {
@@ -50157,7 +50157,7 @@ Read more: ${o0}#error-${n}`;
       }, { priority: "high" });
     };
   }
-  function XL(n) {
+  function X7(n) {
     return (e) => {
       e.on(`attribute:${n.id}:imageBlock`, (t, i, s) => {
         const o = s.mapper.toViewElement(i.item), r = Array.from(o.getChildren()).find((a) => a.is("element", "a"));
@@ -50171,7 +50171,7 @@ Read more: ${o0}#error-${n}`;
       });
     };
   }
-  function YL(n, e) {
+  function Y7(n, e) {
     const t = n.plugins.has("ImageInlineEditing"), i = n.plugins.get("ImageUtils");
     return (s) => {
       s.on("element:a", (o, r, a) => {
@@ -50193,7 +50193,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class e7 extends R {
+  class eL extends L {
     /**
      * @inheritDoc
      */
@@ -50251,12 +50251,12 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class t7 extends R {
+  class tL extends L {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [ZL, e7];
+      return [Z7, eL];
     }
     /**
      * @inheritDoc
@@ -50269,7 +50269,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class i7 extends R {
+  class iL extends L {
     /**
      * @inheritDoc
      */
@@ -50288,7 +50288,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class n7 extends R {
+  class nL extends L {
     /**
      * @inheritDoc
      */
@@ -50331,7 +50331,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class s7 extends R {
+  class sL extends L {
     /**
      * @inheritDoc
      */
@@ -50342,7 +50342,7 @@ Read more: ${o0}#error-${n}`;
      * @inheritDoc
      */
     static get requires() {
-      return [i7, n7];
+      return [iL, nL];
     }
   }
   /**
@@ -50463,8 +50463,8 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const o7 = ["paragraph", "heading1", "heading2", "heading3", "heading4", "heading5", "heading6"];
-  class r7 extends R {
+  const oL = ["paragraph", "heading1", "heading2", "heading3", "heading4", "heading5", "heading6"];
+  class rL extends L {
     /**
      * @inheritDoc
      */
@@ -50506,7 +50506,7 @@ Read more: ${o0}#error-${n}`;
      */
     afterInit() {
       const e = this.editor, t = e.model.schema, i = e.commands.get("indent"), s = e.commands.get("outdent"), o = e.config.get("heading.options");
-      (o && o.map((l) => l.model) || o7).forEach((l) => {
+      (o && o.map((l) => l.model) || oL).forEach((l) => {
         t.isRegistered(l) && t.extend(l, { allowAttributes: "blockIndent" });
       }), t.setAttributeProperties("blockIndent", { isFormatting: !0 }), i.registerChildCommand(e.commands.get("indentBlock")), s.registerChildCommand(e.commands.get("outdentBlock"));
     }
@@ -50561,13 +50561,13 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class a7 extends X {
+  class aL extends X {
     /**
      * @inheritDoc
      */
     refresh() {
       const e = this.editor.model, t = e.schema, i = e.document.selection;
-      this.isEnabled = l7(i, t, e);
+      this.isEnabled = lL(i, t, e);
     }
     /**
      * Executes the command.
@@ -50582,11 +50582,11 @@ Read more: ${o0}#error-${n}`;
       });
     }
   }
-  function l7(n, e, t) {
-    const i = c7(n, t);
+  function lL(n, e, t) {
+    const i = cL(n, t);
     return e.checkChild(i, "horizontalLine");
   }
-  function c7(n, e) {
+  function cL(n, e) {
     const i = Wc(n, e).start.parent;
     return i.isEmpty && !i.is("element", "$root") ? i.parent : i;
   }
@@ -50594,7 +50594,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class u7 extends R {
+  class uL extends L {
     /**
      * @inheritDoc
      */
@@ -50615,19 +50615,19 @@ Read more: ${o0}#error-${n}`;
         model: "horizontalLine",
         view: (o, { writer: r }) => {
           const a = i("Horizontal line"), l = r.createContainerElement("div", null, r.createEmptyElement("hr"));
-          return r.addClass("ck-horizontal-line", l), r.setCustomProperty("hr", !0, l), d7(l, r, a);
+          return r.addClass("ck-horizontal-line", l), r.setCustomProperty("hr", !0, l), dL(l, r, a);
         }
-      }), s.for("upcast").elementToElement({ view: "hr", model: "horizontalLine" }), e.commands.add("horizontalLine", new a7(e));
+      }), s.for("upcast").elementToElement({ view: "hr", model: "horizontalLine" }), e.commands.add("horizontalLine", new aL(e));
     }
   }
-  function d7(n, e, t) {
+  function dL(n, e, t) {
     return e.setCustomProperty("horizontalLine", !0, n), pa(n, e, { label: t });
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class h7 extends R {
+  class hL extends L {
     /**
      * @inheritDoc
      */
@@ -50663,12 +50663,12 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class f7 extends R {
+  class fL extends L {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [u7, h7, gs];
+      return [uL, hL, gs];
     }
     /**
      * @inheritDoc
@@ -50681,7 +50681,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class m7 extends X {
+  class mL extends X {
     /**
      * @inheritDoc
      */
@@ -50781,7 +50781,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class g7 extends R {
+  class gL extends L {
     /**
      * @inheritDoc
      */
@@ -50799,7 +50799,7 @@ Read more: ${o0}#error-${n}`;
      */
     init() {
       const e = this.editor, t = e.model.schema;
-      e.commands.add("blockQuote", new m7(e)), t.register("blockQuote", {
+      e.commands.add("blockQuote", new mL(e)), t.register("blockQuote", {
         inheritAllFrom: "$container"
       }), e.conversion.elementToElement({ model: "blockQuote", view: "blockquote" }), e.model.document.registerPostFixer((r) => {
         const a = e.model.document.differ.getChanges();
@@ -50842,7 +50842,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class p7 extends R {
+  class pL extends L {
     /**
      * @inheritDoc
      */
@@ -50879,12 +50879,12 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class w7 extends R {
+  class wL extends L {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [g7, p7];
+      return [gL, pL];
     }
     /**
      * @inheritDoc
@@ -50914,7 +50914,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function b7(n, e, t) {
+  function bL(n, e, t) {
     return e.setCustomProperty("media", !0, n), pa(n, e, { label: t });
   }
   function xf(n, e, t, i) {
@@ -50940,13 +50940,13 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class _7 extends X {
+  class _L extends X {
     /**
      * @inheritDoc
      */
     refresh() {
       const e = this.editor.model, t = e.document.selection, i = Sf(t);
-      this.value = i ? i.getAttribute("url") : void 0, this.isEnabled = y7(t) || v7(t, e);
+      this.value = i ? i.getAttribute("url") : void 0, this.isEnabled = yL(t) || vL(t, e);
     }
     /**
      * Executes the command, which either:
@@ -50964,21 +50964,21 @@ Read more: ${o0}#error-${n}`;
       }) : eb(t, e, i, !0);
     }
   }
-  function v7(n, e) {
+  function vL(n, e) {
     let i = Wc(n, e).start.parent;
     return i.isEmpty && !e.schema.isLimit(i) && (i = i.parent), e.schema.checkChild(i, "media");
   }
-  function y7(n) {
+  function yL(n) {
     const e = n.getSelectedElement();
     return !!e && e.name === "media";
   }
-  const C7 = '<svg viewBox="0 0 64 42" xmlns="http://www.w3.org/2000/svg"><path d="M47.426 17V3.713L63.102 0v19.389h-.001l.001.272c0 1.595-2.032 3.43-4.538 4.098-2.506.668-4.538-.083-4.538-1.678 0-1.594 2.032-3.43 4.538-4.098.914-.244 2.032-.565 2.888-.603V4.516L49.076 7.447v9.556A1.014 1.014 0 0 0 49 17h-1.574zM29.5 17h-8.343a7.073 7.073 0 1 0-4.657 4.06v3.781H3.3a2.803 2.803 0 0 1-2.8-2.804V8.63a2.803 2.803 0 0 1 2.8-2.805h4.082L8.58 2.768A1.994 1.994 0 0 1 10.435 1.5h8.985c.773 0 1.477.448 1.805 1.149l1.488 3.177H26.7c1.546 0 2.8 1.256 2.8 2.805V17zm-11.637 0H17.5a1 1 0 0 0-1 1v.05A4.244 4.244 0 1 1 17.863 17zm29.684 2c.97 0 .953-.048.953.889v20.743c0 .953.016.905-.953.905H19.453c-.97 0-.953.048-.953-.905V19.89c0-.937-.016-.889.97-.889h28.077zm-4.701 19.338V22.183H24.154v16.155h18.692zM20.6 21.375v1.616h1.616v-1.616H20.6zm0 3.231v1.616h1.616v-1.616H20.6zm0 3.231v1.616h1.616v-1.616H20.6zm0 3.231v1.616h1.616v-1.616H20.6zm0 3.231v1.616h1.616v-1.616H20.6zm0 3.231v1.616h1.616V37.53H20.6zm24.233-16.155v1.616h1.615v-1.616h-1.615zm0 3.231v1.616h1.615v-1.616h-1.615zm0 3.231v1.616h1.615v-1.616h-1.615zm0 3.231v1.616h1.615v-1.616h-1.615zm0 3.231v1.616h1.615v-1.616h-1.615zm0 3.231v1.616h1.615V37.53h-1.615zM29.485 25.283a.4.4 0 0 1 .593-.35l9.05 4.977a.4.4 0 0 1 0 .701l-9.05 4.978a.4.4 0 0 1-.593-.35v-9.956z"/></svg>';
+  const CL = '<svg viewBox="0 0 64 42" xmlns="http://www.w3.org/2000/svg"><path d="M47.426 17V3.713L63.102 0v19.389h-.001l.001.272c0 1.595-2.032 3.43-4.538 4.098-2.506.668-4.538-.083-4.538-1.678 0-1.594 2.032-3.43 4.538-4.098.914-.244 2.032-.565 2.888-.603V4.516L49.076 7.447v9.556A1.014 1.014 0 0 0 49 17h-1.574zM29.5 17h-8.343a7.073 7.073 0 1 0-4.657 4.06v3.781H3.3a2.803 2.803 0 0 1-2.8-2.804V8.63a2.803 2.803 0 0 1 2.8-2.805h4.082L8.58 2.768A1.994 1.994 0 0 1 10.435 1.5h8.985c.773 0 1.477.448 1.805 1.149l1.488 3.177H26.7c1.546 0 2.8 1.256 2.8 2.805V17zm-11.637 0H17.5a1 1 0 0 0-1 1v.05A4.244 4.244 0 1 1 17.863 17zm29.684 2c.97 0 .953-.048.953.889v20.743c0 .953.016.905-.953.905H19.453c-.97 0-.953.048-.953-.905V19.89c0-.937-.016-.889.97-.889h28.077zm-4.701 19.338V22.183H24.154v16.155h18.692zM20.6 21.375v1.616h1.616v-1.616H20.6zm0 3.231v1.616h1.616v-1.616H20.6zm0 3.231v1.616h1.616v-1.616H20.6zm0 3.231v1.616h1.616v-1.616H20.6zm0 3.231v1.616h1.616v-1.616H20.6zm0 3.231v1.616h1.616V37.53H20.6zm24.233-16.155v1.616h1.615v-1.616h-1.615zm0 3.231v1.616h1.615v-1.616h-1.615zm0 3.231v1.616h1.615v-1.616h-1.615zm0 3.231v1.616h1.615v-1.616h-1.615zm0 3.231v1.616h1.615v-1.616h-1.615zm0 3.231v1.616h1.615V37.53h-1.615zM29.485 25.283a.4.4 0 0 1 .593-.35l9.05 4.977a.4.4 0 0 1 0 .701l-9.05 4.978a.4.4 0 0 1-.593-.35v-9.956z"/></svg>';
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const k7 = "0 0 64 42";
-  class T7 {
+  const kL = "0 0 64 42";
+  class TL {
     /**
      * Creates an instance of the {@link module:media-embed/mediaregistry~MediaRegistry} class.
      *
@@ -51079,7 +51079,7 @@ Read more: ${o0}#error-${n}`;
      */
     _getPlaceholderHtml() {
       const e = new Xt(), t = this._locale.t;
-      return e.content = C7, e.viewBox = k7, new gt({
+      return e.content = CL, e.viewBox = kL, new gt({
         tag: "div",
         attributes: {
           class: "ck ck-reset_all ck-media__placeholder"
@@ -51127,7 +51127,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Fr extends R {
+  class Fr extends L {
     /**
      * @inheritDoc
      */
@@ -51210,14 +51210,14 @@ Read more: ${o0}#error-${n}`;
             url: /^facebook\.com/
           }
         ]
-      }), this.registry = new T7(e.locale, e.config.get("mediaEmbed"));
+      }), this.registry = new TL(e.locale, e.config.get("mediaEmbed"));
     }
     /**
      * @inheritDoc
      */
     init() {
       const e = this.editor, t = e.model.schema, i = e.t, s = e.conversion, o = e.config.get("mediaEmbed.previewsInData"), r = e.config.get("mediaEmbed.elementName"), a = this.registry;
-      e.commands.add("mediaEmbed", new _7(e)), t.register("media", {
+      e.commands.add("mediaEmbed", new _L(e)), t.register("media", {
         inheritAllFrom: "$blockObject",
         allowAttributes: ["url"]
       }), s.for("dataDowncast").elementToStructure({
@@ -51239,7 +51239,7 @@ Read more: ${o0}#error-${n}`;
             elementName: r,
             renderForEditingView: !0
           });
-          return b7(d, c, i("media widget"));
+          return bL(d, c, i("media widget"));
         }
       }), s.for("editingDowncast").add(Af(a, {
         elementName: r,
@@ -51276,8 +51276,8 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  const E7 = /^(?:http(s)?:\/\/)?[\w-]+\.[\w-.~:/?#[\]@!$&'()*+,;=%]+$/;
-  class A7 extends R {
+  const EL = /^(?:http(s)?:\/\/)?[\w-]+\.[\w-.~:/?#[\]@!$&'()*+,;=%]+$/;
+  class AL extends L {
     /**
      * @inheritDoc
      */
@@ -51324,7 +51324,7 @@ Read more: ${o0}#error-${n}`;
       let a = "";
       for (const c of r)
         c.item.is("$textProxy") && (a += c.item.data);
-      if (a = a.trim(), !a.match(E7)) {
+      if (a = a.trim(), !a.match(EL)) {
         o.detach();
         return;
       }
@@ -51349,7 +51349,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class x7 extends q {
+  class xL extends q {
     /**
      * @param validators Form validators used by {@link #isValid}.
      * @param locale The localization services instance.
@@ -51478,12 +51478,12 @@ Read more: ${o0}#error-${n}`;
       }), s && o.delegate("execute").to(this, s), o;
     }
   }
-  const S7 = '<svg viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.587 1.5c-.612 0-.601-.029-.601.551v14.84c0 .59-.01.559.591.559h18.846c.602 0 .591.03.591-.56V2.052c0-.58.01-.55-.591-.55H1.587Zm.701.971h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-14.24 1h13.008v12H4.467l.029-12Zm-2.208 1h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003l-.029 1h-.974v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h.974v1h-.974v-1Zm16.448 0h1.003v1h-1.003v-1Z"/><path d="M8.374 6.648a.399.399 0 0 1 .395-.4.402.402 0 0 1 .2.049l5.148 2.824a.4.4 0 0 1 0 .7l-5.148 2.824a.403.403 0 0 1-.595-.35V6.648Z"/></svg>';
+  const SL = '<svg viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg"><path d="M1.587 1.5c-.612 0-.601-.029-.601.551v14.84c0 .59-.01.559.591.559h18.846c.602 0 .591.03.591-.56V2.052c0-.58.01-.55-.591-.55H1.587Zm.701.971h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-14.24 1h13.008v12H4.467l.029-12Zm-2.208 1h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003v1H2.288v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h1.003l-.029 1h-.974v-1Zm16.448 0h1.003v1h-1.003v-1Zm-16.448 2h.974v1h-.974v-1Zm16.448 0h1.003v1h-1.003v-1Z"/><path d="M8.374 6.648a.399.399 0 0 1 .395-.4.402.402 0 0 1 .2.049l5.148 2.824a.4.4 0 0 1 0 .7l-5.148 2.824a.403.403 0 0 1-.595-.35V6.648Z"/></svg>';
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class I7 extends R {
+  class IL extends L {
     /**
      * @inheritDoc
      */
@@ -51509,7 +51509,7 @@ Read more: ${o0}#error-${n}`;
     _setUpDropdown(e, t) {
       const i = this.editor, s = i.t, o = e.buttonView, r = i.plugins.get(Fr).registry;
       e.once("change:isOpen", () => {
-        const a = new (tc(x7))(P7(i.t, r), i.locale);
+        const a = new (tc(xL))(PL(i.t, r), i.locale);
         e.panelView.children.add(a), o.on("open", () => {
           a.disableCssTransitions(), a.url = t.value || "", a.urlInputView.fieldView.select(), a.enableCssTransitions();
         }, { priority: "low" }), e.on("submit", () => {
@@ -51519,12 +51519,12 @@ Read more: ${o0}#error-${n}`;
         }), a.delegate("submit", "cancel").to(e), a.urlInputView.fieldView.bind("value").to(t, "value"), a.urlInputView.bind("isEnabled").to(t, "isEnabled");
       }), e.bind("isEnabled").to(t), o.set({
         label: s("Insert media"),
-        icon: S7,
+        icon: SL,
         tooltip: !0
       });
     }
   }
-  function P7(n, e) {
+  function PL(n, e) {
     return [
       (t) => {
         if (!t.url.length)
@@ -51540,12 +51540,12 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class R7 extends R {
+  class RL extends L {
     /**
      * @inheritDoc
      */
     static get requires() {
-      return [Fr, I7, A7, gs];
+      return [Fr, IL, AL, gs];
     }
     /**
      * @inheritDoc
@@ -51558,7 +51558,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function L7(n) {
+  function LL(n) {
     const e = parseFloat(n);
     return n.endsWith("pt") ? Wn(e * 96 / 72) : n.endsWith("pc") ? Wn(e * 12 * 96 / 72) : n.endsWith("in") ? Wn(e * 96) : n.endsWith("cm") ? Wn(e * 96 / 2.54) : n.endsWith("mm") ? Wn(e / 10 * 96 / 2.54) : n;
   }
@@ -51572,24 +51572,24 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function V7(n, e, t) {
+  function VL(n, e, t) {
     if (!n.childCount)
       return;
-    const i = new Ei(n.document), s = B7(n, i);
+    const i = new Ei(n.document), s = BL(n, i);
     if (!s.length)
       return;
     const o = {}, r = [];
     for (const a of s)
       if (a.indent !== void 0) {
-        O7(a) || (r.length = 0);
+        OL(a) || (r.length = 0);
         const l = `${a.id}:${a.indent}`, c = Math.min(a.indent - 1, r.length);
         if (c < r.length && r[c].id !== a.id && (r.length = c), c < r.length - 1)
           r.length = c + 1;
         else {
-          const d = F7(a, e);
+          const d = FL(a, e);
           if (c > r.length - 1 || r[c].listElement.name != d.type) {
             c == 0 && d.type == "ol" && a.id !== void 0 && o[l] && (d.startIndex = o[l]);
-            const h = U7(d, i, t);
+            const h = UL(d, i, t);
             if (Pf(a.marginLeft) && (c == 0 || Pf(r[c - 1].marginLeft))) {
               let f = a.marginLeft;
               c > 0 && (f = Wn(parseFloat(f) - parseFloat(r[c - 1].marginLeft))), i.setStyle("padding-left", f, h);
@@ -51609,7 +51609,7 @@ Read more: ${o0}#error-${n}`;
           }
         }
         const u = a.element.name == "li" ? a.element : i.createElement("li");
-        i.appendChild(u, r[c].listElement), r[c].listItemElements.push(u), c == 0 && a.id !== void 0 && o[l]++, a.element != u && i.appendChild(a.element, u), W7(a.element, i), i.removeStyle("text-indent", a.element), i.removeStyle("margin-left", a.element);
+        i.appendChild(u, r[c].listElement), r[c].listItemElements.push(u), c == 0 && a.id !== void 0 && o[l]++, a.element != u && i.appendChild(a.element, u), WL(a.element, i), i.removeStyle("text-indent", a.element), i.removeStyle("margin-left", a.element);
       } else {
         const l = r.find((c) => c.marginLeft == a.marginLeft);
         if (l) {
@@ -51619,7 +51619,7 @@ Read more: ${o0}#error-${n}`;
           r.length = 0;
       }
   }
-  function M7(n, e) {
+  function ML(n, e) {
     for (const t of e.createRangeIn(n)) {
       const i = t.item;
       if (i.is("element", "li")) {
@@ -51628,14 +51628,14 @@ Read more: ${o0}#error-${n}`;
       }
     }
   }
-  function B7(n, e) {
+  function BL(n, e) {
     const t = e.createRangeIn(n), i = [], s = /* @__PURE__ */ new Set();
     for (const o of t.getItems()) {
       if (!o.is("element") || !o.name.match(/^(p|h\d+|li|div)$/))
         continue;
-      let r = $7(o);
+      let r = $L(o);
       if (r !== void 0 && parseFloat(r) == 0 && !Array.from(o.getClassNames()).find((a) => a.startsWith("MsoList")) && (r = void 0), o.hasStyle("mso-list") || r !== void 0 && s.has(r)) {
-        const a = H7(o);
+        const a = HL(o);
         i.push({
           element: o,
           id: a.id,
@@ -51648,20 +51648,20 @@ Read more: ${o0}#error-${n}`;
     }
     return i;
   }
-  function O7(n) {
+  function OL(n) {
     const e = n.element.previousSibling;
     return Rf(e || n.element.parent);
   }
   function Rf(n) {
     return n.is("element", "ol") || n.is("element", "ul");
   }
-  function F7(n, e) {
+  function FL(n, e) {
     const t = new RegExp(`@list l${n.id}:level${n.indent}\\s*({[^}]*)`, "gi"), i = /mso-level-number-format:([^;]{0,100});/gi, s = /mso-level-start-at:\s{0,100}([0-9]{0,10})\s{0,100};/gi, o = new RegExp(`@list\\s+l${n.id}:level\\d\\s*{[^{]*mso-level-text:"%\\d\\\\.`, "gi"), r = new RegExp(`@list l${n.id}:level\\d\\s*{[^{]*mso-level-number-format:`, "gi"), a = o.exec(e), l = r.exec(e), c = a && !l, u = t.exec(e);
     let d = "decimal", h = "ol", f = null;
     if (u && u[1]) {
       const m = i.exec(u[1]);
       if (m && m[1] && (d = m[1].trim(), h = d !== "bullet" && d !== "image" ? "ol" : "ul"), d === "bullet") {
-        const g = N7(n.element);
+        const g = NL(n.element);
         g && (d = g);
       } else {
         const g = s.exec(u[1]);
@@ -51672,20 +51672,20 @@ Read more: ${o0}#error-${n}`;
     return {
       type: h,
       startIndex: f,
-      style: z7(d),
+      style: zL(d),
       isLegalStyleList: c
     };
   }
-  function N7(n) {
+  function NL(n) {
     if (n.name == "li" && n.parent.name == "ul" && n.parent.hasAttribute("type"))
       return n.parent.getAttribute("type");
-    const e = D7(n);
+    const e = DL(n);
     if (!e)
       return null;
     const t = e._data;
     return t === "o" ? "circle" : t === "·" ? "disc" : t === "§" ? "square" : null;
   }
-  function D7(n) {
+  function DL(n) {
     if (n.getChild(0).is("$text"))
       return null;
     for (const e of n.getChildren()) {
@@ -51698,7 +51698,7 @@ Read more: ${o0}#error-${n}`;
     /* istanbul ignore next -- @preserve */
     return null;
   }
-  function z7(n) {
+  function zL(n) {
     if (n.startsWith("arabic-leading-zero"))
       return "decimal-leading-zero";
     switch (n) {
@@ -51718,11 +51718,11 @@ Read more: ${o0}#error-${n}`;
         return null;
     }
   }
-  function U7(n, e, t) {
+  function UL(n, e, t) {
     const i = e.createElement(n.type);
     return n.style && e.setStyle("list-style-type", n.style, i), n.startIndex && n.startIndex > 1 && e.setAttribute("start", n.startIndex, i), n.isLegalStyleList && t && e.addClass("legal-list", i), i;
   }
-  function H7(n) {
+  function HL(n) {
     const e = n.getStyle("mso-list");
     if (e === void 0)
       return {};
@@ -51736,7 +51736,7 @@ Read more: ${o0}#error-${n}`;
       // Handle empty mso-list style as a marked for default list item.
     };
   }
-  function W7(n, e) {
+  function WL(n, e) {
     const t = new jt({
       name: "span",
       styles: {
@@ -51746,26 +51746,26 @@ Read more: ${o0}#error-${n}`;
     for (const s of i)
       s.type === "elementStart" && t.match(s.item) && e.remove(s.item);
   }
-  function $7(n) {
+  function $L(n) {
     const e = n.getStyle("margin-left");
-    return e === void 0 || e.endsWith("px") ? e : L7(e);
+    return e === void 0 || e.endsWith("px") ? e : LL(e);
   }
   /**
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  function q7(n, e) {
+  function qL(n, e) {
     if (!n.childCount)
       return;
-    const t = new Ei(n.document), i = j7(n, t);
-    K7(i, n, t), J7(i, n, t), Z7(n, t);
-    const s = Q7(n, t);
-    s.length && Y7(s, X7(e), t);
+    const t = new Ei(n.document), i = jL(n, t);
+    KL(i, n, t), JL(i, n, t), ZL(n, t);
+    const s = QL(n, t);
+    s.length && YL(s, XL(e), t);
   }
-  function G7(n) {
+  function GL(n) {
     return btoa(n.match(/\w{2}/g).map((e) => String.fromCharCode(parseInt(e, 16))).join(""));
   }
-  function j7(n, e) {
+  function jL(n, e) {
     const t = e.createRangeIn(n), i = new jt({
       name: /v:(.+)/
     }), s = [];
@@ -51777,7 +51777,7 @@ Read more: ${o0}#error-${n}`;
     }
     return s;
   }
-  function K7(n, e, t) {
+  function KL(n, e, t) {
     const i = t.createRangeIn(e), s = new jt({
       name: "img"
     }), o = [];
@@ -51789,7 +51789,7 @@ Read more: ${o0}#error-${n}`;
     for (const r of o)
       t.remove(r);
   }
-  function Z7(n, e) {
+  function ZL(n, e) {
     const t = e.createRangeIn(n), i = new jt({
       name: /v:(.+)/
     }), s = [];
@@ -51798,7 +51798,7 @@ Read more: ${o0}#error-${n}`;
     for (const o of s)
       e.remove(o);
   }
-  function J7(n, e, t) {
+  function JL(n, e, t) {
     const i = t.createRangeIn(e), s = [];
     for (const a of i)
       if (a.type == "elementStart" && a.item.is("element", "v:shape")) {
@@ -51831,7 +51831,7 @@ Read more: ${o0}#error-${n}`;
       }
     }
   }
-  function Q7(n, e) {
+  function QL(n, e) {
     const t = e.createRangeIn(n), i = new jt({
       name: "img"
     }), s = [];
@@ -51839,7 +51839,7 @@ Read more: ${o0}#error-${n}`;
       o.item.is("element") && i.match(o.item) && o.item.getAttribute("src").startsWith("file://") && s.push(o.item);
     return s;
   }
-  function X7(n) {
+  function XL(n) {
     if (!n)
       return [];
     const e = /{\\pict[\s\S]+?\\bliptag-?\d+(\\blipupi-?\d+)?({\\\*\\blipuid\s?[\da-fA-F]+)?[\s}]*?/, t = new RegExp("(?:(" + e.source + "))([\\da-fA-F\\s]+)\\}", "g"), i = n.match(t), s = [];
@@ -51853,10 +51853,10 @@ Read more: ${o0}#error-${n}`;
       }
     return s;
   }
-  function Y7(n, e, t) {
+  function YL(n, e, t) {
     if (n.length === e.length)
       for (let i = 0; i < n.length; i++) {
-        const s = `data:${e[i].type};base64,${G7(e[i].hex)}`;
+        const s = `data:${e[i].type};base64,${GL(e[i].hex)}`;
         t.setAttribute("src", s, n[i]);
       }
   }
@@ -51904,7 +51904,7 @@ Read more: ${o0}#error-${n}`;
      */
     execute(e) {
       const { body: t, stylesString: i } = e._parsedData;
-      V7(t, i, this.hasMultiLevelListPlugin), q7(t, e.dataTransfer.getData("text/rtf")), e6(t), e.content = t;
+      VL(t, i, this.hasMultiLevelListPlugin), qL(t, e.dataTransfer.getData("text/rtf")), e6(t), e.content = t;
     }
   }
   /**
@@ -51966,7 +51966,7 @@ Read more: ${o0}#error-${n}`;
      */
     execute(e) {
       const t = new Ei(this.document), { body: i } = e._parsedData;
-      s6(i, t), M7(i, t), o6(i, t), e.content = i;
+      s6(i, t), ML(i, t), o6(i, t), e.content = i;
     }
   }
   /**
@@ -52091,7 +52091,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class v6 extends R {
+  class v6 extends L {
     /**
      * @inheritDoc
      */
@@ -52856,8 +52856,8 @@ Read more: ${o0}#error-${n}`;
     const d = o, h = d + a, f = [...new ue(s, { startRow: d, endRow: h, includeAllSlots: !0 })];
     let m = null, g;
     for (const _ of f) {
-      const { row: w, column: A, cell: L } = _;
-      L === n && g === void 0 && (g = A), g !== void 0 && g === A && w === h && (m = En(t, _.getPositionBefore(), l));
+      const { row: w, column: A, cell: I } = _;
+      I === n && g === void 0 && (g = A), g !== void 0 && g === A && w === h && (m = En(t, _.getPositionBefore(), l));
     }
     return Ie("rowspan", a, n, t), m;
   }
@@ -53309,7 +53309,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ge extends R {
+  class Ge extends L {
     /**
      * @inheritDoc
      */
@@ -53421,16 +53421,16 @@ Read more: ${o0}#error-${n}`;
           return;
         }
         const h = r ? Math.max(s, a) : s, f = new ue(e, { endRow: h }), m = new Array(c).fill(1);
-        for (const { row: g, column: _, cellHeight: w, cellWidth: A, cell: L } of f) {
-          const T = g + w - 1, M = g < s && s <= T, y = g <= a && a <= T;
-          M ? (u.setAttribute("rowspan", w + o, L), m[_] = -A) : r && y && (m[_] = A);
+        for (const { row: g, column: _, cellHeight: w, cellWidth: A, cell: I } of f) {
+          const T = g + w - 1, F = g < s && s <= T, y = g <= a && a <= T;
+          F ? (u.setAttribute("rowspan", w + o, I), m[_] = -A) : r && y && (m[_] = A);
         }
         for (let g = 0; g < o; g++) {
           const _ = u.createElement("tableRow");
           u.insert(_, e, s);
           for (let w = 0; w < m.length; w++) {
-            const A = m[w], L = u.createPositionAt(_, "end");
-            A > 0 && En(u, L, A > 1 ? { colspan: A } : void 0), w += Math.abs(A) - 1;
+            const A = m[w], I = u.createPositionAt(_, "end");
+            A > 0 && En(u, I, A > 1 ? { colspan: A } : void 0), w += Math.abs(A) - 1;
           }
         }
       });
@@ -53630,8 +53630,8 @@ Read more: ${o0}#error-${n}`;
         }
         if (a < t) {
           const c = t - a, u = [...new ue(o)], { column: d } = u.find(({ cell: g }) => g === e), h = u.filter(({ cell: g, cellWidth: _, column: w }) => {
-            const A = g !== e && w === d, L = w < d && w + _ > d;
-            return A || L;
+            const A = g !== e && w === d, I = w < d && w + _ > d;
+            return A || I;
           });
           for (const { cell: g, cellWidth: _ } of h)
             l.setAttribute("colspan", _ + c, g);
@@ -53708,8 +53708,8 @@ Read more: ${o0}#error-${n}`;
           const { column: f } = u.find(({ cell: g }) => g === e), m = {};
           d > 1 && (m.rowspan = d), l > 1 && (m.colspan = l);
           for (const g of u) {
-            const { column: _, row: w } = g, A = w >= r + h, L = _ === f, T = (w + r + h) % d === 0;
-            A && L && T && $n(1, c, g.getPositionBefore(), m);
+            const { column: _, row: w } = g, A = w >= r + h, I = _ === f, T = (w + r + h) % d === 0;
+            A && I && T && $n(1, c, g.getPositionBefore(), m);
           }
         }
         if (a < t) {
@@ -54267,7 +54267,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class xo extends R {
+  class xo extends L {
     /**
      * @inheritDoc
      */
@@ -54504,7 +54504,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class IV extends R {
+  class IV extends L {
     /**
      * @inheritDoc
      */
@@ -54735,7 +54735,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class un extends R {
+  class un extends L {
     /**
      * @inheritDoc
      */
@@ -54938,7 +54938,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class RV extends R {
+  class RV extends L {
     /**
      * @inheritDoc
      */
@@ -55039,8 +55039,8 @@ Read more: ${o0}#error-${n}`;
       for (const _ of c) {
         const { row: w, column: A } = _;
         A === s.firstColumn && (d = _.getPositionBefore());
-        const L = w - s.firstRow, T = A - s.firstColumn, M = l[L % a][T % r], y = M ? o.cloneElement(M) : null, P = this._replaceTableSlotCell(_, y, d, o);
-        P && (ab(P, w, A, s.lastRow, s.lastColumn, o), u.push(P), d = o.createPositionAfter(P));
+        const I = w - s.firstRow, T = A - s.firstColumn, F = l[I % a][T % r], y = F ? o.cloneElement(F) : null, R = this._replaceTableSlotCell(_, y, d, o);
+        R && (ab(R, w, A, s.lastRow, s.lastColumn, o), u.push(R), d = o.createPositionAfter(R));
       }
       const h = parseInt(i.getAttribute("headingRows") || "0"), f = parseInt(i.getAttribute("headingColumns") || "0"), m = s.firstRow < h && h <= s.lastRow, g = s.firstColumn < f && f <= s.lastColumn;
       if (m) {
@@ -55131,7 +55131,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class OV extends R {
+  class OV extends L {
     /**
      * @inheritDoc
      */
@@ -55305,8 +55305,8 @@ Read more: ${o0}#error-${n}`;
         w.setCellSelection(A, g);
       } else {
         const A = s.createPositionAt(g, _ ? 0 : "end");
-        s.change((L) => {
-          L.setSelection(A);
+        s.change((I) => {
+          I.setSelection(A);
         });
       }
     }
@@ -55333,7 +55333,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class FV extends R {
+  class FV extends L {
     /**
      * @inheritDoc
      */
@@ -55417,7 +55417,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class NV extends R {
+  class NV extends L {
     /**
      * @inheritDoc
      */
@@ -55462,7 +55462,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class DV extends R {
+  class DV extends L {
     /**
      * @inheritDoc
      */
@@ -56325,7 +56325,7 @@ Read more: ${o0}#error-${n}`;
     horizontalAlignment: "tableCellHorizontalAlignment",
     verticalAlignment: "tableCellVerticalAlignment"
   };
-  class GV extends R {
+  class GV extends L {
     /**
      * @inheritDoc
      */
@@ -56613,7 +56613,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class xb extends R {
+  class xb extends L {
     /**
      * @inheritDoc
      */
@@ -56827,7 +56827,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const Yf = /^(top|middle|bottom)$/, em = /^(left|center|right|justify)$/;
-  class iM extends R {
+  class iM extends L {
     /**
      * @inheritDoc
      */
@@ -56974,7 +56974,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class rM extends R {
+  class rM extends L {
     /**
      * @inheritDoc
      */
@@ -57205,7 +57205,7 @@ Read more: ${o0}#error-${n}`;
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const mM = /^(left|center|right)$/, gM = /^(left|none|right)$/;
-  class pM extends R {
+  class pM extends L {
     /**
      * @inheritDoc
      */
@@ -57656,7 +57656,7 @@ Read more: ${o0}#error-${n}`;
     height: "tableHeight",
     alignment: "tableAlignment"
   };
-  class TM extends R {
+  class TM extends L {
     /**
      * @inheritDoc
      */
@@ -57850,7 +57850,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class EM extends R {
+  class EM extends L {
     /**
      * @inheritDoc
      */
@@ -57965,7 +57965,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class RM extends R {
+  class RM extends L {
     /**
      * @inheritDoc
      */
@@ -58049,7 +58049,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class LM extends R {
+  class LM extends L {
     /**
      * @inheritDoc
      */
@@ -58085,7 +58085,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class VM extends R {
+  class VM extends L {
     /**
      * @inheritDoc
      */
@@ -58157,7 +58157,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class FM extends R {
+  class FM extends L {
     /**
      * @inheritDoc
      */
@@ -58383,7 +58383,7 @@ Read more: ${o0}#error-${n}`;
       function c(h, f, m) {
         const g = Array(f.getColumns(h)), _ = new ue(h);
         for (const w of _) {
-          const A = m.editing.mapper.toViewElement(w.cell), L = m.editing.view.domConverter.mapViewToDom(A), T = X6(L);
+          const A = m.editing.mapper.toViewElement(w.cell), I = m.editing.view.domConverter.mapViewToDom(A), T = X6(I);
           (!g[w.column] || T < g[w.column]) && (g[w.column] = ut(T));
         }
         return g;
@@ -58419,8 +58419,8 @@ Read more: ${o0}#error-${n}`;
       }
       const { columnPosition: i, flags: { isRightEdge: s, isTableCentered: o, isLtrContent: r }, elements: { viewFigure: a, viewLeftColumn: l, viewRightColumn: c }, widths: { viewFigureParentWidth: u, tableWidth: d, leftColumnWidth: h, rightColumnWidth: f } } = this._resizingData, m = -h + Gl, g = s ? u - d : f - Gl, _ = (r ? 1 : -1) * (s && o ? 2 : 1), w = Z6((t.clientX - i) * _, Math.min(m, 0), Math.max(g, 0));
       w !== 0 && this.editor.editing.view.change((A) => {
-        const L = ut((h + w) * 100 / d);
-        if (A.setStyle("width", `${L}%`, l), s) {
+        const I = ut((h + w) * 100 / d);
+        if (A.setStyle("width", `${I}%`, l), s) {
           const T = ut((d + w) * 100 / u);
           A.setStyle("width", `${T}%`, a);
         } else {
@@ -58462,7 +58462,7 @@ Read more: ${o0}#error-${n}`;
      * @returns The data needed for the resizing process.
      */
     _getResizingData(e, t) {
-      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = K6(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), g = m.findAncestor("figure"), _ = [...m.getChildren()].find((p) => p.is("element", "colgroup")), w = _.getChild(c), A = d ? void 0 : _.getChild(c + 1), L = jl(i.editing.view.domConverter.mapViewToDom(g.parent)), T = jl(i.editing.view.domConverter.mapViewToDom(g)), M = ub(l, i), y = t[c], P = d ? void 0 : t[c + 1];
+      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = K6(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), g = m.findAncestor("figure"), _ = [...m.getChildren()].find((p) => p.is("element", "colgroup")), w = _.getChild(c), A = d ? void 0 : _.getChild(c + 1), I = jl(i.editing.view.domConverter.mapViewToDom(g.parent)), T = jl(i.editing.view.domConverter.mapViewToDom(g)), F = ub(l, i), y = t[c], R = d ? void 0 : t[c + 1];
       return {
         columnPosition: s,
         flags: {
@@ -58479,11 +58479,11 @@ Read more: ${o0}#error-${n}`;
           viewRightColumn: A
         },
         widths: {
-          viewFigureParentWidth: L,
+          viewFigureParentWidth: I,
           viewFigureWidth: T,
-          tableWidth: M,
+          tableWidth: F,
           leftColumnWidth: y,
-          rightColumnWidth: P
+          rightColumnWidth: R
         }
       };
     }
@@ -58503,7 +58503,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class NM extends R {
+  class NM extends L {
     /**
      * @inheritDoc
      */
@@ -58879,8 +58879,8 @@ Read more: ${o0}#error-${n}`;
         const _ = g.createPositionAt(d, 0), w = g.createPositionAt(d, m[0].length), A = new ht(_, w);
         if (s({ match: m }) !== !1) {
           g.remove(A);
-          const T = n.model.document.selection.getFirstRange(), M = g.createRangeIn(d);
-          d.isEmpty && !M.isEqual(T) && !M.containsRange(T, !0) && g.remove(d);
+          const T = n.model.document.selection.getFirstRange(), F = g.createRangeIn(d);
+          d.isEmpty && !F.isEqual(T) && !F.containsRange(T, !0) && g.remove(d);
         }
         A.detach(), n.model.enqueueChange(() => {
           n.plugins.get("Delete").requestUndoOnBackspace();
@@ -58924,10 +58924,10 @@ Read more: ${o0}#error-${n}`;
       if (u.length != 1 || d.type !== "insert" || d.name != "$text" || d.length != 1)
         return;
       const h = c.focus, f = h.parent, { text: m, range: g } = jM(l.createRange(l.createPositionAt(f, 0), h), l), _ = o(m), w = om(g.start, _.format, l), A = om(g.start, _.remove, l);
-      w.length && A.length && l.enqueueChange((L) => {
-        if (i(L, w) !== !1) {
-          for (const M of A.reverse())
-            L.remove(M);
+      w.length && A.length && l.enqueueChange((I) => {
+        if (i(I, w) !== !1) {
+          for (const F of A.reverse())
+            I.remove(F);
           l.enqueueChange(() => {
             n.plugins.get("Delete").requestUndoOnBackspace();
           });
@@ -58946,7 +58946,7 @@ Read more: ${o0}#error-${n}`;
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class KM extends R {
+  class KM extends L {
     /**
      * @inheritDoc
      */
@@ -59170,10 +59170,10 @@ Read more: ${o0}#error-${n}`;
       l += 4, l = m;
       for (var g = 0; g < h; g++) {
         a(u, l), l += 4, l += 4, l += 4, a(u, l += 4), f = a(u, l += 4);
-        var _ = a(u, l += 4), w = r(u, l += 4), A = r(u, l + 2), L = r(u, l + 4);
+        var _ = a(u, l += 4), w = r(u, l += 4), A = r(u, l + 2), I = r(u, l + 4);
         l += 6;
         var T = a(u, l += 8);
-        l += 4, l += w + A + L, i._readLocal(u, T, c, f, _, o);
+        l += 4, l += w + A + I, i._readLocal(u, T, c, f, _, o);
       }
       return c;
     }, i._readLocal = function(s, o, r, a, l, c) {
@@ -59226,11 +59226,11 @@ Read more: ${o0}#error-${n}`;
         var w = c[u];
         _.push(g), g = i._writeHeader(m, g, u, w, 0);
       }
-      var A = 0, L = g;
+      var A = 0, I = g;
       for (var u in c)
         w = c[u], _.push(g), g = i._writeHeader(m, g, u, w, 1, _[A++]);
-      var T = g - L;
-      return a(m, g, 101010256), g += 4, l(m, g += 4, A), l(m, g += 2, A), a(m, g += 2, T), a(m, g += 4, L), g += 4, g += 2, m.buffer;
+      var T = g - I;
+      return a(m, g, 101010256), g += 4, l(m, g += 4, A), l(m, g += 2, A), a(m, g += 2, T), a(m, g += 4, I), g += 4, g += 2, m.buffer;
     }, i._noNeed = function(s) {
       var o = s.split(".").pop().toLowerCase();
       return "png,jpg,jpeg,zip".indexOf(o) != -1;
@@ -59324,30 +59324,30 @@ Read more: ${o0}#error-${n}`;
           d(o, f, h + (S = Math.min(65535, g - h)) == g ? 1 : 0), f = i.F._copyExact(s, h, S, o, f + 8), h += S;
         return f >>> 3;
       }
-      var _ = c.lits, w = c.strt, A = c.prev, L = 0, T = 0, M = 0, y = 0, P = 0, p = 0;
+      var _ = c.lits, w = c.strt, A = c.prev, I = 0, T = 0, F = 0, y = 0, R = 0, p = 0;
       for (g > 2 && (w[p = i.F._hash(s, 0)] = 0), h = 0; h < g; h++) {
-        if (P = p, h + 1 < g - 2) {
+        if (R = p, h + 1 < g - 2) {
           p = i.F._hash(s, h + 1);
           var b = h + 1 & 32767;
           A[b] = w[p], w[p] = b;
         }
         if (m <= h) {
-          (L > 14e3 || T > 26697) && g - h > 100 && (m < h && (_[L] = h - m, L += 2, m = h), f = i.F._writeBlock(h == g - 1 || m == g ? 1 : 0, _, L, y, s, M, h - M, o, f), L = T = y = 0, M = h);
+          (I > 14e3 || T > 26697) && g - h > 100 && (m < h && (_[I] = h - m, I += 2, m = h), f = i.F._writeBlock(h == g - 1 || m == g ? 1 : 0, _, I, y, s, F, h - F, o, f), I = T = y = 0, F = h);
           var E = 0;
-          h < g - 2 && (E = i.F._bestMatch(s, h, A, P, Math.min(l[2], g - h), l[3]));
-          var S = E >>> 16, I = 65535 & E;
+          h < g - 2 && (E = i.F._bestMatch(s, h, A, R, Math.min(l[2], g - h), l[3]));
+          var S = E >>> 16, P = 65535 & E;
           if (E != 0) {
-            I = 65535 & E;
+            P = 65535 & E;
             var V = u(S = E >>> 16, c.of0);
             c.lhst[257 + V]++;
-            var x = u(I, c.df0);
-            c.dhst[x]++, y += c.exb[V] + c.dxb[x], _[L] = S << 23 | h - m, _[L + 1] = I << 16 | V << 8 | x, L += 2, m = h + S;
+            var x = u(P, c.df0);
+            c.dhst[x]++, y += c.exb[V] + c.dxb[x], _[I] = S << 23 | h - m, _[I + 1] = P << 16 | V << 8 | x, I += 2, m = h + S;
           } else
             c.lhst[s[h]]++;
           T++;
         }
       }
-      for (M == h && s.length != 0 || (m < h && (_[L] = h - m, L += 2, m = h), f = i.F._writeBlock(1, _, L, y, s, M, h - M, o, f), L = 0, T = 0, L = T = y = 0, M = h); 7 & f; )
+      for (F == h && s.length != 0 || (m < h && (_[I] = h - m, I += 2, m = h), f = i.F._writeBlock(1, _, I, y, s, F, h - F, o, f), I = 0, T = 0, I = T = y = 0, F = h); 7 & f; )
         f++;
       return f >>> 3;
     }, i.F._bestMatch = function(s, o, r, a, l, c) {
@@ -59362,8 +59362,8 @@ Read more: ${o0}#error-${n}`;
               break;
             h + 2 < _ && (_ = h + 2);
             for (var w = 0, A = 0; A < _ - 2; A++) {
-              var L = o - h + A + 32768 & 32767, T = L - r[L] + 32768 & 32767;
-              T > w && (w = T, d = L);
+              var I = o - h + A + 32768 & 32767, T = I - r[I] + 32768 & 32767;
+              T > w && (w = T, d = I);
             }
           }
         }
@@ -59380,35 +59380,35 @@ Read more: ${o0}#error-${n}`;
     }, i.F._hash = function(s, o) {
       return (s[o] << 8 | s[o + 1]) + (s[o + 2] << 4) & 65535;
     }, i.saved = 0, i.F._writeBlock = function(s, o, r, a, l, c, u, d, h) {
-      var f, m, g, _, w, A, L, T, M, y = i.F.U, P = i.F._putsF, p = i.F._putsE;
-      y.lhst[256]++, m = (f = i.F.getTrees())[0], g = f[1], _ = f[2], w = f[3], A = f[4], L = f[5], T = f[6], M = f[7];
+      var f, m, g, _, w, A, I, T, F, y = i.F.U, R = i.F._putsF, p = i.F._putsE;
+      y.lhst[256]++, m = (f = i.F.getTrees())[0], g = f[1], _ = f[2], w = f[3], A = f[4], I = f[5], T = f[6], F = f[7];
       var b = 32 + (h + 3 & 7 ? 8 - (h + 3 & 7) : 0) + (u << 3), E = a + i.F.contSize(y.fltree, y.lhst) + i.F.contSize(y.fdtree, y.dhst), S = a + i.F.contSize(y.ltree, y.lhst) + i.F.contSize(y.dtree, y.dhst);
-      S += 14 + 3 * L + i.F.contSize(y.itree, y.ihst) + (2 * y.ihst[16] + 3 * y.ihst[17] + 7 * y.ihst[18]);
-      for (var I = 0; I < 286; I++)
-        y.lhst[I] = 0;
-      for (I = 0; I < 30; I++)
-        y.dhst[I] = 0;
-      for (I = 0; I < 19; I++)
-        y.ihst[I] = 0;
+      S += 14 + 3 * I + i.F.contSize(y.itree, y.ihst) + (2 * y.ihst[16] + 3 * y.ihst[17] + 7 * y.ihst[18]);
+      for (var P = 0; P < 286; P++)
+        y.lhst[P] = 0;
+      for (P = 0; P < 30; P++)
+        y.dhst[P] = 0;
+      for (P = 0; P < 19; P++)
+        y.ihst[P] = 0;
       var V = b < E && b < S ? 0 : E < S ? 1 : 2;
-      if (P(d, h, s), P(d, h + 1, V), h += 3, V == 0) {
+      if (R(d, h, s), R(d, h + 1, V), h += 3, V == 0) {
         for (; 7 & h; )
           h++;
         h = i.F._copyExact(l, c, u, d, h);
       } else {
-        var x, O;
-        if (V == 1 && (x = y.fltree, O = y.fdtree), V == 2) {
-          i.F.makeCodes(y.ltree, m), i.F.revCodes(y.ltree, m), i.F.makeCodes(y.dtree, g), i.F.revCodes(y.dtree, g), i.F.makeCodes(y.itree, _), i.F.revCodes(y.itree, _), x = y.ltree, O = y.dtree, p(d, h, w - 257), p(d, h += 5, A - 1), p(d, h += 5, L - 4), h += 4;
-          for (var C = 0; C < L; C++)
+        var x, B;
+        if (V == 1 && (x = y.fltree, B = y.fdtree), V == 2) {
+          i.F.makeCodes(y.ltree, m), i.F.revCodes(y.ltree, m), i.F.makeCodes(y.dtree, g), i.F.revCodes(y.dtree, g), i.F.makeCodes(y.itree, _), i.F.revCodes(y.itree, _), x = y.ltree, B = y.dtree, p(d, h, w - 257), p(d, h += 5, A - 1), p(d, h += 5, I - 4), h += 4;
+          for (var C = 0; C < I; C++)
             p(d, h + 3 * C, y.itree[1 + (y.ordr[C] << 1)]);
-          h += 3 * L, h = i.F._codeTiny(T, y.itree, d, h), h = i.F._codeTiny(M, y.itree, d, h);
+          h += 3 * I, h = i.F._codeTiny(T, y.itree, d, h), h = i.F._codeTiny(F, y.itree, d, h);
         }
         for (var v = c, U = 0; U < r; U += 2) {
-          for (var F = o[U], D = F >>> 23, J = v + (8388607 & F); v < J; )
+          for (var O = o[U], D = O >>> 23, J = v + (8388607 & O); v < J; )
             h = i.F._writeLit(l[v++], x, d, h);
           if (D != 0) {
             var W = o[U + 1], K = W >> 16, H = W >> 8 & 255, N = 255 & W;
-            p(d, h = i.F._writeLit(257 + H, x, d, h), D - y.of0[H]), h += y.exb[H], P(d, h = i.F._writeLit(N, O, d, h), K - y.df0[N]), h += y.dxb[N], v += D;
+            p(d, h = i.F._writeLit(257 + H, x, d, h), D - y.of0[H]), h += y.exb[H], R(d, h = i.F._writeLit(N, B, d, h), K - y.df0[N]), h += y.dxb[N], v += D;
           }
         }
         h = i.F._writeLit(256, x, d, h);
@@ -59476,16 +59476,16 @@ Read more: ${o0}#error-${n}`;
         var f = a[0].lit;
         return h = f == 0 ? 1 : 0, o[1 + (f << 1)] = 1, o[1 + (h << 1)] = 1, 1;
       }
-      a.sort(function(T, M) {
-        return T.f - M.f;
+      a.sort(function(T, F) {
+        return T.f - F.f;
       });
       var m = a[0], g = a[1], _ = 0, w = 1, A = 2;
       for (a[0] = { lit: -1, f: m.f + g.f, l: m, r: g, d: 0 }; w != d - 1; )
         m = _ != w && (A == d || a[_].f < a[A].f) ? a[_++] : a[A++], g = _ != w && (A == d || a[_].f < a[A].f) ? a[_++] : a[A++], a[w++] = { lit: -1, f: m.f + g.f, l: m, r: g };
-      var L = i.F.setDepth(a[w - 1], 0);
-      for (L > r && (i.F.restrictDepth(h, r, L), L = r), u = 0; u < d; u++)
+      var I = i.F.setDepth(a[w - 1], 0);
+      for (I > r && (i.F.restrictDepth(h, r, I), I = r), u = 0; u < d; u++)
         o[1 + (h[u].lit << 1)] = h[u].d;
-      return L;
+      return I;
     }, i.F.setDepth = function(s, o) {
       return s.lit != -1 ? (s.d = o, o) : Math.max(i.F.setDepth(s.l, o + 1), i.F.setDepth(s.r, o + 1));
     }, i.F.restrictDepth = function(s, o, r) {
@@ -59512,25 +59512,25 @@ Read more: ${o0}#error-${n}`;
         return o || new r(0);
       var a = i.F, l = a._bitsF, c = a._bitsE, u = a._decodeTiny, d = a.makeCodes, h = a.codes2map, f = a._get17, m = a.U, g = o == null;
       g && (o = new r(s.length >>> 2 << 3));
-      for (var _, w, A = 0, L = 0, T = 0, M = 0, y = 0, P = 0, p = 0, b = 0, E = 0; A == 0; )
-        if (A = l(s, E, 1), L = l(s, E + 1, 2), E += 3, L != 0) {
-          if (g && (o = i.F._check(o, b + (1 << 17))), L == 1 && (_ = m.flmap, w = m.fdmap, P = 511, p = 31), L == 2) {
-            T = c(s, E, 5) + 257, M = c(s, E + 5, 5) + 1, y = c(s, E + 10, 4) + 4, E += 14;
+      for (var _, w, A = 0, I = 0, T = 0, F = 0, y = 0, R = 0, p = 0, b = 0, E = 0; A == 0; )
+        if (A = l(s, E, 1), I = l(s, E + 1, 2), E += 3, I != 0) {
+          if (g && (o = i.F._check(o, b + (1 << 17))), I == 1 && (_ = m.flmap, w = m.fdmap, R = 511, p = 31), I == 2) {
+            T = c(s, E, 5) + 257, F = c(s, E + 5, 5) + 1, y = c(s, E + 10, 4) + 4, E += 14;
             for (var S = 0; S < 38; S += 2)
               m.itree[S] = 0, m.itree[S + 1] = 0;
-            var I = 1;
+            var P = 1;
             for (S = 0; S < y; S++) {
               var V = c(s, E + 3 * S, 3);
-              m.itree[1 + (m.ordr[S] << 1)] = V, V > I && (I = V);
+              m.itree[1 + (m.ordr[S] << 1)] = V, V > P && (P = V);
             }
-            E += 3 * y, d(m.itree, I), h(m.itree, I, m.imap), _ = m.lmap, w = m.dmap, E = u(m.imap, (1 << I) - 1, T + M, s, E, m.ttree);
+            E += 3 * y, d(m.itree, P), h(m.itree, P, m.imap), _ = m.lmap, w = m.dmap, E = u(m.imap, (1 << P) - 1, T + F, s, E, m.ttree);
             var x = a._copyOut(m.ttree, 0, T, m.ltree);
-            P = (1 << x) - 1;
-            var O = a._copyOut(m.ttree, T, M, m.dtree);
-            p = (1 << O) - 1, d(m.ltree, x), h(m.ltree, x, _), d(m.dtree, O), h(m.dtree, O, w);
+            R = (1 << x) - 1;
+            var B = a._copyOut(m.ttree, T, F, m.dtree);
+            p = (1 << B) - 1, d(m.ltree, x), h(m.ltree, x, _), d(m.dtree, B), h(m.dtree, B, w);
           }
           for (; ; ) {
-            var C = _[f(s, E) & P];
+            var C = _[f(s, E) & R];
             E += 15 & C;
             var v = C >>> 4;
             if (!(v >>> 8))
@@ -59540,8 +59540,8 @@ Read more: ${o0}#error-${n}`;
                 break;
               var U = b + v - 254;
               if (v > 264) {
-                var F = m.ldef[v - 257];
-                U = b + (F >>> 3) + c(s, E, 7 & F), E += 7 & F;
+                var O = m.ldef[v - 257];
+                U = b + (O >>> 3) + c(s, E, 7 & O), E += 7 & O;
               }
               var D = w[f(s, E) & p];
               E += 15 & D;
@@ -59671,129 +59671,129 @@ Read more: ${o0}#error-${n}`;
       return f;
     } };
     function e(u, d, h, f) {
-      const m = d * h, g = o(f), _ = Math.ceil(d * g / 8), w = new Uint8Array(4 * m), A = new Uint32Array(w.buffer), { ctype: L } = f, { depth: T } = f, M = n.readUshort;
-      if (L == 6) {
-        const F = m << 2;
+      const m = d * h, g = o(f), _ = Math.ceil(d * g / 8), w = new Uint8Array(4 * m), A = new Uint32Array(w.buffer), { ctype: I } = f, { depth: T } = f, F = n.readUshort;
+      if (I == 6) {
+        const O = m << 2;
         if (T == 8)
-          for (var y = 0; y < F; y += 4)
+          for (var y = 0; y < O; y += 4)
             w[y] = u[y], w[y + 1] = u[y + 1], w[y + 2] = u[y + 2], w[y + 3] = u[y + 3];
         if (T == 16)
-          for (y = 0; y < F; y++)
+          for (y = 0; y < O; y++)
             w[y] = u[y << 1];
-      } else if (L == 2) {
-        const F = f.tabs.tRNS;
-        if (F == null) {
+      } else if (I == 2) {
+        const O = f.tabs.tRNS;
+        if (O == null) {
           if (T == 8)
             for (y = 0; y < m; y++) {
-              var P = 3 * y;
-              A[y] = 255 << 24 | u[P + 2] << 16 | u[P + 1] << 8 | u[P];
+              var R = 3 * y;
+              A[y] = 255 << 24 | u[R + 2] << 16 | u[R + 1] << 8 | u[R];
             }
           if (T == 16)
             for (y = 0; y < m; y++)
-              P = 6 * y, A[y] = 255 << 24 | u[P + 4] << 16 | u[P + 2] << 8 | u[P];
+              R = 6 * y, A[y] = 255 << 24 | u[R + 4] << 16 | u[R + 2] << 8 | u[R];
         } else {
-          var p = F[0];
-          const D = F[1], J = F[2];
+          var p = O[0];
+          const D = O[1], J = O[2];
           if (T == 8)
             for (y = 0; y < m; y++) {
               var b = y << 2;
-              P = 3 * y, A[y] = 255 << 24 | u[P + 2] << 16 | u[P + 1] << 8 | u[P], u[P] == p && u[P + 1] == D && u[P + 2] == J && (w[b + 3] = 0);
+              R = 3 * y, A[y] = 255 << 24 | u[R + 2] << 16 | u[R + 1] << 8 | u[R], u[R] == p && u[R + 1] == D && u[R + 2] == J && (w[b + 3] = 0);
             }
           if (T == 16)
             for (y = 0; y < m; y++)
-              b = y << 2, P = 6 * y, A[y] = 255 << 24 | u[P + 4] << 16 | u[P + 2] << 8 | u[P], M(u, P) == p && M(u, P + 2) == D && M(u, P + 4) == J && (w[b + 3] = 0);
+              b = y << 2, R = 6 * y, A[y] = 255 << 24 | u[R + 4] << 16 | u[R + 2] << 8 | u[R], F(u, R) == p && F(u, R + 2) == D && F(u, R + 4) == J && (w[b + 3] = 0);
         }
-      } else if (L == 3) {
-        const F = f.tabs.PLTE, D = f.tabs.tRNS, J = D ? D.length : 0;
+      } else if (I == 3) {
+        const O = f.tabs.PLTE, D = f.tabs.tRNS, J = D ? D.length : 0;
         if (T == 1)
           for (var E = 0; E < h; E++) {
-            var S = E * _, I = E * d;
+            var S = E * _, P = E * d;
             for (y = 0; y < d; y++) {
-              b = I + y << 2;
+              b = P + y << 2;
               var V = 3 * (x = u[S + (y >> 3)] >> 7 - ((7 & y) << 0) & 1);
-              w[b] = F[V], w[b + 1] = F[V + 1], w[b + 2] = F[V + 2], w[b + 3] = x < J ? D[x] : 255;
+              w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = x < J ? D[x] : 255;
             }
           }
         if (T == 2)
           for (E = 0; E < h; E++)
-            for (S = E * _, I = E * d, y = 0; y < d; y++)
-              b = I + y << 2, V = 3 * (x = u[S + (y >> 2)] >> 6 - ((3 & y) << 1) & 3), w[b] = F[V], w[b + 1] = F[V + 1], w[b + 2] = F[V + 2], w[b + 3] = x < J ? D[x] : 255;
+            for (S = E * _, P = E * d, y = 0; y < d; y++)
+              b = P + y << 2, V = 3 * (x = u[S + (y >> 2)] >> 6 - ((3 & y) << 1) & 3), w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = x < J ? D[x] : 255;
         if (T == 4)
           for (E = 0; E < h; E++)
-            for (S = E * _, I = E * d, y = 0; y < d; y++)
-              b = I + y << 2, V = 3 * (x = u[S + (y >> 1)] >> 4 - ((1 & y) << 2) & 15), w[b] = F[V], w[b + 1] = F[V + 1], w[b + 2] = F[V + 2], w[b + 3] = x < J ? D[x] : 255;
+            for (S = E * _, P = E * d, y = 0; y < d; y++)
+              b = P + y << 2, V = 3 * (x = u[S + (y >> 1)] >> 4 - ((1 & y) << 2) & 15), w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = x < J ? D[x] : 255;
         if (T == 8)
           for (y = 0; y < m; y++) {
             var x;
-            b = y << 2, V = 3 * (x = u[y]), w[b] = F[V], w[b + 1] = F[V + 1], w[b + 2] = F[V + 2], w[b + 3] = x < J ? D[x] : 255;
+            b = y << 2, V = 3 * (x = u[y]), w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = x < J ? D[x] : 255;
           }
-      } else if (L == 4) {
+      } else if (I == 4) {
         if (T == 8)
           for (y = 0; y < m; y++) {
             b = y << 2;
-            var O = u[C = y << 1];
-            w[b] = O, w[b + 1] = O, w[b + 2] = O, w[b + 3] = u[C + 1];
+            var B = u[C = y << 1];
+            w[b] = B, w[b + 1] = B, w[b + 2] = B, w[b + 3] = u[C + 1];
           }
         if (T == 16)
           for (y = 0; y < m; y++) {
             var C;
-            b = y << 2, O = u[C = y << 2], w[b] = O, w[b + 1] = O, w[b + 2] = O, w[b + 3] = u[C + 2];
+            b = y << 2, B = u[C = y << 2], w[b] = B, w[b + 1] = B, w[b + 2] = B, w[b + 3] = u[C + 2];
           }
-      } else if (L == 0)
+      } else if (I == 0)
         for (p = f.tabs.tRNS ? f.tabs.tRNS : -1, E = 0; E < h; E++) {
-          const F = E * _, D = E * d;
+          const O = E * _, D = E * d;
           if (T == 1)
             for (var v = 0; v < d; v++) {
-              var U = (O = 255 * (u[F + (v >>> 3)] >>> 7 - (7 & v) & 1)) == 255 * p ? 0 : 255;
-              A[D + v] = U << 24 | O << 16 | O << 8 | O;
+              var U = (B = 255 * (u[O + (v >>> 3)] >>> 7 - (7 & v) & 1)) == 255 * p ? 0 : 255;
+              A[D + v] = U << 24 | B << 16 | B << 8 | B;
             }
           else if (T == 2)
             for (v = 0; v < d; v++)
-              U = (O = 85 * (u[F + (v >>> 2)] >>> 6 - ((3 & v) << 1) & 3)) == 85 * p ? 0 : 255, A[D + v] = U << 24 | O << 16 | O << 8 | O;
+              U = (B = 85 * (u[O + (v >>> 2)] >>> 6 - ((3 & v) << 1) & 3)) == 85 * p ? 0 : 255, A[D + v] = U << 24 | B << 16 | B << 8 | B;
           else if (T == 4)
             for (v = 0; v < d; v++)
-              U = (O = 17 * (u[F + (v >>> 1)] >>> 4 - ((1 & v) << 2) & 15)) == 17 * p ? 0 : 255, A[D + v] = U << 24 | O << 16 | O << 8 | O;
+              U = (B = 17 * (u[O + (v >>> 1)] >>> 4 - ((1 & v) << 2) & 15)) == 17 * p ? 0 : 255, A[D + v] = U << 24 | B << 16 | B << 8 | B;
           else if (T == 8)
             for (v = 0; v < d; v++)
-              U = (O = u[F + v]) == p ? 0 : 255, A[D + v] = U << 24 | O << 16 | O << 8 | O;
+              U = (B = u[O + v]) == p ? 0 : 255, A[D + v] = U << 24 | B << 16 | B << 8 | B;
           else if (T == 16)
             for (v = 0; v < d; v++)
-              O = u[F + (v << 1)], U = M(u, F + (v << 1)) == p ? 0 : 255, A[D + v] = U << 24 | O << 16 | O << 8 | O;
+              B = u[O + (v << 1)], U = F(u, O + (v << 1)) == p ? 0 : 255, A[D + v] = U << 24 | B << 16 | B << 8 | B;
         }
       return w;
     }
     function t(u, d, h, f) {
       const m = o(u), g = Math.ceil(h * m / 8), _ = new Uint8Array((g + 1 + u.interlace) * f);
-      return d = u.tabs.CgBI ? s(d, _) : i(d, _), u.interlace == 0 ? d = r(d, u, 0, h, f) : u.interlace == 1 && (d = function(A, L) {
-        const T = L.width, M = L.height, y = o(L), P = y >> 3, p = Math.ceil(T * y / 8), b = new Uint8Array(M * p);
+      return d = u.tabs.CgBI ? s(d, _) : i(d, _), u.interlace == 0 ? d = r(d, u, 0, h, f) : u.interlace == 1 && (d = function(A, I) {
+        const T = I.width, F = I.height, y = o(I), R = y >> 3, p = Math.ceil(T * y / 8), b = new Uint8Array(F * p);
         let E = 0;
-        const S = [0, 0, 4, 0, 2, 0, 1], I = [0, 4, 0, 2, 0, 1, 0], V = [8, 8, 8, 4, 4, 2, 2], x = [8, 8, 4, 4, 2, 2, 1];
-        let O = 0;
-        for (; O < 7; ) {
-          const v = V[O], U = x[O];
-          let F = 0, D = 0, J = S[O];
-          for (; J < M; )
+        const S = [0, 0, 4, 0, 2, 0, 1], P = [0, 4, 0, 2, 0, 1, 0], V = [8, 8, 8, 4, 4, 2, 2], x = [8, 8, 4, 4, 2, 2, 1];
+        let B = 0;
+        for (; B < 7; ) {
+          const v = V[B], U = x[B];
+          let O = 0, D = 0, J = S[B];
+          for (; J < F; )
             J += v, D++;
-          let W = I[O];
+          let W = P[B];
           for (; W < T; )
-            W += U, F++;
-          const K = Math.ceil(F * y / 8);
-          r(A, L, E, F, D);
-          let H = 0, N = S[O];
-          for (; N < M; ) {
-            let ee = I[O], Ee = E + H * K << 3;
+            W += U, O++;
+          const K = Math.ceil(O * y / 8);
+          r(A, I, E, O, D);
+          let H = 0, N = S[B];
+          for (; N < F; ) {
+            let ee = P[B], Ee = E + H * K << 3;
             for (; ee < T; ) {
               var C;
               if (y == 1 && (C = (C = A[Ee >> 3]) >> 7 - (7 & Ee) & 1, b[N * p + (ee >> 3)] |= C << 7 - ((7 & ee) << 0)), y == 2 && (C = (C = A[Ee >> 3]) >> 6 - (7 & Ee) & 3, b[N * p + (ee >> 2)] |= C << 6 - ((3 & ee) << 1)), y == 4 && (C = (C = A[Ee >> 3]) >> 4 - (7 & Ee) & 15, b[N * p + (ee >> 1)] |= C << 4 - ((1 & ee) << 2)), y >= 8) {
-                const me = N * p + ee * P;
-                for (let le = 0; le < P; le++)
+                const me = N * p + ee * R;
+                for (let le = 0; le < R; le++)
                   b[me + le] = A[(Ee >> 3) + le];
               }
               Ee += y, ee += U;
             }
             H++, N += v;
           }
-          F * D != 0 && (E += D * (1 + K)), O += 1;
+          O * D != 0 && (E += D * (1 + K)), B += 1;
         }
         return b;
       }(d, u)), d;
@@ -59805,57 +59805,57 @@ Read more: ${o0}#error-${n}`;
       const u = { H: {} };
       return u.H.N = function(d, h) {
         const f = Uint8Array;
-        let m, g, _ = 0, w = 0, A = 0, L = 0, T = 0, M = 0, y = 0, P = 0, p = 0;
+        let m, g, _ = 0, w = 0, A = 0, I = 0, T = 0, F = 0, y = 0, R = 0, p = 0;
         if (d[0] == 3 && d[1] == 0)
           return h || new f(0);
-        const b = u.H, E = b.b, S = b.e, I = b.R, V = b.n, x = b.A, O = b.Z, C = b.m, v = h == null;
+        const b = u.H, E = b.b, S = b.e, P = b.R, V = b.n, x = b.A, B = b.Z, C = b.m, v = h == null;
         for (v && (h = new f(d.length >>> 2 << 5)); _ == 0; )
           if (_ = E(d, p, 1), w = E(d, p + 1, 2), p += 3, w != 0) {
-            if (v && (h = u.H.W(h, P + (1 << 17))), w == 1 && (m = C.J, g = C.h, M = 511, y = 31), w == 2) {
-              A = S(d, p, 5) + 257, L = S(d, p + 5, 5) + 1, T = S(d, p + 10, 4) + 4, p += 14;
-              let F = 1;
+            if (v && (h = u.H.W(h, R + (1 << 17))), w == 1 && (m = C.J, g = C.h, F = 511, y = 31), w == 2) {
+              A = S(d, p, 5) + 257, I = S(d, p + 5, 5) + 1, T = S(d, p + 10, 4) + 4, p += 14;
+              let O = 1;
               for (var U = 0; U < 38; U += 2)
                 C.Q[U] = 0, C.Q[U + 1] = 0;
               for (U = 0; U < T; U++) {
                 const W = S(d, p + 3 * U, 3);
-                C.Q[1 + (C.X[U] << 1)] = W, W > F && (F = W);
+                C.Q[1 + (C.X[U] << 1)] = W, W > O && (O = W);
               }
-              p += 3 * T, V(C.Q, F), x(C.Q, F, C.u), m = C.w, g = C.d, p = I(C.u, (1 << F) - 1, A + L, d, p, C.v);
+              p += 3 * T, V(C.Q, O), x(C.Q, O, C.u), m = C.w, g = C.d, p = P(C.u, (1 << O) - 1, A + I, d, p, C.v);
               const D = b.V(C.v, 0, A, C.C);
-              M = (1 << D) - 1;
-              const J = b.V(C.v, A, L, C.D);
+              F = (1 << D) - 1;
+              const J = b.V(C.v, A, I, C.D);
               y = (1 << J) - 1, V(C.C, D), x(C.C, D, m), V(C.D, J), x(C.D, J, g);
             }
             for (; ; ) {
-              const F = m[O(d, p) & M];
-              p += 15 & F;
-              const D = F >>> 4;
+              const O = m[B(d, p) & F];
+              p += 15 & O;
+              const D = O >>> 4;
               if (!(D >>> 8))
-                h[P++] = D;
+                h[R++] = D;
               else {
                 if (D == 256)
                   break;
                 {
-                  let J = P + D - 254;
+                  let J = R + D - 254;
                   if (D > 264) {
                     const ee = C.q[D - 257];
-                    J = P + (ee >>> 3) + S(d, p, 7 & ee), p += 7 & ee;
+                    J = R + (ee >>> 3) + S(d, p, 7 & ee), p += 7 & ee;
                   }
-                  const W = g[O(d, p) & y];
+                  const W = g[B(d, p) & y];
                   p += 15 & W;
                   const K = W >>> 4, H = C.c[K], N = (H >>> 4) + E(d, p, 15 & H);
-                  for (p += 15 & H; P < J; )
-                    h[P] = h[P++ - N], h[P] = h[P++ - N], h[P] = h[P++ - N], h[P] = h[P++ - N];
-                  P = J;
+                  for (p += 15 & H; R < J; )
+                    h[R] = h[R++ - N], h[R] = h[R++ - N], h[R] = h[R++ - N], h[R] = h[R++ - N];
+                  R = J;
                 }
               }
             }
           } else {
             7 & p && (p += 8 - (7 & p));
-            const F = 4 + (p >>> 3), D = d[F - 4] | d[F - 3] << 8;
-            v && (h = u.H.W(h, P + D)), h.set(new f(d.buffer, d.byteOffset + F, D), P), p = F + D << 3, P += D;
+            const O = 4 + (p >>> 3), D = d[O - 4] | d[O - 3] << 8;
+            v && (h = u.H.W(h, R + D)), h.set(new f(d.buffer, d.byteOffset + O, D), R), p = O + D << 3, R += D;
           }
-        return h.length == P ? h : h.slice(0, P);
+        return h.length == R ? h : h.slice(0, R);
       }, u.H.W = function(d, h) {
         const f = d.length;
         if (h <= f)
@@ -59864,19 +59864,19 @@ Read more: ${o0}#error-${n}`;
         return m.set(d, 0), m;
       }, u.H.R = function(d, h, f, m, g, _) {
         const w = u.H.e, A = u.H.Z;
-        let L = 0;
-        for (; L < f; ) {
+        let I = 0;
+        for (; I < f; ) {
           const T = d[A(m, g) & h];
           g += 15 & T;
-          const M = T >>> 4;
-          if (M <= 15)
-            _[L] = M, L++;
+          const F = T >>> 4;
+          if (F <= 15)
+            _[I] = F, I++;
           else {
-            let y = 0, P = 0;
-            M == 16 ? (P = 3 + w(m, g, 2), g += 2, y = _[L - 1]) : M == 17 ? (P = 3 + w(m, g, 3), g += 3) : M == 18 && (P = 11 + w(m, g, 7), g += 7);
-            const p = L + P;
-            for (; L < p; )
-              _[L] = y, L++;
+            let y = 0, R = 0;
+            F == 16 ? (R = 3 + w(m, g, 2), g += 2, y = _[I - 1]) : F == 17 ? (R = 3 + w(m, g, 3), g += 3) : F == 18 && (R = 11 + w(m, g, 7), g += 7);
+            const p = I + R;
+            for (; I < p; )
+              _[I] = y, I++;
           }
         }
         return g;
@@ -59893,25 +59893,25 @@ Read more: ${o0}#error-${n}`;
       }, u.H.n = function(d, h) {
         const f = u.H.m, m = d.length;
         let g, _, w, A;
-        const L = f.j;
+        const I = f.j;
         for (var T = 0; T <= h; T++)
-          L[T] = 0;
+          I[T] = 0;
         for (T = 1; T < m; T += 2)
-          L[d[T]]++;
-        const M = f.K;
-        for (g = 0, L[0] = 0, _ = 1; _ <= h; _++)
-          g = g + L[_ - 1] << 1, M[_] = g;
+          I[d[T]]++;
+        const F = f.K;
+        for (g = 0, I[0] = 0, _ = 1; _ <= h; _++)
+          g = g + I[_ - 1] << 1, F[_] = g;
         for (w = 0; w < m; w += 2)
-          A = d[w + 1], A != 0 && (d[w] = M[A], M[A]++);
+          A = d[w + 1], A != 0 && (d[w] = F[A], F[A]++);
       }, u.H.A = function(d, h, f) {
         const m = d.length, g = u.H.m.r;
         for (let _ = 0; _ < m; _ += 2)
           if (d[_ + 1] != 0) {
-            const w = _ >> 1, A = d[_ + 1], L = w << 4 | A, T = h - A;
-            let M = d[_] << T;
-            const y = M + (1 << T);
-            for (; M != y; )
-              f[g[M] >>> 15 - h] = L, M++;
+            const w = _ >> 1, A = d[_ + 1], I = w << 4 | A, T = h - A;
+            let F = d[_] << T;
+            const y = F + (1 << T);
+            for (; F != y; )
+              f[g[F] >>> 15 - h] = I, F++;
           }
       }, u.H.l = function(d, h) {
         const f = u.H.m.r, m = 15 - h;
@@ -59961,23 +59961,23 @@ Read more: ${o0}#error-${n}`;
       const _ = Math.ceil(f * g / 8);
       let w, A;
       g = Math.ceil(g / 8);
-      let L = u[h], T = 0;
-      if (L > 1 && (u[h] = [0, 0, 1][L - 2]), L == 3)
+      let I = u[h], T = 0;
+      if (I > 1 && (u[h] = [0, 0, 1][I - 2]), I == 3)
         for (T = g; T < _; T++)
           u[T + 1] = u[T + 1] + (u[T + 1 - g] >>> 1) & 255;
-      for (let M = 0; M < m; M++)
-        if (w = h + M * _, A = w + M + 1, L = u[A - 1], T = 0, L == 0)
+      for (let F = 0; F < m; F++)
+        if (w = h + F * _, A = w + F + 1, I = u[A - 1], T = 0, I == 0)
           for (; T < _; T++)
             u[w + T] = u[A + T];
-        else if (L == 1) {
+        else if (I == 1) {
           for (; T < g; T++)
             u[w + T] = u[A + T];
           for (; T < _; T++)
             u[w + T] = u[A + T] + u[w + T - g];
-        } else if (L == 2)
+        } else if (I == 2)
           for (; T < _; T++)
             u[w + T] = u[A + T] + u[w + T - _];
-        else if (L == 3) {
+        else if (I == 3) {
           for (; T < g; T++)
             u[w + T] = u[A + T] + (u[w + T - _] >>> 1);
           for (; T < _; T++)
@@ -59998,22 +59998,22 @@ Read more: ${o0}#error-${n}`;
       h.width = n.readUint(u, d), d += 4, h.height = n.readUint(u, d), d += 4, h.depth = u[d], d++, h.ctype = u[d], d++, h.compress = u[d], d++, h.filter = u[d], d++, h.interlace = u[d], d++;
     }
     function c(u, d, h, f, m, g, _, w, A) {
-      const L = Math.min(d, m), T = Math.min(h, g);
-      let M = 0, y = 0;
-      for (let O = 0; O < T; O++)
-        for (let C = 0; C < L; C++)
-          if (_ >= 0 && w >= 0 ? (M = O * d + C << 2, y = (w + O) * m + _ + C << 2) : (M = (-w + O) * d - _ + C << 2, y = O * m + C << 2), A == 0)
-            f[y] = u[M], f[y + 1] = u[M + 1], f[y + 2] = u[M + 2], f[y + 3] = u[M + 3];
+      const I = Math.min(d, m), T = Math.min(h, g);
+      let F = 0, y = 0;
+      for (let B = 0; B < T; B++)
+        for (let C = 0; C < I; C++)
+          if (_ >= 0 && w >= 0 ? (F = B * d + C << 2, y = (w + B) * m + _ + C << 2) : (F = (-w + B) * d - _ + C << 2, y = B * m + C << 2), A == 0)
+            f[y] = u[F], f[y + 1] = u[F + 1], f[y + 2] = u[F + 2], f[y + 3] = u[F + 3];
           else if (A == 1) {
-            var P = u[M + 3] * 0.00392156862745098, p = u[M] * P, b = u[M + 1] * P, E = u[M + 2] * P, S = f[y + 3] * (1 / 255), I = f[y] * S, V = f[y + 1] * S, x = f[y + 2] * S;
-            const v = 1 - P, U = P + S * v, F = U == 0 ? 0 : 1 / U;
-            f[y + 3] = 255 * U, f[y + 0] = (p + I * v) * F, f[y + 1] = (b + V * v) * F, f[y + 2] = (E + x * v) * F;
+            var R = u[F + 3] * 0.00392156862745098, p = u[F] * R, b = u[F + 1] * R, E = u[F + 2] * R, S = f[y + 3] * (1 / 255), P = f[y] * S, V = f[y + 1] * S, x = f[y + 2] * S;
+            const v = 1 - R, U = R + S * v, O = U == 0 ? 0 : 1 / U;
+            f[y + 3] = 255 * U, f[y + 0] = (p + P * v) * O, f[y + 1] = (b + V * v) * O, f[y + 2] = (E + x * v) * O;
           } else if (A == 2)
-            P = u[M + 3], p = u[M], b = u[M + 1], E = u[M + 2], S = f[y + 3], I = f[y], V = f[y + 1], x = f[y + 2], P == S && p == I && b == V && E == x ? (f[y] = 0, f[y + 1] = 0, f[y + 2] = 0, f[y + 3] = 0) : (f[y] = p, f[y + 1] = b, f[y + 2] = E, f[y + 3] = P);
+            R = u[F + 3], p = u[F], b = u[F + 1], E = u[F + 2], S = f[y + 3], P = f[y], V = f[y + 1], x = f[y + 2], R == S && p == P && b == V && E == x ? (f[y] = 0, f[y + 1] = 0, f[y + 2] = 0, f[y + 3] = 0) : (f[y] = p, f[y + 1] = b, f[y + 2] = E, f[y + 3] = R);
           else if (A == 3) {
-            if (P = u[M + 3], p = u[M], b = u[M + 1], E = u[M + 2], S = f[y + 3], I = f[y], V = f[y + 1], x = f[y + 2], P == S && p == I && b == V && E == x)
+            if (R = u[F + 3], p = u[F], b = u[F + 1], E = u[F + 2], S = f[y + 3], P = f[y], V = f[y + 1], x = f[y + 2], R == S && p == P && b == V && E == x)
               continue;
-            if (P < 220 && S > 20)
+            if (R < 220 && S > 20)
               return !1;
           }
       return !0;
@@ -60022,13 +60022,13 @@ Read more: ${o0}#error-${n}`;
       const h = new Uint8Array(d);
       let f = 8;
       const m = n, g = m.readUshort, _ = m.readUint, w = { tabs: {}, frames: [] }, A = new Uint8Array(h.length);
-      let L, T = 0, M = 0;
+      let I, T = 0, F = 0;
       const y = [137, 80, 78, 71, 13, 10, 26, 10];
-      for (var P = 0; P < 8; P++)
-        if (h[P] != y[P])
+      for (var R = 0; R < 8; R++)
+        if (h[R] != y[R])
           throw "The input is not a PNG file!";
       for (; f < h.length; ) {
-        const O = m.readUint(h, f);
+        const B = m.readUint(h, f);
         f += 4;
         const C = m.readASCII(h, f, 4);
         if (f += 4, C == "IHDR")
@@ -60037,61 +60037,61 @@ Read more: ${o0}#error-${n}`;
           for (var p = f; h[p] != 0; )
             p++;
           m.readASCII(h, f, p - f), h[p + 1];
-          const v = h.slice(p + 2, f + O);
+          const v = h.slice(p + 2, f + B);
           let U = null;
           try {
             U = i(v);
-          } catch (F) {
+          } catch (O) {
             U = s(v);
           }
           w.tabs[C] = U;
         } else if (C == "CgBI")
           w.tabs[C] = h.slice(f, f + 4);
         else if (C == "IDAT") {
-          for (P = 0; P < O; P++)
-            A[T + P] = h[f + P];
-          T += O;
+          for (R = 0; R < B; R++)
+            A[T + R] = h[f + R];
+          T += B;
         } else if (C == "acTL")
-          w.tabs[C] = { num_frames: _(h, f), num_plays: _(h, f + 4) }, L = new Uint8Array(h.length);
+          w.tabs[C] = { num_frames: _(h, f), num_plays: _(h, f + 4) }, I = new Uint8Array(h.length);
         else if (C == "fcTL") {
-          M != 0 && ((x = w.frames[w.frames.length - 1]).data = t(w, L.slice(0, M), x.rect.width, x.rect.height), M = 0);
+          F != 0 && ((x = w.frames[w.frames.length - 1]).data = t(w, I.slice(0, F), x.rect.width, x.rect.height), F = 0);
           const v = { x: _(h, f + 12), y: _(h, f + 16), width: _(h, f + 4), height: _(h, f + 8) };
           let U = g(h, f + 22);
           U = g(h, f + 20) / (U == 0 ? 100 : U);
-          const F = { rect: v, delay: Math.round(1e3 * U), dispose: h[f + 24], blend: h[f + 25] };
-          w.frames.push(F);
+          const O = { rect: v, delay: Math.round(1e3 * U), dispose: h[f + 24], blend: h[f + 25] };
+          w.frames.push(O);
         } else if (C == "fdAT") {
-          for (P = 0; P < O - 4; P++)
-            L[M + P] = h[f + P + 4];
-          M += O - 4;
+          for (R = 0; R < B - 4; R++)
+            I[F + R] = h[f + R + 4];
+          F += B - 4;
         } else if (C == "pHYs")
           w.tabs[C] = [m.readUint(h, f), m.readUint(h, f + 4), h[f + 8]];
         else if (C == "cHRM")
-          for (w.tabs[C] = [], P = 0; P < 8; P++)
-            w.tabs[C].push(m.readUint(h, f + 4 * P));
+          for (w.tabs[C] = [], R = 0; R < 8; R++)
+            w.tabs[C].push(m.readUint(h, f + 4 * R));
         else if (C == "tEXt" || C == "zTXt") {
           w.tabs[C] == null && (w.tabs[C] = {});
-          var b = m.nextZero(h, f), E = m.readASCII(h, f, b - f), S = f + O - b - 1;
+          var b = m.nextZero(h, f), E = m.readASCII(h, f, b - f), S = f + B - b - 1;
           if (C == "tEXt")
             V = m.readASCII(h, b + 1, S);
           else {
-            var I = i(h.slice(b + 2, b + 2 + S));
-            V = m.readUTF8(I, 0, I.length);
+            var P = i(h.slice(b + 2, b + 2 + S));
+            V = m.readUTF8(P, 0, P.length);
           }
           w.tabs[C][E] = V;
         } else if (C == "iTXt") {
           w.tabs[C] == null && (w.tabs[C] = {}), b = 0, p = f, b = m.nextZero(h, p), E = m.readASCII(h, p, b - p);
           const v = h[p = b + 1];
           var V;
-          h[p + 1], p += 2, b = m.nextZero(h, p), m.readASCII(h, p, b - p), p = b + 1, b = m.nextZero(h, p), m.readUTF8(h, p, b - p), S = O - ((p = b + 1) - f), v == 0 ? V = m.readUTF8(h, p, S) : (I = i(h.slice(p, p + S)), V = m.readUTF8(I, 0, I.length)), w.tabs[C][E] = V;
+          h[p + 1], p += 2, b = m.nextZero(h, p), m.readASCII(h, p, b - p), p = b + 1, b = m.nextZero(h, p), m.readUTF8(h, p, b - p), S = B - ((p = b + 1) - f), v == 0 ? V = m.readUTF8(h, p, S) : (P = i(h.slice(p, p + S)), V = m.readUTF8(P, 0, P.length)), w.tabs[C][E] = V;
         } else if (C == "PLTE")
-          w.tabs[C] = m.readBytes(h, f, O);
+          w.tabs[C] = m.readBytes(h, f, B);
         else if (C == "hIST") {
           const v = w.tabs.PLTE.length / 3;
-          for (w.tabs[C] = [], P = 0; P < v; P++)
-            w.tabs[C].push(g(h, f + 2 * P));
+          for (w.tabs[C] = [], R = 0; R < v; R++)
+            w.tabs[C].push(g(h, f + 2 * R));
         } else if (C == "tRNS")
-          w.ctype == 3 ? w.tabs[C] = m.readBytes(h, f, O) : w.ctype == 0 ? w.tabs[C] = g(h, f) : w.ctype == 2 && (w.tabs[C] = [g(h, f), g(h, f + 2), g(h, f + 4)]);
+          w.ctype == 3 ? w.tabs[C] = m.readBytes(h, f, B) : w.ctype == 0 ? w.tabs[C] = g(h, f) : w.ctype == 2 && (w.tabs[C] = [g(h, f), g(h, f + 2), g(h, f + 4)]);
         else if (C == "gAMA")
           w.tabs[C] = m.readUint(h, f) / 1e5;
         else if (C == "sRGB")
@@ -60100,10 +60100,10 @@ Read more: ${o0}#error-${n}`;
           w.ctype == 0 || w.ctype == 4 ? w.tabs[C] = [g(h, f)] : w.ctype == 2 || w.ctype == 6 ? w.tabs[C] = [g(h, f), g(h, f + 2), g(h, f + 4)] : w.ctype == 3 && (w.tabs[C] = h[f]);
         else if (C == "IEND")
           break;
-        f += O, m.readUint(h, f), f += 4;
+        f += B, m.readUint(h, f), f += 4;
       }
       var x;
-      return M != 0 && ((x = w.frames[w.frames.length - 1]).data = t(w, L.slice(0, M), x.rect.width, x.rect.height)), w.data = t(w, A, w.width, w.height), delete w.compress, delete w.interlace, delete w.filter, w;
+      return F != 0 && ((x = w.frames[w.frames.length - 1]).data = t(w, I.slice(0, F), x.rect.width, x.rect.height)), w.data = t(w, A, w.width, w.height), delete w.compress, delete w.interlace, delete w.filter, w;
     }, toRGBA8: function(d) {
       const h = d.width, f = d.height;
       if (d.tabs.acTL == null)
@@ -60112,16 +60112,16 @@ Read more: ${o0}#error-${n}`;
       d.frames[0].data == null && (d.frames[0].data = d.data);
       const g = h * f * 4, _ = new Uint8Array(g), w = new Uint8Array(g), A = new Uint8Array(g);
       for (let T = 0; T < d.frames.length; T++) {
-        const M = d.frames[T], y = M.rect.x, P = M.rect.y, p = M.rect.width, b = M.rect.height, E = e(M.data, p, b, d);
+        const F = d.frames[T], y = F.rect.x, R = F.rect.y, p = F.rect.width, b = F.rect.height, E = e(F.data, p, b, d);
         if (T != 0)
-          for (var L = 0; L < g; L++)
-            A[L] = _[L];
-        if (M.blend == 0 ? c(E, p, b, _, h, f, y, P, 0) : M.blend == 1 && c(E, p, b, _, h, f, y, P, 1), m.push(_.buffer.slice(0)), M.dispose != 0) {
-          if (M.dispose == 1)
-            c(w, p, b, _, h, f, y, P, 0);
-          else if (M.dispose == 2)
-            for (L = 0; L < g; L++)
-              _[L] = A[L];
+          for (var I = 0; I < g; I++)
+            A[I] = _[I];
+        if (F.blend == 0 ? c(E, p, b, _, h, f, y, R, 0) : F.blend == 1 && c(E, p, b, _, h, f, y, R, 1), m.push(_.buffer.slice(0)), F.dispose != 0) {
+          if (F.dispose == 1)
+            c(w, p, b, _, h, f, y, R, 0);
+          else if (F.dispose == 2)
+            for (I = 0; I < g; I++)
+              _[I] = A[I];
         }
       }
       return m;
@@ -60139,8 +60139,8 @@ Read more: ${o0}#error-${n}`;
       }
       return p;
     }(), update(p, b, E, S) {
-      for (let I = 0; I < S; I++)
-        p = i.table[255 & (p ^ b[E + I])] ^ p >>> 8;
+      for (let P = 0; P < S; P++)
+        p = i.table[255 & (p ^ b[E + P])] ^ p >>> 8;
       return p;
     }, crc: (p, b, E) => 4294967295 ^ i.update(4294967295, p, b, E) };
     function s(p, b, E, S) {
@@ -60150,24 +60150,24 @@ Read more: ${o0}#error-${n}`;
       return Math.max(0, Math.min(255, p));
     }
     function r(p, b) {
-      const E = p[0] - b[0], S = p[1] - b[1], I = p[2] - b[2], V = p[3] - b[3];
-      return E * E + S * S + I * I + V * V;
+      const E = p[0] - b[0], S = p[1] - b[1], P = p[2] - b[2], V = p[3] - b[3];
+      return E * E + S * S + P * P + V * V;
     }
-    function a(p, b, E, S, I, V, x) {
+    function a(p, b, E, S, P, V, x) {
       x == null && (x = 1);
-      const O = S.length, C = [];
-      for (var v = 0; v < O; v++) {
+      const B = S.length, C = [];
+      for (var v = 0; v < B; v++) {
         const N = S[v];
         C.push([N >>> 0 & 255, N >>> 8 & 255, N >>> 16 & 255, N >>> 24 & 255]);
       }
-      for (v = 0; v < O; v++) {
+      for (v = 0; v < B; v++) {
         let N = 4294967295;
-        for (var U = 0, F = 0; F < O; F++) {
-          var D = r(C[v], C[F]);
-          F != v && D < N && (N = D, U = F);
+        for (var U = 0, O = 0; O < B; O++) {
+          var D = r(C[v], C[O]);
+          O != v && D < N && (N = D, U = O);
         }
       }
-      const J = new Uint32Array(I.buffer), W = new Int16Array(b * E * 4), K = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
+      const J = new Uint32Array(P.buffer), W = new Int16Array(b * E * 4), K = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
       for (v = 0; v < K.length; v++)
         K[v] = 255 * ((K[v] + 0.5) / 16 - 0.5);
       for (let N = 0; N < E; N++)
@@ -60175,21 +60175,21 @@ Read more: ${o0}#error-${n}`;
           var H;
           v = 4 * (N * b + ee), x != 2 ? H = [o(p[v] + W[v]), o(p[v + 1] + W[v + 1]), o(p[v + 2] + W[v + 2]), o(p[v + 3] + W[v + 3])] : (D = K[4 * (3 & N) + (3 & ee)], H = [o(p[v] + D), o(p[v + 1] + D), o(p[v + 2] + D), o(p[v + 3] + D)]), U = 0;
           let Ee = 16777215;
-          for (F = 0; F < O; F++) {
-            const ve = r(H, C[F]);
-            ve < Ee && (Ee = ve, U = F);
+          for (O = 0; O < B; O++) {
+            const ve = r(H, C[O]);
+            ve < Ee && (Ee = ve, U = O);
           }
           const me = C[U], le = [H[0] - me[0], H[1] - me[1], H[2] - me[2], H[3] - me[3]];
           x == 1 && (ee != b - 1 && s(le, W, v + 4, 7), N != E - 1 && (ee != 0 && s(le, W, v + 4 * b - 4, 3), s(le, W, v + 4 * b, 5), ee != b - 1 && s(le, W, v + 4 * b + 4, 1))), V[v >> 2] = U, J[v >> 2] = S[U];
         }
     }
-    function l(p, b, E, S, I) {
-      I == null && (I = {});
-      const { crc: V } = i, x = e.writeUint, O = e.writeUshort, C = e.writeASCII;
+    function l(p, b, E, S, P) {
+      P == null && (P = {});
+      const { crc: V } = i, x = e.writeUint, B = e.writeUshort, C = e.writeASCII;
       let v = 8;
       const U = p.frames.length > 1;
-      let F, D = !1, J = 33 + (U ? 20 : 0);
-      if (I.sRGB != null && (J += 13), I.pHYs != null && (J += 21), I.iCCP != null && (F = pako.deflate(I.iCCP), J += 21 + F.length + 4), p.ctype == 3) {
+      let O, D = !1, J = 33 + (U ? 20 : 0);
+      if (P.sRGB != null && (J += 13), P.pHYs != null && (J += 21), P.iCCP != null && (O = pako.deflate(P.iCCP), J += 21 + O.length + 4), p.ctype == 3) {
         for (var W = p.plte.length, K = 0; K < W; K++)
           p.plte[K] >>> 24 != 255 && (D = !0);
         J += 8 + 3 * W + 4 + (D ? 8 + 1 * W + 4 : 0);
@@ -60200,11 +60200,11 @@ Read more: ${o0}#error-${n}`;
       const N = new Uint8Array(J), ee = [137, 80, 78, 71, 13, 10, 26, 10];
       for (K = 0; K < 8; K++)
         N[K] = ee[K];
-      if (x(N, v, 13), v += 4, C(N, v, "IHDR"), v += 4, x(N, v, b), v += 4, x(N, v, E), v += 4, N[v] = p.depth, v++, N[v] = p.ctype, v++, N[v] = 0, v++, N[v] = 0, v++, N[v] = 0, v++, x(N, v, V(N, v - 17, 17)), v += 4, I.sRGB != null && (x(N, v, 1), v += 4, C(N, v, "sRGB"), v += 4, N[v] = I.sRGB, v++, x(N, v, V(N, v - 5, 5)), v += 4), I.iCCP != null) {
-        const le = 13 + F.length;
-        x(N, v, le), v += 4, C(N, v, "iCCP"), v += 4, C(N, v, "ICC profile"), v += 11, v += 2, N.set(F, v), v += F.length, x(N, v, V(N, v - (le + 4), le + 4)), v += 4;
+      if (x(N, v, 13), v += 4, C(N, v, "IHDR"), v += 4, x(N, v, b), v += 4, x(N, v, E), v += 4, N[v] = p.depth, v++, N[v] = p.ctype, v++, N[v] = 0, v++, N[v] = 0, v++, N[v] = 0, v++, x(N, v, V(N, v - 17, 17)), v += 4, P.sRGB != null && (x(N, v, 1), v += 4, C(N, v, "sRGB"), v += 4, N[v] = P.sRGB, v++, x(N, v, V(N, v - 5, 5)), v += 4), P.iCCP != null) {
+        const le = 13 + O.length;
+        x(N, v, le), v += 4, C(N, v, "iCCP"), v += 4, C(N, v, "ICC profile"), v += 11, v += 2, N.set(O, v), v += O.length, x(N, v, V(N, v - (le + 4), le + 4)), v += 4;
       }
-      if (I.pHYs != null && (x(N, v, 9), v += 4, C(N, v, "pHYs"), v += 4, x(N, v, I.pHYs[0]), v += 4, x(N, v, I.pHYs[1]), v += 4, N[v] = I.pHYs[2], v++, x(N, v, V(N, v - 13, 13)), v += 4), U && (x(N, v, 8), v += 4, C(N, v, "acTL"), v += 4, x(N, v, p.frames.length), v += 4, x(N, v, I.loop != null ? I.loop : 0), v += 4, x(N, v, V(N, v - 12, 12)), v += 4), p.ctype == 3) {
+      if (P.pHYs != null && (x(N, v, 9), v += 4, C(N, v, "pHYs"), v += 4, x(N, v, P.pHYs[0]), v += 4, x(N, v, P.pHYs[1]), v += 4, N[v] = P.pHYs[2], v++, x(N, v, V(N, v - 13, 13)), v += 4), U && (x(N, v, 8), v += 4, C(N, v, "acTL"), v += 4, x(N, v, p.frames.length), v += 4, x(N, v, P.loop != null ? P.loop : 0), v += 4, x(N, v, V(N, v - 12, 12)), v += 4), p.ctype == 3) {
         for (x(N, v, 3 * (W = p.plte.length)), v += 4, C(N, v, "PLTE"), v += 4, K = 0; K < W; K++) {
           const le = 3 * K, ve = p.plte[K], Re = 255 & ve, ze = ve >>> 8 & 255, Wi = ve >>> 16 & 255;
           N[v + le + 0] = Re, N[v + le + 1] = ze, N[v + le + 2] = Wi;
@@ -60218,7 +60218,7 @@ Read more: ${o0}#error-${n}`;
       let Ee = 0;
       for (H = 0; H < p.frames.length; H++) {
         var me = p.frames[H];
-        U && (x(N, v, 26), v += 4, C(N, v, "fcTL"), v += 4, x(N, v, Ee++), v += 4, x(N, v, me.rect.width), v += 4, x(N, v, me.rect.height), v += 4, x(N, v, me.rect.x), v += 4, x(N, v, me.rect.y), v += 4, O(N, v, S[H]), v += 2, O(N, v, 1e3), v += 2, N[v] = me.dispose, v++, N[v] = me.blend, v++, x(N, v, V(N, v - 30, 30)), v += 4);
+        U && (x(N, v, 26), v += 4, C(N, v, "fcTL"), v += 4, x(N, v, Ee++), v += 4, x(N, v, me.rect.width), v += 4, x(N, v, me.rect.height), v += 4, x(N, v, me.rect.x), v += 4, x(N, v, me.rect.y), v += 4, B(N, v, S[H]), v += 2, B(N, v, 1e3), v += 2, N[v] = me.dispose, v++, N[v] = me.blend, v++, x(N, v, V(N, v - 30, 30)), v += 4);
         const le = me.cimg;
         x(N, v, (W = le.length) + (H == 0 ? 0 : 4)), v += 4;
         const ve = v;
@@ -60228,15 +60228,15 @@ Read more: ${o0}#error-${n}`;
     }
     function c(p, b, E) {
       for (let S = 0; S < p.frames.length; S++) {
-        const I = p.frames[S];
-        I.rect.width;
-        const V = I.rect.height, x = new Uint8Array(V * I.bpl + V);
-        I.cimg = f(I.img, V, I.bpp, I.bpl, x, b, E);
+        const P = p.frames[S];
+        P.rect.width;
+        const V = P.rect.height, x = new Uint8Array(V * P.bpl + V);
+        P.cimg = f(P.img, V, P.bpp, P.bpl, x, b, E);
       }
     }
-    function u(p, b, E, S, I) {
-      const V = I[0], x = I[1], O = I[2], C = I[3], v = I[4], U = I[5];
-      let F = 6, D = 8, J = 255;
+    function u(p, b, E, S, P) {
+      const V = P[0], x = P[1], B = P[2], C = P[3], v = P[4], U = P[5];
+      let O = 6, D = 8, J = 255;
       for (var W = 0; W < p.length; W++) {
         const tt = new Uint8Array(p[W]);
         for (var K = tt.length, H = 0; H < K; H += 4)
@@ -60281,7 +60281,7 @@ Read more: ${o0}#error-${n}`;
             Io += ($i = Be[it]).rect.width * $i.rect.height;
           }
         return Be;
-      }(p, b, E, V, x, O), Ee = {}, me = [], le = [];
+      }(p, b, E, V, x, B), Ee = {}, me = [], le = [];
       if (S != 0) {
         const tt = [];
         for (H = 0; H < ee.length; H++)
@@ -60359,7 +60359,7 @@ Read more: ${o0}#error-${n}`;
               for (Se = 0; Se < ze; Se++)
                 Yt[H + (Se >> 3)] |= rt[wt + Se] << 7 - 1 * (7 & Se);
           }
-          Ae = Yt, F = 3, Je = 1;
+          Ae = Yt, O = 3, Je = 1;
         } else if (N == 0 && ee.length == 1) {
           Yt = new Uint8Array(ze * tt * 3);
           const rt = ze * tt;
@@ -60367,209 +60367,209 @@ Read more: ${o0}#error-${n}`;
             const Me = 3 * H, wt = 4 * H;
             Yt[Me] = Ae[wt], Yt[Me + 1] = Ae[wt + 1], Yt[Me + 2] = Ae[wt + 2];
           }
-          Ae = Yt, F = 2, Je = 3, ye = 3 * ze;
+          Ae = Yt, O = 2, Je = 3, ye = 3 * ze;
         }
         Re.img = Ae, Re.bpl = ye, Re.bpp = Je;
       }
-      return { ctype: F, depth: D, plte: me, frames: ee };
+      return { ctype: O, depth: D, plte: me, frames: ee };
     }
-    function d(p, b, E, S, I, V, x) {
-      const O = Uint8Array, C = Uint32Array, v = new O(p[I - 1]), U = new C(p[I - 1]), F = I + 1 < p.length ? new O(p[I + 1]) : null, D = new O(p[I]), J = new C(D.buffer);
+    function d(p, b, E, S, P, V, x) {
+      const B = Uint8Array, C = Uint32Array, v = new B(p[P - 1]), U = new C(p[P - 1]), O = P + 1 < p.length ? new B(p[P + 1]) : null, D = new B(p[P]), J = new C(D.buffer);
       let W = b, K = E, H = -1, N = -1;
       for (let Ee = 0; Ee < V.height; Ee++)
         for (let me = 0; me < V.width; me++) {
           const le = V.x + me, ve = V.y + Ee, Re = ve * b + le, ze = J[Re];
-          ze == 0 || S[I - 1].dispose == 0 && U[Re] == ze && (F == null || F[4 * Re + 3] != 0) || (le < W && (W = le), le > H && (H = le), ve < K && (K = ve), ve > N && (N = ve));
+          ze == 0 || S[P - 1].dispose == 0 && U[Re] == ze && (O == null || O[4 * Re + 3] != 0) || (le < W && (W = le), le > H && (H = le), ve < K && (K = ve), ve > N && (N = ve));
         }
       H == -1 && (W = K = H = N = 0), x && ((1 & W) == 1 && W--, (1 & K) == 1 && K--), V = { x: W, y: K, width: H - W + 1, height: N - K + 1 };
-      const ee = S[I];
-      ee.rect = V, ee.blend = 1, ee.img = new Uint8Array(V.width * V.height * 4), S[I - 1].dispose == 0 ? (n(v, b, E, ee.img, V.width, V.height, -V.x, -V.y, 0), h(D, b, E, ee.img, V)) : n(D, b, E, ee.img, V.width, V.height, -V.x, -V.y, 0);
+      const ee = S[P];
+      ee.rect = V, ee.blend = 1, ee.img = new Uint8Array(V.width * V.height * 4), S[P - 1].dispose == 0 ? (n(v, b, E, ee.img, V.width, V.height, -V.x, -V.y, 0), h(D, b, E, ee.img, V)) : n(D, b, E, ee.img, V.width, V.height, -V.x, -V.y, 0);
     }
-    function h(p, b, E, S, I) {
-      n(p, b, E, S, I.width, I.height, -I.x, -I.y, 2);
+    function h(p, b, E, S, P) {
+      n(p, b, E, S, P.width, P.height, -P.x, -P.y, 2);
     }
-    function f(p, b, E, S, I, V, x) {
-      const O = [];
+    function f(p, b, E, S, P, V, x) {
+      const B = [];
       let C, v = [0, 1, 2, 3, 4];
       V != -1 ? v = [V] : (b * S > 5e5 || E == 1) && (v = [0]), x && (C = { level: 0 });
       const U = XM;
-      for (var F = 0; F < v.length; F++) {
+      for (var O = 0; O < v.length; O++) {
         for (let W = 0; W < b; W++)
-          m(I, p, W, S, E, v[F]);
-        O.push(U.deflate(I, C));
+          m(P, p, W, S, E, v[O]);
+        B.push(U.deflate(P, C));
       }
       let D, J = 1e9;
-      for (F = 0; F < O.length; F++)
-        O[F].length < J && (D = F, J = O[F].length);
-      return O[D];
+      for (O = 0; O < B.length; O++)
+        B[O].length < J && (D = O, J = B[O].length);
+      return B[D];
     }
-    function m(p, b, E, S, I, V) {
+    function m(p, b, E, S, P, V) {
       const x = E * S;
-      let O = x + E;
-      if (p[O] = V, O++, V == 0)
+      let B = x + E;
+      if (p[B] = V, B++, V == 0)
         if (S < 500)
           for (var C = 0; C < S; C++)
-            p[O + C] = b[x + C];
+            p[B + C] = b[x + C];
         else
-          p.set(new Uint8Array(b.buffer, x, S), O);
+          p.set(new Uint8Array(b.buffer, x, S), B);
       else if (V == 1) {
-        for (C = 0; C < I; C++)
-          p[O + C] = b[x + C];
-        for (C = I; C < S; C++)
-          p[O + C] = b[x + C] - b[x + C - I] + 256 & 255;
+        for (C = 0; C < P; C++)
+          p[B + C] = b[x + C];
+        for (C = P; C < S; C++)
+          p[B + C] = b[x + C] - b[x + C - P] + 256 & 255;
       } else if (E == 0) {
-        for (C = 0; C < I; C++)
-          p[O + C] = b[x + C];
+        for (C = 0; C < P; C++)
+          p[B + C] = b[x + C];
         if (V == 2)
-          for (C = I; C < S; C++)
-            p[O + C] = b[x + C];
+          for (C = P; C < S; C++)
+            p[B + C] = b[x + C];
         if (V == 3)
-          for (C = I; C < S; C++)
-            p[O + C] = b[x + C] - (b[x + C - I] >> 1) + 256 & 255;
+          for (C = P; C < S; C++)
+            p[B + C] = b[x + C] - (b[x + C - P] >> 1) + 256 & 255;
         if (V == 4)
-          for (C = I; C < S; C++)
-            p[O + C] = b[x + C] - t(b[x + C - I], 0, 0) + 256 & 255;
+          for (C = P; C < S; C++)
+            p[B + C] = b[x + C] - t(b[x + C - P], 0, 0) + 256 & 255;
       } else {
         if (V == 2)
           for (C = 0; C < S; C++)
-            p[O + C] = b[x + C] + 256 - b[x + C - S] & 255;
+            p[B + C] = b[x + C] + 256 - b[x + C - S] & 255;
         if (V == 3) {
-          for (C = 0; C < I; C++)
-            p[O + C] = b[x + C] + 256 - (b[x + C - S] >> 1) & 255;
-          for (C = I; C < S; C++)
-            p[O + C] = b[x + C] + 256 - (b[x + C - S] + b[x + C - I] >> 1) & 255;
+          for (C = 0; C < P; C++)
+            p[B + C] = b[x + C] + 256 - (b[x + C - S] >> 1) & 255;
+          for (C = P; C < S; C++)
+            p[B + C] = b[x + C] + 256 - (b[x + C - S] + b[x + C - P] >> 1) & 255;
         }
         if (V == 4) {
-          for (C = 0; C < I; C++)
-            p[O + C] = b[x + C] + 256 - t(0, b[x + C - S], 0) & 255;
-          for (C = I; C < S; C++)
-            p[O + C] = b[x + C] + 256 - t(b[x + C - I], b[x + C - S], b[x + C - I - S]) & 255;
+          for (C = 0; C < P; C++)
+            p[B + C] = b[x + C] + 256 - t(0, b[x + C - S], 0) & 255;
+          for (C = P; C < S; C++)
+            p[B + C] = b[x + C] + 256 - t(b[x + C - P], b[x + C - S], b[x + C - P - S]) & 255;
         }
       }
     }
     function g(p, b) {
-      const E = new Uint8Array(p), S = E.slice(0), I = new Uint32Array(S.buffer), V = _(S, b), x = V[0], O = V[1], C = E.length, v = new Uint8Array(C >> 2);
+      const E = new Uint8Array(p), S = E.slice(0), P = new Uint32Array(S.buffer), V = _(S, b), x = V[0], B = V[1], C = E.length, v = new Uint8Array(C >> 2);
       let U;
       if (E.length < 2e7)
-        for (var F = 0; F < C; F += 4)
-          U = w(x, D = E[F] * (1 / 255), J = E[F + 1] * (1 / 255), W = E[F + 2] * (1 / 255), K = E[F + 3] * (1 / 255)), v[F >> 2] = U.ind, I[F >> 2] = U.est.rgba;
+        for (var O = 0; O < C; O += 4)
+          U = w(x, D = E[O] * (1 / 255), J = E[O + 1] * (1 / 255), W = E[O + 2] * (1 / 255), K = E[O + 3] * (1 / 255)), v[O >> 2] = U.ind, P[O >> 2] = U.est.rgba;
       else
-        for (F = 0; F < C; F += 4) {
-          var D = E[F] * 0.00392156862745098, J = E[F + 1] * (1 / 255), W = E[F + 2] * (1 / 255), K = E[F + 3] * (1 / 255);
+        for (O = 0; O < C; O += 4) {
+          var D = E[O] * 0.00392156862745098, J = E[O + 1] * (1 / 255), W = E[O + 2] * (1 / 255), K = E[O + 3] * (1 / 255);
           for (U = x; U.left; )
             U = A(U.est, D, J, W, K) <= 0 ? U.left : U.right;
-          v[F >> 2] = U.ind, I[F >> 2] = U.est.rgba;
+          v[O >> 2] = U.ind, P[O >> 2] = U.est.rgba;
         }
-      return { abuf: S.buffer, inds: v, plte: O };
+      return { abuf: S.buffer, inds: v, plte: B };
     }
     function _(p, b, E) {
       E == null && (E = 1e-4);
-      const S = new Uint32Array(p.buffer), I = { i0: 0, i1: p.length, bst: null, est: null, tdst: 0, left: null, right: null };
-      I.bst = M(p, I.i0, I.i1), I.est = y(I.bst);
-      const V = [I];
+      const S = new Uint32Array(p.buffer), P = { i0: 0, i1: p.length, bst: null, est: null, tdst: 0, left: null, right: null };
+      P.bst = F(p, P.i0, P.i1), P.est = y(P.bst);
+      const V = [P];
       for (; V.length < b; ) {
-        let O = 0, C = 0;
+        let B = 0, C = 0;
         for (var x = 0; x < V.length; x++)
-          V[x].est.L > O && (O = V[x].est.L, C = x);
-        if (O < E)
+          V[x].est.L > B && (B = V[x].est.L, C = x);
+        if (B < E)
           break;
-        const v = V[C], U = L(p, S, v.i0, v.i1, v.est.e, v.est.eMq255);
+        const v = V[C], U = I(p, S, v.i0, v.i1, v.est.e, v.est.eMq255);
         if (v.i0 >= U || v.i1 <= U) {
           v.est.L = 0;
           continue;
         }
-        const F = { i0: v.i0, i1: U, bst: null, est: null, tdst: 0, left: null, right: null };
-        F.bst = M(p, F.i0, F.i1), F.est = y(F.bst);
+        const O = { i0: v.i0, i1: U, bst: null, est: null, tdst: 0, left: null, right: null };
+        O.bst = F(p, O.i0, O.i1), O.est = y(O.bst);
         const D = { i0: U, i1: v.i1, bst: null, est: null, tdst: 0, left: null, right: null };
-        for (D.bst = { R: [], m: [], N: v.bst.N - F.bst.N }, x = 0; x < 16; x++)
-          D.bst.R[x] = v.bst.R[x] - F.bst.R[x];
+        for (D.bst = { R: [], m: [], N: v.bst.N - O.bst.N }, x = 0; x < 16; x++)
+          D.bst.R[x] = v.bst.R[x] - O.bst.R[x];
         for (x = 0; x < 4; x++)
-          D.bst.m[x] = v.bst.m[x] - F.bst.m[x];
-        D.est = y(D.bst), v.left = F, v.right = D, V[C] = F, V.push(D);
+          D.bst.m[x] = v.bst.m[x] - O.bst.m[x];
+        D.est = y(D.bst), v.left = O, v.right = D, V[C] = O, V.push(D);
       }
-      for (V.sort((O, C) => C.bst.N - O.bst.N), x = 0; x < V.length; x++)
+      for (V.sort((B, C) => C.bst.N - B.bst.N), x = 0; x < V.length; x++)
         V[x].ind = x;
-      return [I, V];
+      return [P, V];
     }
-    function w(p, b, E, S, I) {
+    function w(p, b, E, S, P) {
       if (p.left == null)
-        return p.tdst = function(F, D, J, W, K) {
-          const H = D - F[0], N = J - F[1], ee = W - F[2], Ee = K - F[3];
+        return p.tdst = function(O, D, J, W, K) {
+          const H = D - O[0], N = J - O[1], ee = W - O[2], Ee = K - O[3];
           return H * H + N * N + ee * ee + Ee * Ee;
-        }(p.est.q, b, E, S, I), p;
-      const V = A(p.est, b, E, S, I);
-      let x = p.left, O = p.right;
-      V > 0 && (x = p.right, O = p.left);
-      const C = w(x, b, E, S, I);
+        }(p.est.q, b, E, S, P), p;
+      const V = A(p.est, b, E, S, P);
+      let x = p.left, B = p.right;
+      V > 0 && (x = p.right, B = p.left);
+      const C = w(x, b, E, S, P);
       if (C.tdst <= V * V)
         return C;
-      const v = w(O, b, E, S, I);
+      const v = w(B, b, E, S, P);
       return v.tdst < C.tdst ? v : C;
     }
-    function A(p, b, E, S, I) {
+    function A(p, b, E, S, P) {
       const { e: V } = p;
-      return V[0] * b + V[1] * E + V[2] * S + V[3] * I - p.eMq;
+      return V[0] * b + V[1] * E + V[2] * S + V[3] * P - p.eMq;
     }
-    function L(p, b, E, S, I, V) {
+    function I(p, b, E, S, P, V) {
       for (S -= 4; E < S; ) {
-        for (; T(p, E, I) <= V; )
+        for (; T(p, E, P) <= V; )
           E += 4;
-        for (; T(p, S, I) > V; )
+        for (; T(p, S, P) > V; )
           S -= 4;
         if (E >= S)
           break;
         const x = b[E >> 2];
         b[E >> 2] = b[S >> 2], b[S >> 2] = x, E += 4, S -= 4;
       }
-      for (; T(p, E, I) > V; )
+      for (; T(p, E, P) > V; )
         E -= 4;
       return E + 4;
     }
     function T(p, b, E) {
       return p[b] * E[0] + p[b + 1] * E[1] + p[b + 2] * E[2] + p[b + 3] * E[3];
     }
-    function M(p, b, E) {
-      const S = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], I = [0, 0, 0, 0], V = E - b >> 2;
+    function F(p, b, E) {
+      const S = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], P = [0, 0, 0, 0], V = E - b >> 2;
       for (let x = b; x < E; x += 4) {
-        const O = p[x] * 0.00392156862745098, C = p[x + 1] * (1 / 255), v = p[x + 2] * (1 / 255), U = p[x + 3] * (1 / 255);
-        I[0] += O, I[1] += C, I[2] += v, I[3] += U, S[0] += O * O, S[1] += O * C, S[2] += O * v, S[3] += O * U, S[5] += C * C, S[6] += C * v, S[7] += C * U, S[10] += v * v, S[11] += v * U, S[15] += U * U;
+        const B = p[x] * 0.00392156862745098, C = p[x + 1] * (1 / 255), v = p[x + 2] * (1 / 255), U = p[x + 3] * (1 / 255);
+        P[0] += B, P[1] += C, P[2] += v, P[3] += U, S[0] += B * B, S[1] += B * C, S[2] += B * v, S[3] += B * U, S[5] += C * C, S[6] += C * v, S[7] += C * U, S[10] += v * v, S[11] += v * U, S[15] += U * U;
       }
-      return S[4] = S[1], S[8] = S[2], S[9] = S[6], S[12] = S[3], S[13] = S[7], S[14] = S[11], { R: S, m: I, N: V };
+      return S[4] = S[1], S[8] = S[2], S[9] = S[6], S[12] = S[3], S[13] = S[7], S[14] = S[11], { R: S, m: P, N: V };
     }
     function y(p) {
-      const { R: b } = p, { m: E } = p, { N: S } = p, I = E[0], V = E[1], x = E[2], O = E[3], C = S == 0 ? 0 : 1 / S, v = [b[0] - I * I * C, b[1] - I * V * C, b[2] - I * x * C, b[3] - I * O * C, b[4] - V * I * C, b[5] - V * V * C, b[6] - V * x * C, b[7] - V * O * C, b[8] - x * I * C, b[9] - x * V * C, b[10] - x * x * C, b[11] - x * O * C, b[12] - O * I * C, b[13] - O * V * C, b[14] - O * x * C, b[15] - O * O * C], U = v, F = P;
+      const { R: b } = p, { m: E } = p, { N: S } = p, P = E[0], V = E[1], x = E[2], B = E[3], C = S == 0 ? 0 : 1 / S, v = [b[0] - P * P * C, b[1] - P * V * C, b[2] - P * x * C, b[3] - P * B * C, b[4] - V * P * C, b[5] - V * V * C, b[6] - V * x * C, b[7] - V * B * C, b[8] - x * P * C, b[9] - x * V * C, b[10] - x * x * C, b[11] - x * B * C, b[12] - B * P * C, b[13] - B * V * C, b[14] - B * x * C, b[15] - B * B * C], U = v, O = R;
       let D = [Math.random(), Math.random(), Math.random(), Math.random()], J = 0, W = 0;
       if (S != 0)
-        for (let H = 0; H < 16 && (D = F.multVec(U, D), W = Math.sqrt(F.dot(D, D)), D = F.sml(1 / W, D), !(H != 0 && Math.abs(W - J) < 1e-9)); H++)
+        for (let H = 0; H < 16 && (D = O.multVec(U, D), W = Math.sqrt(O.dot(D, D)), D = O.sml(1 / W, D), !(H != 0 && Math.abs(W - J) < 1e-9)); H++)
           J = W;
-      const K = [I * C, V * C, x * C, O * C];
-      return { Cov: v, q: K, e: D, L: J, eMq255: F.dot(F.sml(255, K), D), eMq: F.dot(D, K), rgba: (Math.round(255 * K[3]) << 24 | Math.round(255 * K[2]) << 16 | Math.round(255 * K[1]) << 8 | Math.round(255 * K[0]) << 0) >>> 0 };
+      const K = [P * C, V * C, x * C, B * C];
+      return { Cov: v, q: K, e: D, L: J, eMq255: O.dot(O.sml(255, K), D), eMq: O.dot(D, K), rgba: (Math.round(255 * K[3]) << 24 | Math.round(255 * K[2]) << 16 | Math.round(255 * K[1]) << 8 | Math.round(255 * K[0]) << 0) >>> 0 };
     }
-    var P = { multVec: (p, b) => [p[0] * b[0] + p[1] * b[1] + p[2] * b[2] + p[3] * b[3], p[4] * b[0] + p[5] * b[1] + p[6] * b[2] + p[7] * b[3], p[8] * b[0] + p[9] * b[1] + p[10] * b[2] + p[11] * b[3], p[12] * b[0] + p[13] * b[1] + p[14] * b[2] + p[15] * b[3]], dot: (p, b) => p[0] * b[0] + p[1] * b[1] + p[2] * b[2] + p[3] * b[3], sml: (p, b) => [p * b[0], p * b[1], p * b[2], p * b[3]] };
-    zt.encode = function(b, E, S, I, V, x, O) {
-      I == null && (I = 0), O == null && (O = !1);
-      const C = u(b, E, S, I, [!1, !1, !1, 0, O, !1]);
+    var R = { multVec: (p, b) => [p[0] * b[0] + p[1] * b[1] + p[2] * b[2] + p[3] * b[3], p[4] * b[0] + p[5] * b[1] + p[6] * b[2] + p[7] * b[3], p[8] * b[0] + p[9] * b[1] + p[10] * b[2] + p[11] * b[3], p[12] * b[0] + p[13] * b[1] + p[14] * b[2] + p[15] * b[3]], dot: (p, b) => p[0] * b[0] + p[1] * b[1] + p[2] * b[2] + p[3] * b[3], sml: (p, b) => [p * b[0], p * b[1], p * b[2], p * b[3]] };
+    zt.encode = function(b, E, S, P, V, x, B) {
+      P == null && (P = 0), B == null && (B = !1);
+      const C = u(b, E, S, P, [!1, !1, !1, 0, B, !1]);
       return c(C, -1), l(C, E, S, V, x);
-    }, zt.encodeLL = function(b, E, S, I, V, x, O, C) {
-      const v = { ctype: 0 + (I == 1 ? 0 : 2) + (V == 0 ? 0 : 4), depth: x, frames: [] }, U = (I + V) * x, F = U * E;
+    }, zt.encodeLL = function(b, E, S, P, V, x, B, C) {
+      const v = { ctype: 0 + (P == 1 ? 0 : 2) + (V == 0 ? 0 : 4), depth: x, frames: [] }, U = (P + V) * x, O = U * E;
       for (let D = 0; D < b.length; D++)
-        v.frames.push({ rect: { x: 0, y: 0, width: E, height: S }, img: new Uint8Array(b[D]), blend: 0, dispose: 1, bpp: Math.ceil(U / 8), bpl: Math.ceil(F / 8) });
-      return c(v, 0, !0), l(v, E, S, O, C);
+        v.frames.push({ rect: { x: 0, y: 0, width: E, height: S }, img: new Uint8Array(b[D]), blend: 0, dispose: 1, bpp: Math.ceil(U / 8), bpl: Math.ceil(O / 8) });
+      return c(v, 0, !0), l(v, E, S, B, C);
     }, zt.encode.compress = u, zt.encode.dither = a, zt.quantize = g, zt.quantize.getKDtree = _, zt.quantize.getNearest = w;
   })();
   const Ib = { toArrayBuffer(n, e) {
     const t = n.width, i = n.height, s = t << 2, o = n.getContext("2d").getImageData(0, 0, t, i), r = new Uint32Array(o.data.buffer), a = (32 * t + 31) / 32 << 2, l = a * i, c = 122 + l, u = new ArrayBuffer(c), d = new DataView(u), h = 1 << 20;
-    let f, m, g, _, w = h, A = 0, L = 0, T = 0;
-    function M(p) {
-      d.setUint16(L, p, !0), L += 2;
+    let f, m, g, _, w = h, A = 0, I = 0, T = 0;
+    function F(p) {
+      d.setUint16(I, p, !0), I += 2;
     }
     function y(p) {
-      d.setUint32(L, p, !0), L += 4;
+      d.setUint32(I, p, !0), I += 4;
     }
-    function P(p) {
-      L += p;
+    function R(p) {
+      I += p;
     }
-    M(19778), y(c), P(4), y(122), y(108), y(t), y(-i >>> 0), M(1), M(32), y(3), y(l), y(2835), y(2835), P(8), y(16711680), y(65280), y(255), y(4278190080), y(1466527264), function p() {
+    F(19778), y(c), R(4), y(122), y(108), y(t), y(-i >>> 0), F(1), F(32), y(3), y(l), y(2835), y(2835), R(8), y(16711680), y(65280), y(255), y(4278190080), y(1466527264), function p() {
       for (; A < i && w > 0; ) {
         for (_ = 122 + A * a, f = 0; f < s; )
           w--, m = r[T++], g = m >>> 24, d.setUint32(_ + f, m << 8 | g), f += 4;
@@ -60851,7 +60851,7 @@ Read more: ${o0}#error-${n}`;
   }
   function rm(n, e, t = 0) {
     return new Promise(function(i, s) {
-      let o, r, a, l, c, u, d, h, f, m, g, _, w, A, L, T, M, y, P, p;
+      let o, r, a, l, c, u, d, h, f, m, g, _, w, A, I, T, F, y, R, p;
       function b(S = 5) {
         if (e.signal && e.signal.aborted)
           throw e.signal.reason;
@@ -60864,54 +60864,54 @@ Read more: ${o0}#error-${n}`;
       }
       return o = t, r = e.maxIteration || 10, a = 1024 * e.maxSizeMB * 1024, b(), Wr(n, e).then(function(S) {
         try {
-          return [, l] = S, b(), c = Fb(l, e), b(), new Promise(function(I, V) {
+          return [, l] = S, b(), c = Fb(l, e), b(), new Promise(function(P, V) {
             var x;
             if (!(x = e.exifOrientation))
               return Ob(n).then(function(C) {
                 try {
-                  return x = C, O.call(this);
+                  return x = C, B.call(this);
                 } catch (v) {
                   return V(v);
                 }
               }.bind(this), V);
-            function O() {
-              return I(x);
+            function B() {
+              return P(x);
             }
-            return O.call(this);
-          }).then(function(I) {
+            return B.call(this);
+          }).then(function(P) {
             try {
-              return u = I, b(), Gn().then(function(V) {
+              return u = P, b(), Gn().then(function(V) {
                 try {
                   return d = V ? c : Nb(c, u), b(), h = e.initialQuality || 1, f = e.fileType || n.type, $r(d, f, n.name, n.lastModified, h).then(function(x) {
                     try {
                       {
                         let U = function() {
-                          if (r-- && (L > a || L > w)) {
+                          if (r-- && (I > a || I > w)) {
                             let D, J;
-                            return D = p ? 0.95 * P.width : P.width, J = p ? 0.95 * P.height : P.height, [M, y] = ya(D, J), y.drawImage(P, 0, 0, D, J), h *= f === "image/png" ? 0.85 : 0.95, $r(M, f, n.name, n.lastModified, h).then(function(W) {
+                            return D = p ? 0.95 * R.width : R.width, J = p ? 0.95 * R.height : R.height, [F, y] = ya(D, J), y.drawImage(R, 0, 0, D, J), h *= f === "image/png" ? 0.85 : 0.95, $r(F, f, n.name, n.lastModified, h).then(function(W) {
                               try {
-                                return T = W, si(P), P = M, L = T.size, E(Math.min(99, Math.floor((A - L) / (A - a) * 100))), U;
+                                return T = W, si(R), R = F, I = T.size, E(Math.min(99, Math.floor((A - I) / (A - a) * 100))), U;
                               } catch (K) {
                                 return s(K);
                               }
                             }, s);
                           }
                           return [1];
-                        }, F = function() {
-                          return si(P), si(M), si(c), si(d), si(l), E(100), i(T);
+                        }, O = function() {
+                          return si(R), si(F), si(c), si(d), si(l), E(100), i(T);
                         };
-                        var C = U, v = F;
+                        var C = U, v = O;
                         if (m = x, b(), g = m.size > a, _ = m.size > n.size, !g && !_)
                           return E(100), i(m);
-                        var O;
-                        return w = n.size, A = m.size, L = A, P = d, p = !e.alwaysKeepResolution && g, (O = function(D) {
+                        var B;
+                        return w = n.size, A = m.size, I = A, R = d, p = !e.alwaysKeepResolution && g, (B = function(D) {
                           for (; D; ) {
                             if (D.then)
-                              return void D.then(O, s);
+                              return void D.then(B, s);
                             try {
                               if (D.pop) {
                                 if (D.length)
-                                  return D.pop() ? F.call(this) : D;
+                                  return D.pop() ? O.call(this) : D;
                                 D = U;
                               } else
                                 D = D.call(this);
@@ -60933,8 +60933,8 @@ Read more: ${o0}#error-${n}`;
               return s(V);
             }
           }.bind(this), s);
-        } catch (I) {
-          return s(I);
+        } catch (P) {
+          return s(P);
         }
       }.bind(this), s);
     });
@@ -61068,7 +61068,7 @@ self.addEventListener('message', async (e) => {
    * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class s8 extends R {
+  class s8 extends L {
     /**
      * @inheritDoc
      */
@@ -61402,7 +61402,7 @@ self.addEventListener('message', async (e) => {
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
   const nl = "All";
-  class h8 extends R {
+  class h8 extends L {
     /**
      * @inheritDoc
      */
@@ -61541,7 +61541,7 @@ self.addEventListener('message', async (e) => {
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Db extends R {
+  class Db extends L {
     /**
      * @inheritDoc
      */
@@ -61583,7 +61583,7 @@ self.addEventListener('message', async (e) => {
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class zb extends R {
+  class zb extends L {
     /**
      * @inheritDoc
      */
@@ -61630,7 +61630,7 @@ self.addEventListener('message', async (e) => {
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Ub extends R {
+  class Ub extends L {
     /**
      * @inheritDoc
      */
@@ -61694,7 +61694,7 @@ self.addEventListener('message', async (e) => {
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Hb extends R {
+  class Hb extends L {
     /**
      * @inheritDoc
      */
@@ -61842,7 +61842,7 @@ self.addEventListener('message', async (e) => {
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class Wb extends R {
+  class Wb extends L {
     /**
      * @inheritDoc
      */
@@ -61898,7 +61898,7 @@ self.addEventListener('message', async (e) => {
    * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
    * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
    */
-  class f8 extends R {
+  class f8 extends L {
     /**
      * @inheritDoc
      */
@@ -62037,12 +62037,12 @@ self.addEventListener('message', async (e) => {
       Ub,
       zb,
       r4,
-      r7,
-      s7,
-      f7,
-      w7,
-      KL,
-      R7,
+      rL,
+      sL,
+      fL,
+      wL,
+      K7,
+      RL,
       v6,
       NV,
       DV,
@@ -62054,13 +62054,13 @@ self.addEventListener('message', async (e) => {
       GM,
       KM,
       m4,
-      eL,
+      e7,
       S4,
       L4,
-      oL,
-      wL,
-      bL,
-      t7,
+      o7,
+      w7,
+      b7,
+      tL,
       Dw,
       s8
     ]
@@ -62099,37 +62099,33 @@ self.addEventListener('message', async (e) => {
     }
   }) => {
     const u = document.querySelector(".ck-editor"), d = document.querySelector(".ck-content"), h = g(o), f = h.querySelector(".Spendit-Sizing-Top"), m = h.querySelector(".Spendit-Sizing-Bottom");
-    n.editing.view.change((T) => {
-      T.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), T.setStyle("min-height", `${t}px`, n.editing.view.document.getRoot()), T.setStyle("max-height", `${i}px`, n.editing.view.document.getRoot());
+    n.editing.view.change((I) => {
+      I.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), I.setStyle("min-height", `${t}px`, n.editing.view.document.getRoot()), I.setStyle("max-height", `${i}px`, n.editing.view.document.getRoot());
     }), f.onclick = () => w(-s, 25), m.onclick = () => w(s, -25);
-    function g(T) {
-      const M = document.createElement("div");
-      M.classList.add("Spendit-Editor-Sizing-Buttons"), M.classList.add(T === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
-      const y = _(["Spendit-Sizing-Top", ...t === e ? ["Spendit-Sizing-Top-Disabled"] : []]), P = _(["Spendit-Sizing-Bottom", ...i === e ? ["Spendit-Sizing-Bottom-Disabled"] : []]);
-      return M == null || M.appendChild(y), M == null || M.appendChild(P), u == null || u.appendChild(M), M;
+    function g(I) {
+      const T = document.createElement("div");
+      T.classList.add("Spendit-Editor-Sizing-Buttons"), T.classList.add(I === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
+      const F = _(["Spendit-Sizing-Top", ...t === e ? ["Spendit-Sizing-Top-Disabled"] : []]), y = _(["Spendit-Sizing-Bottom", ...i === e ? ["Spendit-Sizing-Bottom-Disabled"] : []]);
+      return T == null || T.appendChild(F), T == null || T.appendChild(y), u == null || u.appendChild(T), T;
     }
-    function _(T) {
-      const M = document.createElement("button");
-      return M.classList.add("Spendit-Editor-Sizing-Button"), T.forEach((y) => M.classList.add(y)), M;
+    function _(I) {
+      const T = document.createElement("button");
+      return T.classList.add("Spendit-Editor-Sizing-Button"), I.forEach((F) => T.classList.add(F)), T;
     }
-    function w(T, M) {
-      const y = d.offsetHeight - 2 + T;
-      n.editing.view.change((P) => {
-        const p = y >= i, b = y <= t, E = p ? i : b ? t : y;
-        P.setStyle("height", `${E}px`, n.editing.view.document.getRoot());
-        const S = f.classList.contains("Spendit-Sizing-Top-Disabled"), I = m.classList.contains("Spendit-Sizing-Bottom-Disabled");
-        b && S || p && I || (b ? (f.classList.add("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled")) : p ? (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.add("Spendit-Sizing-Bottom-Disabled")) : (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled")), A(T + M));
-      }), a(y);
+    function w(I, T) {
+      const F = d.offsetHeight - 2 + I;
+      n.editing.view.change((y) => {
+        const R = F >= i, p = F <= t, b = R ? i : p ? t : F;
+        y.setStyle("height", `${b}px`, n.editing.view.document.getRoot());
+        const E = f.classList.contains("Spendit-Sizing-Top-Disabled"), S = m.classList.contains("Spendit-Sizing-Bottom-Disabled");
+        p && E || R && S || (p ? (f.classList.add("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled")) : R ? (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.add("Spendit-Sizing-Bottom-Disabled")) : (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled")), A(I + T));
+      }), a(F);
     }
-    function A(T) {
-      const M = () => {
-        r instanceof HTMLElement ? r.scroll(0, r.scrollTop + T) : window.scroll(0, window.scrollY + T);
+    function A(I) {
+      const T = () => {
+        r instanceof HTMLElement ? r.scroll(0, r.scrollTop + I) : window.scroll(0, window.scrollY + I);
       };
-      L() <= T - 25 ? setTimeout(M, 200) : M();
-    }
-    function L() {
-      let T = r instanceof HTMLElement ? r.scrollTop : window.scrollY, M = document.documentElement.scrollHeight, y = window.innerHeight;
-      return M - (T + y);
+      I > 0 ? setTimeout(() => T(), 200) : T();
     }
   }, _8 = async () => {
     const { editor: n } = await w8({
