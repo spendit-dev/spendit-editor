@@ -286,7 +286,10 @@ export const initEditorSizingButton = ({
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
             }
-            scroll(change + gapScrollHeight);
+            // height가 변경되는 시간인 0.2초 후에 스크롤 이동 .ck-content
+            setTimeout(() => {
+                scroll(change + gapScrollHeight);
+            }, 200);
         });
         resizeButtonCallback(newHeight);
     }
