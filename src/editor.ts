@@ -286,19 +286,40 @@ export const initEditorSizingButton = ({
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
             }
-            // height가 변경되는 시간인 0.2초 후에 스크롤 이동 .ck-content
-            setTimeout(() => {
-                scroll(change + gapScrollHeight);
-            }, 200);
+
+            scroll(change + gapScrollHeight);
         });
         resizeButtonCallback(newHeight);
     }
 
     function scroll(scrollHeight: number) {
-        if (scrollElement instanceof HTMLElement) {
-            scrollElement.scroll(0, scrollElement.scrollTop + (scrollHeight));
+        const scrollFn = () => {
+            if (scrollElement instanceof HTMLElement) {
+                scrollElement.scroll(0, scrollElement.scrollTop + scrollHeight);
+            } else {
+                window.scroll(0, window.scrollY + scrollHeight);
+            }
+        };
+
+        // 브라우저는 더이상 스크롤 이동할 수 없으면, 스크롤 이동 이벤트 작동하지 않음
+        // height가 변경되는 시간인 0.2초 후에, 에디터의 높이가 변경되고 나면 스크롤 이동 시킴 .ck-content
+        if (getDistanceFromBottom() <= (scrollHeight - gapScrollHeight)) {
+            setTimeout(scrollFn, 200);
         } else {
-            window.scroll(0, window.scrollY + (scrollHeight));
+            scrollFn();
         }
     }
+
+    function getDistanceFromBottom() {
+        // 현재 스크롤 위치를 확인합니다.
+        let scrollPosition = scrollElement instanceof HTMLElement ? scrollElement.scrollTop : window.scrollY;
+        // 문서의 전체 높이를 확인합니다.
+        let documentHeight = document.documentElement.scrollHeight;
+        // 브라우저 창의 높이를 확인합니다.
+        let windowHeight = window.innerHeight;
+        // 스크롤 위치가 바닥으로부터 몇 픽셀 떨어져 있는지를 계산합니다.
+        let distanceFromBottom = documentHeight - (scrollPosition + windowHeight);
+        return distanceFromBottom;
+    }
+
 }
