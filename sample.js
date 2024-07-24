@@ -62118,7 +62118,9 @@ self.addEventListener('message', async (e) => {
         const R = F >= i, p = F <= t, b = R ? i : p ? t : F;
         y.setStyle("height", `${b}px`, n.editing.view.document.getRoot());
         const E = f.classList.contains("Spendit-Sizing-Top-Disabled"), S = m.classList.contains("Spendit-Sizing-Bottom-Disabled");
-        p && E || R && S || (p ? (f.classList.add("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled")) : R ? (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.add("Spendit-Sizing-Bottom-Disabled")) : (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled")), A(P + T));
+        p && E || R && S || (p ? (f.classList.add("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled")) : R ? (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.add("Spendit-Sizing-Bottom-Disabled")) : (f.classList.remove("Spendit-Sizing-Top-Disabled"), m.classList.remove("Spendit-Sizing-Bottom-Disabled")), setTimeout(() => {
+          A(P + T);
+        }, 200));
       }), a(F);
     }
     function A(P) {
