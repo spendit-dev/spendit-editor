@@ -105,7 +105,9 @@ const defaultEditorOptions: EditorConfigForCK = {
     table: {
         contentToolbar: [ 'tableRow', 'tableColumn', 'tableProperties', 'tableCellProperties', 'mergeTableCells',  ],
     },
-
+    alignment: {
+        options: ['left', 'center', 'right', 'justify']
+    },
     plugins: [
         Essentials,
         Paragraph,
