@@ -62014,6 +62014,9 @@ self.addEventListener('message', async (e) => {
     table: {
       contentToolbar: ["tableRow", "tableColumn", "tableProperties", "tableCellProperties", "mergeTableCells"]
     },
+    alignment: {
+      options: ["left", "center", "right", "justify"]
+    },
     plugins: [
       f3,
       yo,
