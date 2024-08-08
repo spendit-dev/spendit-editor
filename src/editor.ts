@@ -216,11 +216,9 @@ export const initEditorSizingButton = ({
                                            maxHeight = 700,
                                            gapHeight = 100,
                                            sizingButtonPosition = 'outer',
-                                           scrollElement = window,
                                            resizeButtonCallback = () => {}
                                        }: EditorSizingButtonConfig) => {
     const borderHeight = 2; // editor의 border 두께(px)
-    const gapScrollHeight = 25; // editor의 높이 조절 시 스크롤 이동 높이 마이너스 간격(px)
 
     // sizing button을 추가할 컨테이너
     const ckEditor = document.querySelector('.ck-editor') as HTMLElement;
@@ -231,6 +229,8 @@ export const initEditorSizingButton = ({
     const sizingButton = createSizingButton(sizingButtonPosition);
     const arrowTopButton = sizingButton.querySelector('.Spendit-Sizing-Top') as HTMLButtonElement;
     const arrowBottomButton = sizingButton.querySelector('.Spendit-Sizing-Bottom') as HTMLButtonElement;
+    const arrowUpButton = sizingButton.querySelector('.Spendit-Sizing-Up') as HTMLButtonElement;
+    const arrowDownButton = sizingButton.querySelector('.Spendit-Sizing-Down') as HTMLButtonElement;
 
     editor.editing.view.change(writer => {
         writer.setStyle('height', `${initialHeight}px`, editor.editing.view.document.getRoot()!);
@@ -238,8 +238,10 @@ export const initEditorSizingButton = ({
         writer.setStyle('max-height', `${maxHeight}px`, editor.editing.view.document.getRoot()!);
     });
 
-    arrowTopButton.onclick = () => resizeEditor(-gapHeight, gapScrollHeight);
-    arrowBottomButton.onclick = () => resizeEditor(gapHeight, -gapScrollHeight);
+    arrowTopButton.onclick = () => resizeEditor( 'top');
+    arrowUpButton.onclick = () => resizeEditor( 'up');
+    arrowDownButton.onclick = () => resizeEditor('down');
+    arrowBottomButton.onclick = () => resizeEditor('bottom');
 
     function createSizingButton(position: string) {
         const sizingButton = document.createElement('div');
@@ -247,9 +249,13 @@ export const initEditorSizingButton = ({
         sizingButton.classList.add(position === 'inner' ? 'Spendit-Editor-Sizing-Buttons-Inner' : 'Spendit-Editor-Sizing-Buttons-Outer');
 
         const arrowTopButton = createButton(['Spendit-Sizing-Top', ...(minHeight === initialHeight ? ['Spendit-Sizing-Top-Disabled'] : [])]);
+        const arrowUpButton = createButton(['Spendit-Sizing-Up', ...(minHeight === initialHeight ? ['Spendit-Sizing-Up-Disabled'] : [])]);
+        const arrowDownButton = createButton(['Spendit-Sizing-Down', ...(maxHeight === initialHeight ? ['Spendit-Sizing-Down-Disabled'] : [])]);
         const arrowBottomButton = createButton(['Spendit-Sizing-Bottom', ...(maxHeight === initialHeight ? ['Spendit-Sizing-Bottom-Disabled'] : [])]);
 
         sizingButton?.appendChild(arrowTopButton);
+        sizingButton?.appendChild(arrowUpButton);
+        sizingButton?.appendChild(arrowDownButton);
         sizingButton?.appendChild(arrowBottomButton);
         ckEditor?.appendChild(sizingButton);
 
@@ -263,8 +269,18 @@ export const initEditorSizingButton = ({
         return button;
     }
 
-    function resizeEditor(change: number, gapScrollHeight: number) {
-        const newHeight = (ckContent.offsetHeight - borderHeight) + change;
+    function resizeEditor(buttonType: 'top' | 'bottom' | 'up' | 'down') {
+        let newHeight = 0;
+        if (buttonType === 'top') {
+            newHeight = minHeight;
+        } else if (buttonType === 'bottom') {
+            newHeight = maxHeight;
+        } else if (buttonType === 'up') {
+            newHeight = (ckContent.offsetHeight - borderHeight) - gapHeight;
+        } else if (buttonType === 'down'){
+            newHeight = (ckContent.offsetHeight - borderHeight) + gapHeight;
+        }
+
         editor.editing.view.change(writer => {
             const isMaxHeight = newHeight >= maxHeight;
             const isMinHeight = newHeight <= minHeight;
@@ -280,35 +296,21 @@ export const initEditorSizingButton = ({
 
             if (isMinHeight) {
                 arrowTopButton.classList.add('Spendit-Sizing-Top-Disabled');
+                arrowUpButton.classList.add('Spendit-Sizing-Up-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
+                arrowDownButton.classList.remove('Spendit-Sizing-Down-Disabled');
             } else if (isMaxHeight) {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
+                arrowUpButton.classList.remove('Spendit-Sizing-Up-Disabled');
                 arrowBottomButton.classList.add('Spendit-Sizing-Bottom-Disabled');
+                arrowDownButton.classList.add('Spendit-Sizing-Down-Disabled');
             } else {
                 arrowTopButton.classList.remove('Spendit-Sizing-Top-Disabled');
+                arrowUpButton.classList.remove('Spendit-Sizing-Up-Disabled');
                 arrowBottomButton.classList.remove('Spendit-Sizing-Bottom-Disabled');
+                arrowDownButton.classList.remove('Spendit-Sizing-Down-Disabled');
             }
-
-            scroll(change + gapScrollHeight);
         });
         resizeButtonCallback(newHeight);
-    }
-
-    function scroll(scrollHeight: number) {
-        const scrollFn = () => {
-            if (scrollElement instanceof HTMLElement) {
-                scrollElement.scroll(0, scrollElement.scrollTop + scrollHeight);
-            } else {
-                window.scroll(0, window.scrollY + scrollHeight);
-            }
-        };
-
-        // 브라우저는 더이상 스크롤 이동할 수 없으면, 스크롤 이동 이벤트 작동하지 않음
-        // height가 변경되는 시간인 0.2초 후에, 에디터의 높이가 변경되고 나면 스크롤 이동 시킴 .ck-content
-        if (scrollHeight > 0) {
-            setTimeout(() => scrollFn(), 200);
-        } else {
-            scrollFn();
-        }
     }
 }
