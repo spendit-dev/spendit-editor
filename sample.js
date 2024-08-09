@@ -212,10 +212,10 @@ var v8 = Gb((Et, At) => {
     function h(g) {
       const _ = (d[g - 1] !== void 0 ? d[g - 1] : -1) + 1, w = d[g + 1] !== void 0 ? d[g + 1] : -1, T = _ > w ? -1 : 1;
       u[g + T] && (u[g] = u[g + T].slice(0)), u[g] || (u[g] = []), u[g].push(_ > w ? o : r);
-      let E = Math.max(_, w), x = E - g;
-      for (; x < a && E < l && t(n[x], e[E]); )
-        x++, E++, u[g].push("equal");
-      return E;
+      let R = Math.max(_, w), A = R - g;
+      for (; A < a && R < l && t(n[A], e[R]); )
+        A++, R++, u[g].push("equal");
+      return R;
     }
     let f = 0, m;
     do {
@@ -1473,16 +1473,16 @@ Read more: ${o0}#error-${n}`;
       h = a[d];
       var w = n[h], T = e[h];
       if (i)
-        var E = r ? i(T, w, h, e, n, o) : i(w, T, h, n, e, o);
-      if (!(E === void 0 ? w === T || s(w, T, t, i, o) : E)) {
+        var R = r ? i(T, w, h, e, n, o) : i(w, T, h, n, e, o);
+      if (!(R === void 0 ? w === T || s(w, T, t, i, o) : R)) {
         g = !1;
         break;
       }
       _ || (_ = h == "constructor");
     }
     if (g && !_) {
-      var x = n.constructor, F = e.constructor;
-      x != F && "constructor" in n && "constructor" in e && !(typeof x == "function" && x instanceof x && typeof F == "function" && F instanceof F) && (g = !1);
+      var A = n.constructor, F = e.constructor;
+      A != F && "constructor" in n && "constructor" in e && !(typeof A == "function" && A instanceof A && typeof F == "function" && F instanceof F) && (g = !1);
     }
     return o.delete(n), o.delete(e), g;
   }
@@ -1619,19 +1619,19 @@ Read more: ${o0}#error-${n}`;
       throw new TypeError(zC);
     e = bu(e) || 0, pe(t) && (u = !!t.leading, d = "maxWait" in t, o = d ? UC(bu(t.maxWait) || 0, e) : o, h = "trailing" in t ? !!t.trailing : h);
     function f(y) {
-      var R = i, p = s;
-      return i = s = void 0, c = y, r = n.apply(p, R), r;
+      var P = i, p = s;
+      return i = s = void 0, c = y, r = n.apply(p, P), r;
     }
     function m(y) {
       return c = y, a = setTimeout(w, e), u ? f(y) : r;
     }
     function g(y) {
-      var R = y - l, p = y - c, b = e - R;
+      var P = y - l, p = y - c, b = e - P;
       return d ? HC(b, o - p) : b;
     }
     function _(y) {
-      var R = y - l, p = y - c;
-      return l === void 0 || R >= e || R < 0 || d && p >= o;
+      var P = y - l, p = y - c;
+      return l === void 0 || P >= e || P < 0 || d && p >= o;
     }
     function w() {
       var y = Ia();
@@ -1642,15 +1642,15 @@ Read more: ${o0}#error-${n}`;
     function T(y) {
       return a = void 0, h && i ? f(y) : (i = s = void 0, r);
     }
-    function E() {
+    function R() {
       a !== void 0 && clearTimeout(a), c = 0, i = l = s = a = void 0;
     }
-    function x() {
+    function A() {
       return a === void 0 ? r : T(Ia());
     }
     function F() {
-      var y = Ia(), R = _(y);
-      if (i = arguments, s = this, l = y, R) {
+      var y = Ia(), P = _(y);
+      if (i = arguments, s = this, l = y, P) {
         if (a === void 0)
           return m(l);
         if (d)
@@ -1658,7 +1658,7 @@ Read more: ${o0}#error-${n}`;
       }
       return a === void 0 && (a = setTimeout(w, e)), r;
     }
-    return F.cancel = E, F.flush = x, F;
+    return F.cancel = R, F.flush = A, F;
   }
   function fl(n, e, t) {
     (t !== void 0 && !go(n[e], t) || t === void 0 && !(e in n)) && jr(n, e, t);
@@ -4192,56 +4192,56 @@ Read more: ${o0}#error-${n}`;
       f(e), g(e);
       const r = e.filter((y) => !d(y, t)), a = [...m(r)];
       F(a, i);
-      const l = E(a);
-      return x(l, "init").then(() => x(l, "afterInit")).then(() => l);
+      const l = R(a);
+      return A(l, "init").then(() => A(l, "afterInit")).then(() => l);
       function c(y) {
         return typeof y == "function";
       }
       function u(y) {
         return c(y) && !!y.isContextPlugin;
       }
-      function d(y, R) {
-        return R.some((p) => p === y || h(y) === p || h(p) === y);
+      function d(y, P) {
+        return P.some((p) => p === y || h(y) === p || h(p) === y);
       }
       function h(y) {
         return c(y) ? y.pluginName || y.name : y;
       }
-      function f(y, R = /* @__PURE__ */ new Set()) {
+      function f(y, P = /* @__PURE__ */ new Set()) {
         y.forEach((p) => {
-          c(p) && (R.has(p) || (R.add(p), p.pluginName && !s._availablePlugins.has(p.pluginName) && s._availablePlugins.set(p.pluginName, p), p.requires && f(p.requires, R)));
+          c(p) && (P.has(p) || (P.add(p), p.pluginName && !s._availablePlugins.has(p.pluginName) && s._availablePlugins.set(p.pluginName, p), p.requires && f(p.requires, P)));
         });
       }
-      function m(y, R = /* @__PURE__ */ new Set()) {
-        return y.map((p) => c(p) ? p : s._availablePlugins.get(p)).reduce((p, b) => R.has(b) ? p : (R.add(b), b.requires && (g(b.requires, b), m(b.requires, R).forEach((A) => p.add(A))), p.add(b)), /* @__PURE__ */ new Set());
+      function m(y, P = /* @__PURE__ */ new Set()) {
+        return y.map((p) => c(p) ? p : s._availablePlugins.get(p)).reduce((p, b) => P.has(b) ? p : (P.add(b), b.requires && (g(b.requires, b), m(b.requires, P).forEach((E) => p.add(E))), p.add(b)), /* @__PURE__ */ new Set());
       }
-      function g(y, R = null) {
+      function g(y, P = null) {
         y.map((p) => c(p) ? p : s._availablePlugins.get(p) || p).forEach((p) => {
-          _(p, R), w(p, R), T(p, R);
+          _(p, P), w(p, P), T(p, P);
         });
       }
-      function _(y, R) {
+      function _(y, P) {
         if (!c(y))
-          throw R ? new k("plugincollection-soft-required", o, { missingPlugin: y, requiredBy: h(R) }) : new k("plugincollection-plugin-not-found", o, { plugin: y });
+          throw P ? new k("plugincollection-soft-required", o, { missingPlugin: y, requiredBy: h(P) }) : new k("plugincollection-plugin-not-found", o, { plugin: y });
       }
-      function w(y, R) {
-        if (u(R) && !u(y))
-          throw new k("plugincollection-context-required", o, { plugin: h(y), requiredBy: h(R) });
+      function w(y, P) {
+        if (u(P) && !u(y))
+          throw new k("plugincollection-context-required", o, { plugin: h(y), requiredBy: h(P) });
       }
-      function T(y, R) {
-        if (R && d(y, t))
-          throw new k("plugincollection-required", o, { plugin: h(y), requiredBy: h(R) });
+      function T(y, P) {
+        if (P && d(y, t))
+          throw new k("plugincollection-required", o, { plugin: h(y), requiredBy: h(P) });
       }
-      function E(y) {
-        return y.map((R) => {
-          let p = s._contextPlugins.get(R);
-          return p = p || new R(o), s._add(R, p), p;
+      function R(y) {
+        return y.map((P) => {
+          let p = s._contextPlugins.get(P);
+          return p = p || new P(o), s._add(P, p), p;
         });
       }
-      function x(y, R) {
-        return y.reduce((p, b) => !b[R] || s._contextPlugins.has(b) ? p : p.then(b[R].bind(b)), Promise.resolve());
+      function A(y, P) {
+        return y.reduce((p, b) => !b[P] || s._contextPlugins.has(b) ? p : p.then(b[P].bind(b)), Promise.resolve());
       }
-      function F(y, R) {
-        for (const p of R) {
+      function F(y, P) {
+        for (const p of P) {
           if (typeof p != "function")
             throw new k("plugincollection-replace-plugin-invalid-type", null, { pluginItem: p });
           const b = p.pluginName;
@@ -4249,18 +4249,18 @@ Read more: ${o0}#error-${n}`;
             throw new k("plugincollection-replace-plugin-missing-name", null, { pluginItem: p });
           if (p.requires && p.requires.length)
             throw new k("plugincollection-plugin-for-replacing-cannot-have-dependencies", null, { pluginName: b });
-          const A = s._availablePlugins.get(b);
-          if (!A)
+          const E = s._availablePlugins.get(b);
+          if (!E)
             throw new k("plugincollection-plugin-for-replacing-not-exist", null, { pluginName: b });
-          const I = y.indexOf(A);
-          if (I === -1) {
-            if (s._contextPlugins.has(A))
+          const S = y.indexOf(E);
+          if (S === -1) {
+            if (s._contextPlugins.has(E))
               return;
             throw new k("plugincollection-plugin-for-replacing-not-loaded", null, { pluginName: b });
           }
-          if (A.requires && A.requires.length)
+          if (E.requires && E.requires.length)
             throw new k("plugincollection-replaced-plugin-cannot-have-dependencies", null, { pluginName: b });
-          y.splice(I, 1, p), s._availablePlugins.set(b, p);
+          y.splice(S, 1, p), s._availablePlugins.set(b, p);
         }
       }
     }
@@ -38564,8 +38564,8 @@ Read more: ${o0}#error-${n}`;
               m += w.length;
               continue;
             }
-            const E = f.start.getShiftedBy(m), x = t.createRange(E, E.getShiftedBy(w.length)), F = eP(E);
-            t.insertContent(g.createText(T, F), x), m += T.length;
+            const R = f.start.getShiftedBy(m), A = t.createRange(R, R.getShiftedBy(w.length)), F = eP(R);
+            t.insertContent(g.createText(T, F), A), m += T.length;
           }
           t.enqueueChange(() => {
             i.requestUndoOnBackspace();
@@ -40629,9 +40629,9 @@ Read more: ${o0}#error-${n}`;
       const t = this.editor.editing, i = e.start.nodeBefore, s = e.start.nodeAfter, o = e.start.parent, r = i ? t.mapper.toViewElement(i) : null, a = r ? t.view.domConverter.mapViewToDom(r) : null, l = s ? t.mapper.toViewElement(s) : null, c = l ? t.view.domConverter.mapViewToDom(l) : null, u = t.mapper.toViewElement(o);
       if (!u)
         return;
-      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = G.window, g = a ? new te(a) : null, _ = c ? new te(c) : null, w = new te(d).excludeScrollbarsAndBorders(), T = g ? g.bottom : w.top, E = _ ? _.top : w.bottom, x = G.window.getComputedStyle(d), F = T <= E ? (T + E) / 2 : E;
+      const d = t.view.domConverter.mapViewToDom(u), h = this._getScrollableRect(u), { scrollX: f, scrollY: m } = G.window, g = a ? new te(a) : null, _ = c ? new te(c) : null, w = new te(d).excludeScrollbarsAndBorders(), T = g ? g.bottom : w.top, R = _ ? _.top : w.bottom, A = G.window.getComputedStyle(d), F = T <= R ? (T + R) / 2 : R;
       if (h.top < F && F < h.bottom) {
-        const y = w.left + parseFloat(x.paddingLeft), R = w.right - parseFloat(x.paddingRight), p = Math.max(y + f, h.left), b = Math.min(R + f, h.right);
+        const y = w.left + parseFloat(A.paddingLeft), P = w.right - parseFloat(A.paddingRight), p = Math.max(y + f, h.left), b = Math.min(P + f, h.right);
         this._dropTargetLineView.set({
           isVisible: !0,
           left: p,
@@ -52856,8 +52856,8 @@ Read more: ${o0}#error-${n}`;
     const d = o, h = d + a, f = [...new ue(s, { startRow: d, endRow: h, includeAllSlots: !0 })];
     let m = null, g;
     for (const _ of f) {
-      const { row: w, column: T, cell: E } = _;
-      E === n && g === void 0 && (g = T), g !== void 0 && g === T && w === h && (m = En(t, _.getPositionBefore(), l));
+      const { row: w, column: T, cell: R } = _;
+      R === n && g === void 0 && (g = T), g !== void 0 && g === T && w === h && (m = En(t, _.getPositionBefore(), l));
     }
     return Ie("rowspan", a, n, t), m;
   }
@@ -53421,16 +53421,16 @@ Read more: ${o0}#error-${n}`;
           return;
         }
         const h = r ? Math.max(s, a) : s, f = new ue(e, { endRow: h }), m = new Array(c).fill(1);
-        for (const { row: g, column: _, cellHeight: w, cellWidth: T, cell: E } of f) {
-          const x = g + w - 1, F = g < s && s <= x, y = g <= a && a <= x;
-          F ? (u.setAttribute("rowspan", w + o, E), m[_] = -T) : r && y && (m[_] = T);
+        for (const { row: g, column: _, cellHeight: w, cellWidth: T, cell: R } of f) {
+          const A = g + w - 1, F = g < s && s <= A, y = g <= a && a <= A;
+          F ? (u.setAttribute("rowspan", w + o, R), m[_] = -T) : r && y && (m[_] = T);
         }
         for (let g = 0; g < o; g++) {
           const _ = u.createElement("tableRow");
           u.insert(_, e, s);
           for (let w = 0; w < m.length; w++) {
-            const T = m[w], E = u.createPositionAt(_, "end");
-            T > 0 && En(u, E, T > 1 ? { colspan: T } : void 0), w += Math.abs(T) - 1;
+            const T = m[w], R = u.createPositionAt(_, "end");
+            T > 0 && En(u, R, T > 1 ? { colspan: T } : void 0), w += Math.abs(T) - 1;
           }
         }
       });
@@ -53630,8 +53630,8 @@ Read more: ${o0}#error-${n}`;
         }
         if (a < t) {
           const c = t - a, u = [...new ue(o)], { column: d } = u.find(({ cell: g }) => g === e), h = u.filter(({ cell: g, cellWidth: _, column: w }) => {
-            const T = g !== e && w === d, E = w < d && w + _ > d;
-            return T || E;
+            const T = g !== e && w === d, R = w < d && w + _ > d;
+            return T || R;
           });
           for (const { cell: g, cellWidth: _ } of h)
             l.setAttribute("colspan", _ + c, g);
@@ -53708,8 +53708,8 @@ Read more: ${o0}#error-${n}`;
           const { column: f } = u.find(({ cell: g }) => g === e), m = {};
           d > 1 && (m.rowspan = d), l > 1 && (m.colspan = l);
           for (const g of u) {
-            const { column: _, row: w } = g, T = w >= r + h, E = _ === f, x = (w + r + h) % d === 0;
-            T && E && x && $n(1, c, g.getPositionBefore(), m);
+            const { column: _, row: w } = g, T = w >= r + h, R = _ === f, A = (w + r + h) % d === 0;
+            T && R && A && $n(1, c, g.getPositionBefore(), m);
           }
         }
         if (a < t) {
@@ -55039,8 +55039,8 @@ Read more: ${o0}#error-${n}`;
       for (const _ of c) {
         const { row: w, column: T } = _;
         T === s.firstColumn && (d = _.getPositionBefore());
-        const E = w - s.firstRow, x = T - s.firstColumn, F = l[E % a][x % r], y = F ? o.cloneElement(F) : null, R = this._replaceTableSlotCell(_, y, d, o);
-        R && (ab(R, w, T, s.lastRow, s.lastColumn, o), u.push(R), d = o.createPositionAfter(R));
+        const R = w - s.firstRow, A = T - s.firstColumn, F = l[R % a][A % r], y = F ? o.cloneElement(F) : null, P = this._replaceTableSlotCell(_, y, d, o);
+        P && (ab(P, w, T, s.lastRow, s.lastColumn, o), u.push(P), d = o.createPositionAfter(P));
       }
       const h = parseInt(i.getAttribute("headingRows") || "0"), f = parseInt(i.getAttribute("headingColumns") || "0"), m = s.firstRow < h && h <= s.lastRow, g = s.firstColumn < f && f <= s.lastColumn;
       if (m) {
@@ -55305,8 +55305,8 @@ Read more: ${o0}#error-${n}`;
         w.setCellSelection(T, g);
       } else {
         const T = s.createPositionAt(g, _ ? 0 : "end");
-        s.change((E) => {
-          E.setSelection(T);
+        s.change((R) => {
+          R.setSelection(T);
         });
       }
     }
@@ -58383,8 +58383,8 @@ Read more: ${o0}#error-${n}`;
       function c(h, f, m) {
         const g = Array(f.getColumns(h)), _ = new ue(h);
         for (const w of _) {
-          const T = m.editing.mapper.toViewElement(w.cell), E = m.editing.view.domConverter.mapViewToDom(T), x = X6(E);
-          (!g[w.column] || x < g[w.column]) && (g[w.column] = ut(x));
+          const T = m.editing.mapper.toViewElement(w.cell), R = m.editing.view.domConverter.mapViewToDom(T), A = X6(R);
+          (!g[w.column] || A < g[w.column]) && (g[w.column] = ut(A));
         }
         return g;
       }
@@ -58419,13 +58419,13 @@ Read more: ${o0}#error-${n}`;
       }
       const { columnPosition: i, flags: { isRightEdge: s, isTableCentered: o, isLtrContent: r }, elements: { viewFigure: a, viewLeftColumn: l, viewRightColumn: c }, widths: { viewFigureParentWidth: u, tableWidth: d, leftColumnWidth: h, rightColumnWidth: f } } = this._resizingData, m = -h + Gl, g = s ? u - d : f - Gl, _ = (r ? 1 : -1) * (s && o ? 2 : 1), w = Z6((t.clientX - i) * _, Math.min(m, 0), Math.max(g, 0));
       w !== 0 && this.editor.editing.view.change((T) => {
-        const E = ut((h + w) * 100 / d);
-        if (T.setStyle("width", `${E}%`, l), s) {
-          const x = ut((d + w) * 100 / u);
-          T.setStyle("width", `${x}%`, a);
+        const R = ut((h + w) * 100 / d);
+        if (T.setStyle("width", `${R}%`, l), s) {
+          const A = ut((d + w) * 100 / u);
+          T.setStyle("width", `${A}%`, a);
         } else {
-          const x = ut((f - w) * 100 / d);
-          T.setStyle("width", `${x}%`, c);
+          const A = ut((f - w) * 100 / d);
+          T.setStyle("width", `${A}%`, c);
         }
       });
     }
@@ -58462,7 +58462,7 @@ Read more: ${o0}#error-${n}`;
      * @returns The data needed for the resizing process.
      */
     _getResizingData(e, t) {
-      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = K6(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), g = m.findAncestor("figure"), _ = [...m.getChildren()].find((p) => p.is("element", "colgroup")), w = _.getChild(c), T = d ? void 0 : _.getChild(c + 1), E = jl(i.editing.view.domConverter.mapViewToDom(g.parent)), x = jl(i.editing.view.domConverter.mapViewToDom(g)), F = ub(l, i), y = t[c], R = d ? void 0 : t[c + 1];
+      const i = this.editor, s = e.domEvent.clientX, o = e.target, r = o.findAncestor("td") || o.findAncestor("th"), a = i.editing.mapper.toModelElement(r), l = a.findAncestor("table"), c = K6(a, this._tableUtilsPlugin).rightEdge, u = this._tableUtilsPlugin.getColumns(l) - 1, d = c === u, h = !l.hasAttribute("tableAlignment"), f = i.locale.contentLanguageDirection !== "rtl", m = r.findAncestor("table"), g = m.findAncestor("figure"), _ = [...m.getChildren()].find((p) => p.is("element", "colgroup")), w = _.getChild(c), T = d ? void 0 : _.getChild(c + 1), R = jl(i.editing.view.domConverter.mapViewToDom(g.parent)), A = jl(i.editing.view.domConverter.mapViewToDom(g)), F = ub(l, i), y = t[c], P = d ? void 0 : t[c + 1];
       return {
         columnPosition: s,
         flags: {
@@ -58479,11 +58479,11 @@ Read more: ${o0}#error-${n}`;
           viewRightColumn: T
         },
         widths: {
-          viewFigureParentWidth: E,
-          viewFigureWidth: x,
+          viewFigureParentWidth: R,
+          viewFigureWidth: A,
           tableWidth: F,
           leftColumnWidth: y,
-          rightColumnWidth: R
+          rightColumnWidth: P
         }
       };
     }
@@ -58879,8 +58879,8 @@ Read more: ${o0}#error-${n}`;
         const _ = g.createPositionAt(d, 0), w = g.createPositionAt(d, m[0].length), T = new ht(_, w);
         if (s({ match: m }) !== !1) {
           g.remove(T);
-          const x = n.model.document.selection.getFirstRange(), F = g.createRangeIn(d);
-          d.isEmpty && !F.isEqual(x) && !F.containsRange(x, !0) && g.remove(d);
+          const A = n.model.document.selection.getFirstRange(), F = g.createRangeIn(d);
+          d.isEmpty && !F.isEqual(A) && !F.containsRange(A, !0) && g.remove(d);
         }
         T.detach(), n.model.enqueueChange(() => {
           n.plugins.get("Delete").requestUndoOnBackspace();
@@ -58924,10 +58924,10 @@ Read more: ${o0}#error-${n}`;
       if (u.length != 1 || d.type !== "insert" || d.name != "$text" || d.length != 1)
         return;
       const h = c.focus, f = h.parent, { text: m, range: g } = jM(l.createRange(l.createPositionAt(f, 0), h), l), _ = o(m), w = om(g.start, _.format, l), T = om(g.start, _.remove, l);
-      w.length && T.length && l.enqueueChange((E) => {
-        if (i(E, w) !== !1) {
+      w.length && T.length && l.enqueueChange((R) => {
+        if (i(R, w) !== !1) {
           for (const F of T.reverse())
-            E.remove(F);
+            R.remove(F);
           l.enqueueChange(() => {
             n.plugins.get("Delete").requestUndoOnBackspace();
           });
@@ -59170,10 +59170,10 @@ Read more: ${o0}#error-${n}`;
       l += 4, l = m;
       for (var g = 0; g < h; g++) {
         a(u, l), l += 4, l += 4, l += 4, a(u, l += 4), f = a(u, l += 4);
-        var _ = a(u, l += 4), w = r(u, l += 4), T = r(u, l + 2), E = r(u, l + 4);
+        var _ = a(u, l += 4), w = r(u, l += 4), T = r(u, l + 2), R = r(u, l + 4);
         l += 6;
-        var x = a(u, l += 8);
-        l += 4, l += w + T + E, i._readLocal(u, x, c, f, _, o);
+        var A = a(u, l += 8);
+        l += 4, l += w + T + R, i._readLocal(u, A, c, f, _, o);
       }
       return c;
     }, i._readLocal = function(s, o, r, a, l, c) {
@@ -59226,11 +59226,11 @@ Read more: ${o0}#error-${n}`;
         var w = c[u];
         _.push(g), g = i._writeHeader(m, g, u, w, 0);
       }
-      var T = 0, E = g;
+      var T = 0, R = g;
       for (var u in c)
         w = c[u], _.push(g), g = i._writeHeader(m, g, u, w, 1, _[T++]);
-      var x = g - E;
-      return a(m, g, 101010256), g += 4, l(m, g += 4, T), l(m, g += 2, T), a(m, g += 2, x), a(m, g += 4, E), g += 4, g += 2, m.buffer;
+      var A = g - R;
+      return a(m, g, 101010256), g += 4, l(m, g += 4, T), l(m, g += 2, T), a(m, g += 2, A), a(m, g += 4, R), g += 4, g += 2, m.buffer;
     }, i._noNeed = function(s) {
       var o = s.split(".").pop().toLowerCase();
       return "png,jpg,jpeg,zip".indexOf(o) != -1;
@@ -59321,33 +59321,33 @@ Read more: ${o0}#error-${n}`;
       var d = i.F._putsE, h = 0, f = r << 3, m = 0, g = s.length;
       if (a == 0) {
         for (; h < g; )
-          d(o, f, h + (I = Math.min(65535, g - h)) == g ? 1 : 0), f = i.F._copyExact(s, h, I, o, f + 8), h += I;
+          d(o, f, h + (S = Math.min(65535, g - h)) == g ? 1 : 0), f = i.F._copyExact(s, h, S, o, f + 8), h += S;
         return f >>> 3;
       }
-      var _ = c.lits, w = c.strt, T = c.prev, E = 0, x = 0, F = 0, y = 0, R = 0, p = 0;
+      var _ = c.lits, w = c.strt, T = c.prev, R = 0, A = 0, F = 0, y = 0, P = 0, p = 0;
       for (g > 2 && (w[p = i.F._hash(s, 0)] = 0), h = 0; h < g; h++) {
-        if (R = p, h + 1 < g - 2) {
+        if (P = p, h + 1 < g - 2) {
           p = i.F._hash(s, h + 1);
           var b = h + 1 & 32767;
           T[b] = w[p], w[p] = b;
         }
         if (m <= h) {
-          (E > 14e3 || x > 26697) && g - h > 100 && (m < h && (_[E] = h - m, E += 2, m = h), f = i.F._writeBlock(h == g - 1 || m == g ? 1 : 0, _, E, y, s, F, h - F, o, f), E = x = y = 0, F = h);
-          var A = 0;
-          h < g - 2 && (A = i.F._bestMatch(s, h, T, R, Math.min(l[2], g - h), l[3]));
-          var I = A >>> 16, P = 65535 & A;
-          if (A != 0) {
-            P = 65535 & A;
-            var V = u(I = A >>> 16, c.of0);
+          (R > 14e3 || A > 26697) && g - h > 100 && (m < h && (_[R] = h - m, R += 2, m = h), f = i.F._writeBlock(h == g - 1 || m == g ? 1 : 0, _, R, y, s, F, h - F, o, f), R = A = y = 0, F = h);
+          var E = 0;
+          h < g - 2 && (E = i.F._bestMatch(s, h, T, P, Math.min(l[2], g - h), l[3]));
+          var S = E >>> 16, I = 65535 & E;
+          if (E != 0) {
+            I = 65535 & E;
+            var V = u(S = E >>> 16, c.of0);
             c.lhst[257 + V]++;
-            var S = u(P, c.df0);
-            c.dhst[S]++, y += c.exb[V] + c.dxb[S], _[E] = I << 23 | h - m, _[E + 1] = P << 16 | V << 8 | S, E += 2, m = h + I;
+            var x = u(I, c.df0);
+            c.dhst[x]++, y += c.exb[V] + c.dxb[x], _[R] = S << 23 | h - m, _[R + 1] = I << 16 | V << 8 | x, R += 2, m = h + S;
           } else
             c.lhst[s[h]]++;
-          x++;
+          A++;
         }
       }
-      for (F == h && s.length != 0 || (m < h && (_[E] = h - m, E += 2, m = h), f = i.F._writeBlock(1, _, E, y, s, F, h - F, o, f), E = 0, x = 0, E = x = y = 0, F = h); 7 & f; )
+      for (F == h && s.length != 0 || (m < h && (_[R] = h - m, R += 2, m = h), f = i.F._writeBlock(1, _, R, y, s, F, h - F, o, f), R = 0, A = 0, R = A = y = 0, F = h); 7 & f; )
         f++;
       return f >>> 3;
     }, i.F._bestMatch = function(s, o, r, a, l, c) {
@@ -59362,8 +59362,8 @@ Read more: ${o0}#error-${n}`;
               break;
             h + 2 < _ && (_ = h + 2);
             for (var w = 0, T = 0; T < _ - 2; T++) {
-              var E = o - h + T + 32768 & 32767, x = E - r[E] + 32768 & 32767;
-              x > w && (w = x, d = E);
+              var R = o - h + T + 32768 & 32767, A = R - r[R] + 32768 & 32767;
+              A > w && (w = A, d = R);
             }
           }
         }
@@ -59380,38 +59380,38 @@ Read more: ${o0}#error-${n}`;
     }, i.F._hash = function(s, o) {
       return (s[o] << 8 | s[o + 1]) + (s[o + 2] << 4) & 65535;
     }, i.saved = 0, i.F._writeBlock = function(s, o, r, a, l, c, u, d, h) {
-      var f, m, g, _, w, T, E, x, F, y = i.F.U, R = i.F._putsF, p = i.F._putsE;
-      y.lhst[256]++, m = (f = i.F.getTrees())[0], g = f[1], _ = f[2], w = f[3], T = f[4], E = f[5], x = f[6], F = f[7];
-      var b = 32 + (h + 3 & 7 ? 8 - (h + 3 & 7) : 0) + (u << 3), A = a + i.F.contSize(y.fltree, y.lhst) + i.F.contSize(y.fdtree, y.dhst), I = a + i.F.contSize(y.ltree, y.lhst) + i.F.contSize(y.dtree, y.dhst);
-      I += 14 + 3 * E + i.F.contSize(y.itree, y.ihst) + (2 * y.ihst[16] + 3 * y.ihst[17] + 7 * y.ihst[18]);
-      for (var P = 0; P < 286; P++)
-        y.lhst[P] = 0;
-      for (P = 0; P < 30; P++)
-        y.dhst[P] = 0;
-      for (P = 0; P < 19; P++)
-        y.ihst[P] = 0;
-      var V = b < A && b < I ? 0 : A < I ? 1 : 2;
-      if (R(d, h, s), R(d, h + 1, V), h += 3, V == 0) {
+      var f, m, g, _, w, T, R, A, F, y = i.F.U, P = i.F._putsF, p = i.F._putsE;
+      y.lhst[256]++, m = (f = i.F.getTrees())[0], g = f[1], _ = f[2], w = f[3], T = f[4], R = f[5], A = f[6], F = f[7];
+      var b = 32 + (h + 3 & 7 ? 8 - (h + 3 & 7) : 0) + (u << 3), E = a + i.F.contSize(y.fltree, y.lhst) + i.F.contSize(y.fdtree, y.dhst), S = a + i.F.contSize(y.ltree, y.lhst) + i.F.contSize(y.dtree, y.dhst);
+      S += 14 + 3 * R + i.F.contSize(y.itree, y.ihst) + (2 * y.ihst[16] + 3 * y.ihst[17] + 7 * y.ihst[18]);
+      for (var I = 0; I < 286; I++)
+        y.lhst[I] = 0;
+      for (I = 0; I < 30; I++)
+        y.dhst[I] = 0;
+      for (I = 0; I < 19; I++)
+        y.ihst[I] = 0;
+      var V = b < E && b < S ? 0 : E < S ? 1 : 2;
+      if (P(d, h, s), P(d, h + 1, V), h += 3, V == 0) {
         for (; 7 & h; )
           h++;
         h = i.F._copyExact(l, c, u, d, h);
       } else {
-        var S, B;
-        if (V == 1 && (S = y.fltree, B = y.fdtree), V == 2) {
-          i.F.makeCodes(y.ltree, m), i.F.revCodes(y.ltree, m), i.F.makeCodes(y.dtree, g), i.F.revCodes(y.dtree, g), i.F.makeCodes(y.itree, _), i.F.revCodes(y.itree, _), S = y.ltree, B = y.dtree, p(d, h, w - 257), p(d, h += 5, T - 1), p(d, h += 5, E - 4), h += 4;
-          for (var C = 0; C < E; C++)
+        var x, B;
+        if (V == 1 && (x = y.fltree, B = y.fdtree), V == 2) {
+          i.F.makeCodes(y.ltree, m), i.F.revCodes(y.ltree, m), i.F.makeCodes(y.dtree, g), i.F.revCodes(y.dtree, g), i.F.makeCodes(y.itree, _), i.F.revCodes(y.itree, _), x = y.ltree, B = y.dtree, p(d, h, w - 257), p(d, h += 5, T - 1), p(d, h += 5, R - 4), h += 4;
+          for (var C = 0; C < R; C++)
             p(d, h + 3 * C, y.itree[1 + (y.ordr[C] << 1)]);
-          h += 3 * E, h = i.F._codeTiny(x, y.itree, d, h), h = i.F._codeTiny(F, y.itree, d, h);
+          h += 3 * R, h = i.F._codeTiny(A, y.itree, d, h), h = i.F._codeTiny(F, y.itree, d, h);
         }
         for (var v = c, U = 0; U < r; U += 2) {
           for (var O = o[U], D = O >>> 23, J = v + (8388607 & O); v < J; )
-            h = i.F._writeLit(l[v++], S, d, h);
+            h = i.F._writeLit(l[v++], x, d, h);
           if (D != 0) {
             var W = o[U + 1], K = W >> 16, H = W >> 8 & 255, N = 255 & W;
-            p(d, h = i.F._writeLit(257 + H, S, d, h), D - y.of0[H]), h += y.exb[H], R(d, h = i.F._writeLit(N, B, d, h), K - y.df0[N]), h += y.dxb[N], v += D;
+            p(d, h = i.F._writeLit(257 + H, x, d, h), D - y.of0[H]), h += y.exb[H], P(d, h = i.F._writeLit(N, B, d, h), K - y.df0[N]), h += y.dxb[N], v += D;
           }
         }
-        h = i.F._writeLit(256, S, d, h);
+        h = i.F._writeLit(256, x, d, h);
       }
       return h;
     }, i.F._copyExact = function(s, o, r, a, l) {
@@ -59476,16 +59476,16 @@ Read more: ${o0}#error-${n}`;
         var f = a[0].lit;
         return h = f == 0 ? 1 : 0, o[1 + (f << 1)] = 1, o[1 + (h << 1)] = 1, 1;
       }
-      a.sort(function(x, F) {
-        return x.f - F.f;
+      a.sort(function(A, F) {
+        return A.f - F.f;
       });
       var m = a[0], g = a[1], _ = 0, w = 1, T = 2;
       for (a[0] = { lit: -1, f: m.f + g.f, l: m, r: g, d: 0 }; w != d - 1; )
         m = _ != w && (T == d || a[_].f < a[T].f) ? a[_++] : a[T++], g = _ != w && (T == d || a[_].f < a[T].f) ? a[_++] : a[T++], a[w++] = { lit: -1, f: m.f + g.f, l: m, r: g };
-      var E = i.F.setDepth(a[w - 1], 0);
-      for (E > r && (i.F.restrictDepth(h, r, E), E = r), u = 0; u < d; u++)
+      var R = i.F.setDepth(a[w - 1], 0);
+      for (R > r && (i.F.restrictDepth(h, r, R), R = r), u = 0; u < d; u++)
         o[1 + (h[u].lit << 1)] = h[u].d;
-      return E;
+      return R;
     }, i.F.setDepth = function(s, o) {
       return s.lit != -1 ? (s.d = o, o) : Math.max(i.F.setDepth(s.l, o + 1), i.F.setDepth(s.r, o + 1));
     }, i.F.restrictDepth = function(s, o, r) {
@@ -59512,26 +59512,26 @@ Read more: ${o0}#error-${n}`;
         return o || new r(0);
       var a = i.F, l = a._bitsF, c = a._bitsE, u = a._decodeTiny, d = a.makeCodes, h = a.codes2map, f = a._get17, m = a.U, g = o == null;
       g && (o = new r(s.length >>> 2 << 3));
-      for (var _, w, T = 0, E = 0, x = 0, F = 0, y = 0, R = 0, p = 0, b = 0, A = 0; T == 0; )
-        if (T = l(s, A, 1), E = l(s, A + 1, 2), A += 3, E != 0) {
-          if (g && (o = i.F._check(o, b + (1 << 17))), E == 1 && (_ = m.flmap, w = m.fdmap, R = 511, p = 31), E == 2) {
-            x = c(s, A, 5) + 257, F = c(s, A + 5, 5) + 1, y = c(s, A + 10, 4) + 4, A += 14;
-            for (var I = 0; I < 38; I += 2)
-              m.itree[I] = 0, m.itree[I + 1] = 0;
-            var P = 1;
-            for (I = 0; I < y; I++) {
-              var V = c(s, A + 3 * I, 3);
-              m.itree[1 + (m.ordr[I] << 1)] = V, V > P && (P = V);
+      for (var _, w, T = 0, R = 0, A = 0, F = 0, y = 0, P = 0, p = 0, b = 0, E = 0; T == 0; )
+        if (T = l(s, E, 1), R = l(s, E + 1, 2), E += 3, R != 0) {
+          if (g && (o = i.F._check(o, b + (1 << 17))), R == 1 && (_ = m.flmap, w = m.fdmap, P = 511, p = 31), R == 2) {
+            A = c(s, E, 5) + 257, F = c(s, E + 5, 5) + 1, y = c(s, E + 10, 4) + 4, E += 14;
+            for (var S = 0; S < 38; S += 2)
+              m.itree[S] = 0, m.itree[S + 1] = 0;
+            var I = 1;
+            for (S = 0; S < y; S++) {
+              var V = c(s, E + 3 * S, 3);
+              m.itree[1 + (m.ordr[S] << 1)] = V, V > I && (I = V);
             }
-            A += 3 * y, d(m.itree, P), h(m.itree, P, m.imap), _ = m.lmap, w = m.dmap, A = u(m.imap, (1 << P) - 1, x + F, s, A, m.ttree);
-            var S = a._copyOut(m.ttree, 0, x, m.ltree);
-            R = (1 << S) - 1;
-            var B = a._copyOut(m.ttree, x, F, m.dtree);
-            p = (1 << B) - 1, d(m.ltree, S), h(m.ltree, S, _), d(m.dtree, B), h(m.dtree, B, w);
+            E += 3 * y, d(m.itree, I), h(m.itree, I, m.imap), _ = m.lmap, w = m.dmap, E = u(m.imap, (1 << I) - 1, A + F, s, E, m.ttree);
+            var x = a._copyOut(m.ttree, 0, A, m.ltree);
+            P = (1 << x) - 1;
+            var B = a._copyOut(m.ttree, A, F, m.dtree);
+            p = (1 << B) - 1, d(m.ltree, x), h(m.ltree, x, _), d(m.dtree, B), h(m.dtree, B, w);
           }
           for (; ; ) {
-            var C = _[f(s, A) & R];
-            A += 15 & C;
+            var C = _[f(s, E) & P];
+            E += 15 & C;
             var v = C >>> 4;
             if (!(v >>> 8))
               o[b++] = v;
@@ -59541,20 +59541,20 @@ Read more: ${o0}#error-${n}`;
               var U = b + v - 254;
               if (v > 264) {
                 var O = m.ldef[v - 257];
-                U = b + (O >>> 3) + c(s, A, 7 & O), A += 7 & O;
+                U = b + (O >>> 3) + c(s, E, 7 & O), E += 7 & O;
               }
-              var D = w[f(s, A) & p];
-              A += 15 & D;
-              var J = D >>> 4, W = m.ddef[J], K = (W >>> 4) + l(s, A, 15 & W);
-              for (A += 15 & W, g && (o = i.F._check(o, b + (1 << 17))); b < U; )
+              var D = w[f(s, E) & p];
+              E += 15 & D;
+              var J = D >>> 4, W = m.ddef[J], K = (W >>> 4) + l(s, E, 15 & W);
+              for (E += 15 & W, g && (o = i.F._check(o, b + (1 << 17))); b < U; )
                 o[b] = o[b++ - K], o[b] = o[b++ - K], o[b] = o[b++ - K], o[b] = o[b++ - K];
               b = U;
             }
           }
         } else {
-          7 & A && (A += 8 - (7 & A));
-          var H = 4 + (A >>> 3), N = s[H - 4] | s[H - 3] << 8;
-          g && (o = i.F._check(o, b + N)), o.set(new r(s.buffer, s.byteOffset + H, N), b), A = H + N << 3, b += N;
+          7 & E && (E += 8 - (7 & E));
+          var H = 4 + (E >>> 3), N = s[H - 4] | s[H - 3] << 8;
+          g && (o = i.F._check(o, b + N)), o.set(new r(s.buffer, s.byteOffset + H, N), b), E = H + N << 3, b += N;
         }
       return o.length == b ? o : o.slice(0, b);
     }, i.F._check = function(s, o) {
@@ -59671,92 +59671,92 @@ Read more: ${o0}#error-${n}`;
       return f;
     } };
     function e(u, d, h, f) {
-      const m = d * h, g = o(f), _ = Math.ceil(d * g / 8), w = new Uint8Array(4 * m), T = new Uint32Array(w.buffer), { ctype: E } = f, { depth: x } = f, F = n.readUshort;
-      if (E == 6) {
+      const m = d * h, g = o(f), _ = Math.ceil(d * g / 8), w = new Uint8Array(4 * m), T = new Uint32Array(w.buffer), { ctype: R } = f, { depth: A } = f, F = n.readUshort;
+      if (R == 6) {
         const O = m << 2;
-        if (x == 8)
+        if (A == 8)
           for (var y = 0; y < O; y += 4)
             w[y] = u[y], w[y + 1] = u[y + 1], w[y + 2] = u[y + 2], w[y + 3] = u[y + 3];
-        if (x == 16)
+        if (A == 16)
           for (y = 0; y < O; y++)
             w[y] = u[y << 1];
-      } else if (E == 2) {
+      } else if (R == 2) {
         const O = f.tabs.tRNS;
         if (O == null) {
-          if (x == 8)
+          if (A == 8)
             for (y = 0; y < m; y++) {
-              var R = 3 * y;
-              T[y] = 255 << 24 | u[R + 2] << 16 | u[R + 1] << 8 | u[R];
+              var P = 3 * y;
+              T[y] = 255 << 24 | u[P + 2] << 16 | u[P + 1] << 8 | u[P];
             }
-          if (x == 16)
+          if (A == 16)
             for (y = 0; y < m; y++)
-              R = 6 * y, T[y] = 255 << 24 | u[R + 4] << 16 | u[R + 2] << 8 | u[R];
+              P = 6 * y, T[y] = 255 << 24 | u[P + 4] << 16 | u[P + 2] << 8 | u[P];
         } else {
           var p = O[0];
           const D = O[1], J = O[2];
-          if (x == 8)
+          if (A == 8)
             for (y = 0; y < m; y++) {
               var b = y << 2;
-              R = 3 * y, T[y] = 255 << 24 | u[R + 2] << 16 | u[R + 1] << 8 | u[R], u[R] == p && u[R + 1] == D && u[R + 2] == J && (w[b + 3] = 0);
+              P = 3 * y, T[y] = 255 << 24 | u[P + 2] << 16 | u[P + 1] << 8 | u[P], u[P] == p && u[P + 1] == D && u[P + 2] == J && (w[b + 3] = 0);
             }
-          if (x == 16)
+          if (A == 16)
             for (y = 0; y < m; y++)
-              b = y << 2, R = 6 * y, T[y] = 255 << 24 | u[R + 4] << 16 | u[R + 2] << 8 | u[R], F(u, R) == p && F(u, R + 2) == D && F(u, R + 4) == J && (w[b + 3] = 0);
+              b = y << 2, P = 6 * y, T[y] = 255 << 24 | u[P + 4] << 16 | u[P + 2] << 8 | u[P], F(u, P) == p && F(u, P + 2) == D && F(u, P + 4) == J && (w[b + 3] = 0);
         }
-      } else if (E == 3) {
+      } else if (R == 3) {
         const O = f.tabs.PLTE, D = f.tabs.tRNS, J = D ? D.length : 0;
-        if (x == 1)
-          for (var A = 0; A < h; A++) {
-            var I = A * _, P = A * d;
+        if (A == 1)
+          for (var E = 0; E < h; E++) {
+            var S = E * _, I = E * d;
             for (y = 0; y < d; y++) {
-              b = P + y << 2;
-              var V = 3 * (S = u[I + (y >> 3)] >> 7 - ((7 & y) << 0) & 1);
-              w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = S < J ? D[S] : 255;
+              b = I + y << 2;
+              var V = 3 * (x = u[S + (y >> 3)] >> 7 - ((7 & y) << 0) & 1);
+              w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = x < J ? D[x] : 255;
             }
           }
-        if (x == 2)
-          for (A = 0; A < h; A++)
-            for (I = A * _, P = A * d, y = 0; y < d; y++)
-              b = P + y << 2, V = 3 * (S = u[I + (y >> 2)] >> 6 - ((3 & y) << 1) & 3), w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = S < J ? D[S] : 255;
-        if (x == 4)
-          for (A = 0; A < h; A++)
-            for (I = A * _, P = A * d, y = 0; y < d; y++)
-              b = P + y << 2, V = 3 * (S = u[I + (y >> 1)] >> 4 - ((1 & y) << 2) & 15), w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = S < J ? D[S] : 255;
-        if (x == 8)
+        if (A == 2)
+          for (E = 0; E < h; E++)
+            for (S = E * _, I = E * d, y = 0; y < d; y++)
+              b = I + y << 2, V = 3 * (x = u[S + (y >> 2)] >> 6 - ((3 & y) << 1) & 3), w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = x < J ? D[x] : 255;
+        if (A == 4)
+          for (E = 0; E < h; E++)
+            for (S = E * _, I = E * d, y = 0; y < d; y++)
+              b = I + y << 2, V = 3 * (x = u[S + (y >> 1)] >> 4 - ((1 & y) << 2) & 15), w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = x < J ? D[x] : 255;
+        if (A == 8)
           for (y = 0; y < m; y++) {
-            var S;
-            b = y << 2, V = 3 * (S = u[y]), w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = S < J ? D[S] : 255;
+            var x;
+            b = y << 2, V = 3 * (x = u[y]), w[b] = O[V], w[b + 1] = O[V + 1], w[b + 2] = O[V + 2], w[b + 3] = x < J ? D[x] : 255;
           }
-      } else if (E == 4) {
-        if (x == 8)
+      } else if (R == 4) {
+        if (A == 8)
           for (y = 0; y < m; y++) {
             b = y << 2;
             var B = u[C = y << 1];
             w[b] = B, w[b + 1] = B, w[b + 2] = B, w[b + 3] = u[C + 1];
           }
-        if (x == 16)
+        if (A == 16)
           for (y = 0; y < m; y++) {
             var C;
             b = y << 2, B = u[C = y << 2], w[b] = B, w[b + 1] = B, w[b + 2] = B, w[b + 3] = u[C + 2];
           }
-      } else if (E == 0)
-        for (p = f.tabs.tRNS ? f.tabs.tRNS : -1, A = 0; A < h; A++) {
-          const O = A * _, D = A * d;
-          if (x == 1)
+      } else if (R == 0)
+        for (p = f.tabs.tRNS ? f.tabs.tRNS : -1, E = 0; E < h; E++) {
+          const O = E * _, D = E * d;
+          if (A == 1)
             for (var v = 0; v < d; v++) {
               var U = (B = 255 * (u[O + (v >>> 3)] >>> 7 - (7 & v) & 1)) == 255 * p ? 0 : 255;
               T[D + v] = U << 24 | B << 16 | B << 8 | B;
             }
-          else if (x == 2)
+          else if (A == 2)
             for (v = 0; v < d; v++)
               U = (B = 85 * (u[O + (v >>> 2)] >>> 6 - ((3 & v) << 1) & 3)) == 85 * p ? 0 : 255, T[D + v] = U << 24 | B << 16 | B << 8 | B;
-          else if (x == 4)
+          else if (A == 4)
             for (v = 0; v < d; v++)
               U = (B = 17 * (u[O + (v >>> 1)] >>> 4 - ((1 & v) << 2) & 15)) == 17 * p ? 0 : 255, T[D + v] = U << 24 | B << 16 | B << 8 | B;
-          else if (x == 8)
+          else if (A == 8)
             for (v = 0; v < d; v++)
               U = (B = u[O + v]) == p ? 0 : 255, T[D + v] = U << 24 | B << 16 | B << 8 | B;
-          else if (x == 16)
+          else if (A == 16)
             for (v = 0; v < d; v++)
               B = u[O + (v << 1)], U = F(u, O + (v << 1)) == p ? 0 : 255, T[D + v] = U << 24 | B << 16 | B << 8 | B;
         }
@@ -59764,36 +59764,36 @@ Read more: ${o0}#error-${n}`;
     }
     function t(u, d, h, f) {
       const m = o(u), g = Math.ceil(h * m / 8), _ = new Uint8Array((g + 1 + u.interlace) * f);
-      return d = u.tabs.CgBI ? s(d, _) : i(d, _), u.interlace == 0 ? d = r(d, u, 0, h, f) : u.interlace == 1 && (d = function(T, E) {
-        const x = E.width, F = E.height, y = o(E), R = y >> 3, p = Math.ceil(x * y / 8), b = new Uint8Array(F * p);
-        let A = 0;
-        const I = [0, 0, 4, 0, 2, 0, 1], P = [0, 4, 0, 2, 0, 1, 0], V = [8, 8, 8, 4, 4, 2, 2], S = [8, 8, 4, 4, 2, 2, 1];
+      return d = u.tabs.CgBI ? s(d, _) : i(d, _), u.interlace == 0 ? d = r(d, u, 0, h, f) : u.interlace == 1 && (d = function(T, R) {
+        const A = R.width, F = R.height, y = o(R), P = y >> 3, p = Math.ceil(A * y / 8), b = new Uint8Array(F * p);
+        let E = 0;
+        const S = [0, 0, 4, 0, 2, 0, 1], I = [0, 4, 0, 2, 0, 1, 0], V = [8, 8, 8, 4, 4, 2, 2], x = [8, 8, 4, 4, 2, 2, 1];
         let B = 0;
         for (; B < 7; ) {
-          const v = V[B], U = S[B];
-          let O = 0, D = 0, J = I[B];
+          const v = V[B], U = x[B];
+          let O = 0, D = 0, J = S[B];
           for (; J < F; )
             J += v, D++;
-          let W = P[B];
-          for (; W < x; )
+          let W = I[B];
+          for (; W < A; )
             W += U, O++;
           const K = Math.ceil(O * y / 8);
-          r(T, E, A, O, D);
-          let H = 0, N = I[B];
+          r(T, R, E, O, D);
+          let H = 0, N = S[B];
           for (; N < F; ) {
-            let ee = P[B], Ee = A + H * K << 3;
-            for (; ee < x; ) {
+            let ee = I[B], Ee = E + H * K << 3;
+            for (; ee < A; ) {
               var C;
               if (y == 1 && (C = (C = T[Ee >> 3]) >> 7 - (7 & Ee) & 1, b[N * p + (ee >> 3)] |= C << 7 - ((7 & ee) << 0)), y == 2 && (C = (C = T[Ee >> 3]) >> 6 - (7 & Ee) & 3, b[N * p + (ee >> 2)] |= C << 6 - ((3 & ee) << 1)), y == 4 && (C = (C = T[Ee >> 3]) >> 4 - (7 & Ee) & 15, b[N * p + (ee >> 1)] |= C << 4 - ((1 & ee) << 2)), y >= 8) {
-                const me = N * p + ee * R;
-                for (let le = 0; le < R; le++)
+                const me = N * p + ee * P;
+                for (let le = 0; le < P; le++)
                   b[me + le] = T[(Ee >> 3) + le];
               }
               Ee += y, ee += U;
             }
             H++, N += v;
           }
-          O * D != 0 && (A += D * (1 + K)), B += 1;
+          O * D != 0 && (E += D * (1 + K)), B += 1;
         }
         return b;
       }(d, u)), d;
@@ -59805,57 +59805,57 @@ Read more: ${o0}#error-${n}`;
       const u = { H: {} };
       return u.H.N = function(d, h) {
         const f = Uint8Array;
-        let m, g, _ = 0, w = 0, T = 0, E = 0, x = 0, F = 0, y = 0, R = 0, p = 0;
+        let m, g, _ = 0, w = 0, T = 0, R = 0, A = 0, F = 0, y = 0, P = 0, p = 0;
         if (d[0] == 3 && d[1] == 0)
           return h || new f(0);
-        const b = u.H, A = b.b, I = b.e, P = b.R, V = b.n, S = b.A, B = b.Z, C = b.m, v = h == null;
+        const b = u.H, E = b.b, S = b.e, I = b.R, V = b.n, x = b.A, B = b.Z, C = b.m, v = h == null;
         for (v && (h = new f(d.length >>> 2 << 5)); _ == 0; )
-          if (_ = A(d, p, 1), w = A(d, p + 1, 2), p += 3, w != 0) {
-            if (v && (h = u.H.W(h, R + (1 << 17))), w == 1 && (m = C.J, g = C.h, F = 511, y = 31), w == 2) {
-              T = I(d, p, 5) + 257, E = I(d, p + 5, 5) + 1, x = I(d, p + 10, 4) + 4, p += 14;
+          if (_ = E(d, p, 1), w = E(d, p + 1, 2), p += 3, w != 0) {
+            if (v && (h = u.H.W(h, P + (1 << 17))), w == 1 && (m = C.J, g = C.h, F = 511, y = 31), w == 2) {
+              T = S(d, p, 5) + 257, R = S(d, p + 5, 5) + 1, A = S(d, p + 10, 4) + 4, p += 14;
               let O = 1;
               for (var U = 0; U < 38; U += 2)
                 C.Q[U] = 0, C.Q[U + 1] = 0;
-              for (U = 0; U < x; U++) {
-                const W = I(d, p + 3 * U, 3);
+              for (U = 0; U < A; U++) {
+                const W = S(d, p + 3 * U, 3);
                 C.Q[1 + (C.X[U] << 1)] = W, W > O && (O = W);
               }
-              p += 3 * x, V(C.Q, O), S(C.Q, O, C.u), m = C.w, g = C.d, p = P(C.u, (1 << O) - 1, T + E, d, p, C.v);
+              p += 3 * A, V(C.Q, O), x(C.Q, O, C.u), m = C.w, g = C.d, p = I(C.u, (1 << O) - 1, T + R, d, p, C.v);
               const D = b.V(C.v, 0, T, C.C);
               F = (1 << D) - 1;
-              const J = b.V(C.v, T, E, C.D);
-              y = (1 << J) - 1, V(C.C, D), S(C.C, D, m), V(C.D, J), S(C.D, J, g);
+              const J = b.V(C.v, T, R, C.D);
+              y = (1 << J) - 1, V(C.C, D), x(C.C, D, m), V(C.D, J), x(C.D, J, g);
             }
             for (; ; ) {
               const O = m[B(d, p) & F];
               p += 15 & O;
               const D = O >>> 4;
               if (!(D >>> 8))
-                h[R++] = D;
+                h[P++] = D;
               else {
                 if (D == 256)
                   break;
                 {
-                  let J = R + D - 254;
+                  let J = P + D - 254;
                   if (D > 264) {
                     const ee = C.q[D - 257];
-                    J = R + (ee >>> 3) + I(d, p, 7 & ee), p += 7 & ee;
+                    J = P + (ee >>> 3) + S(d, p, 7 & ee), p += 7 & ee;
                   }
                   const W = g[B(d, p) & y];
                   p += 15 & W;
-                  const K = W >>> 4, H = C.c[K], N = (H >>> 4) + A(d, p, 15 & H);
-                  for (p += 15 & H; R < J; )
-                    h[R] = h[R++ - N], h[R] = h[R++ - N], h[R] = h[R++ - N], h[R] = h[R++ - N];
-                  R = J;
+                  const K = W >>> 4, H = C.c[K], N = (H >>> 4) + E(d, p, 15 & H);
+                  for (p += 15 & H; P < J; )
+                    h[P] = h[P++ - N], h[P] = h[P++ - N], h[P] = h[P++ - N], h[P] = h[P++ - N];
+                  P = J;
                 }
               }
             }
           } else {
             7 & p && (p += 8 - (7 & p));
             const O = 4 + (p >>> 3), D = d[O - 4] | d[O - 3] << 8;
-            v && (h = u.H.W(h, R + D)), h.set(new f(d.buffer, d.byteOffset + O, D), R), p = O + D << 3, R += D;
+            v && (h = u.H.W(h, P + D)), h.set(new f(d.buffer, d.byteOffset + O, D), P), p = O + D << 3, P += D;
           }
-        return h.length == R ? h : h.slice(0, R);
+        return h.length == P ? h : h.slice(0, P);
       }, u.H.W = function(d, h) {
         const f = d.length;
         if (h <= f)
@@ -59864,19 +59864,19 @@ Read more: ${o0}#error-${n}`;
         return m.set(d, 0), m;
       }, u.H.R = function(d, h, f, m, g, _) {
         const w = u.H.e, T = u.H.Z;
-        let E = 0;
-        for (; E < f; ) {
-          const x = d[T(m, g) & h];
-          g += 15 & x;
-          const F = x >>> 4;
+        let R = 0;
+        for (; R < f; ) {
+          const A = d[T(m, g) & h];
+          g += 15 & A;
+          const F = A >>> 4;
           if (F <= 15)
-            _[E] = F, E++;
+            _[R] = F, R++;
           else {
-            let y = 0, R = 0;
-            F == 16 ? (R = 3 + w(m, g, 2), g += 2, y = _[E - 1]) : F == 17 ? (R = 3 + w(m, g, 3), g += 3) : F == 18 && (R = 11 + w(m, g, 7), g += 7);
-            const p = E + R;
-            for (; E < p; )
-              _[E] = y, E++;
+            let y = 0, P = 0;
+            F == 16 ? (P = 3 + w(m, g, 2), g += 2, y = _[R - 1]) : F == 17 ? (P = 3 + w(m, g, 3), g += 3) : F == 18 && (P = 11 + w(m, g, 7), g += 7);
+            const p = R + P;
+            for (; R < p; )
+              _[R] = y, R++;
           }
         }
         return g;
@@ -59893,25 +59893,25 @@ Read more: ${o0}#error-${n}`;
       }, u.H.n = function(d, h) {
         const f = u.H.m, m = d.length;
         let g, _, w, T;
-        const E = f.j;
-        for (var x = 0; x <= h; x++)
-          E[x] = 0;
-        for (x = 1; x < m; x += 2)
-          E[d[x]]++;
+        const R = f.j;
+        for (var A = 0; A <= h; A++)
+          R[A] = 0;
+        for (A = 1; A < m; A += 2)
+          R[d[A]]++;
         const F = f.K;
-        for (g = 0, E[0] = 0, _ = 1; _ <= h; _++)
-          g = g + E[_ - 1] << 1, F[_] = g;
+        for (g = 0, R[0] = 0, _ = 1; _ <= h; _++)
+          g = g + R[_ - 1] << 1, F[_] = g;
         for (w = 0; w < m; w += 2)
           T = d[w + 1], T != 0 && (d[w] = F[T], F[T]++);
       }, u.H.A = function(d, h, f) {
         const m = d.length, g = u.H.m.r;
         for (let _ = 0; _ < m; _ += 2)
           if (d[_ + 1] != 0) {
-            const w = _ >> 1, T = d[_ + 1], E = w << 4 | T, x = h - T;
-            let F = d[_] << x;
-            const y = F + (1 << x);
+            const w = _ >> 1, T = d[_ + 1], R = w << 4 | T, A = h - T;
+            let F = d[_] << A;
+            const y = F + (1 << A);
             for (; F != y; )
-              f[g[F] >>> 15 - h] = E, F++;
+              f[g[F] >>> 15 - h] = R, F++;
           }
       }, u.H.l = function(d, h) {
         const f = u.H.m.r, m = 15 - h;
@@ -59961,32 +59961,32 @@ Read more: ${o0}#error-${n}`;
       const _ = Math.ceil(f * g / 8);
       let w, T;
       g = Math.ceil(g / 8);
-      let E = u[h], x = 0;
-      if (E > 1 && (u[h] = [0, 0, 1][E - 2]), E == 3)
-        for (x = g; x < _; x++)
-          u[x + 1] = u[x + 1] + (u[x + 1 - g] >>> 1) & 255;
+      let R = u[h], A = 0;
+      if (R > 1 && (u[h] = [0, 0, 1][R - 2]), R == 3)
+        for (A = g; A < _; A++)
+          u[A + 1] = u[A + 1] + (u[A + 1 - g] >>> 1) & 255;
       for (let F = 0; F < m; F++)
-        if (w = h + F * _, T = w + F + 1, E = u[T - 1], x = 0, E == 0)
-          for (; x < _; x++)
-            u[w + x] = u[T + x];
-        else if (E == 1) {
-          for (; x < g; x++)
-            u[w + x] = u[T + x];
-          for (; x < _; x++)
-            u[w + x] = u[T + x] + u[w + x - g];
-        } else if (E == 2)
-          for (; x < _; x++)
-            u[w + x] = u[T + x] + u[w + x - _];
-        else if (E == 3) {
-          for (; x < g; x++)
-            u[w + x] = u[T + x] + (u[w + x - _] >>> 1);
-          for (; x < _; x++)
-            u[w + x] = u[T + x] + (u[w + x - _] + u[w + x - g] >>> 1);
+        if (w = h + F * _, T = w + F + 1, R = u[T - 1], A = 0, R == 0)
+          for (; A < _; A++)
+            u[w + A] = u[T + A];
+        else if (R == 1) {
+          for (; A < g; A++)
+            u[w + A] = u[T + A];
+          for (; A < _; A++)
+            u[w + A] = u[T + A] + u[w + A - g];
+        } else if (R == 2)
+          for (; A < _; A++)
+            u[w + A] = u[T + A] + u[w + A - _];
+        else if (R == 3) {
+          for (; A < g; A++)
+            u[w + A] = u[T + A] + (u[w + A - _] >>> 1);
+          for (; A < _; A++)
+            u[w + A] = u[T + A] + (u[w + A - _] + u[w + A - g] >>> 1);
         } else {
-          for (; x < g; x++)
-            u[w + x] = u[T + x] + a(0, u[w + x - _], 0);
-          for (; x < _; x++)
-            u[w + x] = u[T + x] + a(u[w + x - g], u[w + x - _], u[w + x - g - _]);
+          for (; A < g; A++)
+            u[w + A] = u[T + A] + a(0, u[w + A - _], 0);
+          for (; A < _; A++)
+            u[w + A] = u[T + A] + a(u[w + A - g], u[w + A - _], u[w + A - g - _]);
         }
       return u;
     }
@@ -59998,22 +59998,22 @@ Read more: ${o0}#error-${n}`;
       h.width = n.readUint(u, d), d += 4, h.height = n.readUint(u, d), d += 4, h.depth = u[d], d++, h.ctype = u[d], d++, h.compress = u[d], d++, h.filter = u[d], d++, h.interlace = u[d], d++;
     }
     function c(u, d, h, f, m, g, _, w, T) {
-      const E = Math.min(d, m), x = Math.min(h, g);
+      const R = Math.min(d, m), A = Math.min(h, g);
       let F = 0, y = 0;
-      for (let B = 0; B < x; B++)
-        for (let C = 0; C < E; C++)
+      for (let B = 0; B < A; B++)
+        for (let C = 0; C < R; C++)
           if (_ >= 0 && w >= 0 ? (F = B * d + C << 2, y = (w + B) * m + _ + C << 2) : (F = (-w + B) * d - _ + C << 2, y = B * m + C << 2), T == 0)
             f[y] = u[F], f[y + 1] = u[F + 1], f[y + 2] = u[F + 2], f[y + 3] = u[F + 3];
           else if (T == 1) {
-            var R = u[F + 3] * 0.00392156862745098, p = u[F] * R, b = u[F + 1] * R, A = u[F + 2] * R, I = f[y + 3] * (1 / 255), P = f[y] * I, V = f[y + 1] * I, S = f[y + 2] * I;
-            const v = 1 - R, U = R + I * v, O = U == 0 ? 0 : 1 / U;
-            f[y + 3] = 255 * U, f[y + 0] = (p + P * v) * O, f[y + 1] = (b + V * v) * O, f[y + 2] = (A + S * v) * O;
+            var P = u[F + 3] * 0.00392156862745098, p = u[F] * P, b = u[F + 1] * P, E = u[F + 2] * P, S = f[y + 3] * (1 / 255), I = f[y] * S, V = f[y + 1] * S, x = f[y + 2] * S;
+            const v = 1 - P, U = P + S * v, O = U == 0 ? 0 : 1 / U;
+            f[y + 3] = 255 * U, f[y + 0] = (p + I * v) * O, f[y + 1] = (b + V * v) * O, f[y + 2] = (E + x * v) * O;
           } else if (T == 2)
-            R = u[F + 3], p = u[F], b = u[F + 1], A = u[F + 2], I = f[y + 3], P = f[y], V = f[y + 1], S = f[y + 2], R == I && p == P && b == V && A == S ? (f[y] = 0, f[y + 1] = 0, f[y + 2] = 0, f[y + 3] = 0) : (f[y] = p, f[y + 1] = b, f[y + 2] = A, f[y + 3] = R);
+            P = u[F + 3], p = u[F], b = u[F + 1], E = u[F + 2], S = f[y + 3], I = f[y], V = f[y + 1], x = f[y + 2], P == S && p == I && b == V && E == x ? (f[y] = 0, f[y + 1] = 0, f[y + 2] = 0, f[y + 3] = 0) : (f[y] = p, f[y + 1] = b, f[y + 2] = E, f[y + 3] = P);
           else if (T == 3) {
-            if (R = u[F + 3], p = u[F], b = u[F + 1], A = u[F + 2], I = f[y + 3], P = f[y], V = f[y + 1], S = f[y + 2], R == I && p == P && b == V && A == S)
+            if (P = u[F + 3], p = u[F], b = u[F + 1], E = u[F + 2], S = f[y + 3], I = f[y], V = f[y + 1], x = f[y + 2], P == S && p == I && b == V && E == x)
               continue;
-            if (R < 220 && I > 20)
+            if (P < 220 && S > 20)
               return !1;
           }
       return !0;
@@ -60022,10 +60022,10 @@ Read more: ${o0}#error-${n}`;
       const h = new Uint8Array(d);
       let f = 8;
       const m = n, g = m.readUshort, _ = m.readUint, w = { tabs: {}, frames: [] }, T = new Uint8Array(h.length);
-      let E, x = 0, F = 0;
+      let R, A = 0, F = 0;
       const y = [137, 80, 78, 71, 13, 10, 26, 10];
-      for (var R = 0; R < 8; R++)
-        if (h[R] != y[R])
+      for (var P = 0; P < 8; P++)
+        if (h[P] != y[P])
           throw "The input is not a PNG file!";
       for (; f < h.length; ) {
         const B = m.readUint(h, f);
@@ -60048,48 +60048,48 @@ Read more: ${o0}#error-${n}`;
         } else if (C == "CgBI")
           w.tabs[C] = h.slice(f, f + 4);
         else if (C == "IDAT") {
-          for (R = 0; R < B; R++)
-            T[x + R] = h[f + R];
-          x += B;
+          for (P = 0; P < B; P++)
+            T[A + P] = h[f + P];
+          A += B;
         } else if (C == "acTL")
-          w.tabs[C] = { num_frames: _(h, f), num_plays: _(h, f + 4) }, E = new Uint8Array(h.length);
+          w.tabs[C] = { num_frames: _(h, f), num_plays: _(h, f + 4) }, R = new Uint8Array(h.length);
         else if (C == "fcTL") {
-          F != 0 && ((S = w.frames[w.frames.length - 1]).data = t(w, E.slice(0, F), S.rect.width, S.rect.height), F = 0);
+          F != 0 && ((x = w.frames[w.frames.length - 1]).data = t(w, R.slice(0, F), x.rect.width, x.rect.height), F = 0);
           const v = { x: _(h, f + 12), y: _(h, f + 16), width: _(h, f + 4), height: _(h, f + 8) };
           let U = g(h, f + 22);
           U = g(h, f + 20) / (U == 0 ? 100 : U);
           const O = { rect: v, delay: Math.round(1e3 * U), dispose: h[f + 24], blend: h[f + 25] };
           w.frames.push(O);
         } else if (C == "fdAT") {
-          for (R = 0; R < B - 4; R++)
-            E[F + R] = h[f + R + 4];
+          for (P = 0; P < B - 4; P++)
+            R[F + P] = h[f + P + 4];
           F += B - 4;
         } else if (C == "pHYs")
           w.tabs[C] = [m.readUint(h, f), m.readUint(h, f + 4), h[f + 8]];
         else if (C == "cHRM")
-          for (w.tabs[C] = [], R = 0; R < 8; R++)
-            w.tabs[C].push(m.readUint(h, f + 4 * R));
+          for (w.tabs[C] = [], P = 0; P < 8; P++)
+            w.tabs[C].push(m.readUint(h, f + 4 * P));
         else if (C == "tEXt" || C == "zTXt") {
           w.tabs[C] == null && (w.tabs[C] = {});
-          var b = m.nextZero(h, f), A = m.readASCII(h, f, b - f), I = f + B - b - 1;
+          var b = m.nextZero(h, f), E = m.readASCII(h, f, b - f), S = f + B - b - 1;
           if (C == "tEXt")
-            V = m.readASCII(h, b + 1, I);
+            V = m.readASCII(h, b + 1, S);
           else {
-            var P = i(h.slice(b + 2, b + 2 + I));
-            V = m.readUTF8(P, 0, P.length);
+            var I = i(h.slice(b + 2, b + 2 + S));
+            V = m.readUTF8(I, 0, I.length);
           }
-          w.tabs[C][A] = V;
+          w.tabs[C][E] = V;
         } else if (C == "iTXt") {
-          w.tabs[C] == null && (w.tabs[C] = {}), b = 0, p = f, b = m.nextZero(h, p), A = m.readASCII(h, p, b - p);
+          w.tabs[C] == null && (w.tabs[C] = {}), b = 0, p = f, b = m.nextZero(h, p), E = m.readASCII(h, p, b - p);
           const v = h[p = b + 1];
           var V;
-          h[p + 1], p += 2, b = m.nextZero(h, p), m.readASCII(h, p, b - p), p = b + 1, b = m.nextZero(h, p), m.readUTF8(h, p, b - p), I = B - ((p = b + 1) - f), v == 0 ? V = m.readUTF8(h, p, I) : (P = i(h.slice(p, p + I)), V = m.readUTF8(P, 0, P.length)), w.tabs[C][A] = V;
+          h[p + 1], p += 2, b = m.nextZero(h, p), m.readASCII(h, p, b - p), p = b + 1, b = m.nextZero(h, p), m.readUTF8(h, p, b - p), S = B - ((p = b + 1) - f), v == 0 ? V = m.readUTF8(h, p, S) : (I = i(h.slice(p, p + S)), V = m.readUTF8(I, 0, I.length)), w.tabs[C][E] = V;
         } else if (C == "PLTE")
           w.tabs[C] = m.readBytes(h, f, B);
         else if (C == "hIST") {
           const v = w.tabs.PLTE.length / 3;
-          for (w.tabs[C] = [], R = 0; R < v; R++)
-            w.tabs[C].push(g(h, f + 2 * R));
+          for (w.tabs[C] = [], P = 0; P < v; P++)
+            w.tabs[C].push(g(h, f + 2 * P));
         } else if (C == "tRNS")
           w.ctype == 3 ? w.tabs[C] = m.readBytes(h, f, B) : w.ctype == 0 ? w.tabs[C] = g(h, f) : w.ctype == 2 && (w.tabs[C] = [g(h, f), g(h, f + 2), g(h, f + 4)]);
         else if (C == "gAMA")
@@ -60102,8 +60102,8 @@ Read more: ${o0}#error-${n}`;
           break;
         f += B, m.readUint(h, f), f += 4;
       }
-      var S;
-      return F != 0 && ((S = w.frames[w.frames.length - 1]).data = t(w, E.slice(0, F), S.rect.width, S.rect.height)), w.data = t(w, T, w.width, w.height), delete w.compress, delete w.interlace, delete w.filter, w;
+      var x;
+      return F != 0 && ((x = w.frames[w.frames.length - 1]).data = t(w, R.slice(0, F), x.rect.width, x.rect.height)), w.data = t(w, T, w.width, w.height), delete w.compress, delete w.interlace, delete w.filter, w;
     }, toRGBA8: function(d) {
       const h = d.width, f = d.height;
       if (d.tabs.acTL == null)
@@ -60111,17 +60111,17 @@ Read more: ${o0}#error-${n}`;
       const m = [];
       d.frames[0].data == null && (d.frames[0].data = d.data);
       const g = h * f * 4, _ = new Uint8Array(g), w = new Uint8Array(g), T = new Uint8Array(g);
-      for (let x = 0; x < d.frames.length; x++) {
-        const F = d.frames[x], y = F.rect.x, R = F.rect.y, p = F.rect.width, b = F.rect.height, A = e(F.data, p, b, d);
-        if (x != 0)
-          for (var E = 0; E < g; E++)
-            T[E] = _[E];
-        if (F.blend == 0 ? c(A, p, b, _, h, f, y, R, 0) : F.blend == 1 && c(A, p, b, _, h, f, y, R, 1), m.push(_.buffer.slice(0)), F.dispose != 0) {
+      for (let A = 0; A < d.frames.length; A++) {
+        const F = d.frames[A], y = F.rect.x, P = F.rect.y, p = F.rect.width, b = F.rect.height, E = e(F.data, p, b, d);
+        if (A != 0)
+          for (var R = 0; R < g; R++)
+            T[R] = _[R];
+        if (F.blend == 0 ? c(E, p, b, _, h, f, y, P, 0) : F.blend == 1 && c(E, p, b, _, h, f, y, P, 1), m.push(_.buffer.slice(0)), F.dispose != 0) {
           if (F.dispose == 1)
-            c(w, p, b, _, h, f, y, R, 0);
+            c(w, p, b, _, h, f, y, P, 0);
           else if (F.dispose == 2)
-            for (E = 0; E < g; E++)
-              _[E] = T[E];
+            for (R = 0; R < g; R++)
+              _[R] = T[R];
         }
       }
       return m;
@@ -60132,32 +60132,32 @@ Read more: ${o0}#error-${n}`;
     var i = { table: function() {
       const p = new Uint32Array(256);
       for (let b = 0; b < 256; b++) {
-        let A = b;
-        for (let I = 0; I < 8; I++)
-          1 & A ? A = 3988292384 ^ A >>> 1 : A >>>= 1;
-        p[b] = A;
+        let E = b;
+        for (let S = 0; S < 8; S++)
+          1 & E ? E = 3988292384 ^ E >>> 1 : E >>>= 1;
+        p[b] = E;
       }
       return p;
-    }(), update(p, b, A, I) {
-      for (let P = 0; P < I; P++)
-        p = i.table[255 & (p ^ b[A + P])] ^ p >>> 8;
+    }(), update(p, b, E, S) {
+      for (let I = 0; I < S; I++)
+        p = i.table[255 & (p ^ b[E + I])] ^ p >>> 8;
       return p;
-    }, crc: (p, b, A) => 4294967295 ^ i.update(4294967295, p, b, A) };
-    function s(p, b, A, I) {
-      b[A] += p[0] * I >> 4, b[A + 1] += p[1] * I >> 4, b[A + 2] += p[2] * I >> 4, b[A + 3] += p[3] * I >> 4;
+    }, crc: (p, b, E) => 4294967295 ^ i.update(4294967295, p, b, E) };
+    function s(p, b, E, S) {
+      b[E] += p[0] * S >> 4, b[E + 1] += p[1] * S >> 4, b[E + 2] += p[2] * S >> 4, b[E + 3] += p[3] * S >> 4;
     }
     function o(p) {
       return Math.max(0, Math.min(255, p));
     }
     function r(p, b) {
-      const A = p[0] - b[0], I = p[1] - b[1], P = p[2] - b[2], V = p[3] - b[3];
-      return A * A + I * I + P * P + V * V;
+      const E = p[0] - b[0], S = p[1] - b[1], I = p[2] - b[2], V = p[3] - b[3];
+      return E * E + S * S + I * I + V * V;
     }
-    function a(p, b, A, I, P, V, S) {
-      S == null && (S = 1);
-      const B = I.length, C = [];
+    function a(p, b, E, S, I, V, x) {
+      x == null && (x = 1);
+      const B = S.length, C = [];
       for (var v = 0; v < B; v++) {
-        const N = I[v];
+        const N = S[v];
         C.push([N >>> 0 & 255, N >>> 8 & 255, N >>> 16 & 255, N >>> 24 & 255]);
       }
       for (v = 0; v < B; v++) {
@@ -60167,29 +60167,29 @@ Read more: ${o0}#error-${n}`;
           O != v && D < N && (N = D, U = O);
         }
       }
-      const J = new Uint32Array(P.buffer), W = new Int16Array(b * A * 4), K = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
+      const J = new Uint32Array(I.buffer), W = new Int16Array(b * E * 4), K = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
       for (v = 0; v < K.length; v++)
         K[v] = 255 * ((K[v] + 0.5) / 16 - 0.5);
-      for (let N = 0; N < A; N++)
+      for (let N = 0; N < E; N++)
         for (let ee = 0; ee < b; ee++) {
           var H;
-          v = 4 * (N * b + ee), S != 2 ? H = [o(p[v] + W[v]), o(p[v + 1] + W[v + 1]), o(p[v + 2] + W[v + 2]), o(p[v + 3] + W[v + 3])] : (D = K[4 * (3 & N) + (3 & ee)], H = [o(p[v] + D), o(p[v + 1] + D), o(p[v + 2] + D), o(p[v + 3] + D)]), U = 0;
+          v = 4 * (N * b + ee), x != 2 ? H = [o(p[v] + W[v]), o(p[v + 1] + W[v + 1]), o(p[v + 2] + W[v + 2]), o(p[v + 3] + W[v + 3])] : (D = K[4 * (3 & N) + (3 & ee)], H = [o(p[v] + D), o(p[v + 1] + D), o(p[v + 2] + D), o(p[v + 3] + D)]), U = 0;
           let Ee = 16777215;
           for (O = 0; O < B; O++) {
             const ve = r(H, C[O]);
             ve < Ee && (Ee = ve, U = O);
           }
           const me = C[U], le = [H[0] - me[0], H[1] - me[1], H[2] - me[2], H[3] - me[3]];
-          S == 1 && (ee != b - 1 && s(le, W, v + 4, 7), N != A - 1 && (ee != 0 && s(le, W, v + 4 * b - 4, 3), s(le, W, v + 4 * b, 5), ee != b - 1 && s(le, W, v + 4 * b + 4, 1))), V[v >> 2] = U, J[v >> 2] = I[U];
+          x == 1 && (ee != b - 1 && s(le, W, v + 4, 7), N != E - 1 && (ee != 0 && s(le, W, v + 4 * b - 4, 3), s(le, W, v + 4 * b, 5), ee != b - 1 && s(le, W, v + 4 * b + 4, 1))), V[v >> 2] = U, J[v >> 2] = S[U];
         }
     }
-    function l(p, b, A, I, P) {
-      P == null && (P = {});
-      const { crc: V } = i, S = e.writeUint, B = e.writeUshort, C = e.writeASCII;
+    function l(p, b, E, S, I) {
+      I == null && (I = {});
+      const { crc: V } = i, x = e.writeUint, B = e.writeUshort, C = e.writeASCII;
       let v = 8;
       const U = p.frames.length > 1;
       let O, D = !1, J = 33 + (U ? 20 : 0);
-      if (P.sRGB != null && (J += 13), P.pHYs != null && (J += 21), P.iCCP != null && (O = pako.deflate(P.iCCP), J += 21 + O.length + 4), p.ctype == 3) {
+      if (I.sRGB != null && (J += 13), I.pHYs != null && (J += 21), I.iCCP != null && (O = pako.deflate(I.iCCP), J += 21 + O.length + 4), p.ctype == 3) {
         for (var W = p.plte.length, K = 0; K < W; K++)
           p.plte[K] >>> 24 != 255 && (D = !0);
         J += 8 + 3 * W + 4 + (D ? 8 + 1 * W + 4 : 0);
@@ -60200,42 +60200,42 @@ Read more: ${o0}#error-${n}`;
       const N = new Uint8Array(J), ee = [137, 80, 78, 71, 13, 10, 26, 10];
       for (K = 0; K < 8; K++)
         N[K] = ee[K];
-      if (S(N, v, 13), v += 4, C(N, v, "IHDR"), v += 4, S(N, v, b), v += 4, S(N, v, A), v += 4, N[v] = p.depth, v++, N[v] = p.ctype, v++, N[v] = 0, v++, N[v] = 0, v++, N[v] = 0, v++, S(N, v, V(N, v - 17, 17)), v += 4, P.sRGB != null && (S(N, v, 1), v += 4, C(N, v, "sRGB"), v += 4, N[v] = P.sRGB, v++, S(N, v, V(N, v - 5, 5)), v += 4), P.iCCP != null) {
+      if (x(N, v, 13), v += 4, C(N, v, "IHDR"), v += 4, x(N, v, b), v += 4, x(N, v, E), v += 4, N[v] = p.depth, v++, N[v] = p.ctype, v++, N[v] = 0, v++, N[v] = 0, v++, N[v] = 0, v++, x(N, v, V(N, v - 17, 17)), v += 4, I.sRGB != null && (x(N, v, 1), v += 4, C(N, v, "sRGB"), v += 4, N[v] = I.sRGB, v++, x(N, v, V(N, v - 5, 5)), v += 4), I.iCCP != null) {
         const le = 13 + O.length;
-        S(N, v, le), v += 4, C(N, v, "iCCP"), v += 4, C(N, v, "ICC profile"), v += 11, v += 2, N.set(O, v), v += O.length, S(N, v, V(N, v - (le + 4), le + 4)), v += 4;
+        x(N, v, le), v += 4, C(N, v, "iCCP"), v += 4, C(N, v, "ICC profile"), v += 11, v += 2, N.set(O, v), v += O.length, x(N, v, V(N, v - (le + 4), le + 4)), v += 4;
       }
-      if (P.pHYs != null && (S(N, v, 9), v += 4, C(N, v, "pHYs"), v += 4, S(N, v, P.pHYs[0]), v += 4, S(N, v, P.pHYs[1]), v += 4, N[v] = P.pHYs[2], v++, S(N, v, V(N, v - 13, 13)), v += 4), U && (S(N, v, 8), v += 4, C(N, v, "acTL"), v += 4, S(N, v, p.frames.length), v += 4, S(N, v, P.loop != null ? P.loop : 0), v += 4, S(N, v, V(N, v - 12, 12)), v += 4), p.ctype == 3) {
-        for (S(N, v, 3 * (W = p.plte.length)), v += 4, C(N, v, "PLTE"), v += 4, K = 0; K < W; K++) {
+      if (I.pHYs != null && (x(N, v, 9), v += 4, C(N, v, "pHYs"), v += 4, x(N, v, I.pHYs[0]), v += 4, x(N, v, I.pHYs[1]), v += 4, N[v] = I.pHYs[2], v++, x(N, v, V(N, v - 13, 13)), v += 4), U && (x(N, v, 8), v += 4, C(N, v, "acTL"), v += 4, x(N, v, p.frames.length), v += 4, x(N, v, I.loop != null ? I.loop : 0), v += 4, x(N, v, V(N, v - 12, 12)), v += 4), p.ctype == 3) {
+        for (x(N, v, 3 * (W = p.plte.length)), v += 4, C(N, v, "PLTE"), v += 4, K = 0; K < W; K++) {
           const le = 3 * K, ve = p.plte[K], Re = 255 & ve, ze = ve >>> 8 & 255, Wi = ve >>> 16 & 255;
           N[v + le + 0] = Re, N[v + le + 1] = ze, N[v + le + 2] = Wi;
         }
-        if (v += 3 * W, S(N, v, V(N, v - 3 * W - 4, 3 * W + 4)), v += 4, D) {
-          for (S(N, v, W), v += 4, C(N, v, "tRNS"), v += 4, K = 0; K < W; K++)
+        if (v += 3 * W, x(N, v, V(N, v - 3 * W - 4, 3 * W + 4)), v += 4, D) {
+          for (x(N, v, W), v += 4, C(N, v, "tRNS"), v += 4, K = 0; K < W; K++)
             N[v + K] = p.plte[K] >>> 24 & 255;
-          v += W, S(N, v, V(N, v - W - 4, W + 4)), v += 4;
+          v += W, x(N, v, V(N, v - W - 4, W + 4)), v += 4;
         }
       }
       let Ee = 0;
       for (H = 0; H < p.frames.length; H++) {
         var me = p.frames[H];
-        U && (S(N, v, 26), v += 4, C(N, v, "fcTL"), v += 4, S(N, v, Ee++), v += 4, S(N, v, me.rect.width), v += 4, S(N, v, me.rect.height), v += 4, S(N, v, me.rect.x), v += 4, S(N, v, me.rect.y), v += 4, B(N, v, I[H]), v += 2, B(N, v, 1e3), v += 2, N[v] = me.dispose, v++, N[v] = me.blend, v++, S(N, v, V(N, v - 30, 30)), v += 4);
+        U && (x(N, v, 26), v += 4, C(N, v, "fcTL"), v += 4, x(N, v, Ee++), v += 4, x(N, v, me.rect.width), v += 4, x(N, v, me.rect.height), v += 4, x(N, v, me.rect.x), v += 4, x(N, v, me.rect.y), v += 4, B(N, v, S[H]), v += 2, B(N, v, 1e3), v += 2, N[v] = me.dispose, v++, N[v] = me.blend, v++, x(N, v, V(N, v - 30, 30)), v += 4);
         const le = me.cimg;
-        S(N, v, (W = le.length) + (H == 0 ? 0 : 4)), v += 4;
+        x(N, v, (W = le.length) + (H == 0 ? 0 : 4)), v += 4;
         const ve = v;
-        C(N, v, H == 0 ? "IDAT" : "fdAT"), v += 4, H != 0 && (S(N, v, Ee++), v += 4), N.set(le, v), v += W, S(N, v, V(N, ve, v - ve)), v += 4;
+        C(N, v, H == 0 ? "IDAT" : "fdAT"), v += 4, H != 0 && (x(N, v, Ee++), v += 4), N.set(le, v), v += W, x(N, v, V(N, ve, v - ve)), v += 4;
       }
-      return S(N, v, 0), v += 4, C(N, v, "IEND"), v += 4, S(N, v, V(N, v - 4, 4)), v += 4, N.buffer;
+      return x(N, v, 0), v += 4, C(N, v, "IEND"), v += 4, x(N, v, V(N, v - 4, 4)), v += 4, N.buffer;
     }
-    function c(p, b, A) {
-      for (let I = 0; I < p.frames.length; I++) {
-        const P = p.frames[I];
-        P.rect.width;
-        const V = P.rect.height, S = new Uint8Array(V * P.bpl + V);
-        P.cimg = f(P.img, V, P.bpp, P.bpl, S, b, A);
+    function c(p, b, E) {
+      for (let S = 0; S < p.frames.length; S++) {
+        const I = p.frames[S];
+        I.rect.width;
+        const V = I.rect.height, x = new Uint8Array(V * I.bpl + V);
+        I.cimg = f(I.img, V, I.bpp, I.bpl, x, b, E);
       }
     }
-    function u(p, b, A, I, P) {
-      const V = P[0], S = P[1], B = P[2], C = P[3], v = P[4], U = P[5];
+    function u(p, b, E, S, I) {
+      const V = I[0], x = I[1], B = I[2], C = I[3], v = I[4], U = I[5];
       let O = 6, D = 8, J = 255;
       for (var W = 0; W < p.length; W++) {
         const tt = new Uint8Array(p[W]);
@@ -60281,8 +60281,8 @@ Read more: ${o0}#error-${n}`;
             Io += ($i = Be[it]).rect.width * $i.rect.height;
           }
         return Be;
-      }(p, b, A, V, S, B), Ee = {}, me = [], le = [];
-      if (I != 0) {
+      }(p, b, E, V, x, B), Ee = {}, me = [], le = [];
+      if (S != 0) {
         const tt = [];
         for (H = 0; H < ee.length; H++)
           tt.push(ee[H].img.buffer);
@@ -60302,7 +60302,7 @@ Read more: ${o0}#error-${n}`;
             bt += Io;
           }
           return Ce.buffer;
-        }(tt), ye = g(Ae, I);
+        }(tt), ye = g(Ae, S);
         for (H = 0; H < ye.plte.length; H++)
           me.push(ye.plte[H].est.rgba);
         let Je = 0;
@@ -60373,107 +60373,107 @@ Read more: ${o0}#error-${n}`;
       }
       return { ctype: O, depth: D, plte: me, frames: ee };
     }
-    function d(p, b, A, I, P, V, S) {
-      const B = Uint8Array, C = Uint32Array, v = new B(p[P - 1]), U = new C(p[P - 1]), O = P + 1 < p.length ? new B(p[P + 1]) : null, D = new B(p[P]), J = new C(D.buffer);
-      let W = b, K = A, H = -1, N = -1;
+    function d(p, b, E, S, I, V, x) {
+      const B = Uint8Array, C = Uint32Array, v = new B(p[I - 1]), U = new C(p[I - 1]), O = I + 1 < p.length ? new B(p[I + 1]) : null, D = new B(p[I]), J = new C(D.buffer);
+      let W = b, K = E, H = -1, N = -1;
       for (let Ee = 0; Ee < V.height; Ee++)
         for (let me = 0; me < V.width; me++) {
           const le = V.x + me, ve = V.y + Ee, Re = ve * b + le, ze = J[Re];
-          ze == 0 || I[P - 1].dispose == 0 && U[Re] == ze && (O == null || O[4 * Re + 3] != 0) || (le < W && (W = le), le > H && (H = le), ve < K && (K = ve), ve > N && (N = ve));
+          ze == 0 || S[I - 1].dispose == 0 && U[Re] == ze && (O == null || O[4 * Re + 3] != 0) || (le < W && (W = le), le > H && (H = le), ve < K && (K = ve), ve > N && (N = ve));
         }
-      H == -1 && (W = K = H = N = 0), S && ((1 & W) == 1 && W--, (1 & K) == 1 && K--), V = { x: W, y: K, width: H - W + 1, height: N - K + 1 };
-      const ee = I[P];
-      ee.rect = V, ee.blend = 1, ee.img = new Uint8Array(V.width * V.height * 4), I[P - 1].dispose == 0 ? (n(v, b, A, ee.img, V.width, V.height, -V.x, -V.y, 0), h(D, b, A, ee.img, V)) : n(D, b, A, ee.img, V.width, V.height, -V.x, -V.y, 0);
+      H == -1 && (W = K = H = N = 0), x && ((1 & W) == 1 && W--, (1 & K) == 1 && K--), V = { x: W, y: K, width: H - W + 1, height: N - K + 1 };
+      const ee = S[I];
+      ee.rect = V, ee.blend = 1, ee.img = new Uint8Array(V.width * V.height * 4), S[I - 1].dispose == 0 ? (n(v, b, E, ee.img, V.width, V.height, -V.x, -V.y, 0), h(D, b, E, ee.img, V)) : n(D, b, E, ee.img, V.width, V.height, -V.x, -V.y, 0);
     }
-    function h(p, b, A, I, P) {
-      n(p, b, A, I, P.width, P.height, -P.x, -P.y, 2);
+    function h(p, b, E, S, I) {
+      n(p, b, E, S, I.width, I.height, -I.x, -I.y, 2);
     }
-    function f(p, b, A, I, P, V, S) {
+    function f(p, b, E, S, I, V, x) {
       const B = [];
       let C, v = [0, 1, 2, 3, 4];
-      V != -1 ? v = [V] : (b * I > 5e5 || A == 1) && (v = [0]), S && (C = { level: 0 });
+      V != -1 ? v = [V] : (b * S > 5e5 || E == 1) && (v = [0]), x && (C = { level: 0 });
       const U = XM;
       for (var O = 0; O < v.length; O++) {
         for (let W = 0; W < b; W++)
-          m(P, p, W, I, A, v[O]);
-        B.push(U.deflate(P, C));
+          m(I, p, W, S, E, v[O]);
+        B.push(U.deflate(I, C));
       }
       let D, J = 1e9;
       for (O = 0; O < B.length; O++)
         B[O].length < J && (D = O, J = B[O].length);
       return B[D];
     }
-    function m(p, b, A, I, P, V) {
-      const S = A * I;
-      let B = S + A;
+    function m(p, b, E, S, I, V) {
+      const x = E * S;
+      let B = x + E;
       if (p[B] = V, B++, V == 0)
-        if (I < 500)
-          for (var C = 0; C < I; C++)
-            p[B + C] = b[S + C];
+        if (S < 500)
+          for (var C = 0; C < S; C++)
+            p[B + C] = b[x + C];
         else
-          p.set(new Uint8Array(b.buffer, S, I), B);
+          p.set(new Uint8Array(b.buffer, x, S), B);
       else if (V == 1) {
-        for (C = 0; C < P; C++)
-          p[B + C] = b[S + C];
-        for (C = P; C < I; C++)
-          p[B + C] = b[S + C] - b[S + C - P] + 256 & 255;
-      } else if (A == 0) {
-        for (C = 0; C < P; C++)
-          p[B + C] = b[S + C];
+        for (C = 0; C < I; C++)
+          p[B + C] = b[x + C];
+        for (C = I; C < S; C++)
+          p[B + C] = b[x + C] - b[x + C - I] + 256 & 255;
+      } else if (E == 0) {
+        for (C = 0; C < I; C++)
+          p[B + C] = b[x + C];
         if (V == 2)
-          for (C = P; C < I; C++)
-            p[B + C] = b[S + C];
+          for (C = I; C < S; C++)
+            p[B + C] = b[x + C];
         if (V == 3)
-          for (C = P; C < I; C++)
-            p[B + C] = b[S + C] - (b[S + C - P] >> 1) + 256 & 255;
+          for (C = I; C < S; C++)
+            p[B + C] = b[x + C] - (b[x + C - I] >> 1) + 256 & 255;
         if (V == 4)
-          for (C = P; C < I; C++)
-            p[B + C] = b[S + C] - t(b[S + C - P], 0, 0) + 256 & 255;
+          for (C = I; C < S; C++)
+            p[B + C] = b[x + C] - t(b[x + C - I], 0, 0) + 256 & 255;
       } else {
         if (V == 2)
-          for (C = 0; C < I; C++)
-            p[B + C] = b[S + C] + 256 - b[S + C - I] & 255;
+          for (C = 0; C < S; C++)
+            p[B + C] = b[x + C] + 256 - b[x + C - S] & 255;
         if (V == 3) {
-          for (C = 0; C < P; C++)
-            p[B + C] = b[S + C] + 256 - (b[S + C - I] >> 1) & 255;
-          for (C = P; C < I; C++)
-            p[B + C] = b[S + C] + 256 - (b[S + C - I] + b[S + C - P] >> 1) & 255;
+          for (C = 0; C < I; C++)
+            p[B + C] = b[x + C] + 256 - (b[x + C - S] >> 1) & 255;
+          for (C = I; C < S; C++)
+            p[B + C] = b[x + C] + 256 - (b[x + C - S] + b[x + C - I] >> 1) & 255;
         }
         if (V == 4) {
-          for (C = 0; C < P; C++)
-            p[B + C] = b[S + C] + 256 - t(0, b[S + C - I], 0) & 255;
-          for (C = P; C < I; C++)
-            p[B + C] = b[S + C] + 256 - t(b[S + C - P], b[S + C - I], b[S + C - P - I]) & 255;
+          for (C = 0; C < I; C++)
+            p[B + C] = b[x + C] + 256 - t(0, b[x + C - S], 0) & 255;
+          for (C = I; C < S; C++)
+            p[B + C] = b[x + C] + 256 - t(b[x + C - I], b[x + C - S], b[x + C - I - S]) & 255;
         }
       }
     }
     function g(p, b) {
-      const A = new Uint8Array(p), I = A.slice(0), P = new Uint32Array(I.buffer), V = _(I, b), S = V[0], B = V[1], C = A.length, v = new Uint8Array(C >> 2);
+      const E = new Uint8Array(p), S = E.slice(0), I = new Uint32Array(S.buffer), V = _(S, b), x = V[0], B = V[1], C = E.length, v = new Uint8Array(C >> 2);
       let U;
-      if (A.length < 2e7)
+      if (E.length < 2e7)
         for (var O = 0; O < C; O += 4)
-          U = w(S, D = A[O] * (1 / 255), J = A[O + 1] * (1 / 255), W = A[O + 2] * (1 / 255), K = A[O + 3] * (1 / 255)), v[O >> 2] = U.ind, P[O >> 2] = U.est.rgba;
+          U = w(x, D = E[O] * (1 / 255), J = E[O + 1] * (1 / 255), W = E[O + 2] * (1 / 255), K = E[O + 3] * (1 / 255)), v[O >> 2] = U.ind, I[O >> 2] = U.est.rgba;
       else
         for (O = 0; O < C; O += 4) {
-          var D = A[O] * 0.00392156862745098, J = A[O + 1] * (1 / 255), W = A[O + 2] * (1 / 255), K = A[O + 3] * (1 / 255);
-          for (U = S; U.left; )
+          var D = E[O] * 0.00392156862745098, J = E[O + 1] * (1 / 255), W = E[O + 2] * (1 / 255), K = E[O + 3] * (1 / 255);
+          for (U = x; U.left; )
             U = T(U.est, D, J, W, K) <= 0 ? U.left : U.right;
-          v[O >> 2] = U.ind, P[O >> 2] = U.est.rgba;
+          v[O >> 2] = U.ind, I[O >> 2] = U.est.rgba;
         }
-      return { abuf: I.buffer, inds: v, plte: B };
+      return { abuf: S.buffer, inds: v, plte: B };
     }
-    function _(p, b, A) {
-      A == null && (A = 1e-4);
-      const I = new Uint32Array(p.buffer), P = { i0: 0, i1: p.length, bst: null, est: null, tdst: 0, left: null, right: null };
-      P.bst = F(p, P.i0, P.i1), P.est = y(P.bst);
-      const V = [P];
+    function _(p, b, E) {
+      E == null && (E = 1e-4);
+      const S = new Uint32Array(p.buffer), I = { i0: 0, i1: p.length, bst: null, est: null, tdst: 0, left: null, right: null };
+      I.bst = F(p, I.i0, I.i1), I.est = y(I.bst);
+      const V = [I];
       for (; V.length < b; ) {
         let B = 0, C = 0;
-        for (var S = 0; S < V.length; S++)
-          V[S].est.L > B && (B = V[S].est.L, C = S);
-        if (B < A)
+        for (var x = 0; x < V.length; x++)
+          V[x].est.L > B && (B = V[x].est.L, C = x);
+        if (B < E)
           break;
-        const v = V[C], U = E(p, I, v.i0, v.i1, v.est.e, v.est.eMq255);
+        const v = V[C], U = R(p, S, v.i0, v.i1, v.est.e, v.est.eMq255);
         if (v.i0 >= U || v.i1 <= U) {
           v.est.L = 0;
           continue;
@@ -60481,101 +60481,101 @@ Read more: ${o0}#error-${n}`;
         const O = { i0: v.i0, i1: U, bst: null, est: null, tdst: 0, left: null, right: null };
         O.bst = F(p, O.i0, O.i1), O.est = y(O.bst);
         const D = { i0: U, i1: v.i1, bst: null, est: null, tdst: 0, left: null, right: null };
-        for (D.bst = { R: [], m: [], N: v.bst.N - O.bst.N }, S = 0; S < 16; S++)
-          D.bst.R[S] = v.bst.R[S] - O.bst.R[S];
-        for (S = 0; S < 4; S++)
-          D.bst.m[S] = v.bst.m[S] - O.bst.m[S];
+        for (D.bst = { R: [], m: [], N: v.bst.N - O.bst.N }, x = 0; x < 16; x++)
+          D.bst.R[x] = v.bst.R[x] - O.bst.R[x];
+        for (x = 0; x < 4; x++)
+          D.bst.m[x] = v.bst.m[x] - O.bst.m[x];
         D.est = y(D.bst), v.left = O, v.right = D, V[C] = O, V.push(D);
       }
-      for (V.sort((B, C) => C.bst.N - B.bst.N), S = 0; S < V.length; S++)
-        V[S].ind = S;
-      return [P, V];
+      for (V.sort((B, C) => C.bst.N - B.bst.N), x = 0; x < V.length; x++)
+        V[x].ind = x;
+      return [I, V];
     }
-    function w(p, b, A, I, P) {
+    function w(p, b, E, S, I) {
       if (p.left == null)
         return p.tdst = function(O, D, J, W, K) {
           const H = D - O[0], N = J - O[1], ee = W - O[2], Ee = K - O[3];
           return H * H + N * N + ee * ee + Ee * Ee;
-        }(p.est.q, b, A, I, P), p;
-      const V = T(p.est, b, A, I, P);
-      let S = p.left, B = p.right;
-      V > 0 && (S = p.right, B = p.left);
-      const C = w(S, b, A, I, P);
+        }(p.est.q, b, E, S, I), p;
+      const V = T(p.est, b, E, S, I);
+      let x = p.left, B = p.right;
+      V > 0 && (x = p.right, B = p.left);
+      const C = w(x, b, E, S, I);
       if (C.tdst <= V * V)
         return C;
-      const v = w(B, b, A, I, P);
+      const v = w(B, b, E, S, I);
       return v.tdst < C.tdst ? v : C;
     }
-    function T(p, b, A, I, P) {
+    function T(p, b, E, S, I) {
       const { e: V } = p;
-      return V[0] * b + V[1] * A + V[2] * I + V[3] * P - p.eMq;
+      return V[0] * b + V[1] * E + V[2] * S + V[3] * I - p.eMq;
     }
-    function E(p, b, A, I, P, V) {
-      for (I -= 4; A < I; ) {
-        for (; x(p, A, P) <= V; )
-          A += 4;
-        for (; x(p, I, P) > V; )
-          I -= 4;
-        if (A >= I)
+    function R(p, b, E, S, I, V) {
+      for (S -= 4; E < S; ) {
+        for (; A(p, E, I) <= V; )
+          E += 4;
+        for (; A(p, S, I) > V; )
+          S -= 4;
+        if (E >= S)
           break;
-        const S = b[A >> 2];
-        b[A >> 2] = b[I >> 2], b[I >> 2] = S, A += 4, I -= 4;
+        const x = b[E >> 2];
+        b[E >> 2] = b[S >> 2], b[S >> 2] = x, E += 4, S -= 4;
       }
-      for (; x(p, A, P) > V; )
-        A -= 4;
-      return A + 4;
+      for (; A(p, E, I) > V; )
+        E -= 4;
+      return E + 4;
     }
-    function x(p, b, A) {
-      return p[b] * A[0] + p[b + 1] * A[1] + p[b + 2] * A[2] + p[b + 3] * A[3];
+    function A(p, b, E) {
+      return p[b] * E[0] + p[b + 1] * E[1] + p[b + 2] * E[2] + p[b + 3] * E[3];
     }
-    function F(p, b, A) {
-      const I = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], P = [0, 0, 0, 0], V = A - b >> 2;
-      for (let S = b; S < A; S += 4) {
-        const B = p[S] * 0.00392156862745098, C = p[S + 1] * (1 / 255), v = p[S + 2] * (1 / 255), U = p[S + 3] * (1 / 255);
-        P[0] += B, P[1] += C, P[2] += v, P[3] += U, I[0] += B * B, I[1] += B * C, I[2] += B * v, I[3] += B * U, I[5] += C * C, I[6] += C * v, I[7] += C * U, I[10] += v * v, I[11] += v * U, I[15] += U * U;
+    function F(p, b, E) {
+      const S = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], I = [0, 0, 0, 0], V = E - b >> 2;
+      for (let x = b; x < E; x += 4) {
+        const B = p[x] * 0.00392156862745098, C = p[x + 1] * (1 / 255), v = p[x + 2] * (1 / 255), U = p[x + 3] * (1 / 255);
+        I[0] += B, I[1] += C, I[2] += v, I[3] += U, S[0] += B * B, S[1] += B * C, S[2] += B * v, S[3] += B * U, S[5] += C * C, S[6] += C * v, S[7] += C * U, S[10] += v * v, S[11] += v * U, S[15] += U * U;
       }
-      return I[4] = I[1], I[8] = I[2], I[9] = I[6], I[12] = I[3], I[13] = I[7], I[14] = I[11], { R: I, m: P, N: V };
+      return S[4] = S[1], S[8] = S[2], S[9] = S[6], S[12] = S[3], S[13] = S[7], S[14] = S[11], { R: S, m: I, N: V };
     }
     function y(p) {
-      const { R: b } = p, { m: A } = p, { N: I } = p, P = A[0], V = A[1], S = A[2], B = A[3], C = I == 0 ? 0 : 1 / I, v = [b[0] - P * P * C, b[1] - P * V * C, b[2] - P * S * C, b[3] - P * B * C, b[4] - V * P * C, b[5] - V * V * C, b[6] - V * S * C, b[7] - V * B * C, b[8] - S * P * C, b[9] - S * V * C, b[10] - S * S * C, b[11] - S * B * C, b[12] - B * P * C, b[13] - B * V * C, b[14] - B * S * C, b[15] - B * B * C], U = v, O = R;
+      const { R: b } = p, { m: E } = p, { N: S } = p, I = E[0], V = E[1], x = E[2], B = E[3], C = S == 0 ? 0 : 1 / S, v = [b[0] - I * I * C, b[1] - I * V * C, b[2] - I * x * C, b[3] - I * B * C, b[4] - V * I * C, b[5] - V * V * C, b[6] - V * x * C, b[7] - V * B * C, b[8] - x * I * C, b[9] - x * V * C, b[10] - x * x * C, b[11] - x * B * C, b[12] - B * I * C, b[13] - B * V * C, b[14] - B * x * C, b[15] - B * B * C], U = v, O = P;
       let D = [Math.random(), Math.random(), Math.random(), Math.random()], J = 0, W = 0;
-      if (I != 0)
+      if (S != 0)
         for (let H = 0; H < 16 && (D = O.multVec(U, D), W = Math.sqrt(O.dot(D, D)), D = O.sml(1 / W, D), !(H != 0 && Math.abs(W - J) < 1e-9)); H++)
           J = W;
-      const K = [P * C, V * C, S * C, B * C];
+      const K = [I * C, V * C, x * C, B * C];
       return { Cov: v, q: K, e: D, L: J, eMq255: O.dot(O.sml(255, K), D), eMq: O.dot(D, K), rgba: (Math.round(255 * K[3]) << 24 | Math.round(255 * K[2]) << 16 | Math.round(255 * K[1]) << 8 | Math.round(255 * K[0]) << 0) >>> 0 };
     }
-    var R = { multVec: (p, b) => [p[0] * b[0] + p[1] * b[1] + p[2] * b[2] + p[3] * b[3], p[4] * b[0] + p[5] * b[1] + p[6] * b[2] + p[7] * b[3], p[8] * b[0] + p[9] * b[1] + p[10] * b[2] + p[11] * b[3], p[12] * b[0] + p[13] * b[1] + p[14] * b[2] + p[15] * b[3]], dot: (p, b) => p[0] * b[0] + p[1] * b[1] + p[2] * b[2] + p[3] * b[3], sml: (p, b) => [p * b[0], p * b[1], p * b[2], p * b[3]] };
-    zt.encode = function(b, A, I, P, V, S, B) {
-      P == null && (P = 0), B == null && (B = !1);
-      const C = u(b, A, I, P, [!1, !1, !1, 0, B, !1]);
-      return c(C, -1), l(C, A, I, V, S);
-    }, zt.encodeLL = function(b, A, I, P, V, S, B, C) {
-      const v = { ctype: 0 + (P == 1 ? 0 : 2) + (V == 0 ? 0 : 4), depth: S, frames: [] }, U = (P + V) * S, O = U * A;
+    var P = { multVec: (p, b) => [p[0] * b[0] + p[1] * b[1] + p[2] * b[2] + p[3] * b[3], p[4] * b[0] + p[5] * b[1] + p[6] * b[2] + p[7] * b[3], p[8] * b[0] + p[9] * b[1] + p[10] * b[2] + p[11] * b[3], p[12] * b[0] + p[13] * b[1] + p[14] * b[2] + p[15] * b[3]], dot: (p, b) => p[0] * b[0] + p[1] * b[1] + p[2] * b[2] + p[3] * b[3], sml: (p, b) => [p * b[0], p * b[1], p * b[2], p * b[3]] };
+    zt.encode = function(b, E, S, I, V, x, B) {
+      I == null && (I = 0), B == null && (B = !1);
+      const C = u(b, E, S, I, [!1, !1, !1, 0, B, !1]);
+      return c(C, -1), l(C, E, S, V, x);
+    }, zt.encodeLL = function(b, E, S, I, V, x, B, C) {
+      const v = { ctype: 0 + (I == 1 ? 0 : 2) + (V == 0 ? 0 : 4), depth: x, frames: [] }, U = (I + V) * x, O = U * E;
       for (let D = 0; D < b.length; D++)
-        v.frames.push({ rect: { x: 0, y: 0, width: A, height: I }, img: new Uint8Array(b[D]), blend: 0, dispose: 1, bpp: Math.ceil(U / 8), bpl: Math.ceil(O / 8) });
-      return c(v, 0, !0), l(v, A, I, B, C);
+        v.frames.push({ rect: { x: 0, y: 0, width: E, height: S }, img: new Uint8Array(b[D]), blend: 0, dispose: 1, bpp: Math.ceil(U / 8), bpl: Math.ceil(O / 8) });
+      return c(v, 0, !0), l(v, E, S, B, C);
     }, zt.encode.compress = u, zt.encode.dither = a, zt.quantize = g, zt.quantize.getKDtree = _, zt.quantize.getNearest = w;
   })();
   const Ib = { toArrayBuffer(n, e) {
     const t = n.width, i = n.height, s = t << 2, o = n.getContext("2d").getImageData(0, 0, t, i), r = new Uint32Array(o.data.buffer), a = (32 * t + 31) / 32 << 2, l = a * i, c = 122 + l, u = new ArrayBuffer(c), d = new DataView(u), h = 1 << 20;
-    let f, m, g, _, w = h, T = 0, E = 0, x = 0;
+    let f, m, g, _, w = h, T = 0, R = 0, A = 0;
     function F(p) {
-      d.setUint16(E, p, !0), E += 2;
+      d.setUint16(R, p, !0), R += 2;
     }
     function y(p) {
-      d.setUint32(E, p, !0), E += 4;
+      d.setUint32(R, p, !0), R += 4;
     }
-    function R(p) {
-      E += p;
+    function P(p) {
+      R += p;
     }
-    F(19778), y(c), R(4), y(122), y(108), y(t), y(-i >>> 0), F(1), F(32), y(3), y(l), y(2835), y(2835), R(8), y(16711680), y(65280), y(255), y(4278190080), y(1466527264), function p() {
+    F(19778), y(c), P(4), y(122), y(108), y(t), y(-i >>> 0), F(1), F(32), y(3), y(l), y(2835), y(2835), P(8), y(16711680), y(65280), y(255), y(4278190080), y(1466527264), function p() {
       for (; T < i && w > 0; ) {
         for (_ = 122 + T * a, f = 0; f < s; )
-          w--, m = r[x++], g = m >>> 24, d.setUint32(_ + f, m << 8 | g), f += 4;
+          w--, m = r[A++], g = m >>> 24, d.setUint32(_ + f, m << 8 | g), f += 4;
         T++;
       }
-      x < r.length ? (w = h, setTimeout(p, Ib._dly)) : e(u);
+      A < r.length ? (w = h, setTimeout(p, Ib._dly)) : e(u);
     }();
   }, toBlob(n, e) {
     this.toArrayBuffer(n, (t) => {
@@ -60851,46 +60851,46 @@ Read more: ${o0}#error-${n}`;
   }
   function rm(n, e, t = 0) {
     return new Promise(function(i, s) {
-      let o, r, a, l, c, u, d, h, f, m, g, _, w, T, E, x, F, y, R, p;
-      function b(I = 5) {
+      let o, r, a, l, c, u, d, h, f, m, g, _, w, T, R, A, F, y, P, p;
+      function b(S = 5) {
         if (e.signal && e.signal.aborted)
           throw e.signal.reason;
-        o += I, e.onProgress(Math.min(o, 100));
+        o += S, e.onProgress(Math.min(o, 100));
       }
-      function A(I) {
+      function E(S) {
         if (e.signal && e.signal.aborted)
           throw e.signal.reason;
-        o = Math.min(Math.max(I, o), 100), e.onProgress(o);
+        o = Math.min(Math.max(S, o), 100), e.onProgress(o);
       }
-      return o = t, r = e.maxIteration || 10, a = 1024 * e.maxSizeMB * 1024, b(), Wr(n, e).then(function(I) {
+      return o = t, r = e.maxIteration || 10, a = 1024 * e.maxSizeMB * 1024, b(), Wr(n, e).then(function(S) {
         try {
-          return [, l] = I, b(), c = Fb(l, e), b(), new Promise(function(P, V) {
-            var S;
-            if (!(S = e.exifOrientation))
+          return [, l] = S, b(), c = Fb(l, e), b(), new Promise(function(I, V) {
+            var x;
+            if (!(x = e.exifOrientation))
               return Ob(n).then(function(C) {
                 try {
-                  return S = C, B.call(this);
+                  return x = C, B.call(this);
                 } catch (v) {
                   return V(v);
                 }
               }.bind(this), V);
             function B() {
-              return P(S);
+              return I(x);
             }
             return B.call(this);
-          }).then(function(P) {
+          }).then(function(I) {
             try {
-              return u = P, b(), Gn().then(function(V) {
+              return u = I, b(), Gn().then(function(V) {
                 try {
-                  return d = V ? c : Nb(c, u), b(), h = e.initialQuality || 1, f = e.fileType || n.type, $r(d, f, n.name, n.lastModified, h).then(function(S) {
+                  return d = V ? c : Nb(c, u), b(), h = e.initialQuality || 1, f = e.fileType || n.type, $r(d, f, n.name, n.lastModified, h).then(function(x) {
                     try {
                       {
                         let U = function() {
-                          if (r-- && (E > a || E > w)) {
+                          if (r-- && (R > a || R > w)) {
                             let D, J;
-                            return D = p ? 0.95 * R.width : R.width, J = p ? 0.95 * R.height : R.height, [F, y] = ya(D, J), y.drawImage(R, 0, 0, D, J), h *= f === "image/png" ? 0.85 : 0.95, $r(F, f, n.name, n.lastModified, h).then(function(W) {
+                            return D = p ? 0.95 * P.width : P.width, J = p ? 0.95 * P.height : P.height, [F, y] = ya(D, J), y.drawImage(P, 0, 0, D, J), h *= f === "image/png" ? 0.85 : 0.95, $r(F, f, n.name, n.lastModified, h).then(function(W) {
                               try {
-                                return x = W, si(R), R = F, E = x.size, A(Math.min(99, Math.floor((T - E) / (T - a) * 100))), U;
+                                return A = W, si(P), P = F, R = A.size, E(Math.min(99, Math.floor((T - R) / (T - a) * 100))), U;
                               } catch (K) {
                                 return s(K);
                               }
@@ -60898,13 +60898,13 @@ Read more: ${o0}#error-${n}`;
                           }
                           return [1];
                         }, O = function() {
-                          return si(R), si(F), si(c), si(d), si(l), A(100), i(x);
+                          return si(P), si(F), si(c), si(d), si(l), E(100), i(A);
                         };
                         var C = U, v = O;
-                        if (m = S, b(), g = m.size > a, _ = m.size > n.size, !g && !_)
-                          return A(100), i(m);
+                        if (m = x, b(), g = m.size > a, _ = m.size > n.size, !g && !_)
+                          return E(100), i(m);
                         var B;
-                        return w = n.size, T = m.size, E = T, R = d, p = !e.alwaysKeepResolution && g, (B = function(D) {
+                        return w = n.size, T = m.size, R = T, P = d, p = !e.alwaysKeepResolution && g, (B = function(D) {
                           for (; D; ) {
                             if (D.then)
                               return void D.then(B, s);
@@ -60925,16 +60925,16 @@ Read more: ${o0}#error-${n}`;
                       return s(U);
                     }
                   }.bind(this), s);
-                } catch (S) {
-                  return s(S);
+                } catch (x) {
+                  return s(x);
                 }
               }.bind(this), s);
             } catch (V) {
               return s(V);
             }
           }.bind(this), s);
-        } catch (P) {
-          return s(P);
+        } catch (I) {
+          return s(I);
         }
       }.bind(this), s);
     });
@@ -62100,28 +62100,28 @@ self.addEventListener('message', async (e) => {
     resizeButtonCallback: r = () => {
     }
   }) => {
-    const l = document.querySelector(".ck-editor"), c = document.querySelector(".ck-content"), u = g(o), d = u.querySelector(".Spendit-Sizing-Top"), h = u.querySelector(".Spendit-Sizing-Bottom"), f = u.querySelector(".Spendit-Sizing-Up"), m = u.querySelector(".Spendit-Sizing-Down");
-    n.editing.view.change((T) => {
-      T.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), T.setStyle("min-height", `${t}px`, n.editing.view.document.getRoot()), T.setStyle("max-height", `${i}px`, n.editing.view.document.getRoot());
-    }), d.onclick = () => w("top"), f.onclick = () => w("up"), m.onclick = () => w("down"), h.onclick = () => w("bottom");
-    function g(T) {
-      const E = document.createElement("div");
-      E.classList.add("Spendit-Editor-Sizing-Buttons"), E.classList.add(T === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
-      const x = _(["Spendit-Sizing-Top", ...t === e ? ["Spendit-Sizing-Top-Disabled"] : []]), F = _(["Spendit-Sizing-Up", ...t === e ? ["Spendit-Sizing-Up-Disabled"] : []]), y = _(["Spendit-Sizing-Down", ...i === e ? ["Spendit-Sizing-Down-Disabled"] : []]), R = _(["Spendit-Sizing-Bottom", ...i === e ? ["Spendit-Sizing-Bottom-Disabled"] : []]);
-      return E == null || E.appendChild(x), E == null || E.appendChild(F), E == null || E.appendChild(y), E == null || E.appendChild(R), l == null || l.appendChild(E), E;
+    const a = document.querySelector(".ck-editor"), l = document.querySelector(".ck-content"), c = m(o), u = c.querySelector(".Spendit-Sizing-Top"), d = c.querySelector(".Spendit-Sizing-Bottom"), h = c.querySelector(".Spendit-Sizing-Up"), f = c.querySelector(".Spendit-Sizing-Down");
+    n.editing.view.change((w) => {
+      w.setStyle("height", `${e}px`, n.editing.view.document.getRoot()), w.setStyle("min-height", `${t}px`, n.editing.view.document.getRoot()), w.setStyle("max-height", `${i}px`, n.editing.view.document.getRoot());
+    }), u.onclick = () => _("top"), h.onclick = () => _("up"), f.onclick = () => _("down"), d.onclick = () => _("bottom");
+    function m(w) {
+      const T = document.createElement("div");
+      T.classList.add("Spendit-Editor-Sizing-Buttons"), T.classList.add(w === "inner" ? "Spendit-Editor-Sizing-Buttons-Inner" : "Spendit-Editor-Sizing-Buttons-Outer");
+      const R = g(["Spendit-Sizing-Top", ...t === e ? ["Spendit-Sizing-Top-Disabled"] : []]), A = g(["Spendit-Sizing-Up", ...t === e ? ["Spendit-Sizing-Up-Disabled"] : []]), F = g(["Spendit-Sizing-Down", ...i === e ? ["Spendit-Sizing-Down-Disabled"] : []]), y = g(["Spendit-Sizing-Bottom", ...i === e ? ["Spendit-Sizing-Bottom-Disabled"] : []]);
+      return T == null || T.appendChild(R), T == null || T.appendChild(A), T == null || T.appendChild(F), T == null || T.appendChild(y), a == null || a.appendChild(T), T;
     }
-    function _(T) {
-      const E = document.createElement("button");
-      return E.classList.add("Spendit-Editor-Sizing-Button"), T.forEach((x) => E.classList.add(x)), E;
+    function g(w) {
+      const T = document.createElement("button");
+      return T.classList.add("Spendit-Editor-Sizing-Button"), w.forEach((R) => T.classList.add(R)), T;
     }
-    function w(T) {
-      let E = 0;
-      T === "top" ? E = t : T === "bottom" ? E = i : T === "up" ? E = c.offsetHeight - 2 - s : T === "down" && (E = c.offsetHeight - 2 + s), n.editing.view.change((x) => {
-        const F = E >= i, y = E <= t, R = F ? i : y ? t : E;
-        x.setStyle("height", `${R}px`, n.editing.view.document.getRoot());
-        const p = d.classList.contains("Spendit-Sizing-Top-Disabled"), b = h.classList.contains("Spendit-Sizing-Bottom-Disabled");
-        y && p || F && b || (y ? (d.classList.add("Spendit-Sizing-Top-Disabled"), f.classList.add("Spendit-Sizing-Up-Disabled"), h.classList.remove("Spendit-Sizing-Bottom-Disabled"), m.classList.remove("Spendit-Sizing-Down-Disabled")) : F ? (d.classList.remove("Spendit-Sizing-Top-Disabled"), f.classList.remove("Spendit-Sizing-Up-Disabled"), h.classList.add("Spendit-Sizing-Bottom-Disabled"), m.classList.add("Spendit-Sizing-Down-Disabled")) : (d.classList.remove("Spendit-Sizing-Top-Disabled"), f.classList.remove("Spendit-Sizing-Up-Disabled"), h.classList.remove("Spendit-Sizing-Bottom-Disabled"), m.classList.remove("Spendit-Sizing-Down-Disabled")));
-      }), r(E);
+    function _(w) {
+      let T = 0;
+      w === "top" ? T = t : w === "bottom" ? T = i : w === "up" ? T = l.offsetHeight - s : w === "down" && (T = l.offsetHeight + s), n.editing.view.change((R) => {
+        const A = T >= i, F = T <= t, y = A ? i : F ? t : T;
+        R.setStyle("height", `${y}px`, n.editing.view.document.getRoot());
+        const P = u.classList.contains("Spendit-Sizing-Top-Disabled"), p = d.classList.contains("Spendit-Sizing-Bottom-Disabled");
+        F && P || A && p || (F ? (u.classList.add("Spendit-Sizing-Top-Disabled"), h.classList.add("Spendit-Sizing-Up-Disabled"), d.classList.remove("Spendit-Sizing-Bottom-Disabled"), f.classList.remove("Spendit-Sizing-Down-Disabled")) : A ? (u.classList.remove("Spendit-Sizing-Top-Disabled"), h.classList.remove("Spendit-Sizing-Up-Disabled"), d.classList.add("Spendit-Sizing-Bottom-Disabled"), f.classList.add("Spendit-Sizing-Down-Disabled")) : (u.classList.remove("Spendit-Sizing-Top-Disabled"), h.classList.remove("Spendit-Sizing-Up-Disabled"), d.classList.remove("Spendit-Sizing-Bottom-Disabled"), f.classList.remove("Spendit-Sizing-Down-Disabled")));
+      }), r(T);
     }
   }, _8 = async () => {
     const { editor: n } = await w8({
