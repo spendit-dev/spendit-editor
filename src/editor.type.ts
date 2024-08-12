@@ -11,6 +11,14 @@ export interface EditorConfig {
     onFocus?: (bool: boolean) => void;
 }
 
+export interface DiffModeEditorConfig {
+    targetId: string;
+    lang?: 'ko' | 'en';
+    // diff 를 비교할 두 개의 텍스트
+    textPrevious?: string;
+    textCurrent?: string;
+}
+
 export interface EditorSizingButtonConfig {
     editor: ClassicEditor;
     initialHeight?: number;

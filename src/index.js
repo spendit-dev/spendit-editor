@@ -1,1 +1,1 @@
-export { initEditor, initEditorSizingButton } from './editor';
+export { initEditor, initDiffModeEditor, initEditorSizingButton } from './editor';

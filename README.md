@@ -16,6 +16,7 @@ A simple rich text editor using CKEditor.
 #### - Language: 'ko' | 'en'
 #### - Editor Auto Height: [X]
 #### - Editor Manual Height: [O]
+#### - Editor Diff Mode: [O]
 
 <br/><br/><br/>
   
@@ -55,7 +56,7 @@ const {editor} = await initEditor({
     },
 });
 
-// if you want to use manual editor heignt sizing button
+// if you want to use manual editor heignt sizing button add the following code.
 initEditorSizingButton({
     editor,
     sizingButtonPosition: 'inner',
@@ -107,8 +108,22 @@ editor.setData('<p>test</p>');
 ```
 <br/>
 
+### 8. Diff Mode Editor
+```javascript
+await initDiffModeEditor({
+    targetId: 'sample-diff-editor',
+    lang: 'en',
+    textPrevious: '<p>test removed this</p>',
+    textCurrent: '<p>test added this</p>',
+});
 
-### 8. Else
+// html
+<div id="sample-diff-editor"></div>
+```
+
+<br/>
+
+### 9. Else
 editor instance is CKEditor instance.
 you can find more API in the [CKEditor documentation](https://ckeditor.com/docs/).
 <br/><br/>
@@ -139,8 +154,6 @@ you can find more API in the [CKEditor documentation](https://ckeditor.com/docs/
 | Property Name | Description | Type | Required |
 |---------------|-------------|------|----------|
 | editor | CKEditor instance | CKEditor | true |
-| setReadonly | Function to set read only mode | (readonly: boolean) => void | true |
-
 <br/><br/>
 
 ### Func: initEditorSizingButton()
@@ -153,6 +166,22 @@ you can find more API in the [CKEditor documentation](https://ckeditor.com/docs/
 | sizingButtonPosition | Position of the sizing button | 'inner' \| 'outer' | false |
 | resizeButtonCallback | Callback function when the editor height is changed | (currentHeight: number) => void | false |
 
+<br/><br/>
+
+### Func: initDiffModeEditor()
+| Property Name  | Description                                  | Type                      | Required |
+|----------------|----------------------------------------------|---------------------------|----------|
+| targetId       | HTML element id to attaching editor instance | string                    | true     |
+| lang           | Language of the editor                       | 'ko' \| 'en'              | false    |
+| textPrevious   | Previous Text for Diff                       | string                    | true     |
+| textCurrent    | Current Text for Diff                        | string | true     |
+
+<br/><br/>
+
+### Returns of initDiffModeEditor()
+| Property Name | Description | Type | Required |
+|---------------|-------------|------|----------|
+| editor | CKEditor instance | CKEditor | true |
 <br/><br/>
 
 
