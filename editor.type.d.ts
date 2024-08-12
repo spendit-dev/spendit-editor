@@ -10,6 +10,12 @@ export interface EditorConfig {
     onBlur?: (content: string) => void;
     onFocus?: (bool: boolean) => void;
 }
+export interface DiffModeEditorConfig {
+    targetId: string;
+    lang?: 'ko' | 'en';
+    textPrevious?: string;
+    textCurrent?: string;
+}
 export interface EditorSizingButtonConfig {
     editor: ClassicEditor;
     initialHeight?: number;
