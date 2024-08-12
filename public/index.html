@@ -9,12 +9,31 @@
     <link rel="stylesheet" href="./default.css">
     <link rel="stylesheet" href="./editor.css">
 </head>
-<body>
-<h1>Editor Sample</h1>
-<button id="readonly-button" style="margin-bottom: 15px;">Readonly Mode</button>
-<button id="edit-button" style="margin-bottom: 15px;">Edit Mode</button>
+<body style="padding: 20px;">
+<div style="padding: 20px; border-radius: 10px;background: #f3f3f3;margin-bottom: 20px;">
+    <h1>Spendit Editor Sample</h1>
+    <button id="readonly-button" style="margin-bottom: 15px;">Readonly Mode</button>
+    <button id="edit-button" style="margin-bottom: 15px;">Edit Mode</button>
+    <div id="sample-editor"></div>
+</div>
 
-<div id="sample-editor"></div>
+<div style="padding: 20px; border-radius: 10px;background: #f3f3f3;">
+<h1>Editor Diff Mode Sample</h1>
+<div id="sample-diff-editor"></div>
+<div style="display: flex;gap: 50px;margin-top: 10px;">
+    <div style="width: 49%;">
+        <h3>Previous Content</h3>
+        <div id="sample-diff-editor-previous"></div>
+    </div>
+    <div style="width: 49%;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3>Current Content</h3>
+            <button id="diff-button">Diff action</button>
+        </div>
+        <div id="sample-diff-editor-current"></div>
+    </div>
+</div>
+</div>
 <script src="./sample.js" type="module"></script>
 </body>
 </html>

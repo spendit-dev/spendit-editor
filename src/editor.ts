@@ -1,164 +1,13 @@
 import {ClassicEditor} from '@ckeditor/ckeditor5-editor-classic';
-import {Essentials} from '@ckeditor/ckeditor5-essentials';
-import {Paragraph} from '@ckeditor/ckeditor5-paragraph';
-import {Alignment} from '@ckeditor/ckeditor5-alignment';
-import {Font, FontBackgroundColor, FontFamily} from '@ckeditor/ckeditor5-font';
-import {Bold, Code, Italic, Strikethrough, Subscript, Superscript, Underline} from '@ckeditor/ckeditor5-basic-styles';
-import {Heading} from "@ckeditor/ckeditor5-heading";
-import {List} from "@ckeditor/ckeditor5-list";
-import {
-    Image, ImageCaption, ImageInsert, ImageResize, ImageStyle, ImageToolbar, ImageUpload
-} from '@ckeditor/ckeditor5-image';
-import {LinkImage} from '@ckeditor/ckeditor5-link';
-import {Indent, IndentBlock} from '@ckeditor/ckeditor5-indent';
-import {HorizontalLine} from "@ckeditor/ckeditor5-horizontal-line";
-import {BlockQuote} from '@ckeditor/ckeditor5-block-quote';
-import {Link} from '@ckeditor/ckeditor5-link';
-import {MediaEmbed} from '@ckeditor/ckeditor5-media-embed';
-import {PasteFromOffice} from '@ckeditor/ckeditor5-paste-from-office';
-import {
-    Table,
-    TableToolbar,
-    TableColumnResize,
-    TableCaption,
-    TableCellProperties,
-    TableProperties
-} from '@ckeditor/ckeditor5-table';
-import {TextTransformation} from '@ckeditor/ckeditor5-typing';
-import {CloudServices} from '@ckeditor/ckeditor5-cloud-services';
-import {Autoformat} from '@ckeditor/ckeditor5-autoformat';
-import {AutoImage} from '@ckeditor/ckeditor5-image';
-import Base64UploadAdapter from './module/Base64UploadAdapter';
-import {
-    SpecialCharacters,
-    SpecialCharactersArrows,
-    SpecialCharactersCurrency,
-    SpecialCharactersEssentials,
-    SpecialCharactersLatin,
-    SpecialCharactersMathematical,
-    SpecialCharactersText
-} from '@ckeditor/ckeditor5-special-characters';
-import {EditorConfig, EditorSizingButtonConfig, InitEditorResponse} from "./editor.type.ts";
+import {DiffModeEditorConfig, EditorConfig, EditorSizingButtonConfig, InitEditorResponse} from "./editor.type.ts";
 import {EditorConfig as EditorConfigForCK} from 'ckeditor5/src/core.js';
 import './lang/ko';
 import './lang/en';
 import {debounce} from "./module/debounde.ts";
+import {defaultEditorOptions} from "./config.ts";
+import diff from "./module/diffHTML.ts";
 
-const defaultToolbarItems = [
-    'undo',
-    'redo',
-    '|',
-    'heading',
-    'fontSize',
-    'fontFamily',
-    'bold',
-    'italic',
-    'underline',
-    'strikethrough',
-    'code',
-    'fontColor',
-    'fontBackgroundColor',
-    'superscript',
-    'subscript',
-    '|',
-    'alignment',
-    'numberedList',
-    'bulletedList',
-    'outdent',
-    'indent',
-    '|',
-    'horizontalLine',
-    'blockQuote',
-    'link',
-    '|',
-    'insertImage',
-    'insertTable',
-    'specialCharacters'
-];
 
-const defaultEditorOptions: EditorConfigForCK = {
-    language: 'en',
-    placeholder: 'Please enter content',
-    fontSize: {
-        options: [
-            8, 9, 10, 11, 12, 14, 'default', 18, 20, 22, 24, 26, 28, 36, 48, 72
-        ]
-    },
-    heading: {
-        options: [
-            {model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph'},
-            {model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1'},
-            {model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2'},
-            {model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3'},
-        ]
-    },
-    toolbar: {
-        items: defaultToolbarItems,
-        shouldNotGroupWhenFull: false
-    },
-    image: {
-        toolbar: [
-            'imageStyle:inline', 'imageStyle:wrapText', 'imageStyle:breakText', '|',
-            'toggleImageCaption', 'imageTextAlternative'
-        ],
-    },
-    table: {
-        contentToolbar: [ 'tableRow', 'tableColumn', 'tableProperties', 'tableCellProperties', 'mergeTableCells',  ],
-    },
-    alignment: {
-        options: ['left', 'center', 'right', 'justify']
-    },
-    plugins: [
-        Essentials,
-        Paragraph,
-        Alignment,
-        Font,
-        Bold,
-        Code,
-        Italic,
-        Strikethrough,
-        Subscript,
-        Superscript,
-        Underline,
-        Heading,
-        FontBackgroundColor,
-        FontFamily,
-        SpecialCharacters,
-        SpecialCharactersArrows,
-        SpecialCharactersCurrency,
-        SpecialCharactersEssentials,
-        SpecialCharactersLatin,
-        SpecialCharactersMathematical,
-        SpecialCharactersText,
-        List,
-        IndentBlock,
-        Indent,
-        HorizontalLine,
-        BlockQuote,
-        Link,
-        MediaEmbed,
-        PasteFromOffice,
-        Table,
-        TableToolbar,
-        TableColumnResize,
-        TableCaption,
-        TableCellProperties,
-        TableProperties,
-        TextTransformation,
-        CloudServices,
-        Autoformat,
-        AutoImage,
-        ImageInsert,
-        Image,
-        ImageCaption,
-        ImageResize,
-        ImageStyle,
-        ImageToolbar,
-        LinkImage,
-        ImageUpload,
-        Base64UploadAdapter
-    ],
-}
 
 export const initEditor = async ({
                                      targetId,
@@ -313,4 +162,39 @@ export const initEditorSizingButton = ({
         });
         resizeButtonCallback(newHeight);
     }
+}
+
+export const initDiffModeEditor = async ({
+                                        targetId,
+                                        lang = 'en',
+                                        textPrevious = '',
+                                        textCurrent = '',
+}: DiffModeEditorConfig): Promise<InitEditorResponse | null> => {
+    const element = document.getElementById(targetId);
+
+    if (!element) {
+        console.error('[CKEditor 경고] targetId에 해당하는 요소가 없습니다. targetId를 확인해주세요.');
+        return null;
+    }
+    const result = diff(textPrevious, textCurrent);
+
+    const editorOptions: EditorConfigForCK = {
+        ...defaultEditorOptions,
+        initialData: result,
+        language: lang,
+    };
+
+    const editor = await ClassicEditor
+        .create(element, editorOptions)
+        .then(editor => {
+            editor.enableReadOnlyMode('');
+            editor.ui.view.toolbar.element!.style.display = 'none';
+            return editor;
+        })
+        .catch(error => {
+            console.error('[CKEditor 에러] 에디터를 초기화하는 중 오류가 발생했습니다.', error);
+            return null;
+        });
+
+    return {editor};
 }
