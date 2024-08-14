@@ -25,8 +25,12 @@ class Match {
 const is_end_of_tag = (char: string): boolean => char === '>';
 const is_start_of_tag = (char: string): boolean => char === '<';
 const is_whitespace = (char: string): boolean => /^\s+$/.test(char);
+const is_img_tag = (token: string): boolean => /^\s*<img\b/.test(token);
 const is_tag = (token: string): boolean => /^\s*<[^>]+>\s*$/.test(token);
 const isnt_tag = (token: string): boolean => !is_tag(token);
+
+const is_img_tag_or_isnt_tag = (token: string): boolean => is_img_tag(token)|| isnt_tag(token);
+const isnt_img_tag_and_is_tag = (token: string): boolean => !is_img_tag(token) && is_tag(token);
 
 function html_to_tokens(html: string): string[] {
     let mode: 'char' | 'tag' | 'whitespace' = 'char';
@@ -321,15 +325,19 @@ function wrap(tag: string, content: string[], type: 'insert' | 'delete'): string
     const length = content.length;
 
     while (position < length) {
-        const non_tags = consecutive_where(position, content, isnt_tag);
+        const non_tags = consecutive_where(position, content, is_img_tag_or_isnt_tag);
         position += non_tags.length;
         if (non_tags.length !== 0) {
-            rendering += `<${tag} style="background-color: ${type === 'insert' ? 'rgba(30,174,49,.35)' : 'rgba(229,102,134,.35)'}; ${type==='delete' && 'text-decoration: line-through' }">${non_tags.join('')}</${tag}>`;
+            if (is_img_tag(non_tags[0])) {
+                rendering += non_tags[0].replace('<img', `<img class="Spendit-Editor-Image-${type==='insert' ? 'Insert' : 'Delete'}" `);
+            } else {
+                rendering += `<${tag} style="background-color: ${type === 'insert' ? 'rgba(30,174,49,.35)' : 'rgba(229,102,134,.35)'}; ${type==='delete' ? 'text-decoration: line-through':'' }">${non_tags.join('')}</${tag}>`;
+            }
         }
 
         if (position >= length) break;
 
-        const tags = consecutive_where(position, content, is_tag);
+        const tags = consecutive_where(position, content, isnt_img_tag_and_is_tag);
         position += tags.length;
         rendering += tags.join('');
     }
@@ -353,7 +361,14 @@ const op_map = {
     },
 
     replace(op: Operation, before_tokens: string[], after_tokens: string[]): string {
-        return op_map.delete(op, before_tokens, after_tokens) + op_map.insert(op, before_tokens, after_tokens);
+        const delete_op = op_map.delete(op, before_tokens, after_tokens);
+        const insert_op = op_map.insert(op, before_tokens, after_tokens);
+        // 이미지가 연속으로 나오는 경우, figure로 각각 묶어줌
+        if (delete_op.startsWith('<img') && insert_op.startsWith('<img')) {
+            return `${delete_op}</figure><figure class="image">${insert_op}`;
+        } else {
+            return delete_op + insert_op;
+        }
     },
 };
 

@@ -42,6 +42,7 @@ import {
     ImageToolbar, ImageUpload
 } from "@ckeditor/ckeditor5-image";
 import {Base64UploadAdapter} from "@ckeditor/ckeditor5-upload";
+import CustomFigureAttributes from "./module/CustomFigureAttributes";
 
 export const defaultToolbarItems = [
     'undo',
@@ -157,4 +158,5 @@ export const defaultEditorOptions: EditorConfigForCK = {
         ImageUpload,
         Base64UploadAdapter
     ],
+    extraPlugins: [CustomFigureAttributes]
 }
