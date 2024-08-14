@@ -162,3 +162,14 @@
     background-position-x: center;
     cursor: not-allowed;
 }
+
+.Spendit-Editor-Image-Insert {
+    background: rgba(30,174,49,.35);
+    padding: 6px;
+    border-radius: 2px;
+}
+.Spendit-Editor-Image-Delete {
+    background: rgba(229,102,134,.35);
+    padding: 6px;
+    border-radius: 2px;
+}
