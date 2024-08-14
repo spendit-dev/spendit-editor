@@ -67,8 +67,6 @@ export const initEditorSizingButton = ({
                                            sizingButtonPosition = 'outer',
                                            resizeButtonCallback = () => {}
                                        }: EditorSizingButtonConfig) => {
-    const borderHeight = 2; // editor의 border 두께(px)
-
     // sizing button을 추가할 컨테이너
     const ckEditor = document.querySelector('.ck-editor') as HTMLElement;
     // editor의 내용을 담고 있는 컨테이너
@@ -125,9 +123,9 @@ export const initEditorSizingButton = ({
         } else if (buttonType === 'bottom') {
             newHeight = maxHeight;
         } else if (buttonType === 'up') {
-            newHeight = (ckContent.offsetHeight - borderHeight) - gapHeight;
+            newHeight = ckContent.offsetHeight - gapHeight;
         } else if (buttonType === 'down'){
-            newHeight = (ckContent.offsetHeight - borderHeight) + gapHeight;
+            newHeight = ckContent.offsetHeight + gapHeight;
         }
 
         editor.editing.view.change(writer => {
