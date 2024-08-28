@@ -60282,7 +60282,7 @@ Read more: ${jw}#error-${n}`;
     const o = e.length;
     for (; s < o; ) {
       const r = Yh(s, e, QM);
-      if (s += r.length, r.length !== 0 && (Yl(r[0]) ? i += r[0].replace("<img", `<img class="Spendit-Editor-Image-${t === "insert" ? "Insert" : "Delete"}" `) : i += `<${n} style="background-color: ${t === "insert" ? "rgba(30,174,49,.35)" : "rgba(229,102,134,.35)"}; ${t === "delete" ? "text-decoration: line-through" : ""}">${r.join("")}</${n}>`), s >= o)
+      if (s += r.length, r.length !== 0 && (Yl(r[0]) ? i += r[0].replace("<img", `<img class="Spendit-Editor-Image-${t === "insert" ? "Insert" : "Delete"}" `) : i += `<${n} style="background-color: ${t === "insert" ? "rgba(0, 195, 81, 0.25)" : "rgba(245, 97, 65, 0.25)"}; ${t === "delete" ? "text-decoration: line-through" : "font-weight: bold"}">${r.join("")}</${n}>`), s >= o)
         break;
       const a = Yh(s, e, e6);
       s += a.length, i += a.join("");
