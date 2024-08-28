@@ -331,7 +331,7 @@ function wrap(tag: string, content: string[], type: 'insert' | 'delete'): string
             if (is_img_tag(non_tags[0])) {
                 rendering += non_tags[0].replace('<img', `<img class="Spendit-Editor-Image-${type==='insert' ? 'Insert' : 'Delete'}" `);
             } else {
-                rendering += `<${tag} style="background-color: ${type === 'insert' ? 'rgba(30,174,49,.35)' : 'rgba(229,102,134,.35)'}; ${type==='delete' ? 'text-decoration: line-through':'' }">${non_tags.join('')}</${tag}>`;
+                rendering += `<${tag} style="background-color: ${type === 'insert' ? 'rgba(0, 195, 81, 0.25)' : 'rgba(245, 97, 65, 0.25)'}; ${type==='delete' ? 'text-decoration: line-through':'font-weight: bold' }">${non_tags.join('')}</${tag}>`;
             }
         }
 
