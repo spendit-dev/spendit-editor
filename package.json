@@ -1,6 +1,6 @@
 {
   "name": "@spendit-dev/editor",
-  "version": "0.0.48",
+  "version": "0.0.49",
   "homepage": "https://github.com/spendit-dev/spendit-editor#readme",
   "repository": {
     "type": "git",
@@ -79,9 +79,7 @@
     "typescript": "^5.4.5",
     "vite": "^5.2.10",
     "vite-plugin-copy": "^0.1.6",
-    "vite-plugin-dts": "^3.9.0"
-  },
-  "dependencies": {
+    "vite-plugin-dts": "^3.9.0",
     "dom-compare": "^0.6.0",
     "html-differ": "^1.4.0",
     "htmldiff": "^0.0.4"
