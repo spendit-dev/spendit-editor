@@ -328,8 +328,8 @@ function wrap(tag: string, content: string[], type: 'insert' | 'delete'): string
         const non_tags = consecutive_where(position, content, is_img_tag_or_isnt_tag);
         position += non_tags.length;
         if (non_tags.length !== 0) {
-            if (is_img_tag(non_tags[0])) {
-                rendering += non_tags[0].replace('<img', `<img class="Spendit-Editor-Image-${type==='insert' ? 'Insert' : 'Delete'}" `);
+            if (non_tags.some(item => item.includes('<img'))) {
+                rendering += non_tags.join('').replace('<img', `<img class="Spendit-Editor-Image-${type==='insert' ? 'Insert' : 'Delete'}" `);
             } else {
                 rendering += `<${tag} style="background-color: ${type === 'insert' ? 'rgba(0, 195, 81, 0.25)' : 'rgba(245, 97, 65, 0.25)'}; ${type==='delete' ? 'text-decoration: line-through':'font-weight: bold' }">${non_tags.join('')}</${tag}>`;
             }
